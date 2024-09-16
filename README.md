@@ -5,7 +5,7 @@ In order to contribute to the enhancement of Dynamox solutions, we present you w
 While going through the challenge, you should be able to handle ambiguous situations, adhere to best practices in firmware development, and demonstrate excellent problem-solving skills. Effective communication through well-documented code, code quality, readability, and maintainability will also be evaluated.
 
 ## Challenge
-Develop a application that performs configured artimethical operations and has an IHM
+Develop a application that performs configured artimethical operations and has an HMI(Human Machine Interface)
 
 ## Requirements
 
@@ -20,7 +20,7 @@ We will expect candidates applying to more senior levels to demonstrate a deeper
 ---
 
 1 - Functional requirements
-1. [ ] Create an IHM where I can choose an operation and have it executed.
+1. [ ] Create an HMI where I can choose an operation and have it executed.
 1. [ ] I want to be able to input single values and have its result.
 1. [ ] I want to be able to input an array of values and have its result.
 1. [ ] Add at least two operations
@@ -69,7 +69,7 @@ In general we will be looking for the following:
 1. If I have more questions, who can I contact?
   **Please reach out to [Lucas](https://www.linkedin.com/in/lucas-feitosa-bb883b134/) (Development Coordinator) or via e-mail.**
 
-1. The IHM can be a interactive terminal?
+1. The HMI can be a interactive terminal?
   **Yes, you are free to choose the interface, the interaction can be based on terminal, file, graphical, etc.**
 
 
