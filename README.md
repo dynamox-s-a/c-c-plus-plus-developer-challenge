@@ -5,7 +5,7 @@ In order to contribute to the enhancement of Dynamox solutions, we present you w
 While going through the challenge, you should be able to handle ambiguous situations, adhere to best practices in firmware development, and demonstrate excellent problem-solving skills. Effective communication through well-documented code, code quality, readability, and maintainability will also be evaluated.
 
 ## Challenge
-Develop a application that performs configured artimethical operations and has an HMI(Human Machine Interface)
+Develop an application that performs configured artimethical operations and has an HMI(Human Machine Interface)
 
 ## Requirements
 
@@ -20,11 +20,11 @@ We will expect candidates applying to more senior levels to demonstrate a deeper
 ---
 
 1 - Functional requirements
-1. [ ] Create an HMI where I can choose an operation and have it executed.
-1. [ ] I want to be able to input single values and have its result.
-1. [ ] I want to be able to input an array of values and have its result.
+1. [ ] Create an HMI where users can choose an operation and execute it.
+1. [ ] Users should be able to input single values and get the result.
+1. [ ] Users should be able to input array of values and get the result(If applicable).
 1. [ ] Add at least two operations
-1. [ ] The user must be able to select the operation type 
+1. [ ] Users must be able to select the operation type.
 1. [ ] One of the operations must be the calculation of the [Determinant](https://en.wikipedia.org/wiki/Determinant)
 
 2 - Technical requirements
@@ -36,7 +36,7 @@ We will expect candidates applying to more senior levels to demonstrate a deeper
 1. [ ] Add possibility to create new operation type.
 1. [ ] Add persistent operation log
 1. [ ] Enhance the determinant calculation functionality to allow users to select the dimensions of the matrix
-1. [ ] Detection of errors on the operation input
+1. [ ] Detect an handle of errors on the operation input
 
 </br>
 
@@ -49,7 +49,7 @@ In general we will be looking for the following:
 1. [ ] Anyone should be able to follow the instructions and run the applications.
 1. [ ] User stories were implemented according to the functional requirements.
 1. [ ] Documment future implementations in a clear way.
-1. [ ] Adherence to best practices in cloud development.
+1. [ ] Adherence to best practices in embbeded system firmware development.
 1. [ ] Problem-solving skills and ability to handle ambiguity.
 1. [ ] Code quality, readability, and maintainability.
 1. [ ] Resource optimization.
