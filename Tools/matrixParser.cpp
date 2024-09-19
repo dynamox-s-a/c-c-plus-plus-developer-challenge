@@ -1,6 +1,7 @@
 #include <sstream>
 #include <vector>
 #include "matrixParser.h"
+#include "logger.h"
 
 using namespace std;
 
@@ -27,6 +28,8 @@ vector<vector<double>> parseMatrix(string& input)
 
         matrix.push_back(rowValues);
     }
+
+    logMessage(std::string("Parsed Matrix: \n") + matrixToString(matrix));
 
     return matrix;
 }
@@ -61,9 +64,12 @@ bool isSquareAndValid(vector<vector<double>>& matrix)
     {
         if (row.size() != n) 
         {
+            logMessage(std::string("Matrix not valid inputed"));
             return false;
         }
     }
+
+    logMessage(std::string("Valid matrix inputed...  \n") + matrixToString(matrix));
     return true;
 }
 

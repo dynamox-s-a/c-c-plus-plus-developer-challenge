@@ -201,6 +201,30 @@ Operation/operation.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/App.dir/build.make CMakeFiles/App.dir/Operation/operation.cpp.s
 .PHONY : Operation/operation.cpp.s
 
+Tools/logger.o: Tools/logger.cpp.o
+.PHONY : Tools/logger.o
+
+# target to build an object file
+Tools/logger.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/App.dir/build.make CMakeFiles/App.dir/Tools/logger.cpp.o
+.PHONY : Tools/logger.cpp.o
+
+Tools/logger.i: Tools/logger.cpp.i
+.PHONY : Tools/logger.i
+
+# target to preprocess a source file
+Tools/logger.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/App.dir/build.make CMakeFiles/App.dir/Tools/logger.cpp.i
+.PHONY : Tools/logger.cpp.i
+
+Tools/logger.s: Tools/logger.cpp.s
+.PHONY : Tools/logger.s
+
+# target to generate assembly for a file
+Tools/logger.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/App.dir/build.make CMakeFiles/App.dir/Tools/logger.cpp.s
+.PHONY : Tools/logger.cpp.s
+
 Tools/matrixParser.o: Tools/matrixParser.cpp.o
 .PHONY : Tools/matrixParser.o
 
@@ -267,6 +291,9 @@ help:
 	@echo "... Operation/operation.o"
 	@echo "... Operation/operation.i"
 	@echo "... Operation/operation.s"
+	@echo "... Tools/logger.o"
+	@echo "... Tools/logger.i"
+	@echo "... Tools/logger.s"
 	@echo "... Tools/matrixParser.o"
 	@echo "... Tools/matrixParser.i"
 	@echo "... Tools/matrixParser.s"

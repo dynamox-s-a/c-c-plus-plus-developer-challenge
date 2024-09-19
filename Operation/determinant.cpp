@@ -3,6 +3,8 @@
 #include <sstream>
 #include <string>
 #include "determinant.h"
+#include "../Tools/matrixParser.h"
+#include "../Tools/logger.h"
 
 using namespace std;
 
@@ -33,6 +35,7 @@ vector<vector<double>> getSubMatrix(const vector<vector<double>>& matrix, int p,
         row++;
     }
     return subMatrix;
+    logMessage(std::string("Submatrix created for determinant algorithm:\n") + matrixToString(subMatrix));
 }
 
 
@@ -62,4 +65,5 @@ double determinant(const vector<vector<double>>& matrix, int n)
     }
 
     return det;
+    logMessage(std::string("Determinant created for Matrix previously logged. \nDeterminant = " + std::to_string(det)));
 }

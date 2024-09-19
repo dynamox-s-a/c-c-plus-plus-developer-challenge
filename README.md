@@ -49,10 +49,10 @@ Letters, strings, etc will be threated as a wrong input and the user will be ask
 
 3 - Bonus
 1. [ ] Add possibility to create new operation type.
-1. [ ] Add persistent operation log
+1. [ x ] Add persistent operation log
 1. [ x ] Enhance the determinant calculation functionality to allow users to select the dimensions of the matrix
 1. [ x ] Detect an handle of errors on the operation input
 
 ## Next
 
-Next implementations are aiming for a robust log system, unity tests and possibly more operations.
+Next implementations are aiming for a robust system of unity tests and possibly more operations.

@@ -11,6 +11,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/aluno/projeto/c-c-plus-plus-developer-challenge/Operation/determinant.cpp" "CMakeFiles/App.dir/Operation/determinant.cpp.o" "gcc" "CMakeFiles/App.dir/Operation/determinant.cpp.o.d"
   "/home/aluno/projeto/c-c-plus-plus-developer-challenge/Operation/factorial.cpp" "CMakeFiles/App.dir/Operation/factorial.cpp.o" "gcc" "CMakeFiles/App.dir/Operation/factorial.cpp.o.d"
   "/home/aluno/projeto/c-c-plus-plus-developer-challenge/Operation/operation.cpp" "CMakeFiles/App.dir/Operation/operation.cpp.o" "gcc" "CMakeFiles/App.dir/Operation/operation.cpp.o.d"
+  "/home/aluno/projeto/c-c-plus-plus-developer-challenge/Tools/logger.cpp" "CMakeFiles/App.dir/Tools/logger.cpp.o" "gcc" "CMakeFiles/App.dir/Tools/logger.cpp.o.d"
   "/home/aluno/projeto/c-c-plus-plus-developer-challenge/Tools/matrixParser.cpp" "CMakeFiles/App.dir/Tools/matrixParser.cpp.o" "gcc" "CMakeFiles/App.dir/Tools/matrixParser.cpp.o.d"
   "/home/aluno/projeto/c-c-plus-plus-developer-challenge/main.cpp" "CMakeFiles/App.dir/main.cpp.o" "gcc" "CMakeFiles/App.dir/main.cpp.o.d"
   )

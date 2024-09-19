@@ -7,6 +7,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/App.dir/Operation/factorial.cpp.o.d"
   "CMakeFiles/App.dir/Operation/operation.cpp.o"
   "CMakeFiles/App.dir/Operation/operation.cpp.o.d"
+  "CMakeFiles/App.dir/Tools/logger.cpp.o"
+  "CMakeFiles/App.dir/Tools/logger.cpp.o.d"
   "CMakeFiles/App.dir/Tools/matrixParser.cpp.o"
   "CMakeFiles/App.dir/Tools/matrixParser.cpp.o.d"
   "CMakeFiles/App.dir/main.cpp.o"

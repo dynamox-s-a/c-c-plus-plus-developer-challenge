@@ -3,6 +3,7 @@
 #include <sstream>
 #include <string>
 #include "factorial.h"
+#include "../Tools/logger.h"
 
 using namespace std;
 
@@ -14,14 +15,16 @@ function that calculates the factorial recursively
 */
 long long int factorial(int operative)
 {
-
+    int result = 1;
     if(operative <= 1)
     {
-        return 1;
+        return result;
     }
     else
     {
-        return operative * factorial(operative - 1);
+        result = operative * factorial(operative - 1);
     }
-
+    
+    logMessage("Factorial operated for " + std::to_string(operative) + "\n" + std::to_string(operative) + "! = " + std::to_string(result));
+    return result;
 }

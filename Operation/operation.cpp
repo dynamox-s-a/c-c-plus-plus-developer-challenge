@@ -5,6 +5,7 @@
 #include <iostream>
 #include <vector>
 #include "../Tools/matrixParser.h"
+#include "../Tools/logger.h"
 #include "determinant.h"
 #include "factorial.h"
 #include "operation.h"
@@ -73,7 +74,7 @@ void showMainMenu()
     int option = 1;
 
     do
-    {    
+    {   logMessage("Main menu printed");
         cout << "\n=== Main Menu ===" << endl;
         cout << "1. Calculate determinant" << endl;
         cout << "2. Calculate the factorial of a number" << endl;
