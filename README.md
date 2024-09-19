@@ -7,7 +7,7 @@ The whole code is commented and funcional.
 
 ## Running the project:
 
-
+The build was done with CMake. The file App is inside the `/build` folder and can be executed as any App for the unix systems (e.g. `./App` inside its directory).
 
 ## IO patterns:
 
@@ -55,4 +55,4 @@ Letters, strings, etc will be threated as a wrong input and the user will be ask
 
 ## Next
 
-I'm still working on the deploy and aftewards I will work on log operation, unity tests and possibly more operations
+Next implementations are aiming for a robust log system, unity tests and possibly more operations.

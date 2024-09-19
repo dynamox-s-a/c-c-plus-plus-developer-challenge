@@ -1,0 +1,3 @@
+/home/aluno/projeto/c-c-plus-plus-developer-challenge/build/CMakeFiles/App.dir
+/home/aluno/projeto/c-c-plus-plus-developer-challenge/build/CMakeFiles/edit_cache.dir
+/home/aluno/projeto/c-c-plus-plus-developer-challenge/build/CMakeFiles/rebuild_cache.dir
