@@ -1,0 +1,2726 @@
+2024-09-20 10:07:13 - Submatrix created for determinant algorithm:
+8 11 
+0 7 
+
+2024-09-20 10:07:13 - Submatrix created for determinant algorithm:
+6 11 
+3 7 
+
+2024-09-20 10:07:13 - Submatrix created for determinant algorithm:
+6 8 
+3 0 
+
+2024-09-20 10:07:13 - Determinant created for Matrix previously logged. 
+Determinant = -34.000000
+2024-09-20 10:07:29 - Submatrix created for determinant algorithm:
+8 11 
+0 7 
+
+2024-09-20 10:07:29 - Submatrix created for determinant algorithm:
+6 11 
+3 7 
+
+2024-09-20 10:07:29 - Submatrix created for determinant algorithm:
+6 8 
+3 0 
+
+2024-09-20 10:07:29 - Determinant created for Matrix previously logged. 
+Determinant = -34.000000
+2024-09-20 10:07:56 - Submatrix created for determinant algorithm:
+8 11 
+0 7 
+
+2024-09-20 10:07:56 - Submatrix created for determinant algorithm:
+6 11 
+3 7 
+
+2024-09-20 10:07:56 - Submatrix created for determinant algorithm:
+6 8 
+3 0 
+
+2024-09-20 10:07:56 - Determinant created for Matrix previously logged. 
+Determinant = -34.000000
+2024-09-20 10:08:04 - Submatrix created for determinant algorithm:
+8 11 
+0 7 
+
+2024-09-20 10:08:04 - Submatrix created for determinant algorithm:
+6 11 
+3 7 
+
+2024-09-20 10:08:04 - Submatrix created for determinant algorithm:
+6 8 
+3 0 
+
+2024-09-20 10:08:04 - Determinant created for Matrix previously logged. 
+Determinant = -34.000000
+2024-09-20 10:09:27 - Submatrix created for determinant algorithm:
+8 11 
+0 7 
+
+2024-09-20 10:09:27 - Submatrix created for determinant algorithm:
+6 11 
+3 7 
+
+2024-09-20 10:09:27 - Submatrix created for determinant algorithm:
+6 8 
+3 0 
+
+2024-09-20 10:09:27 - Determinant created for Matrix previously logged. 
+Determinant = -34.000000
+2024-09-20 10:12:07 - Submatrix created for determinant algorithm:
+8 11 
+0 7 
+
+2024-09-20 10:12:07 - Submatrix created for determinant algorithm:
+6 11 
+3 7 
+
+2024-09-20 10:12:07 - Submatrix created for determinant algorithm:
+6 8 
+3 0 
+
+2024-09-20 10:12:07 - Determinant created for Matrix previously logged. 
+Determinant = -34.000000
+2024-09-20 10:12:40 - Submatrix created for determinant algorithm:
+8 11 
+0 7 
+
+2024-09-20 10:12:40 - Submatrix created for determinant algorithm:
+6 11 
+3 7 
+
+2024-09-20 10:12:40 - Submatrix created for determinant algorithm:
+6 8 
+3 0 
+
+2024-09-20 10:12:40 - Determinant created for Matrix previously logged. 
+Determinant = -34.000000
+2024-09-20 10:13:16 - Submatrix created for determinant algorithm:
+8 11 
+0 7 
+
+2024-09-20 10:13:16 - Submatrix created for determinant algorithm:
+6 11 
+3 7 
+
+2024-09-20 10:13:16 - Submatrix created for determinant algorithm:
+6 8 
+3 0 
+
+2024-09-20 10:13:16 - Determinant created for Matrix previously logged. 
+Determinant = -34.000000
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+8 11 
+0 7 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+6 11 
+3 7 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+6 8 
+3 0 
+
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = -34.000000
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+1 0 0 0 0 
+0 1 0 0 0 
+0 0 1 0 0 
+0 0 0 1 0 
+0 0 0 0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+1 0 0 0 
+0 1 0 0 
+0 0 1 0 
+0 0 0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+1 0 0 
+0 1 0 
+0 0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+1 0 
+0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 
+0 0 
+
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 1.000000
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 0 
+0 1 0 
+0 0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+1 0 
+0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 
+0 0 
+
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 0 
+0 0 0 
+0 0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 0 
+0 0 1 
+0 0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 
+0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 
+0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 1.000000
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 0 0 
+0 1 0 0 
+0 0 1 0 
+0 0 0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+1 0 0 
+0 1 0 
+0 0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+1 0 
+0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 
+0 0 
+
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 1.000000
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 0 
+0 1 0 
+0 0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+1 0 
+0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 
+0 0 
+
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 0 
+0 0 0 
+0 0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 0 
+0 0 1 
+0 0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 
+0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 
+0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 0 0 
+0 0 0 0 
+0 0 1 0 
+0 0 0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 0 
+0 1 0 
+0 0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+1 0 
+0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 
+0 0 
+
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 0 
+0 1 0 
+0 0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+1 0 
+0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 
+0 0 
+
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 0 
+0 0 0 
+0 0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 0 
+0 0 1 
+0 0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 
+0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 
+0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 0 0 
+0 0 1 0 
+0 0 0 0 
+0 0 0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 0 
+0 0 0 
+0 0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 0 
+0 0 0 
+0 0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 0 
+0 0 0 
+0 0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 1 
+0 0 0 
+0 0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 0 0 
+0 0 1 0 
+0 0 0 1 
+0 0 0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 0 
+0 0 1 
+0 0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 
+0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 
+0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 0 
+0 0 1 
+0 0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 
+0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 
+0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 0 
+0 0 1 
+0 0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 
+0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 
+0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 1 
+0 0 0 
+0 0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 1.000000
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 0 0 0 
+0 1 0 0 0 
+0 0 1 0 0 
+0 0 0 1 0 
+0 0 0 0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+1 0 0 0 
+0 1 0 0 
+0 0 1 0 
+0 0 0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+1 0 0 
+0 1 0 
+0 0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+1 0 
+0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 
+0 0 
+
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 1.000000
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 0 
+0 1 0 
+0 0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+1 0 
+0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 
+0 0 
+
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 0 
+0 0 0 
+0 0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 0 
+0 0 1 
+0 0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 
+0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 
+0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 1.000000
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 0 0 
+0 1 0 0 
+0 0 1 0 
+0 0 0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+1 0 0 
+0 1 0 
+0 0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+1 0 
+0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 
+0 0 
+
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 1.000000
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 0 
+0 1 0 
+0 0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+1 0 
+0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 
+0 0 
+
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 0 
+0 0 0 
+0 0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 0 
+0 0 1 
+0 0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 
+0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 
+0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 0 0 
+0 0 0 0 
+0 0 1 0 
+0 0 0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 0 
+0 1 0 
+0 0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+1 0 
+0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 
+0 0 
+
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 0 
+0 1 0 
+0 0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+1 0 
+0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 
+0 0 
+
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 0 
+0 0 0 
+0 0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 0 
+0 0 1 
+0 0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 
+0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 
+0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 0 0 
+0 0 1 0 
+0 0 0 0 
+0 0 0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 0 
+0 0 0 
+0 0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 0 
+0 0 0 
+0 0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 0 
+0 0 0 
+0 0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 1 
+0 0 0 
+0 0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 0 0 
+0 0 1 0 
+0 0 0 1 
+0 0 0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 0 
+0 0 1 
+0 0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 
+0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 
+0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 0 
+0 0 1 
+0 0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 
+0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 
+0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 0 
+0 0 1 
+0 0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 
+0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 
+0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 1 
+0 0 0 
+0 0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 0 0 0 
+0 0 0 0 0 
+0 0 1 0 0 
+0 0 0 1 0 
+0 0 0 0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 0 0 
+0 1 0 0 
+0 0 1 0 
+0 0 0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+1 0 0 
+0 1 0 
+0 0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+1 0 
+0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 
+0 0 
+
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 1.000000
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 0 
+0 1 0 
+0 0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+1 0 
+0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 
+0 0 
+
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 0 
+0 0 0 
+0 0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 0 
+0 0 1 
+0 0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 
+0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 
+0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 0 0 
+0 1 0 0 
+0 0 1 0 
+0 0 0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+1 0 0 
+0 1 0 
+0 0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+1 0 
+0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 
+0 0 
+
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 1.000000
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 0 
+0 1 0 
+0 0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+1 0 
+0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 
+0 0 
+
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 0 
+0 0 0 
+0 0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 0 
+0 0 1 
+0 0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 
+0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 
+0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 0 0 
+0 0 0 0 
+0 0 1 0 
+0 0 0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 0 
+0 1 0 
+0 0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+1 0 
+0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 
+0 0 
+
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 0 
+0 1 0 
+0 0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+1 0 
+0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 
+0 0 
+
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 0 
+0 0 0 
+0 0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 0 
+0 0 1 
+0 0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 
+0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 
+0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 0 0 
+0 0 1 0 
+0 0 0 0 
+0 0 0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 0 
+0 0 0 
+0 0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 0 
+0 0 0 
+0 0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 0 
+0 0 0 
+0 0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 1 
+0 0 0 
+0 0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 0 0 
+0 0 1 0 
+0 0 0 1 
+0 0 0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 0 
+0 0 1 
+0 0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 
+0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 
+0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 0 
+0 0 1 
+0 0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 
+0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 
+0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 0 
+0 0 1 
+0 0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 
+0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 
+0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 1 
+0 0 0 
+0 0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 0 0 0 
+0 0 1 0 0 
+0 0 0 0 0 
+0 0 0 1 0 
+0 0 0 0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 0 0 
+0 0 0 0 
+0 0 1 0 
+0 0 0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 0 
+0 1 0 
+0 0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+1 0 
+0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 
+0 0 
+
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 0 
+0 1 0 
+0 0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+1 0 
+0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 
+0 0 
+
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 0 
+0 0 0 
+0 0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 0 
+0 0 1 
+0 0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 
+0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 
+0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 0 0 
+0 0 0 0 
+0 0 1 0 
+0 0 0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 0 
+0 1 0 
+0 0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+1 0 
+0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 
+0 0 
+
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 0 
+0 1 0 
+0 0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+1 0 
+0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 
+0 0 
+
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 0 
+0 0 0 
+0 0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 0 
+0 0 1 
+0 0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 
+0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 
+0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 0 0 
+0 0 0 0 
+0 0 1 0 
+0 0 0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 0 
+0 1 0 
+0 0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+1 0 
+0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 
+0 0 
+
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 0 
+0 1 0 
+0 0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+1 0 
+0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 
+0 0 
+
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 0 
+0 0 0 
+0 0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 0 
+0 0 1 
+0 0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 
+0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 
+0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 1 0 
+0 0 0 0 
+0 0 0 0 
+0 0 0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 0 
+0 0 0 
+0 0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 0 
+0 0 0 
+0 0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 0 
+0 0 0 
+0 0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 0 
+0 0 0 
+0 0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 1 0 
+0 0 0 0 
+0 0 0 1 
+0 0 0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 0 
+0 0 1 
+0 0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 
+0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 
+0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 0 
+0 0 1 
+0 0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 
+0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 
+0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 0 
+0 0 1 
+0 0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 
+0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 
+0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 0 
+0 0 0 
+0 0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 0 0 0 
+0 0 1 0 0 
+0 0 0 1 0 
+0 0 0 0 0 
+0 0 0 0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 0 0 
+0 0 1 0 
+0 0 0 0 
+0 0 0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 0 
+0 0 0 
+0 0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 0 
+0 0 0 
+0 0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 0 
+0 0 0 
+0 0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 1 
+0 0 0 
+0 0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 0 0 
+0 0 1 0 
+0 0 0 0 
+0 0 0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 0 
+0 0 0 
+0 0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 0 
+0 0 0 
+0 0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 0 
+0 0 0 
+0 0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 1 
+0 0 0 
+0 0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 0 0 
+0 0 1 0 
+0 0 0 0 
+0 0 0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 0 
+0 0 0 
+0 0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 0 
+0 0 0 
+0 0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 0 
+0 0 0 
+0 0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 1 
+0 0 0 
+0 0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 1 0 
+0 0 0 0 
+0 0 0 0 
+0 0 0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 0 
+0 0 0 
+0 0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 0 
+0 0 0 
+0 0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 0 
+0 0 0 
+0 0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 1 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 0 
+0 0 0 
+0 0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 1 0 
+0 0 0 1 
+0 0 0 0 
+0 0 0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 1 
+0 0 0 
+0 0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 1 
+0 0 0 
+0 0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 1 
+0 0 0 
+0 0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 0 
+0 0 0 
+0 0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 0 0 0 
+0 0 1 0 0 
+0 0 0 1 0 
+0 0 0 0 1 
+0 0 0 0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 0 0 
+0 0 1 0 
+0 0 0 1 
+0 0 0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 0 
+0 0 1 
+0 0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 
+0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 
+0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 0 
+0 0 1 
+0 0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 
+0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 
+0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 0 
+0 0 1 
+0 0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 
+0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 
+0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 1 
+0 0 0 
+0 0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 0 0 
+0 0 1 0 
+0 0 0 1 
+0 0 0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 0 
+0 0 1 
+0 0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 
+0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 
+0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 0 
+0 0 1 
+0 0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 
+0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 
+0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 0 
+0 0 1 
+0 0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 
+0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 
+0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 1 
+0 0 0 
+0 0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 0 0 
+0 0 1 0 
+0 0 0 1 
+0 0 0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 0 
+0 0 1 
+0 0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 
+0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 
+0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 0 
+0 0 1 
+0 0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 
+0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 
+0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 0 
+0 0 1 
+0 0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 
+0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 
+0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 1 
+0 0 0 
+0 0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 1 0 
+0 0 0 0 
+0 0 0 1 
+0 0 0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 0 
+0 0 1 
+0 0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 
+0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 
+0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 0 
+0 0 1 
+0 0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 
+0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 
+0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 0 
+0 0 1 
+0 0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 
+0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 1 
+0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 0 
+0 0 0 
+0 0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 1 0 
+0 0 0 1 
+0 0 0 0 
+0 0 0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 1 
+0 0 0 
+0 0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 1 
+0 0 0 
+0 0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 1 
+0 0 0 
+0 0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 0 
+0 0 0 
+0 0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Submatrix created for determinant algorithm:
+0 0 
+0 0 
+
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 0.000000
+2024-09-20 10:15:45 - Determinant created for Matrix previously logged. 
+Determinant = 1.000000
+2024-09-20 10:24:03 - Factorial operated for 2
+2! = 2
+2024-09-20 10:24:03 - Factorial operated for 3
+3! = 6
+2024-09-20 10:24:03 - Factorial operated for 4
+4! = 24
+2024-09-20 10:24:03 - Factorial operated for 5
+5! = 120
+2024-09-20 10:24:03 - Factorial operated for 6
+6! = 720
+2024-09-20 10:24:03 - Factorial operated for 7
+7! = 5040
+2024-09-20 10:24:03 - Factorial operated for 8
+8! = 40320
+2024-09-20 10:24:03 - Factorial operated for 9
+9! = 362880
+2024-09-20 10:24:03 - Factorial operated for 10
+10! = 3628800
+2024-09-20 10:24:03 - Factorial operated for 2
+2! = 2
+2024-09-20 10:24:03 - Factorial operated for 3
+3! = 6
+2024-09-20 10:24:03 - Factorial operated for 4
+4! = 24

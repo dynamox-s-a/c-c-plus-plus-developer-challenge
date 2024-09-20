@@ -1,0 +1,1 @@
+/usr/bin/c++ -O3 -DNDEBUG CMakeFiles/App.dir/main.cpp.o CMakeFiles/App.dir/Operation/operation.cpp.o CMakeFiles/App.dir/Operation/determinant.cpp.o CMakeFiles/App.dir/Operation/factorial.cpp.o CMakeFiles/App.dir/Tools/matrixParser.cpp.o CMakeFiles/App.dir/Tools/logger.cpp.o -o App 
