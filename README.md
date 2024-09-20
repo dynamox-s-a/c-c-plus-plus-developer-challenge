@@ -1,4 +1,4 @@
-# Dynamox C/C++ Developer Challenge
+# Dynamox C/C++ Developer Challeng
 
 In order to contribute to the enhancement of Dynamox solutions, we present you with the following challenge:
 
