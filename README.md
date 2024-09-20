@@ -58,7 +58,7 @@ In general we will be looking for the following:
 
 1. [ ] Fork this repository to your own Github account.
 1. [ ] Create a new branch using your first name and last name. For example: `caroline-oliveira`.
-1. [ ] After completing the challenge, create a pull request aimed at the main branch on the forked repository and add lucas-feitosa-dyx as reviewer.
+1. [ ] After completing the challenge, create a pull request to this repository (https://github.com/dynamox-s-a/c-c-plus-plus-developer-challenge), aimed at the main branch.
 1. [ ] We will receive a notification about your pull request, review your solution, and get in touch with you.
 
 ## Frequently Asked Questions
