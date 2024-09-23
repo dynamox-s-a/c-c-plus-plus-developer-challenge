@@ -1,0 +1,4 @@
+Tue Sep 17 13:51:00 2024
+ - Operação: Soma, Resultado: 3.000000
+Tue Sep 17 13:51:11 2024
+ - Operação: Determinante, Resultado: -2.000000
