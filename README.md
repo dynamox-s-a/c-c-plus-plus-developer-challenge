@@ -36,7 +36,7 @@ We will expect candidates applying to more senior levels to demonstrate a deeper
 1. [ ] Add possibility to create new operation type.
 1. [ ] Add persistent operation log
 1. [ ] Enhance the determinant calculation functionality to allow users to select the dimensions of the matrix
-1. [ ] Detect an handle of errors on the operation input
+1. [ ] Detect and handle errors on the operation input
 
 </br>
 
