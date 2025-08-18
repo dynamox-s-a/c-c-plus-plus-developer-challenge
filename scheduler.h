@@ -29,7 +29,8 @@
  * A task is any function with no parameters and no return value,
  * e.g.:
  * @code
- * void my_task(void) {
+ * void my_task(void) 
+ * {
  *     // do something
  * }
  * @endcode

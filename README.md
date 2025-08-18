@@ -1,78 +1,146 @@
 # Dynamox C/C++ Developer Challenge
 
-In order to contribute to the enhancement of Dynamox solutions, we present you with the following challenge:
+## Author
+**Sergio Henrique Oliveira Moraes Oliveira**  
+Date: 2025-08-17
 
-While going through the challenge, you should be able to handle ambiguous situations, adhere to best practices in firmware development, and demonstrate excellent problem-solving skills. Effective communication through well-documented code, code quality, readability, and maintainability will also be evaluated.
+## Project Description
+This project is a C/C++ console application developed for the Dynamox C/C++ Developer Challenge.  
+It implements a simple task scheduler, a plugin-style operations system, and a user interface to perform various operations such as:
 
-## Challenge
-Develop an application that performs configured artimethical operations and has an HMI(Human Machine Interface)
+- Addition of two numbers
+- Average of two numbers
+- Mode of an array
+- Determinant of a square matrix
+
+The program also includes:
+
+- Input validation
+- Logging of operations (with timestamp)
+- Modular architecture with task scheduling
+- Future-proof design for adding more operations
+
+## Features
+
+- Menu-driven UI in the console
+- Operations implemented as plugins for future extensibility
+- Logging to `operations.log` with operation name, result, and timestamp
+- Support for arrays and matrices with input validation
+- Continuous task scheduler to manage UI, operations, and logging tasks
 
 ## Requirements
 
-Here you have the functional requirements for the application. You are free to make any assumptions you consider necessary to complete the challenge.
+- C compiler (GCC, Clang, or Visual Studio)
+- Standard C libraries (`stdio.h`, `stdlib.h`, `string.h`, `time.h`)
+
+## How to Compile and Run the Project
+
+### On Linux
+
+1. Open a terminal and navigate to the project folder.
+2. Compile all `.c` files using `gcc`:
+
+```bash
+gcc -o challenge main.c operations.c scheduler.c tasks.c log.c ui.c
+```
+
+3. Run the executable:
+
+```bash
+./challenge
+```
+
+### On Windows (Using MinGW)
+
+1. Open the Command Prompt and navigate to the project folder.
+2. Compile all `.c` files using `gcc`:
+
+```bash
+gcc -o challenge.exe main.c operations.c scheduler.c tasks.c log.c ui.c
+```
+
+3. Run the executable:
+
+```bash
+challenge.exe
+```
+
+## Notes
+- Ensure that all source files (.c) and headers (.h) are in the same directory or adjust include paths accordingly.
+- The program will display a menu for operations, ask for input, and log results in `operations.log`.
+
+## How to Add a New Operation
+
+The application uses a plugin-style system for operations. To add a new operation, follow these steps:
+
+1. **Declare the function** in `operations.c` with the signature:
+   ```c
+   int my_new_operation(int a, int b);
+   ```
+
+2. **Add the function prototype in `operations.h`:**
+   ```c
+   int my_new_operation(int a, int b);
+   ```
+
+3. **Create an `Operation` struct** in your main or initialization code:
+   ```c
+   Operation op_new = {"My Operation", my_new_operation};
+   ```
+
+4. **Register the operation** using the registration function:
+   ```c
+   register_operation(op_new);
+   ```
+
+5. **Update `task_operations` in `tasks.c`** if the operation requires special input handling or non-standard arguments.
+
+By following this pattern, your new operation will appear in the menu and integrate with the scheduler, UI, and logging system.
 
 ---
 
-It is not mandatory to implement all the listed requirements before submitting your implementation. Just keep in mind that the more requirements you implement, the more you will be able to demonstrate your skills and knowledge. **Plan yourself to demonstrate what you want. Planning for future implementantion that are not required is also encoraged.**
+## Improvements 
 
-We will expect candidates applying to more senior levels to demonstrate a deeper understanding of the requirements and to implement / plan / propose more of them for the same deadline.
+To make this project suitable for **professional use in embedded systems**, the following improvements are recommended:
+
+1. **Non-blocking UI**  
+   - Replace `scanf` with an asynchronous state machine (FSM) that processes user input byte by byte.  
+   - Prevents blocking the scheduler and keeps tasks responsive.
+
+2. **Scheduler with Timing**  
+   - Extend the cooperative scheduler to support **periodic tasks** using system ticks (e.g., `hal_millis()`).  
+   - Avoids busy-wait loops and reduces CPU usage.
+
+3. **Message Queues Between Tasks**  
+   - Replace global shared variables with **static message queues (ring buffers)** for passing data between UI, Operations, and Logging tasks.  
+   - Makes the system more modular and avoids race conditions.
+
+4. **Unified Operation Plugins**  
+   - Current design mixes binary ops (add, avg) with direct calls (mode, determinant).  
+   - Create a unified plugin system supporting **binary, vector, and matrix operations** through dedicated function pointers.
+
+5. **Determinant & Mode Robustness**  
+   - Determinant: keep calculations in `double` but check for overflow before returning an `int`.  
+   - Mode: optimize with sorting or counting, ensuring predictable runtime.
+
+
+6. **Hardware Abstraction Layer (HAL)**  
+   - Create a minimal HAL (`hal_init`, `hal_millis`, `hal_uart_read`, `hal_uart_write`) for portability.  
+   - On PC → HAL uses `stdio`; on embedded → HAL maps to UART/timer drivers.
+
+7. **Memory Safety**  
+   - Avoid `malloc` and dynamic allocations.  
+   - Use static buffers with configurable sizes (`#define MAX_ARRAY_SIZE`, `MAX_MATRIX_SIZE`, etc.).
+
+8. **Compiler Warnings & Analysis**  
+   - Build with strict flags: `-Wall -Wextra -Werror -Wconversion -Wshadow`.  
+   - Run static analysis tools (`clang-tidy`, `cppcheck`) to catch hidden issues.  
+   - Move towards **MISRA C** compliance for embedded reliability.
+
+9. **Unit Testing**  
+    - Create host-side tests for `operations.c` (add, avg, mode, determinant).  
+    - Use `assert` or lightweight test framework to validate correctness.
 
 ---
 
-1 - Functional requirements
-1. [ ] Create an HMI where users can choose an operation and execute it.
-1. [ ] Users should be able to input single values and get the result.
-1. [ ] Users should be able to input array of values and get the result(If applicable).
-1. [ ] Add at least two operations
-1. [ ] Users must be able to select the operation type.
-1. [ ] One of the operations must be the calculation of the [Determinant](https://en.wikipedia.org/wiki/Determinant)
 
-2 - Technical requirements
-1. [ ] Use C, C++ or both.
-1. [ ] The code must have a main.c file.
-1. [ ] Create libraries to organize the code.
-
-3 - Bonus
-1. [ ] Add possibility to create new operation type.
-1. [ ] Add persistent operation log
-1. [ ] Enhance the determinant calculation functionality to allow users to select the dimensions of the matrix
-1. [ ] Detect and handle errors on the operation input
-
-</br>
-
-## Evaluation Criteria
-
-The items listed above will have different weights in the evaluation process. Each one of them will be evaluated as "Not Implemented", "Implemented with Issues", "Implemented", or "Implemented with Excellence". Use your judgement to prioritize the requirements you will implement in the time you have available.
-
-In general we will be looking for the following:
-
-1. [ ] Anyone should be able to follow the instructions and run the applications.
-1. [ ] User stories were implemented according to the functional requirements.
-1. [ ] Documment future implementations in a clear way.
-1. [ ] Adherence to best practices in embbeded system firmware development.
-1. [ ] Problem-solving skills and ability to handle ambiguity.
-1. [ ] Code quality, readability, and maintainability.
-1. [ ] Resource optimization.
-
-## Ready to Begin the Challenges?
-
-1. [ ] Fork this repository to your own Github account.
-1. [ ] Create a new branch using your first name and last name. For example: `caroline-oliveira`.
-1. [ ] After completing the challenge, create a pull request to this repository (https://github.com/dynamox-s-a/c-c-plus-plus-developer-challenge), aimed at the main branch.
-1. [ ] We will receive a notification about your pull request, review your solution, and get in touch with you.
-
-## Frequently Asked Questions
-
-1. Is it necessary to fork the project?
-  **Yes, this allows us to see how much time you spent on the challenge.**
-
-1. If I have more questions, who can I contact?
-  **Please reach out to [Lucas](https://www.linkedin.com/in/lucas-feitosa-bb883b134/) (Development Coordinator) or via e-mail.**
-
-1. The HMI can be a interactive terminal?
-  **Yes, you are free to choose the interface, the interaction can be based on terminal, file, graphical, etc.**
-
-
-</br>
-
-**Good luck! We look forward to reviewing your submission.** 🚀

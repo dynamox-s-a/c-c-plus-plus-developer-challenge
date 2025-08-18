@@ -1,4 +1,3 @@
-#gitignore
 # Prerequisites
 *.d
 
@@ -31,3 +30,7 @@
 *.exe
 *.out
 *.app
+
+# Proj
+*.dev
+*.layout
