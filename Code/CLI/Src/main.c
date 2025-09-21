@@ -13,6 +13,7 @@
  */
 #include <stdio.h>
 #include "cli_handler.h"
+#include "string.h"
 
 /*
  *   MACROS
@@ -20,6 +21,10 @@
 
 /*
  *   EXTERNAL VARIABLES
+ */
+
+ /*
+ *   CONSTANTS
  */
 
 /*
@@ -34,12 +39,26 @@
  */
 int main(void) {
 
-    Cli_Handler_Init();
+    char stream[100];
+
+    cli_handler_t cli_handler;
+    cli_handler_callback_t callback;
+
+    cli_handler_config_t config = {
+        .logs = true,
+        .multithread = false,
+        .stream = stream
+    };
+    
+    Cli_Handler_Init(&cli_handler, &callback, &config, NULL);
 
     while(1){
 
-        Cli_Handler_Check();
+        if (fgets(stream, sizeof(stream), stdin) != NULL) {
 
+            stream[strcspn(stream, "\n")] = 0; /* Remove \n of stream and set as 0 */
+            Cli_Handler_Check(&cli_handler);
+        }
     }
 
     return 0;
