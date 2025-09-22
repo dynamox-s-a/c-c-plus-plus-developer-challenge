@@ -69,12 +69,18 @@ typedef enum {
  *   STRUCTS
  */
 
+ /* Forward declaration*/
+typedef struct cli_handler_t cli_handler_t;
+
 /**
  * @brief Commands of cli
  */
 typedef struct {
-    const char* name;
-    const char* description;
+
+    const char* name;                                               /**< Command */
+    const char* description;                                        /**< Description of command */
+    cli_handler_error_e (*func_ptr)(cli_handler_t* cli_handler, char* saveptr);   /**< Function pointer */
+
 } cli_handler_commands_t;
 
 /**
@@ -93,22 +99,23 @@ typedef struct {
 
     bool multithread;   /**< Flag indicates app is multithread */
     bool logs;          /**< Enable logs to save */
-    char* stream;       /**< Strem of receive commands */
+    char* stream_rx;    /**< Strem of receive commands */
+    char* stream_tx;    /**< Strem of send answer */
 
 } cli_handler_config_t;
 
 /**
  * @brief Handler of cli
  */
-typedef struct {
+struct cli_handler_t{
 
     cli_handler_config_t config;        /**< Configuration */
     cli_handler_callback_t callback;    /**< Coordenada Y */
     void* param;
 
     bool init;          /**< Set true when initialize succesful */
-    
-} cli_handler_t;
+    double ans;
+};
 
 /*
  *   UNIONS
