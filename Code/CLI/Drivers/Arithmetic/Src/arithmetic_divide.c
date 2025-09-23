@@ -1,5 +1,5 @@
 /**
- * @file    arithmetic_subtract.c
+ * @file    arithmetic_devide.c
  * @brief   TODO
  *
  * @details TODO
@@ -11,7 +11,7 @@
 /*
  *   INCLUDES
  */
-#include "arithmetic_subtract.h"
+#include "arithmetic_divide.h"
 
 #include "cli_handler.h"
 
@@ -32,10 +32,10 @@
 /*
  *   CONSTANTS
  */
-const cli_handler_commands_t Arithmetic_Subtract_Cte = {
-        .name = "Subtract",
-        .description = "Subtract the value to ANS - Sintax \"Subtract [double, double, ...]\"\n",
-        .func_ptr = Arithmetic_Subtract
+const cli_handler_commands_t Arithmetic_Devide_Cte = {
+        .name = "Divide",
+        .description = "Divide the value to ANS - Sintax \"Divide [double, double, ...]\"\n",
+        .func_ptr = Arithmetic_Devide
 };
 
 /**
@@ -45,7 +45,7 @@ const cli_handler_commands_t Arithmetic_Subtract_Cte = {
  * @param token Pointer of token receive
  * @return TODO
  */
-static cli_handler_error_e Arithmetic_Subtract(cli_handler_t* cli_handler, char* saveptr){
+static cli_handler_error_e Arithmetic_Devide(cli_handler_t* cli_handler, char* saveptr){
     
     double value;
     char* token;
@@ -54,8 +54,10 @@ static cli_handler_error_e Arithmetic_Subtract(cli_handler_t* cli_handler, char*
 
         Misc_Parser_Double(&value, token);
 
-        cli_handler->ans -= value;
+        cli_handler->ans /= value;
 
-        printf("ANS - %.*f = %.*f\n", cli_handler->config.decimal, value, cli_handler->config.decimal, cli_handler->ans);
+        printf("ANS / %.*f = %.*f\n", cli_handler->config.decimal, value, cli_handler->config.decimal, cli_handler->ans);
     }
+
+    return CLI_HANDLER_ERROR_OK; /* Return OK */
 }

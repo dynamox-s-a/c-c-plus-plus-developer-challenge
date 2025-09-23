@@ -11,6 +11,13 @@
 /*
  *   INCLUDES
  */
+#include "arithmetic_add.h"
+
+#include "cli_handler.h"
+#include "misc.h"
+
+#include "stdlib.h"
+
 
 /*
  *   MACROS
@@ -27,6 +34,11 @@
 /*
  *   CONSTANTS
  */
+const cli_handler_commands_t Arithmetic_Add_Cte = {
+        .name = "Add",
+        .description = "Add the value to ANS - Sintax \"Add [double, double, ...]\"\n",
+        .func_ptr = Arithmetic_Add
+};
 
 /**
  * @brief TODO
@@ -35,15 +47,18 @@
  * @param token Pointer of token receive
  * @return TODO
  */
-static cli_handler_error_e command_add(cli_handler_t* cli_handler, char* saveptr){
+cli_handler_error_e Arithmetic_Add(cli_handler_t* cli_handler, char* saveptr){
 
     double value;
     char* token;
 
     while ((token = Misc_Strtok_R(NULL, "[,]", &saveptr)) != NULL) {
 
-        parser_double(&value, token);
-        printf("Value str = %f\n", value);
+        Misc_Parser_Double(&value, token);
+
+        cli_handler->ans += value;
+
+        printf("ANS + %.*f = %.*f\n", cli_handler->config.decimal, value, cli_handler->config.decimal, cli_handler->ans);
     }
 
     return CLI_HANDLER_ERROR_OK; /* Return OK */
