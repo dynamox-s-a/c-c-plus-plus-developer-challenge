@@ -11,7 +11,7 @@ int main() {
     while (true) {
         HMI::showMenu();
 
-        /* Depending the hardware, here we could sleep waiting for an HW interruption. */
+        /* Depending the hardware, here we could go into low energy waiting for an HW interruption. */
         u_int8_t choice = HMI::getOperationChoice();
 
         if (choice == 0) {
@@ -36,8 +36,23 @@ int main() {
                 Log::write("Operation add: array of size " + std::to_string(values.size()) + ", resulting: " + std::to_string(result));
                 break;
             }
+            case 3: {
+                double values[2];
+                double result = 0;
+                values[0] = HMI::getSingleInput("Dividend: ");
+                values[1] = HMI::getSingleInput("Divisor: ");
+                try {
+                    result = Operations::divide(values[0], values[1]);
+                    HMI::showResult(result);
+                    Log::write("Operation divide: " + std::to_string(values[0]) + " and " + std::to_string(values[1]) + ", resulting: " + std::to_string(result));
+                } catch (const std::invalid_argument& e) {
+                    std::cout << "Error: " << e.what() << "\n\n";
+                    Log::write(std::string("Error during division: ") + e.what());
+                }
+                break;
+            }
             default:
-                std::cout << "Opcao invalida!\n";
+                std::cout << "Invalid option!\n";
         }
     }
 
