@@ -18,6 +18,15 @@ int main() {
 
         switch (choice) {
             case 1: {
+                double values[2];
+                values[0] = HMI::getSingleInput();
+                values[1] = HMI::getSingleInput();
+                double result = Operations::add(values[0], values[1]);
+                HMI::showResult(result);
+
+                break;
+            }
+            case 2: {
                 auto values = HMI::getArrayInput();
                 double result = Operations::add(values);
                 HMI::showResult(result);

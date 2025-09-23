@@ -4,7 +4,8 @@
 namespace HMI {
     void showMenu() {
         std::cout << "=== Dynamox Challenge ===\n";
-        std::cout << "1. Soma (array de valores)\n";
+        std::cout << "1. Soma (Single value)\n";
+        std::cout << "2. Soma (Array)\n";
         std::cout << "2. Subtração (array de valores)\n";
         std::cout << "3. Multiplicacao (array de valores)\n";
         std::cout << "4. Divisão\n";
@@ -18,6 +19,13 @@ namespace HMI {
         std::cout << "Escolha uma operacao: ";
         std::cin >> choice;
         return choice;
+    }
+
+    double getSingleInput() {
+        double value;
+        std::cout << "Valor: ";
+        std::cin >> value;
+        return value;
     }
 
     std::vector<double> getArrayInput() {
