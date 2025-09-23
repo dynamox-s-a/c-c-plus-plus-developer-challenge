@@ -1,8 +1,8 @@
 /**
  * @file    cli_handler.c
- * @brief   TODO
+ * @brief   CLI Handler - Receive commands and process
  *
- * @details TODO
+ * @details Receive a command from stream rx and return answare in stream tx
  *
  * @author  Emerson Isaias da Silva
  * @date    21-09-2025
@@ -12,6 +12,15 @@
  *   INCLUDES
  */
 #include "cli_handler.h"
+
+#include "arithmetic_add.h"
+#include "arithmetic_determinant_n.h"
+#include "arithmetic_divide.h"
+#include "arithmetic_log_n.h"
+#include "arithmetic_multiply.h"
+#include "arithmetic_power_n.h"
+#include "arithmetic_root_n.h"
+#include "arithmetic_subtract.h"
 
 #include "misc.h"
 
@@ -36,13 +45,21 @@
 /*
  *   EXTERNAL VARIABLES
  */
+extern cli_handler_commands_t Arithmetic_Add_Cte;
+extern cli_handler_commands_t Arithmetic_Determinant_N_Cte;
+extern cli_handler_commands_t Arithmetic_Devide_Cte;
+extern cli_handler_commands_t Arithmetic_Log_N_Cte;
+extern cli_handler_commands_t Arithmetic_Multiply_Cte;
+extern cli_handler_commands_t Arithmetic_Power_N_Cte;
+extern cli_handler_commands_t Arithmetic_Root_N_Cte;
+extern cli_handler_commands_t Arithmetic_Subtract_Cte;
 
 /*
  *   LOCAL FUNCTIONS PROTOTYPE
  */
 static cli_handler_error_e check_receive_cmd(cli_handler_t* cli_handler);
-static cli_handler_error_e parser_double(double* value, char* saveptr);
 
+static cli_handler_error_e command_decimal(cli_handler_t* cli_handler, char* saveptr);
 static cli_handler_error_e command_clear(cli_handler_t* cli_handler, char* saveptr);
 static cli_handler_error_e command_help(cli_handler_t* cli_handler, char* saveptr);
 static cli_handler_error_e command_exit(cli_handler_t* cli_handler, char* saveptr);
@@ -50,55 +67,80 @@ static cli_handler_error_e command_exit(cli_handler_t* cli_handler, char* savept
  /*
  *   CONSTANTS
  */
-const cli_handler_commands_t Commands[] = {
+
+const cli_handler_commands_t Cli_Handler_Decimal = {
+        .name = "Decimal",
+        .description = "Change decimal configuration - Sintax \"Decimal [uint]\"\n",
+        .func_ptr = command_decimal
+};
+
+const cli_handler_commands_t Cli_Handler_Clear = {
+        .name = "Clear",
+        .description = "Clear the value to ANS - Sintax \"Clear\"\n",
+        .func_ptr = command_clear
+};
+
+const cli_handler_commands_t Cli_Handler_Help = {
+        .name = "Help",
+        .description = "Return all sintax of code - Sintax \"Help\"\n",
+        .func_ptr = command_help
+};
+
+const cli_handler_commands_t Cli_Handler_Exit = {
+        .name = "Exit",
+        .description = "Exit of code - Sintax \"Exit\"\n",
+        .func_ptr = command_exit
+};
+
+const cli_handler_commands_t* Commands[] = {
 
     /* Arithmetical commands */
-    {"Add",             "Add the value to ANS - Sintax \"Add [0x00000000]\"\n", command_add},
-    {"Subtract",        "Subtract the value to ANS - Sintax \"Subtract [0x00000000]\"\n", command_subtract},
-    {"Divide",          "Divide the value to ANS - Sintax \"Divide [0x00000000]\"\n", command_devide},
-    {"Multiply",        "Multiply the value to ANS - Sintax \"Multiply [0x00000000]\"\n", command_multiply},
-    {"Power_N",         "Power N the value to ANS - Sintax \"Power_N [0x00000000]\"\n", command_power_n},
-    {"Root_N",          "Root N the value to ANS - Sintax \"Root_N [0x00000000]\"\n", command_root_n},
-    {"Log_N",           "Log N the value to ANS - Sintax \"Log_N [0x00000000]\"\n", command_log_n},
-    {"Determinant_N",   "Determinant N the value to ANS - Sintax \"Determinant [0x00000000]\"\n", command_determinant_n},
-    {"Clear",           "Clear the value to ANS - Sintax \"Clear\"\n", command_clear},
+    &Arithmetic_Add_Cte,
+    &Arithmetic_Determinant_N_Cte,
+    &Arithmetic_Devide_Cte,
+    &Arithmetic_Log_N_Cte,
+    &Arithmetic_Multiply_Cte,
+    &Arithmetic_Power_N_Cte,
+    &Arithmetic_Root_N_Cte,
+    &Arithmetic_Subtract_Cte,
 
     /* Controller commands */
-    {"Help",            "Return all sintax of code - Sintax \"Help\"\n", command_help},
-    {"Exit",            "Exit of code - Sintax \"Exit\"\n", command_exit}
+    &Cli_Handler_Decimal,
+    &Cli_Handler_Clear,
+    &Cli_Handler_Help,
+    &Cli_Handler_Exit
 };
 
 /**
- * @brief TODO
+ * @brief This function initialize and configure handler CLI
  * 
  * @param cli_handler Pointer of handler CLI
- * @return TODO
+ * @return cli_handler_error_e
  */
 cli_handler_error_e Cli_Handler_Init(   cli_handler_t* cli_handler,
-                                        cli_handler_callback_t* callback, 
                                         cli_handler_config_t* config,
                                         void* param){
 
     /* Verify all input parammters */
     CHECK_CLI_HANDLER_PTR(cli_handler);
-    CHECK_CLI_HANDLER_PTR(callback);
     CHECK_CLI_HANDLER_PTR(config);
 
-    cli_handler->param = param;
-    cli_handler->callback = *callback;
-    cli_handler->config = *config;
+    cli_handler->param = param;         /* Copy context for future use */
+    cli_handler->config = *config;      /* Copy configuration */
 
-    cli_handler->init = true;
-    cli_handler->ans = 0.0;
+    cli_handler->init = true;           /* Indicate success initializate */
+    cli_handler->ans = 0.0f;            /* Initialize ANS with value 0.0*/
+
+    CLI_STRING_STREAM_TX(cli_handler, "Dynamox C/C++ Developer Challenge\n");
 
     return CLI_HANDLER_ERROR_OK;
 }
 
 /**
- * @brief TODO
+ * @brief Is a CLI handler, case multithread will stay in loop
  * 
  * @param cli_handler Pointer of handler CLI
- * @return TODO
+ * @return cli_handler_error_e
  */
 cli_handler_error_e Cli_Handler_Check(cli_handler_t* cli_handler){
 
@@ -115,10 +157,10 @@ cli_handler_error_e Cli_Handler_Check(cli_handler_t* cli_handler){
 }
 
 /**
- * @brief TODO
+ * @brief This function will check if receive a correct command and process
  * 
  * @param cli_handler Pointer of handler CLI
- * @return TODO
+ * @return cli_handler_error_e
  */
 static cli_handler_error_e check_receive_cmd(cli_handler_t* cli_handler){
 
@@ -128,88 +170,95 @@ static cli_handler_error_e check_receive_cmd(cli_handler_t* cli_handler){
     
     stream_token = Misc_Strtok_R(cli_handler->config.stream_rx, " ", &saveptr); /* Get first command */
 
-    for (size_t i = 0; i < CLI_HANDLER_CMD_MAX; i++){ /* Search the command */
+    for (size_t i = 0; i < sizeof(Commands)/sizeof(cli_handler_commands_t*); i++){  /* Search the command */
 
-        if(strcmp(stream_token, Commands[i].name) == 0){ /* Case is a correct command */
+        if(strcmp(stream_token, Commands[i]->name) == 0){   /* Case is a correct command */
 
-            if(Commands[i].func_ptr(cli_handler, saveptr) == CLI_HANDLER_ERROR_OK){ 
-
-                receive_cmd = true;
-            }
+            Commands[i]->func_ptr(cli_handler, saveptr);    /* Process command recived*/
+            receive_cmd = true;                             /* Set flag receive to indicate cmd OK*/
 
             break;
         }
     }
 
-    if(receive_cmd == false){
+    if(receive_cmd == false){   /* Case this command dont have in list */
 
-        /* Sintax error */
+        CLI_STRING_STREAM_TX(cli_handler, "Verify sintax command, send \"Help\" for more information.\n");
     }
 
     return CLI_HANDLER_ERROR_OK; /* Return OK */
 }
 
 /**
- * @brief TODO
- * 
- * @param value Pointer of value double
- * @param token Pointer of token receive
- * @return TODO
- */
-static cli_handler_error_e parser_double(double* value, char* token){
-
-    double parser;
-
-    CHECK_CLI_HANDLER_PTR(token);
-
-    if (strncmp(token, "0x", 2) == 0 || strncmp(token, "0X", 2) == 0) {
-        
-        *value = (double)strtol(token, NULL, 16);
-    }
-    else {
-        *value = atof(token);
-    }
-
-    return CLI_HANDLER_ERROR_OK; /* Return OK */
-}
-
-/**
- * @brief TODO
+ * @brief This command change the precision output stream of ANS
  * 
  * @param cli_handler Pointer of handler CLI
  * @param token Pointer of token receive
- * @return TODO
+ * @return cli_handler_error_e
+ */
+static cli_handler_error_e command_decimal(cli_handler_t* cli_handler, char* saveptr){
+    
+    double decimal;
+    char* token;
+
+    token = Misc_Strtok_R(NULL, "[]", &saveptr);    /* Remove [] after command */
+
+    CHECK_CLI_HANDLER_PTR(token);                   /* Verify if have data to parse */
+
+    Misc_Parser_Uint(&decimal, token);              /* Convert value to unsigned int */
+
+    cli_handler->config.decimal = decimal;          /* Set decimal configuration */
+
+    CLI_STRING_STREAM_TX(cli_handler, "New decimal resolution is %d\n", decimal);
+
+    return CLI_HANDLER_ERROR_OK; /* Return OK */
+}
+
+/**
+ * @brief This command clear ANS variable
+ * 
+ * @param cli_handler Pointer of handler CLI
+ * @param token Pointer of token receive
+ * @return cli_handler_error_e
  */
 static cli_handler_error_e command_clear(cli_handler_t* cli_handler, char* saveptr){
     
-    cli_handler->ans = 0.0;
+    cli_handler->ans = 0.0f; /* Reset ANS to value 0.0 */
 
-    printf("command_clear");
+    CLI_STRING_STREAM_TX(cli_handler, "ANS = %.*f\n", cli_handler->config.decimal, cli_handler->ans);
+
     return CLI_HANDLER_ERROR_OK; /* Return OK */
 }
 
 /**
- * @brief TODO
+ * @brief This command return all information about others commands
  * 
  * @param cli_handler Pointer of handler CLI
  * @param token Pointer of token receive
- * @return TODO
+ * @return cli_handler_error_e
  */
 static cli_handler_error_e command_help(cli_handler_t* cli_handler, char* saveptr){
-    
-    printf("command_help");
+
+    for(size_t i = 0; i < sizeof(Commands)/sizeof(cli_handler_commands_t*); i++){ /* List all desciption commnads */
+
+        CLI_STRING_STREAM_TX(cli_handler, "%-20s - %s", Commands[i]->name, Commands[i]->description);
+    }
+
     return CLI_HANDLER_ERROR_OK; /* Return OK */
 }
 
 /**
- * @brief TODO
+ * @brief This command deinitilize handler
  * 
  * @param cli_handler Pointer of handler CLI
  * @param token Pointer of token receive
- * @return TODO
+ * @return cli_handler_error_e
  */
 static cli_handler_error_e command_exit(cli_handler_t* cli_handler, char* saveptr){
     
-    printf("command_exit");
-    return CLI_HANDLER_ERROR_OK; /* Return OK */
+    cli_handler->init = false;      /* Deinitialize the handler */
+
+    CLI_STRING_STREAM_TX(cli_handler, "Finish application");
+
+    return CLI_HANDLER_ERROR_OK;    /* Return OK */
 }

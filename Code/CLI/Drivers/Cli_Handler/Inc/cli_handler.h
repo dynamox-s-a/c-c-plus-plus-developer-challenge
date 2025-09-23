@@ -19,6 +19,7 @@ extern "C" {
  *   INCLUDES
  */
 #include "stdbool.h"
+#include "stdint.h"
 
 /*
  *   DEFINES
@@ -27,7 +28,11 @@ extern "C" {
 /*
  *   MACROS
  */
-
+#define CLI_STRING_STREAM_TX(cli_handler, ...) do {   \
+    char _buffer[512];                               \
+    snprintf(_buffer, sizeof(_buffer), __VA_ARGS__);  \
+    strcat((cli_handler)->config.stream_tx, _buffer); \
+} while(0)
 /*
  *   ENUMS
  */
@@ -56,6 +61,7 @@ typedef enum {
     CLI_HANDLER_CMD_ROOT_N,         /**< Calculate root N */
     CLI_HANDLER_CMD_LOG_N,          /**< Calculate log N */
     CLI_HANDLER_CMD_DETERMINANT_N,  /**< Calculate determinant N */
+    CLI_HANDLER_CMD_DECIMAL,        /**< Change decimal answere */
     CLI_HANDLER_CMD_CLEAR,          /**< Clear ANS */
     CLI_HANDLER_CMD_HELP,           /**< Return information of application */
     CLI_HANDLER_CMD_EXIT,           /**< Exit of application */
@@ -69,7 +75,7 @@ typedef enum {
  *   STRUCTS
  */
 
- /* Forward declaration*/
+/* Forward declaration*/
 typedef struct cli_handler_t cli_handler_t;
 
 /**
@@ -84,23 +90,14 @@ typedef struct {
 } cli_handler_commands_t;
 
 /**
- * @brief Cli Handlers callback
- */
-typedef struct {
-
-
-
-} cli_handler_callback_t;
-
-/**
  * @brief Cli Handlers config
  */
 typedef struct {
 
     bool multithread;   /**< Flag indicates app is multithread */
-    bool logs;          /**< Enable logs to save */
     char* stream_rx;    /**< Strem of receive commands */
     char* stream_tx;    /**< Strem of send answer */
+    uint8_t decimal;
 
 } cli_handler_config_t;
 
@@ -109,12 +106,11 @@ typedef struct {
  */
 struct cli_handler_t{
 
-    cli_handler_config_t config;        /**< Configuration */
-    cli_handler_callback_t callback;    /**< Coordenada Y */
-    void* param;
+    cli_handler_config_t config;    /**< Configuration */
+    void* param;                    /**< Used for recover context */
 
-    bool init;          /**< Set true when initialize succesful */
-    double ans;
+    bool init;                      /**< Set true when initialize succesful */
+    double ans;                     /**< Value ANS calculated */
 };
 
 /*
@@ -124,8 +120,7 @@ struct cli_handler_t{
 /*
  *   GLOBAL FUNCTIONS
  */
-cli_handler_error_e Cli_Handler_Init(   cli_handler_t* cli_handler, 
-                                        cli_handler_callback_t* callback, 
+cli_handler_error_e Cli_Handler_Init(   cli_handler_t* cli_handler,
                                         cli_handler_config_t* config, 
                                         void* param);
                                         
