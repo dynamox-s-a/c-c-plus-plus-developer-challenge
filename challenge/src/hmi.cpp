@@ -1,9 +1,13 @@
 #include "hmi.hpp"
 #include <iostream>
 #include <limits>
+#include <iomanip>
 
 namespace HMI {
 
+    // Generate menu dynamically from HMI::Operation enum
+    // This avoids duplicating code and makes it easy to extend.
+    // Keep 0 has Exit.
     void showMenu() {
         std::cout << "=== Dynamox Challenge ===\n";
 
@@ -34,6 +38,25 @@ namespace HMI {
             values[i] = getDouble("Value " + std::to_string(i+1) + ": ");
         }
         return values;
+    }
+
+    std::vector<std::vector<double>> getMatrixInput(int n, bool quadratic) {
+        int rows = n;
+        int cols = n;
+
+        if (!quadratic) {
+            rows = getInt("Number of rows: ");
+            cols = getInt("Number of cols: ");
+        }
+
+        std::vector<std::vector<double>> matrix(rows, std::vector<double>(cols));
+        std::cout << "Enter matrix values " << rows << "x" << cols << ":\n";
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                matrix[i][j] = getDouble("Element [" + std::to_string(i) + "][" + std::to_string(j) + "]: ");
+            }
+        }
+        return matrix;
     }
 
     int getInt(const std::string& prompt) {
@@ -68,5 +91,26 @@ namespace HMI {
 
     void showError(const std::string& msg) {
         std::cout << "Error: " << msg << "\n\n";
+    }
+
+    void showResult(const std::vector<std::vector<double>>& matrix) {
+        if (matrix.empty()) {
+            std::cout << "[Empty matrix]\n\n";
+            return;
+        }
+
+        int rows = matrix.size();
+        int cols = matrix[0].size();
+
+        std::cout << "Matrix (" << rows << "x" << cols << "):\n";
+
+        for (const auto& row : matrix) {
+            for (double val : row) {
+                // largura fixa e 3 casas decimais
+                std::cout << std::setw(10) << std::setprecision(3) << std::fixed << val << " ";
+            }
+            std::cout << "\n";
+        }
+        std::cout << "\n";
     }
 }

@@ -1,5 +1,6 @@
 #include "hmi.hpp"
 #include "operations.hpp"
+#include "matrix.hpp"
 #include "log.hpp"
 
 #include <iostream>
@@ -11,7 +12,7 @@ int main() {
     while (true) {
         HMI::showMenu();
 
-        /* Depending on the hardware, here we could go into low energy waiting for an HW interruption. */
+        /* For the challenge: Depending on the hardware, here we could go into low energy waiting for an HW interruption. */
 
         HMI::Operation op = HMI::getOperationChoice();
 
@@ -50,13 +51,37 @@ int main() {
                 break;
             }
             case HMI::Operation::Determinant: {
-                HMI::showMessage( "Not implemented yet!" );
-                Log::write("User selected Determinant operation, but it's not implemented yet.");
+                int mtx_size = HMI::getInt("Matrix size: ");
+                if ( mtx_size <= 0 ) {
+                    HMI::showError("Matrix size for determinant must be positive.");
+                    break;
+                }
+
+                auto matrix = HMI::getMatrixInput(mtx_size, true);
+                double result;
+
+                if ( Matrix::determinant(matrix, result) ) {
+                    HMI::showResult(result);
+                    Log::write("Determinant for " + std::to_string(mtx_size) + "x" + std::to_string(mtx_size) +
+                            ", result: " + std::to_string(result));
+                } else {
+                    HMI::showError("Invalid input matrix.");
+                    Log::write("User attempted determinant of unsupported size: " + std::to_string(mtx_size));
+                }
                 break;
             }
             case HMI::Operation::Transpose: {
-                HMI::showMessage( "Not implemented yet!" );
-                Log::write("User selected Transpose operation, but it's not implemented yet.");
+                auto matrix = HMI::getMatrixInput();
+                std::vector<std::vector<double>> result;
+
+                if ( Matrix::transpose(matrix, result) ) {
+                    HMI::showResult(matrix);
+                    HMI::showResult(result);
+                    Log::write("Transpose operation successfully.");
+                } else {
+                    HMI::showError("Invalid input matrix.");
+                    Log::write("Transpose failed: invalid input matrix.");
+                }
                 break;
             }
             case HMI::Operation::CreateNew: {
