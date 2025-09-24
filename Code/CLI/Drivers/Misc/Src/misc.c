@@ -36,6 +36,23 @@
  *   CONSTANTS
  */
 
+/*
+ *   UNIT TEST
+ */
+
+// Getter: function to return the internal function pointer
+Func_Misc_Strtok_R get_strtok_internal(void) {
+    return Misc_Strtok_R;
+}
+
+Func_Misc_Parser_Double get_parser_double_internal(void) {
+    return Misc_Parser_Double;
+}
+
+Func_Misc_Parser_Uint get_parser_uint_internal(void) {
+    return Misc_Parser_Uint;
+}
+
 /* 
  * public domain strtok_r() by Charlie Gordon
  *

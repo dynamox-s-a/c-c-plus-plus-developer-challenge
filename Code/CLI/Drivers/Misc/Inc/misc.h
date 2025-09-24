@@ -57,6 +57,19 @@ char* Misc_Strtok_R(char *str, const char *delim, char **nextp);
 misc_error_e Misc_Parser_Double(double* value, char* token);
 misc_error_e Misc_Parser_Uint(uint64_t* value, char* token);
 
+/*
+ *   UNIT TEST
+ */
+
+// Define a function type for the internal function
+typedef char* (*Func_Misc_Strtok_R)(char*, const char*, char**);
+typedef misc_error_e (*Func_Misc_Parser_Double)(double*, char*);
+typedef misc_error_e (*Func_Misc_Parser_Uint)(uint64_t*, char*);
+
+Func_Misc_Strtok_R get_strtok_internal(void);
+Func_Misc_Parser_Double get_parser_double_internal(void);
+Func_Misc_Parser_Uint get_parser_uint_internal(void);
+
 #ifdef __cplusplus
 }
 #endif
