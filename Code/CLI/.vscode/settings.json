@@ -1,0 +1,28 @@
+{
+    "files.associations": {
+        "stdio.h": "c",
+        "cli_handler.h": "c",
+        "stddef.h": "c",
+        "string.h": "c",
+        "stdlib.h": "c",
+        "arithmetic_add.h": "c",
+        "arithmetic_multiply.h": "c",
+        "misc.h": "c",
+        "unity.h": "c",
+        "stdint.h": "c",
+        "test_arithmetic_add.h": "c",
+        "test_arithmetic_determinant_n.h": "c",
+        "test_arithmetic_divide.h": "c",
+        "test_arithmetic_log_n.h": "c",
+        "test_arithmetic_multiply.h": "c",
+        "test_arithmetic_power_n.h": "c",
+        "test_arithmetic_root_n.h": "c",
+        "test_arithmetic_subtract.h": "c"
+    },
+    "files.exclude": {
+        "**/*.o": true,
+        "**/build": true,
+        "**/out": true
+    }
+
+}
