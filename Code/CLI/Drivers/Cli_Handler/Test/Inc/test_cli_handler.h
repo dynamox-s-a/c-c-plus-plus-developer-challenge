@@ -22,6 +22,9 @@ extern "C" {
 /*
  *   DEFINES
  */
+#ifndef UNIT_TEST
+#define UNIT_TEST
+#endif
 
 /*
  *   MACROS
@@ -42,7 +45,7 @@ extern "C" {
 /*
  *   GLOBAL FUNCTIONS
  */
-<return_type> <function_name>(<params>);
+void Test_Cli_Handler(void);
 
 #ifdef __cplusplus
 }

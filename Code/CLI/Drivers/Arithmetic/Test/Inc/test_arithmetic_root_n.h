@@ -1,5 +1,5 @@
 /**
- * @file    test_cli_handler.h
+ * @file    test_arithmetic_root_n.h
  * @brief   TODO
  *
  * @details TODO
@@ -8,8 +8,8 @@
  * @date    23-09-2025
  */
 
-#ifndef CLI_DRIVERS_TEST_CLI_HANDLER_H /* Include guard */
-#define CLI_DRIVERS_TEST_CLI_HANDLER_H
+#ifndef CLI_DRIVERS_TEST_ARITHMETIC_ROOT_N_H /* Include guard */
+#define CLI_DRIVERS_TEST_ARITHMETIC_ROOT_N_H
 
 #ifdef __cplusplus  /* C++ guard */
 extern "C" {
@@ -22,6 +22,9 @@ extern "C" {
 /*
  *   DEFINES
  */
+#ifndef UNIT_TEST
+#define UNIT_TEST
+#endif
 
 /*
  *   MACROS
@@ -42,7 +45,7 @@ extern "C" {
 /*
  *   GLOBAL FUNCTIONS
  */
-<return_type> <function_name>(<params>);
+void Test_Arithmetic_Root_N(void);
 
 #ifdef __cplusplus
 }

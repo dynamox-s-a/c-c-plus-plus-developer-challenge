@@ -1,5 +1,5 @@
 /**
- * @file    <your_file>.c
+ * @file    test_cli_handler.c
  * @brief   TODO
  *
  * @details TODO
@@ -11,7 +11,7 @@
 /*
  *   INCLUDES
  */
-#include "<your_file>.h"
+#include "test_cli_handler.h"
 
 /*
  *   MACROS
@@ -35,6 +35,7 @@
  * @param TODO
  * @return TODO
  */
-<return_type> <function_name>(<params>) {
+void Test_Cli_Handler(void) {
+    
     // TODO: Implement function
 }

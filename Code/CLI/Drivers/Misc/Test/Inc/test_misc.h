@@ -1,5 +1,5 @@
 /**
- * @file    test_cli_handler.h
+ * @file    test_misc.h
  * @brief   TODO
  *
  * @details TODO
@@ -8,8 +8,8 @@
  * @date    23-09-2025
  */
 
-#ifndef CLI_DRIVERS_TEST_CLI_HANDLER_H /* Include guard */
-#define CLI_DRIVERS_TEST_CLI_HANDLER_H
+#ifndef CLI_DRIVERS_TEST_MISC_H /* Include guard */
+#define CLI_DRIVERS_TEST_MISC_H
 
 #ifdef __cplusplus  /* C++ guard */
 extern "C" {
