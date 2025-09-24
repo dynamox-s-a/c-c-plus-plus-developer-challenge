@@ -1,5 +1,6 @@
 #include "hmi.hpp"
 #include <iostream>
+#include <limits>
 
 namespace HMI {
 
@@ -13,33 +14,51 @@ namespace HMI {
         std::cout << "0. " << toString(Operation::Exit) << "\n";
     }
 
+    void showResult(double result) {
+        std::cout << "Result: " << result << "\n\n";
+    }
+
     HMI::Operation getOperationChoice() {
-        int choice;
-        std::cout << "Choose an operation: ";
-        std::cin >> choice;
+        int choice = getInt("Choose an operation: ");
         return static_cast<HMI::Operation>(choice);
     }
 
     double getSingleInput(const std::string& prompt) {
-        double value;
-        std::cout << prompt;
-        std::cin >> value;
-        return value;
+        return getDouble(prompt);
     }
 
     std::vector<double> getArrayInput() {
-        int n;
-        std::cout << "How many values? ";
-        std::cin >> n;
+        int n = getInt("How many values? ");
         std::vector<double> values(n);
         for (int i = 0; i < n; i++) {
-            std::cout << "Value " << (i+1) << ": ";
-            std::cin >> values[i];
+            values[i] = getDouble("Value " + std::to_string(i+1) + ": ");
         }
         return values;
     }
 
-    void showResult(double result) {
-        std::cout << "Result: " << result << "\n\n";
+    int getInt(const std::string& prompt) {
+        int value;
+        while (true) {
+            std::cout << prompt;
+            if (std::cin >> value) {
+                return value; // valid input
+            }
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            std::cout << "Invalid input! Please enter an integer.\n";
+        }
+    }
+
+    double getDouble(const std::string& prompt) {
+        double value;
+        while (true) {
+            std::cout << prompt;
+            if (std::cin >> value) {
+                return value; // valid input
+            }
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            std::cout << "Invalid input! Please enter a number.\n";
+        }
     }
 }

@@ -32,6 +32,8 @@ namespace HMI {
 
     void showMenu();
     HMI::Operation getOperationChoice();
+    int getInt(const std::string& prompt);
+    double getDouble(const std::string& prompt);
     double getSingleInput(const std::string& prompt = "Valor: ");
     std::vector<double> getArrayInput();
     std::vector<std::vector<double>> getMatrixInput(int n);
