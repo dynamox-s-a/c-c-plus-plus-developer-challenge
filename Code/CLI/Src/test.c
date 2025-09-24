@@ -67,7 +67,7 @@ void tearDown(void) {
  * @param TODO
  * @return TODO
  */
-int test_function(void) {
+int main(void) {
     
     Test_Arithmetic_Add();
     Test_Arithmetic_Subtract();
