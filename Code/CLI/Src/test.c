@@ -11,6 +11,8 @@
 /*
  *   INCLUDES
  */
+#include "unity.h"
+
 #include "test_arithmetic_add.h"
 #include "test_arithmetic_divide.h"
 #include "test_arithmetic_determinant_n.h"
@@ -45,6 +47,26 @@
  * @param TODO
  * @return TODO
  */
+void setUp(void) {
+    
+}
+
+/**
+ * @brief TODO
+ * 
+ * @param TODO
+ * @return TODO
+ */
+void tearDown(void) {
+    
+}
+
+/**
+ * @brief TODO
+ * 
+ * @param TODO
+ * @return TODO
+ */
 int test_function(void) {
     
     Test_Arithmetic_Add();
@@ -58,6 +80,6 @@ int test_function(void) {
     Test_Cli_Handler();
     Test_Logs_File();
     Test_Misc();
-    
+
     return 0;
 }
