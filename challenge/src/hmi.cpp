@@ -2,21 +2,22 @@
 #include <iostream>
 
 namespace HMI {
+
     void showMenu() {
         std::cout << "=== Dynamox Challenge ===\n";
-        std::cout << "1. Summ (Single value)\n";
-        std::cout << "2. Summ (Array)\n";
-        std::cout << "3. Divide\n";
-        std::cout << "4. Determinant (2x2)\n";
-        std::cout << "5. Transpost (2x2)\n";
-        std::cout << "0. Exit\n";
+
+        for (int i = 1; i < static_cast<int>(Operation::LAST_OPERATION); i++) {
+            auto op = static_cast<Operation>(i);
+            std::cout << i << ". " << toString(op) << "\n";
+        }
+        std::cout << "0. " << toString(Operation::Exit) << "\n";
     }
 
-    int getOperationChoice() {
+    HMI::Operation getOperationChoice() {
         int choice;
         std::cout << "Choose an operation: ";
         std::cin >> choice;
-        return choice;
+        return static_cast<HMI::Operation>(choice);
     }
 
     double getSingleInput(const std::string& prompt) {

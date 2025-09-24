@@ -12,15 +12,11 @@ int main() {
         HMI::showMenu();
 
         /* Depending the hardware, here we could go into low energy waiting for an HW interruption. */
-        u_int8_t choice = HMI::getOperationChoice();
 
-        if (choice == 0) {
-            std::cout << "Exiting the program.\n";
-            break;
-        }
+        HMI::Operation op = HMI::getOperationChoice();
 
-        switch (choice) {
-            case 1: {
+        switch (op) {
+            case HMI::Operation::SumSingle: {
                 double values[2];
                 values[0] = HMI::getSingleInput();
                 values[1] = HMI::getSingleInput();
@@ -29,14 +25,14 @@ int main() {
                 Log::write("Operation add: " + std::to_string(values[0]) + " and " + std::to_string(values[1]) + ", resulting: " + std::to_string(result));
                 break;
             }
-            case 2: {
+            case HMI::Operation::SumArray: {
                 auto values = HMI::getArrayInput();
                 double result = Operations::add(values);
                 HMI::showResult(result);
                 Log::write("Operation add: array of size " + std::to_string(values.size()) + ", resulting: " + std::to_string(result));
                 break;
             }
-            case 3: {
+            case HMI::Operation::Divide: {
                 double values[2];
                 double result = 0;
                 values[0] = HMI::getSingleInput("Dividend: ");
@@ -51,8 +47,31 @@ int main() {
                 }
                 break;
             }
+            case HMI::Operation::Determinant: {
+                std::cout << "Not implemented yet!\n\n";
+                Log::write("User selected Determinant operation, but it's not implemented yet.");
+                break;
+            }
+            case HMI::Operation::Transpose: {
+                std::cout << "Not implemented yet!\n\n";
+                Log::write("User selected Transpose operation, but it's not implemented yet.");
+                break;
+            }
+            case HMI::Operation::CreateNew: {
+                std::cout << "Not implemented yet!\n\n";
+                Log::write("User selected Create New operation, but it's not implemented yet.");
+                break;
+            }
+            case HMI::Operation::Exit: {
+                std::cout << "Quiting application!\n";
+                Log::write("User selected Exit operation.");
+                return 0;
+                break;
+            }
+            case HMI::Operation::LAST_OPERATION:
             default:
                 std::cout << "Invalid option!\n";
+                break;
         }
     }
 
