@@ -61,4 +61,12 @@ namespace HMI {
             std::cout << "Invalid input! Please enter a number.\n";
         }
     }
+
+    void showMessage(const std::string& msg) {
+        std::cout << msg << "\n\n";
+    }
+
+    void showError(const std::string& msg) {
+        std::cout << "Error: " << msg << "\n\n";
+    }
 }

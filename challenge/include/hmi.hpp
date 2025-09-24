@@ -38,6 +38,8 @@ namespace HMI {
     std::vector<double> getArrayInput();
     std::vector<std::vector<double>> getMatrixInput(int n);
     void showResult(double result);
+    void showMessage(const std::string& msg);
+    void showError(const std::string& msg);
 
 } // namespace HMI
 

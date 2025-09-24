@@ -16,10 +16,12 @@ namespace Operations {
         return std::accumulate(values.begin(), values.end(), 1.0, std::multiplies<double>());
     }
 
-    double divide(const double& valueA, const double& valueB) {
+    bool divide(const double& valueA, const double& valueB, double& result) {
         if (valueB == 0) {
-            throw std::invalid_argument("Division by zero is not allowed.");
+            result = 0;
+            return false;
         }
-        return valueA/valueB;
+        result = valueA / valueB;
+        return true;
     }
 }
