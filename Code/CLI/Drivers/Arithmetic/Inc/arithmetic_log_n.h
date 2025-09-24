@@ -8,8 +8,8 @@
  * @date    21-09-2025
  */
 
-#ifndef CLI_DRIVERS_CLI_HANDLER_H /* Include guard */
-#define CLI_DRIVERS_CLI_HANDLER_H
+#ifndef CLI_DRIVERS_ARITHMETIC_LOG_N_H /* Include guard */
+#define CLI_DRIVERS_ARITHMETIC_LOG_N_H
 
 #ifdef __cplusplus  /* C++ guard */
 extern "C" {
@@ -18,6 +18,7 @@ extern "C" {
 /*
  *   INCLUDES
  */
+#include "cli_handler.h"
 
 /*
  *   DEFINES
@@ -42,7 +43,7 @@ extern "C" {
 /*
  *   GLOBAL FUNCTIONS
  */
-static cli_handler_error_e command_log_n(cli_handler_t* cli_handler, char* saveptr);
+cli_handler_error_e Arithmetic_Log_N(cli_handler_t* cli_handler, char* saveptr);
 
 #ifdef __cplusplus
 }

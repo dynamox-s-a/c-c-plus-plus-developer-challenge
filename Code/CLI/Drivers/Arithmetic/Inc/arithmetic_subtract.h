@@ -43,7 +43,7 @@ extern "C" {
 /*
  *   GLOBAL FUNCTIONS
  */
-static cli_handler_error_e Arithmetic_Subtract(cli_handler_t* cli_handler, char* saveptr);
+cli_handler_error_e Arithmetic_Subtract(cli_handler_t* cli_handler, char* saveptr);
 
 #ifdef __cplusplus
 }

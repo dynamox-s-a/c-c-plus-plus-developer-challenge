@@ -11,6 +11,9 @@
 /*
  *   INCLUDES
  */
+#include "arithmetic_log_n.h"
+
+#include "cli_handler.h"
 
 /*
  *   MACROS
@@ -27,6 +30,11 @@
 /*
  *   CONSTANTS
  */
+const cli_handler_commands_t Arithmetic_Log_N_Cte = {
+        .name = "Log_N",
+        .description = "Log N the value to ANS - Sintax \"Log_N [0x00000000]\"\n",
+        .func_ptr = Arithmetic_Log_N
+};
 
 /**
  * @brief TODO
@@ -35,7 +43,7 @@
  * @param token Pointer of token receive
  * @return TODO
  */
-static cli_handler_error_e command_log_n(cli_handler_t* cli_handler, char* saveptr){
+cli_handler_error_e Arithmetic_Log_N(cli_handler_t* cli_handler, char* saveptr){
     
     printf("command_log_n");
     return CLI_HANDLER_ERROR_OK; /* Return OK */

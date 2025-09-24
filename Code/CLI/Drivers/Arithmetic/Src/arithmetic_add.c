@@ -58,7 +58,7 @@ cli_handler_error_e Arithmetic_Add(cli_handler_t* cli_handler, char* saveptr){
 
         cli_handler->ans += value;
 
-        printf("ANS + %.*f = %.*f\n", cli_handler->config.decimal, value, cli_handler->config.decimal, cli_handler->ans);
+        CLI_STRING_STREAM_TX(cli_handler, "ANS + %.*f = %.*f\n", cli_handler->config.decimal, value, cli_handler->config.decimal, cli_handler->ans);
     }
 
     return CLI_HANDLER_ERROR_OK; /* Return OK */
