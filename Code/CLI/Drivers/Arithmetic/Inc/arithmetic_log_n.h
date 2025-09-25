@@ -1,8 +1,10 @@
 /**
- * @file    arithmetic_add.h
- * @brief   TODO
+ * @file    arithmetic_log_n.h
+ * @brief   Implementation of the logarithm base N command for the CLI calculator.
  *
- * @details TODO
+ * @details
+ * This module implements the "Log_N" command for the CLI calculator, allowing users to compute the logarithm of the current ANS value with a specified base.
+ * It parses input tokens, converts them to double, performs the logarithm calculation, and prints the result to the CLI output stream.
  *
  * @author  Emerson Isaias da Silva
  * @date    21-09-2025

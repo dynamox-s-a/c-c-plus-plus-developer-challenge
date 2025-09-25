@@ -1,8 +1,10 @@
 /**
- * @file    arithmetic_add.h
- * @brief   TODO
+ * @file    arithmetic_add.c
+ * @brief   Implementation of the addition command for the CLI calculator.
  *
- * @details TODO
+ * @details
+ * This module implements the "Add" command for the CLI calculator, allowing users to add one or more values to the current ANS value.
+ * It parses input tokens, converts them to double, performs the addition, and prints the result to the CLI output stream.
  *
  * @author  Emerson Isaias da Silva
  * @date    21-09-2025

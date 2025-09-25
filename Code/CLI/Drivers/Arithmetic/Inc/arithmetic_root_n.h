@@ -1,8 +1,10 @@
 /**
- * @file    arithmetic_add.h
- * @brief   TODO
+ * @file    arithmetic_power_n.h
+ * @brief   Implementation of the power (exponentiation) command for the CLI calculator.
  *
- * @details TODO
+ * @details
+ * This module implements the "Power_N" command for the CLI calculator, allowing users to raise the current ANS value to the power of one or more input values.
+ * It parses input tokens, converts them to double, performs the exponentiation, and prints the result to the CLI output stream.
  *
  * @author  Emerson Isaias da Silva
  * @date    21-09-2025
