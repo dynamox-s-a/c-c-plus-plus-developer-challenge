@@ -6,10 +6,10 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 include_directories(include)
 
-add_library(hmi src/hmi.cpp)
+add_library(hmi_console src/hmi_console.cpp)
 add_library(operations src/operations.cpp)
 add_library(matrix src/matrix.cpp)
 add_library(log src/log.cpp)
 
 add_executable(dynamox main.cpp)
-target_link_libraries(dynamox PRIVATE hmi operations matrix log)
+target_link_libraries(dynamox PRIVATE hmi_console operations matrix log)

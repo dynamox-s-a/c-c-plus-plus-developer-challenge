@@ -1,14 +1,17 @@
-#include "hmi.hpp"
+#include "hmi_console.hpp"
 #include <iostream>
 #include <limits>
 #include <iomanip>
 
 namespace HMI {
 
-    // Generate menu dynamically from HMI::Operation enum
+    hmi_console::hmi_console() {}
+    hmi_console::~hmi_console() {}  
+    
+    // Generate menu dynamically from HMI::Operation enum   
     // This avoids duplicating code and makes it easy to extend.
     // Keep 0 has Exit.
-    void showMenu() {
+    void hmi_console::showMenu() {
         std::cout << "=== Dynamox Challenge ===\n";
 
         for (int i = 1; i < static_cast<int>(Operation::LAST_OPERATION); i++) {
@@ -18,20 +21,20 @@ namespace HMI {
         std::cout << "0. " << toString(Operation::Exit) << "\n";
     }
 
-    void showResult(double result) {
+    void hmi_console::showResult(double result) {
         std::cout << "Result: " << result << "\n\n";
     }
 
-    HMI::Operation getOperationChoice() {
+    HMI::Operation hmi_console::getOperationChoice() {
         int choice = getInt("Choose an operation: ");
         return static_cast<HMI::Operation>(choice);
     }
 
-    double getSingleInput(const std::string& prompt) {
+    double hmi_console::getSingleInput(const std::string& prompt) {
         return getDouble(prompt);
     }
 
-    std::vector<double> getArrayInput() {
+    std::vector<double> hmi_console::getArrayInput() {
         int n = getInt("How many values? ");
         std::vector<double> values(n);
         for (int i = 0; i < n; i++) {
@@ -40,7 +43,7 @@ namespace HMI {
         return values;
     }
 
-    std::vector<std::vector<double>> getMatrixInput(int rows, int cols) {
+    std::vector<std::vector<double>> hmi_console::getMatrixInput(int rows, int cols) {
         std::vector<std::vector<double>> matrix(rows, std::vector<double>(cols));
         std::cout << "Enter matrix values " << rows << "x" << cols << ":\n";
         for (int i = 0; i < rows; i++) {
@@ -51,17 +54,17 @@ namespace HMI {
         return matrix;
     }
 
-    std::vector<std::vector<double>> getMatrixInput(int n) {
+    std::vector<std::vector<double>> hmi_console::getMatrixInput(int n) {
         return getMatrixInput(n, n);
     }
 
-    std::vector<std::vector<double>> getMatrixInput() {
+    std::vector<std::vector<double>> hmi_console::getMatrixInput() {
         int rows = getInt("Number of rows: ");
         int cols = getInt("Number of columns: ");
         return getMatrixInput(rows, cols);
     }
 
-    int getInt(const std::string& prompt) {
+    int hmi_console::getInt(const std::string& prompt) {
         int value;
         while (true) {
             std::cout << prompt;
@@ -74,7 +77,7 @@ namespace HMI {
         }
     }
 
-    double getDouble(const std::string& prompt) {
+    double hmi_console::getDouble(const std::string& prompt) {
         double value;
         while (true) {
             std::cout << prompt;
@@ -87,15 +90,15 @@ namespace HMI {
         }
     }
 
-    void showMessage(const std::string& msg) {
+    void hmi_console::showMessage(const std::string& msg) {
         std::cout << msg << "\n\n";
     }
 
-    void showError(const std::string& msg) {
+    void hmi_console::showError(const std::string& msg) {
         std::cout << "Error: " << msg << "\n\n";
     }
 
-    void showResult(const std::vector<std::vector<double>>& matrix) {
+    void hmi_console::showResult(const std::vector<std::vector<double>>& matrix) {
         if (matrix.empty()) {
             std::cout << "[Empty matrix]\n\n";
             return;

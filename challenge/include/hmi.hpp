@@ -30,19 +30,24 @@ namespace HMI {
         }
     }
 
-    void showMenu();
-    HMI::Operation getOperationChoice();
-    int getInt(const std::string& prompt);
-    double getDouble(const std::string& prompt);
-    double getSingleInput(const std::string& prompt = "Valor: ");
-    std::vector<double> getArrayInput();
-    std::vector<std::vector<double>> getMatrixInput(int rows, int cols);
-    std::vector<std::vector<double>> getMatrixInput(int n); //square
-    std::vector<std::vector<double>> getMatrixInput();
-    void showResult(double result);
-    void showResult(const std::vector<std::vector<double>>& matrix);
-    void showMessage(const std::string& msg);
-    void showError(const std::string& msg);
+    class hmi_interface {
+    public:
+        virtual ~hmi_interface() = default;
+
+        virtual void showMenu() = 0;
+        virtual HMI::Operation getOperationChoice() = 0;
+        virtual int getInt(const std::string& prompt) = 0;
+        virtual double getDouble(const std::string& prompt) = 0;
+        virtual double getSingleInput(const std::string& prompt) = 0;
+        virtual std::vector<double> getArrayInput() = 0;
+        virtual std::vector<std::vector<double>> getMatrixInput(int rows, int cols) = 0;
+        virtual std::vector<std::vector<double>> getMatrixInput(int n) = 0; //square
+        virtual std::vector<std::vector<double>> getMatrixInput() = 0;
+        virtual void showResult(double result) = 0;
+        virtual void showResult(const std::vector<std::vector<double>>& matrix) = 0;
+        virtual void showMessage(const std::string& msg) = 0;
+        virtual void showError(const std::string& msg) = 0;
+    };
 
 } // namespace HMI
 
