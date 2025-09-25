@@ -57,7 +57,7 @@ int main() {
                     break;
                 }
 
-                auto matrix = HMI::getMatrixInput(mtx_size, true);
+                auto matrix = HMI::getMatrixInput(mtx_size);
                 double result;
 
                 if ( Matrix::determinant(matrix, result) ) {
@@ -70,17 +70,17 @@ int main() {
                 }
                 break;
             }
-            case HMI::Operation::Transpose: {
+            case HMI::Operation::Transpost: {
                 auto matrix = HMI::getMatrixInput();
                 std::vector<std::vector<double>> result;
 
-                if ( Matrix::transpose(matrix, result) ) {
+                if ( Matrix::transpost(matrix, result) ) {
                     HMI::showResult(matrix);
                     HMI::showResult(result);
-                    Log::write("Transpose operation successfully.");
+                    Log::write("Transpost operation successfully.");
                 } else {
                     HMI::showError("Invalid input matrix.");
-                    Log::write("Transpose failed: invalid input matrix.");
+                    Log::write("Transpost failed: invalid input matrix.");
                 }
                 break;
             }
@@ -102,6 +102,6 @@ int main() {
         }
     }
 
-    Log::write("Quiting Dynamox Challenge!");
+    Log::write("Quitting Dynamox Challenge!");
     return 0;
 }

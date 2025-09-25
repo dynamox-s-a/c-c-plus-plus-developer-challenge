@@ -12,7 +12,7 @@ namespace HMI {
         SumArray    = 2,
         Divide      = 3,
         Determinant = 4,
-        Transpose   = 5,
+        Transpost   = 5,
         CreateNew   = 6,
         LAST_OPERATION
     };
@@ -23,7 +23,7 @@ namespace HMI {
             case Operation::SumArray:    return "Sum (Array)";
             case Operation::Divide:      return "Divide";
             case Operation::Determinant: return "Determinant";
-            case Operation::Transpose:   return "Transpose";
+            case Operation::Transpost:   return "Transpost";
             case Operation::CreateNew:   return "Create new operation";
             case Operation::Exit:        return "Exit";
             default:                     return "Unknown";
@@ -36,7 +36,9 @@ namespace HMI {
     double getDouble(const std::string& prompt);
     double getSingleInput(const std::string& prompt = "Valor: ");
     std::vector<double> getArrayInput();
-    std::vector<std::vector<double>> getMatrixInput(int n = 0, bool quadratic = false);
+    std::vector<std::vector<double>> getMatrixInput(int rows, int cols);
+    std::vector<std::vector<double>> getMatrixInput(int n); //square
+    std::vector<std::vector<double>> getMatrixInput();
     void showResult(double result);
     void showResult(const std::vector<std::vector<double>>& matrix);
     void showMessage(const std::string& msg);

@@ -40,15 +40,7 @@ namespace HMI {
         return values;
     }
 
-    std::vector<std::vector<double>> getMatrixInput(int n, bool quadratic) {
-        int rows = n;
-        int cols = n;
-
-        if (!quadratic) {
-            rows = getInt("Number of rows: ");
-            cols = getInt("Number of cols: ");
-        }
-
+    std::vector<std::vector<double>> getMatrixInput(int rows, int cols) {
         std::vector<std::vector<double>> matrix(rows, std::vector<double>(cols));
         std::cout << "Enter matrix values " << rows << "x" << cols << ":\n";
         for (int i = 0; i < rows; i++) {
@@ -57,6 +49,16 @@ namespace HMI {
             }
         }
         return matrix;
+    }
+
+    std::vector<std::vector<double>> getMatrixInput(int n) {
+        return getMatrixInput(n, n);
+    }
+
+    std::vector<std::vector<double>> getMatrixInput() {
+        int rows = getInt("Number of rows: ");
+        int cols = getInt("Number of columns: ");
+        return getMatrixInput(rows, cols);
     }
 
     int getInt(const std::string& prompt) {

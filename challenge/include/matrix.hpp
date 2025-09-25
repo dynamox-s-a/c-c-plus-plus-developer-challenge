@@ -5,7 +5,7 @@
 
 namespace Matrix {
     bool determinant(const std::vector<std::vector<double>>& matrix, double& result);
-    bool transpose(const std::vector<std::vector<double>>& matrix, std::vector<std::vector<double>>& mtx_result);
+    bool transpost(const std::vector<std::vector<double>>& matrix, std::vector<std::vector<double>>& mtx_result);
 }
 
 #endif
