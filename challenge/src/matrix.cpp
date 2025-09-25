@@ -21,7 +21,7 @@ namespace Matrix {
         }
     }
 
-    bool transpost(const std::vector<std::vector<double>>& matrix,
+    bool transpose(const std::vector<std::vector<double>>& matrix,
                 std::vector<std::vector<double>>& result) {
 
         if (matrix.empty() || matrix[0].size() == 0)

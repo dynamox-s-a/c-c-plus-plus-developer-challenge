@@ -12,7 +12,7 @@ namespace HMI {
         SumArray    = 2,
         Divide      = 3,
         Determinant = 4,
-        Transpost   = 5,
+        Transpose   = 5,
         CreateNew   = 6,
         LAST_OPERATION
     };
@@ -23,7 +23,7 @@ namespace HMI {
             case Operation::SumArray:    return "Sum (Array)";
             case Operation::Divide:      return "Divide";
             case Operation::Determinant: return "Determinant";
-            case Operation::Transpost:   return "Transpost";
+            case Operation::Transpose:   return "Transpose";
             case Operation::CreateNew:   return "Create new operation";
             case Operation::Exit:        return "Exit";
             default:                     return "Unknown";

@@ -52,8 +52,8 @@ int main() {
             }
             case HMI::Operation::Determinant: {
                 int mtx_size = HMI::getInt("Matrix size: ");
-                if ( mtx_size <= 0 ) {
-                    HMI::showError("Matrix size for determinant must be positive.");
+                if ( mtx_size <= 0 || mtx_size > 2 ) {
+                    HMI::showError("Matrix size for determinant must be positive and not higher than 2(to be implemented).");
                     break;
                 }
 
@@ -70,17 +70,17 @@ int main() {
                 }
                 break;
             }
-            case HMI::Operation::Transpost: {
+            case HMI::Operation::Transpose: {
                 auto matrix = HMI::getMatrixInput();
                 std::vector<std::vector<double>> result;
 
-                if ( Matrix::transpost(matrix, result) ) {
+                if ( Matrix::transpose(matrix, result) ) {
                     HMI::showResult(matrix);
                     HMI::showResult(result);
-                    Log::write("Transpost operation successfully.");
+                    Log::write("Transpose operation successfully.");
                 } else {
                     HMI::showError("Invalid input matrix.");
-                    Log::write("Transpost failed: invalid input matrix.");
+                    Log::write("Transpose failed: invalid input matrix.");
                 }
                 break;
             }
@@ -90,7 +90,7 @@ int main() {
                 break;
             }
             case HMI::Operation::Exit: {
-                HMI::showMessage( "Quiting application!" );
+                HMI::showMessage( "Quitting application!" );
                 Log::write("User selected Exit operation.");
                 return 0;
                 break;
