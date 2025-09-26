@@ -1,5 +1,5 @@
 <map id="get_parser_uint_internal" name="get_parser_uint_internal">
 <area shape="rect" id="Node000001" title="Returns a pointer to the unsigned integer parser function." alt="" coords="5,5,165,32"/>
-<area shape="rect" id="Node000002" href="$misc_8c.html#a6b5224be201be73da4cd3fca715eb457" title="Parses a string token into a double value." alt="" coords="213,5,338,32"/>
+<area shape="rect" id="Node000002" href="$misc_8c.html#a6b5224be201be73da4cd3fca715eb457" title="Parses a string token into an unsigned 32&#45;bit integer value." alt="" coords="213,5,338,32"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="165,16,197,16,197,21,165,21"/>
 </map>

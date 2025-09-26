@@ -92,36 +92,39 @@ $(function(){initNavTree('arithmetic__determinant__n_8c.html','',''); });
 </div><!--header-->
 <div class="contents">
 
-<p>TODO.  
+<p>Implementation of the determinant calculation command for the CLI calculator.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="arithmetic__determinant__n_8h_source.html">arithmetic_determinant_n.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="cli__handler_8h_source.html">cli_handler.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="misc_8h_source.html">misc.h</a>&quot;</code><br />
+<code>#include &quot;math.h&quot;</code><br />
 </div><div class="textblock"><div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Include dependency graph for arithmetic_determinant_n.c:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="arithmetic__determinant__n_8c__incl.png" border="0" usemap="#a_drivers_2_arithmetic_2_src_2arithmetic__determinant__n_8c" loading="lazy" alt=""/></div>
 <map name="a_drivers_2_arithmetic_2_src_2arithmetic__determinant__n_8c" id="a_drivers_2_arithmetic_2_src_2arithmetic__determinant__n_8c">
-<area shape="rect" title="TODO." alt="" coords="91,5,297,48"/>
-<area shape="rect" href="arithmetic__determinant__n_8h.html" title="TODO." alt="" coords="105,96,283,123"/>
-<area shape="poly" title=" " alt="" coords="197,49,197,80,191,80,191,49"/>
-<area shape="rect" href="cli__handler_8h.html" title="CLI Handler &#45; Receive commands and process." alt="" coords="159,171,253,197"/>
-<area shape="poly" title=" " alt="" coords="245,46,274,67,298,95,301,116,292,136,274,152,252,166,249,161,270,148,287,132,296,115,293,97,271,70,242,51"/>
-<area shape="rect" href="misc_8h.html" title="Utility functions for string parsing and conversion." alt="" coords="37,245,97,272"/>
-<area shape="poly" title=" " alt="" coords="149,51,119,71,95,97,80,130,71,166,68,230,63,230,66,165,75,129,90,95,116,67,146,46"/>
-<area shape="poly" title=" " alt="" coords="199,123,204,155,199,156,193,124"/>
-<area shape="poly" title=" " alt="" coords="183,200,106,240,104,235,181,196"/>
+<area shape="rect" title="Implementation of the determinant calculation command for the CLI calculator." alt="" coords="79,5,285,48"/>
+<area shape="rect" href="arithmetic__determinant__n_8h.html" title=" " alt="" coords="157,96,335,123"/>
+<area shape="poly" title=" " alt="" coords="201,47,228,82,224,85,196,50"/>
+<area shape="rect" href="cli__handler_8h.html" title="CLI Handler &#45; Receive commands and process." alt="" coords="137,171,232,197"/>
+<area shape="poly" title=" " alt="" coords="168,50,150,84,145,103,147,122,166,157,161,159,142,123,140,103,145,82,163,47"/>
+<area shape="rect" href="misc_8h.html" title="Utility functions for string parsing and conversion." alt="" coords="38,245,99,272"/>
+<area shape="poly" title=" " alt="" coords="169,50,139,97,105,169,81,231,76,230,100,167,134,95,165,47"/>
+<area shape="rect" title=" " alt="" coords="359,96,421,123"/>
+<area shape="poly" title=" " alt="" coords="237,46,346,88,344,93,235,51"/>
+<area shape="poly" title=" " alt="" coords="237,125,207,161,203,157,233,121"/>
+<area shape="poly" title=" " alt="" coords="166,200,103,239,101,234,163,196"/>
 <area shape="rect" title=" " alt="" coords="217,395,291,421"/>
-<area shape="poly" title=" " alt="" coords="227,196,254,216,286,244,316,279,339,319,343,334,339,348,321,371,298,389,295,385,317,368,334,345,338,333,334,321,312,282,282,248,251,220,224,200"/>
+<area shape="poly" title=" " alt="" coords="211,196,244,215,280,242,314,277,339,319,343,334,339,348,321,371,298,389,295,385,317,368,334,345,338,333,334,321,310,280,277,246,241,219,209,200"/>
 <area shape="rect" title=" " alt="" coords="116,320,181,347"/>
-<area shape="poly" title=" " alt="" coords="199,199,172,246,156,306,151,304,168,244,195,196"/>
+<area shape="poly" title=" " alt="" coords="184,198,158,306,153,304,179,197"/>
 <area shape="rect" href="stream_8h.html" title=" " alt="" coords="182,245,254,272"/>
-<area shape="poly" title=" " alt="" coords="211,197,216,230,211,231,205,198"/>
-<area shape="poly" title=" " alt="" coords="51,275,33,290,16,308,8,327,9,336,13,345,25,355,43,364,92,379,202,399,201,404,90,385,41,369,22,359,9,348,4,338,3,327,12,305,29,286,47,270"/>
+<area shape="poly" title=" " alt="" coords="193,197,208,230,203,232,188,199"/>
+<area shape="poly" title=" " alt="" coords="52,275,33,290,17,308,8,327,9,336,13,345,25,355,43,364,92,379,202,399,201,404,90,385,41,369,22,359,9,348,4,338,3,326,12,305,29,286,48,270"/>
 <area shape="rect" title=" " alt="" coords="24,320,92,347"/>
-<area shape="poly" title=" " alt="" coords="68,273,64,305,59,304,63,272"/>
-<area shape="poly" title=" " alt="" coords="83,271,125,308,122,312,80,275"/>
+<area shape="poly" title=" " alt="" coords="69,273,65,305,59,304,64,272"/>
+<area shape="poly" title=" " alt="" coords="84,271,126,308,122,312,81,275"/>
 <area shape="poly" title=" " alt="" coords="224,272,250,379,245,380,218,273"/>
 <area shape="poly" title=" " alt="" coords="191,275,101,316,99,311,189,270"/>
 <area shape="poly" title=" " alt="" coords="208,274,173,310,169,307,204,271"/>
@@ -135,16 +138,19 @@ $(function(){initNavTree('arithmetic__determinant__n_8c.html','',''); });
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:a58c5df099b11cf1c4e54308a14deb346" id="r_a58c5df099b11cf1c4e54308a14deb346"><td class="memItemLeft" align="right" valign="top"><a class="el" href="cli__handler_8h.html#a4e9566e27550032c11cf88cb0f72d72a">cli_handler_error_e</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a58c5df099b11cf1c4e54308a14deb346">determinant</a> (double *result, double *matrix, uint8_t n)</td></tr>
+<tr class="memdesc:a58c5df099b11cf1c4e54308a14deb346"><td class="mdescLeft">&#160;</td><td class="mdescRight">Recursively calculates the determinant of a square matrix.  <br /></td></tr>
 <tr class="memitem:a8be9187b40fcc221c7cfbbca721a0ae0" id="r_a8be9187b40fcc221c7cfbbca721a0ae0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="cli__handler_8h.html#a4e9566e27550032c11cf88cb0f72d72a">cli_handler_error_e</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8be9187b40fcc221c7cfbbca721a0ae0">Arithmetic_Determinant_N</a> (<a class="el" href="structcli__handler__t.html">cli_handler_t</a> *cli_handler, char *saveptr)</td></tr>
-<tr class="memdesc:a8be9187b40fcc221c7cfbbca721a0ae0"><td class="mdescLeft">&#160;</td><td class="mdescRight">TODO.  <br /></td></tr>
+<tr class="memdesc:a8be9187b40fcc221c7cfbbca721a0ae0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles the "Determinant_N" CLI command.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
 <tr class="memitem:ad80658ab2b1b8dad9061e9de732cbde6" id="r_ad80658ab2b1b8dad9061e9de732cbde6"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structcli__handler__commands__t.html">cli_handler_commands_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad80658ab2b1b8dad9061e9de732cbde6">Arithmetic_Determinant_N_Cte</a></td></tr>
+<tr class="memdesc:ad80658ab2b1b8dad9061e9de732cbde6"><td class="mdescLeft">&#160;</td><td class="mdescRight">CLI command constant for the "Determinant_N" operation.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>TODO. </p>
-<p>TODO</p>
+<div class="textblock"><p>Implementation of the determinant calculation command for the CLI calculator. </p>
+<p>This module implements the "Determinant_N" command for the CLI calculator, allowing users to compute the determinant of a square matrix provided as a flat vector. It parses input tokens, checks matrix validity, performs the determinant calculation recursively, and prints the result to the CLI output stream.</p>
 <dl class="section author"><dt>Author</dt><dd>Emerson Isaias da Silva </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>21-09-2025 </dd></dl>
 
@@ -169,17 +175,113 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>TODO. </p>
+<p>Handles the "Determinant_N" CLI command. </p>
+<p>Parses the input stream for matrix values, checks if the matrix is square, and computes its determinant. Prints the result or an error message to the CLI output.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">cli_handler</td><td>Pointer of handler CLI </td></tr>
-    <tr><td class="paramname">token</td><td>Pointer of token receive </td></tr>
+    <tr><td class="paramname">cli_handler</td><td>Pointer to the CLI handler structure. </td></tr>
+    <tr><td class="paramname">saveptr</td><td>Pointer to the input stream to parse. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>TODO </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>CLI_HANDLER_ERROR_OK on success, error code otherwise. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="arithmetic__determinant__n_8c_source.html#l00047">47</a> of file <a class="el" href="arithmetic__determinant__n_8c_source.html">arithmetic_determinant_n.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="arithmetic__determinant__n_8c_source.html#l00073">73</a> of file <a class="el" href="arithmetic__determinant__n_8c_source.html">arithmetic_determinant_n.c</a>.</p>
+<div id="dynsection-1" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-1-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="arithmetic__determinant__n_8c_a8be9187b40fcc221c7cfbbca721a0ae0_cgraph.png" border="0" usemap="#aarithmetic__determinant__n_8c_a8be9187b40fcc221c7cfbbca721a0ae0_cgraph" loading="lazy" alt=""/></div>
+<map name="aarithmetic__determinant__n_8c_a8be9187b40fcc221c7cfbbca721a0ae0_cgraph" id="aarithmetic__determinant__n_8c_a8be9187b40fcc221c7cfbbca721a0ae0_cgraph">
+<area shape="rect" title="Handles the &quot;Determinant_N&quot; CLI command." alt="" coords="5,112,181,139"/>
+<area shape="rect" href="cli__handler_8c.html#a08e94bea6b19563502c78f513e8f41ed" title="Sends a formatted message to the CLI TX stream (thread&#45;safe)." alt="" coords="229,37,378,64"/>
+<area shape="poly" title=" " alt="" coords="130,109,228,73,246,67,248,72,230,79,132,114"/>
+<area shape="rect" href="arithmetic__determinant__n_8c.html#a58c5df099b11cf1c4e54308a14deb346" title="Recursively calculates the determinant of a square matrix." alt="" coords="259,112,348,139"/>
+<area shape="poly" title=" " alt="" coords="181,123,244,123,244,128,181,128"/>
+<area shape="rect" href="misc_8c.html#a68c5009d2808dec85d359c07ac03a593" title=" " alt="" coords="243,163,364,189"/>
+<area shape="poly" title=" " alt="" coords="152,137,231,156,230,161,151,142"/>
+<area shape="rect" href="mutex_8c.html#a2afa4ac9d94043fec3f0d361edb4d0d9" title="Locks the mutex handler (busy&#45;wait)." alt="" coords="451,5,543,32"/>
+<area shape="poly" title=" " alt="" coords="378,36,436,26,437,31,379,41"/>
+<area shape="rect" href="mutex_8c.html#aa332c26b7b4ca9d847c79a031c4b151f" title="Unlocks the mutex handler." alt="" coords="444,56,550,83"/>
+<area shape="poly" title=" " alt="" coords="379,55,429,60,429,65,378,61"/>
+<area shape="poly" title=" " alt="" coords="270,113,264,103,268,94,282,87,303,85,327,88,339,94,336,99,325,93,303,91,283,93,272,97,270,103,275,110"/>
+<area shape="rect" href="misc_8c.html#abb1b01d9805cf9b2354fcc13f7a787bc" title="Parses a string token into a double value." alt="" coords="426,125,568,152"/>
+<area shape="poly" title=" " alt="" coords="364,162,410,153,411,158,365,167"/>
+<area shape="rect" href="misc_8c.html#a26d79ae4b7a899d74727f732c288c069" title="Reentrant string tokenizer (public domain by Charlie Gordon)." alt="" coords="443,176,551,203"/>
+<area shape="poly" title=" " alt="" coords="365,178,427,182,427,187,364,183"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a58c5df099b11cf1c4e54308a14deb346" name="a58c5df099b11cf1c4e54308a14deb346"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a58c5df099b11cf1c4e54308a14deb346">&#9670;&#160;</a></span>determinant()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="cli__handler_8h.html#a4e9566e27550032c11cf88cb0f72d72a">cli_handler_error_e</a> determinant </td>
+          <td>(</td>
+          <td class="paramtype">double *</td>          <td class="paramname"><span class="paramname"><em>result</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *</td>          <td class="paramname"><span class="paramname"><em>matrix</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>n</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Recursively calculates the determinant of a square matrix. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">result</td><td>Pointer to store the determinant result. </td></tr>
+    <tr><td class="paramname">matrix</td><td>Pointer to the matrix data (flattened, row-major order). </td></tr>
+    <tr><td class="paramname">n</td><td>Size of the matrix (n x n). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>CLI_HANDLER_ERROR_OK on success, error code otherwise.</dd></dl>
+<p>Uses Laplace expansion to compute the determinant for matrices larger than 2x2. Allocates submatrices dynamically for recursion. Handles base cases for 1x1 and 2x2 matrices.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">result</td><td>Pointer to store the determinant result. </td></tr>
+    <tr><td class="paramname">matrix</td><td>Pointer to the matrix data (flattened, row-major order). </td></tr>
+    <tr><td class="paramname">n</td><td>Size of the matrix (n x n). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>CLI_HANDLER_ERROR_OK on success, error code otherwise. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="arithmetic__determinant__n_8c_source.html#l00116">116</a> of file <a class="el" href="arithmetic__determinant__n_8c_source.html">arithmetic_determinant_n.c</a>.</p>
+<div id="dynsection-2" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="arithmetic__determinant__n_8c_a58c5df099b11cf1c4e54308a14deb346_cgraph.png" border="0" usemap="#aarithmetic__determinant__n_8c_a58c5df099b11cf1c4e54308a14deb346_cgraph" loading="lazy" alt=""/></div>
+<map name="aarithmetic__determinant__n_8c_a58c5df099b11cf1c4e54308a14deb346_cgraph" id="aarithmetic__determinant__n_8c_a58c5df099b11cf1c4e54308a14deb346_cgraph">
+<area shape="rect" title="Recursively calculates the determinant of a square matrix." alt="" coords="5,29,95,56"/>
+<area shape="poly" title=" " alt="" coords="33,30,31,20,32,12,39,5,50,3,61,5,68,12,64,15,59,10,50,8,42,10,37,14,36,20,38,28"/>
+</map>
+</div>
+<div id="dynsection-3" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-3-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="arithmetic__determinant__n_8c_a58c5df099b11cf1c4e54308a14deb346_icgraph.png" border="0" usemap="#aarithmetic__determinant__n_8c_a58c5df099b11cf1c4e54308a14deb346_icgraph" loading="lazy" alt=""/></div>
+<map name="aarithmetic__determinant__n_8c_a58c5df099b11cf1c4e54308a14deb346_icgraph" id="aarithmetic__determinant__n_8c_a58c5df099b11cf1c4e54308a14deb346_icgraph">
+<area shape="rect" title="Recursively calculates the determinant of a square matrix." alt="" coords="229,29,318,56"/>
+<area shape="poly" title=" " alt="" coords="304,16,293,10,273,8,255,10,245,15,242,20,247,28,242,30,237,21,241,11,253,5,273,3,295,5,307,12"/>
+<area shape="rect" href="arithmetic__determinant__n_8c.html#a8be9187b40fcc221c7cfbbca721a0ae0" title="Handles the &quot;Determinant_N&quot; CLI command." alt="" coords="5,29,181,56"/>
+<area shape="poly" title=" " alt="" coords="213,45,181,45,181,40,213,40"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -197,12 +299,19 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <b>Initial value:</b><div class="fragment"><div class="line">= {</div>
 <div class="line">        .name = <span class="stringliteral">&quot;Determinant_N&quot;</span>,</div>
-<div class="line">        .description = <span class="stringliteral">&quot;Determinant N the value to ANS - Sintax \&quot;Determinant [0x00000000]\&quot;\n&quot;</span>,</div>
+<div class="line">        .description = <span class="stringliteral">&quot;Determinant N the value to ANS - Sintax \&quot;Determinant [double, double, ...]\&quot;\n&quot;</span>,</div>
 <div class="line">        .func_ptr = <a class="code hl_function" href="arithmetic__determinant__n_8h.html#a8be9187b40fcc221c7cfbbca721a0ae0">Arithmetic_Determinant_N</a></div>
 <div class="line">}</div>
-<div class="ttc" id="aarithmetic__determinant__n_8h_html_a8be9187b40fcc221c7cfbbca721a0ae0"><div class="ttname"><a href="arithmetic__determinant__n_8h.html#a8be9187b40fcc221c7cfbbca721a0ae0">Arithmetic_Determinant_N</a></div><div class="ttdeci">cli_handler_error_e Arithmetic_Determinant_N(cli_handler_t *cli_handler, char *saveptr)</div><div class="ttdoc">TODO.</div><div class="ttdef"><b>Definition</b> <a href="arithmetic__determinant__n_8c_source.html#l00047">arithmetic_determinant_n.c:47</a></div></div>
+<div class="ttc" id="aarithmetic__determinant__n_8h_html_a8be9187b40fcc221c7cfbbca721a0ae0"><div class="ttname"><a href="arithmetic__determinant__n_8h.html#a8be9187b40fcc221c7cfbbca721a0ae0">Arithmetic_Determinant_N</a></div><div class="ttdeci">cli_handler_error_e Arithmetic_Determinant_N(cli_handler_t *cli_handler, char *saveptr)</div><div class="ttdoc">Handles the &quot;Determinant_N&quot; CLI command.</div><div class="ttdef"><b>Definition</b> <a href="arithmetic__determinant__n_8c_source.html#l00073">arithmetic_determinant_n.c:73</a></div></div>
 </div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="arithmetic__determinant__n_8c_source.html#l00034">34</a> of file <a class="el" href="arithmetic__determinant__n_8c_source.html">arithmetic_determinant_n.c</a>.</p>
+<p>CLI command constant for the "Determinant_N" operation. </p>
+<ul>
+<li>name: Command name ("Determinant_N")</li>
+<li>description: Command description and usage syntax</li>
+<li>func_ptr: Pointer to the function that implements the command </li>
+</ul>
+
+<p class="definition">Definition at line <a class="el" href="arithmetic__determinant__n_8c_source.html#l00056">56</a> of file <a class="el" href="arithmetic__determinant__n_8c_source.html">arithmetic_determinant_n.c</a>.</p>
 
 </div>
 </div>

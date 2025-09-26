@@ -1,6 +1,6 @@
 <map id="command_help" name="command_help">
-<area shape="rect" id="Node000001" title="This command return all information about others commands." alt="" coords="5,31,115,57"/>
-<area shape="rect" id="Node000002" href="$cli__handler_8c.html#a08e94bea6b19563502c78f513e8f41ed" title=" " alt="" coords="163,31,312,57"/>
+<area shape="rect" id="Node000001" title="Command: Show help for all available commands." alt="" coords="5,31,115,57"/>
+<area shape="rect" id="Node000002" href="$cli__handler_8c.html#a08e94bea6b19563502c78f513e8f41ed" title="Sends a formatted message to the CLI TX stream (thread&#45;safe)." alt="" coords="163,31,312,57"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="115,41,147,41,147,47,115,47"/>
 <area shape="rect" id="Node000003" href="$mutex_8c.html#a2afa4ac9d94043fec3f0d361edb4d0d9" title="Locks the mutex handler (busy&#45;wait)." alt="" coords="366,5,459,32"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="312,31,351,25,352,30,313,36"/>

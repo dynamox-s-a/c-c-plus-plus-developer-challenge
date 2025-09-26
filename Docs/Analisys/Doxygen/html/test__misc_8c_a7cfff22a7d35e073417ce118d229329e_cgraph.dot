@@ -9,5 +9,5 @@ digraph "test_Misc_Parser_Integer"
   Node1 -> Node2 [id="edge1_Node000001_Node000002",color="steelblue1",style="solid",tooltip=" "];
   Node2 [id="Node000002",label="get_parser_uint_internal",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$misc_8c.html#ab9a46bba8f180f1d34eae69f3b2f3088",tooltip="Returns a pointer to the unsigned integer parser function."];
   Node2 -> Node3 [id="edge2_Node000002_Node000003",color="steelblue1",style="solid",tooltip=" "];
-  Node3 [id="Node000003",label="Misc_Parser_Uint",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$misc_8c.html#a6b5224be201be73da4cd3fca715eb457",tooltip="Parses a string token into a double value."];
+  Node3 [id="Node000003",label="Misc_Parser_Uint",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$misc_8c.html#a6b5224be201be73da4cd3fca715eb457",tooltip="Parses a string token into an unsigned 32-bit integer value."];
 }

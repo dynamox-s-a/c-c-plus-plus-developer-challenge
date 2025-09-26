@@ -1,12 +1,12 @@
 <map id="Cli_Handler_Check" name="Cli_Handler_Check">
-<area shape="rect" id="Node000001" title="Is a CLI handler, case multithread will stay in loop." alt="" coords="5,55,140,82"/>
-<area shape="rect" id="Node000002" href="$cli__handler_8c.html#ae1e4e87a1b834acd36551cb7222eee45" title="This function will check if receive a correct command and process." alt="" coords="188,55,325,82"/>
+<area shape="rect" id="Node000001" title="Main CLI handler loop. Processes received commands." alt="" coords="5,55,140,82"/>
+<area shape="rect" id="Node000002" href="$cli__handler_8c.html#ae1e4e87a1b834acd36551cb7222eee45" title="Checks and processes a received command from the RX stream." alt="" coords="188,55,325,82"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="140,66,172,66,172,71,140,71"/>
 <area shape="rect" id="Node000004" href="$mutex_8c.html#a2afa4ac9d94043fec3f0d361edb4d0d9" title="Locks the mutex handler (busy&#45;wait)." alt="" coords="577,55,669,82"/>
 <area shape="poly" id="edge6_Node000001_Node000004" title=" " alt="" coords="114,52,191,31,293,11,349,5,408,3,466,6,523,16,558,28,590,44,587,49,556,33,522,21,465,11,408,8,350,10,293,16,192,36,115,57"/>
 <area shape="rect" id="Node000005" href="$mutex_8c.html#aa332c26b7b4ca9d847c79a031c4b151f" title="Unlocks the mutex handler." alt="" coords="570,106,676,133"/>
 <area shape="poly" id="edge7_Node000001_Node000005" title=" " alt="" coords="133,80,188,92,280,108,373,117,468,120,555,119,555,125,468,125,373,122,280,113,187,97,132,85"/>
-<area shape="rect" id="Node000003" href="$cli__handler_8c.html#a08e94bea6b19563502c78f513e8f41ed" title=" " alt="" coords="373,81,522,107"/>
+<area shape="rect" id="Node000003" href="$cli__handler_8c.html#a08e94bea6b19563502c78f513e8f41ed" title="Sends a formatted message to the CLI TX stream (thread&#45;safe)." alt="" coords="373,81,522,107"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="326,75,358,80,358,85,325,81"/>
 <area shape="rect" id="Node000006" href="$misc_8c.html#a26d79ae4b7a899d74727f732c288c069" title="Reentrant string tokenizer (public domain by Charlie Gordon)." alt="" coords="394,30,502,57"/>
 <area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="325,57,378,50,379,55,326,62"/>

@@ -1,0 +1,18 @@
+<map id="Arithmetic_Determinant_N" name="Arithmetic_Determinant_N">
+<area shape="rect" id="Node000001" title="Handles the &quot;Determinant_N&quot; CLI command." alt="" coords="5,112,181,139"/>
+<area shape="rect" id="Node000002" href="$cli__handler_8c.html#a08e94bea6b19563502c78f513e8f41ed" title="Sends a formatted message to the CLI TX stream (thread&#45;safe)." alt="" coords="229,37,378,64"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="130,109,228,73,246,67,248,72,230,79,132,114"/>
+<area shape="rect" id="Node000005" href="$arithmetic__determinant__n_8c.html#a58c5df099b11cf1c4e54308a14deb346" title="Recursively calculates the determinant of a square matrix." alt="" coords="259,112,348,139"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="181,123,244,123,244,128,181,128"/>
+<area shape="rect" id="Node000006" href="$misc_8c.html#a68c5009d2808dec85d359c07ac03a593" title=" " alt="" coords="243,163,364,189"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="152,137,231,156,230,161,151,142"/>
+<area shape="rect" id="Node000003" href="$mutex_8c.html#a2afa4ac9d94043fec3f0d361edb4d0d9" title="Locks the mutex handler (busy&#45;wait)." alt="" coords="451,5,543,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="378,36,436,26,437,31,379,41"/>
+<area shape="rect" id="Node000004" href="$mutex_8c.html#aa332c26b7b4ca9d847c79a031c4b151f" title="Unlocks the mutex handler." alt="" coords="444,56,550,83"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="379,55,429,60,429,65,378,61"/>
+<area shape="poly" id="edge5_Node000005_Node000005" title=" " alt="" coords="270,113,264,103,268,94,282,87,303,85,327,88,339,94,336,99,325,93,303,91,283,93,272,97,270,103,275,110"/>
+<area shape="rect" id="Node000007" href="$misc_8c.html#abb1b01d9805cf9b2354fcc13f7a787bc" title="Parses a string token into a double value." alt="" coords="426,125,568,152"/>
+<area shape="poly" id="edge7_Node000006_Node000007" title=" " alt="" coords="364,162,410,153,411,158,365,167"/>
+<area shape="rect" id="Node000008" href="$misc_8c.html#a26d79ae4b7a899d74727f732c288c069" title="Reentrant string tokenizer (public domain by Charlie Gordon)." alt="" coords="443,176,551,203"/>
+<area shape="poly" id="edge8_Node000006_Node000008" title=" " alt="" coords="365,178,427,182,427,187,364,183"/>
+</map>

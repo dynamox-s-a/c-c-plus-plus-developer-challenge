@@ -142,9 +142,10 @@ Functions</h2></td></tr>
 <tr class="memitem:abb1b01d9805cf9b2354fcc13f7a787bc" id="r_abb1b01d9805cf9b2354fcc13f7a787bc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="misc_8h.html#a25b115665f3c765f38bee6102330aba5">misc_error_e</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abb1b01d9805cf9b2354fcc13f7a787bc">Misc_Parser_Double</a> (double *value, char *token)</td></tr>
 <tr class="memdesc:abb1b01d9805cf9b2354fcc13f7a787bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parses a string token into a double value.  <br /></td></tr>
 <tr class="memitem:a6b5224be201be73da4cd3fca715eb457" id="r_a6b5224be201be73da4cd3fca715eb457"><td class="memItemLeft" align="right" valign="top"><a class="el" href="misc_8h.html#a25b115665f3c765f38bee6102330aba5">misc_error_e</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6b5224be201be73da4cd3fca715eb457">Misc_Parser_Uint</a> (uint32_t *value, char *token)</td></tr>
-<tr class="memdesc:a6b5224be201be73da4cd3fca715eb457"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parses a string token into a double value.  <br /></td></tr>
+<tr class="memdesc:a6b5224be201be73da4cd3fca715eb457"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parses a string token into an unsigned 32-bit integer value.  <br /></td></tr>
 <tr class="memitem:a68c5009d2808dec85d359c07ac03a593" id="r_a68c5009d2808dec85d359c07ac03a593"><td class="memItemLeft" align="right" valign="top"><a class="el" href="misc_8h.html#a25b115665f3c765f38bee6102330aba5">misc_error_e</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a68c5009d2808dec85d359c07ac03a593">Misc_Get_Vector</a> (<a class="el" href="structmisc__vector__t.html">misc_vector_t</a> *vector, char *saveptr)</td></tr>
 <tr class="memitem:a11fd5e4c2d3fdfa47e049fa60d420e57" id="r_a11fd5e4c2d3fdfa47e049fa60d420e57"><td class="memItemLeft" align="right" valign="top"><a class="el" href="misc_8h.html#a25b115665f3c765f38bee6102330aba5">misc_error_e</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a11fd5e4c2d3fdfa47e049fa60d420e57">Misc_Free_Vector</a> (<a class="el" href="structmisc__vector__t.html">misc_vector_t</a> *vector)</td></tr>
+<tr class="memdesc:a11fd5e4c2d3fdfa47e049fa60d420e57"><td class="mdescLeft">&#160;</td><td class="mdescRight">Frees the memory allocated for a <a class="el" href="structmisc__vector__t.html">misc_vector_t</a> structure.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Utility functions for string parsing and conversion. </p>
@@ -152,6 +153,7 @@ Functions</h2></td></tr>
 <li>A reentrant string tokenizer (strtok_r)</li>
 <li>String to double and unsigned integer parsers with hexadecimal support</li>
 <li>Getter functions to retrieve function pointers for unit testing</li>
+<li>Dynamic vector allocation and freeing for parsed values</li>
 </ul>
 <dl class="section author"><dt>Author</dt><dd>Emerson Isaias da Silva </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>21-09-2025 </dd></dl>
@@ -175,7 +177,7 @@ Functions</h2></td></tr>
 <b>Value:</b><div class="fragment"><div class="line"><span class="keywordflow">do</span> { <span class="keywordflow">if</span> ((misc_ptr) == NULL) <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="misc_8h.html#a25b115665f3c765f38bee6102330aba5acb2b3173f8bc67db45c557b28fc5249d">MISC_ERROR_PARM</a>; } <span class="keywordflow">while</span>(0)</div>
 <div class="ttc" id="amisc_8h_html_a25b115665f3c765f38bee6102330aba5acb2b3173f8bc67db45c557b28fc5249d"><div class="ttname"><a href="misc_8h.html#a25b115665f3c765f38bee6102330aba5acb2b3173f8bc67db45c557b28fc5249d">MISC_ERROR_PARM</a></div><div class="ttdeci">@ MISC_ERROR_PARM</div><div class="ttdef"><b>Definition</b> <a href="misc_8h_source.html#l00043">misc.h:43</a></div></div>
 </div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="misc_8c_source.html#l00029">29</a> of file <a class="el" href="misc_8c_source.html">misc.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="misc_8c_source.html#l00030">30</a> of file <a class="el" href="misc_8c_source.html">misc.c</a>.</p>
 
 </div>
 </div>
@@ -198,7 +200,7 @@ Functions</h2></td></tr>
 <p>Returns a pointer to the double parser function. </p>
 <dl class="section return"><dt>Returns</dt><dd>Function pointer to Misc_Parser_Double. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="misc_8c_source.html#l00059">59</a> of file <a class="el" href="misc_8c_source.html">misc.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="misc_8c_source.html#l00060">60</a> of file <a class="el" href="misc_8c_source.html">misc.c</a>.</p>
 <div id="dynsection-1" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">
 </div>
@@ -249,7 +251,7 @@ Functions</h2></td></tr>
 <p>Returns a pointer to the unsigned integer parser function. </p>
 <dl class="section return"><dt>Returns</dt><dd>Function pointer to Misc_Parser_Uint. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="misc_8c_source.html#l00067">67</a> of file <a class="el" href="misc_8c_source.html">misc.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="misc_8c_source.html#l00068">68</a> of file <a class="el" href="misc_8c_source.html">misc.c</a>.</p>
 <div id="dynsection-3" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-3-summary" class="dynsummary" style="display:block;">
 </div>
@@ -257,7 +259,7 @@ Functions</h2></td></tr>
 <div class="center"><img src="misc_8c_ab9a46bba8f180f1d34eae69f3b2f3088_cgraph.png" border="0" usemap="#amisc_8c_ab9a46bba8f180f1d34eae69f3b2f3088_cgraph" loading="lazy" alt=""/></div>
 <map name="amisc_8c_ab9a46bba8f180f1d34eae69f3b2f3088_cgraph" id="amisc_8c_ab9a46bba8f180f1d34eae69f3b2f3088_cgraph">
 <area shape="rect" title="Returns a pointer to the unsigned integer parser function." alt="" coords="5,5,165,32"/>
-<area shape="rect" href="misc_8c.html#a6b5224be201be73da4cd3fca715eb457" title="Parses a string token into a double value." alt="" coords="213,5,338,32"/>
+<area shape="rect" href="misc_8c.html#a6b5224be201be73da4cd3fca715eb457" title="Parses a string token into an unsigned 32&#45;bit integer value." alt="" coords="213,5,338,32"/>
 <area shape="poly" title=" " alt="" coords="165,16,197,16,197,21,165,21"/>
 </map>
 </div>
@@ -297,7 +299,7 @@ Functions</h2></td></tr>
 <p>Returns a pointer to the reentrant string tokenizer function. </p>
 <dl class="section return"><dt>Returns</dt><dd>Function pointer to Misc_Strtok_R. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="misc_8c_source.html#l00051">51</a> of file <a class="el" href="misc_8c_source.html">misc.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="misc_8c_source.html#l00052">52</a> of file <a class="el" href="misc_8c_source.html">misc.c</a>.</p>
 <div id="dynsection-5" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-5-summary" class="dynsummary" style="display:block;">
 </div>
@@ -342,7 +344,39 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="misc_8c_source.html#l00192">192</a> of file <a class="el" href="misc_8c_source.html">misc.c</a>.</p>
+<p>Frees the memory allocated for a <a class="el" href="structmisc__vector__t.html">misc_vector_t</a> structure. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vector</td><td>Pointer to the <a class="el" href="structmisc__vector__t.html">misc_vector_t</a> structure to free. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>MISC_ERROR_OK. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="misc_8c_source.html#l00197">197</a> of file <a class="el" href="misc_8c_source.html">misc.c</a>.</p>
+<div id="dynsection-7" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-7-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-7-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="misc_8c_a11fd5e4c2d3fdfa47e049fa60d420e57_icgraph.png" border="0" usemap="#amisc_8c_a11fd5e4c2d3fdfa47e049fa60d420e57_icgraph" loading="lazy" alt=""/></div>
+<map name="amisc_8c_a11fd5e4c2d3fdfa47e049fa60d420e57_icgraph" id="amisc_8c_a11fd5e4c2d3fdfa47e049fa60d420e57_icgraph">
+<area shape="rect" title="Frees the memory allocated for a misc_vector_t structure." alt="" coords="195,157,321,184"/>
+<area shape="rect" href="arithmetic__add_8c.html#aabab6eb58920b72696b44766f352d087" title="Implements the &quot;Add&quot; CLI command." alt="" coords="21,5,131,32"/>
+<area shape="poly" title=" " alt="" coords="238,146,199,96,173,69,145,46,124,35,127,30,148,42,177,65,203,92,242,143"/>
+<area shape="rect" href="arithmetic__divide_8c.html#a496b3a77db45806c3ca59439169b1e2f" title="Implements the &quot;Divide&quot; CLI command." alt="" coords="14,56,138,83"/>
+<area shape="poly" title=" " alt="" coords="226,150,188,123,145,97,120,86,122,81,148,92,191,118,229,145"/>
+<area shape="rect" href="arithmetic__log__n_8c.html#aee95770337ddfa4081b58fcfed717777" title="Implements the &quot;Log_N&quot; CLI command." alt="" coords="13,107,139,133"/>
+<area shape="poly" title=" " alt="" coords="192,155,126,136,127,131,193,150"/>
+<area shape="rect" href="arithmetic__multiply_8c.html#af482ae8bde65fd4dbdeb93aa304f525f" title="Implements the &quot;Multiply&quot; CLI command." alt="" coords="10,157,142,184"/>
+<area shape="poly" title=" " alt="" coords="179,173,142,173,142,168,179,168"/>
+<area shape="rect" href="arithmetic__power__n_8c.html#a407644e2eabb009c1f0461eef35b02f8" title="Implements the &quot;Power_N&quot; CLI command." alt="" coords="5,208,147,235"/>
+<area shape="poly" title=" " alt="" coords="193,191,127,210,126,205,192,186"/>
+<area shape="rect" href="arithmetic__root__n_8c.html#ae6e9b070a0fd2a1e3d9740d5affd700f" title="Implements the &quot;Root_N&quot; CLI command." alt="" coords="10,259,142,285"/>
+<area shape="poly" title=" " alt="" coords="229,196,191,223,148,249,122,261,120,256,145,244,188,219,226,192"/>
+<area shape="rect" href="arithmetic__subtract_8c.html#ae4386765635940545726bb78792e66d2" title="Implements the &quot;Subtract&quot; CLI command." alt="" coords="8,309,144,336"/>
+<area shape="poly" title=" " alt="" coords="242,199,203,249,177,276,148,300,127,311,124,306,145,295,173,272,199,246,238,195"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -365,11 +399,11 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="misc_8c_source.html#l00163">163</a> of file <a class="el" href="misc_8c_source.html">misc.c</a>.</p>
-<div id="dynsection-7" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-7-summary" class="dynsummary" style="display:block;">
+<p class="definition">Definition at line <a class="el" href="misc_8c_source.html#l00164">164</a> of file <a class="el" href="misc_8c_source.html">misc.c</a>.</p>
+<div id="dynsection-8" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-8-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-7-content" class="dyncontent" style="display:none;">
+<div id="dynsection-8-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="misc_8c_a68c5009d2808dec85d359c07ac03a593_cgraph.png" border="0" usemap="#amisc_8c_a68c5009d2808dec85d359c07ac03a593_cgraph" loading="lazy" alt=""/></div>
 <map name="amisc_8c_a68c5009d2808dec85d359c07ac03a593_cgraph" id="amisc_8c_a68c5009d2808dec85d359c07ac03a593_cgraph">
 <area shape="rect" title=" " alt="" coords="5,31,127,57"/>
@@ -379,25 +413,29 @@ Functions</h2></td></tr>
 <area shape="poly" title=" " alt="" coords="128,50,176,57,176,62,127,55"/>
 </map>
 </div>
-<div id="dynsection-8" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-8-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-9" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-9-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-8-content" class="dyncontent" style="display:none;">
+<div id="dynsection-9-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="misc_8c_a68c5009d2808dec85d359c07ac03a593_icgraph.png" border="0" usemap="#amisc_8c_a68c5009d2808dec85d359c07ac03a593_icgraph" loading="lazy" alt=""/></div>
 <map name="amisc_8c_a68c5009d2808dec85d359c07ac03a593_icgraph" id="amisc_8c_a68c5009d2808dec85d359c07ac03a593_icgraph">
-<area shape="rect" title=" " alt="" coords="195,132,316,159"/>
-<area shape="rect" href="arithmetic__add_8c.html#aabab6eb58920b72696b44766f352d087" title="Implements the &quot;Add&quot; CLI command." alt="" coords="21,5,131,32"/>
-<area shape="poly" title=" " alt="" coords="231,122,193,84,145,46,123,35,125,30,148,42,197,80,235,118"/>
-<area shape="rect" href="arithmetic__divide_8c.html#a496b3a77db45806c3ca59439169b1e2f" title="Implements the &quot;Divide&quot; CLI command." alt="" coords="14,56,138,83"/>
-<area shape="poly" title=" " alt="" coords="212,127,146,97,117,86,119,81,148,92,214,122"/>
-<area shape="rect" href="arithmetic__log__n_8c.html#aee95770337ddfa4081b58fcfed717777" title="Implements the &quot;Log_N&quot; CLI command." alt="" coords="13,107,139,133"/>
-<area shape="poly" title=" " alt="" coords="179,137,139,131,139,126,180,132"/>
-<area shape="rect" href="arithmetic__power__n_8c.html#a407644e2eabb009c1f0461eef35b02f8" title="Implements the &quot;Power_N&quot; CLI command." alt="" coords="5,157,147,184"/>
-<area shape="poly" title=" " alt="" coords="180,159,147,163,146,158,179,153"/>
-<area shape="rect" href="arithmetic__root__n_8c.html#ae6e9b070a0fd2a1e3d9740d5affd700f" title="Implements the &quot;Root_N&quot; CLI command." alt="" coords="10,208,142,235"/>
-<area shape="poly" title=" " alt="" coords="214,168,148,198,119,210,117,205,146,194,212,163"/>
-<area shape="rect" href="arithmetic__subtract_8c.html#ae4386765635940545726bb78792e66d2" title="Implements the &quot;Subtract&quot; CLI command." alt="" coords="8,259,144,285"/>
-<area shape="poly" title=" " alt="" coords="235,172,197,211,148,249,125,260,123,256,145,244,193,207,231,168"/>
+<area shape="rect" title=" " alt="" coords="229,183,350,209"/>
+<area shape="rect" href="arithmetic__add_8c.html#aabab6eb58920b72696b44766f352d087" title="Implements the &quot;Add&quot; CLI command." alt="" coords="38,5,148,32"/>
+<area shape="poly" title=" " alt="" coords="273,170,237,107,210,74,179,46,147,31,150,26,182,42,214,70,241,104,278,167"/>
+<area shape="rect" href="arithmetic__determinant__n_8c.html#a8be9187b40fcc221c7cfbbca721a0ae0" title="Handles the &quot;Determinant_N&quot; CLI command." alt="" coords="5,56,181,83"/>
+<area shape="poly" title=" " alt="" coords="265,172,228,133,179,97,154,86,156,81,182,92,231,129,269,169"/>
+<area shape="rect" href="arithmetic__divide_8c.html#a496b3a77db45806c3ca59439169b1e2f" title="Implements the &quot;Divide&quot; CLI command." alt="" coords="31,107,155,133"/>
+<area shape="poly" title=" " alt="" coords="247,178,180,148,146,137,148,131,182,143,249,173"/>
+<area shape="rect" href="arithmetic__log__n_8c.html#aee95770337ddfa4081b58fcfed717777" title="Implements the &quot;Log_N&quot; CLI command." alt="" coords="30,157,156,184"/>
+<area shape="poly" title=" " alt="" coords="213,189,156,181,157,176,214,184"/>
+<area shape="rect" href="arithmetic__multiply_8c.html#af482ae8bde65fd4dbdeb93aa304f525f" title="Implements the &quot;Multiply&quot; CLI command." alt="" coords="27,208,159,235"/>
+<area shape="poly" title=" " alt="" coords="213,208,160,215,159,210,213,203"/>
+<area shape="rect" href="arithmetic__power__n_8c.html#a407644e2eabb009c1f0461eef35b02f8" title="Implements the &quot;Power_N&quot; CLI command." alt="" coords="22,259,164,285"/>
+<area shape="poly" title=" " alt="" coords="249,219,182,249,148,261,146,255,180,244,247,214"/>
+<area shape="rect" href="arithmetic__root__n_8c.html#ae6e9b070a0fd2a1e3d9740d5affd700f" title="Implements the &quot;Root_N&quot; CLI command." alt="" coords="27,309,159,336"/>
+<area shape="poly" title=" " alt="" coords="269,223,231,263,182,300,156,311,154,306,179,295,228,259,265,220"/>
+<area shape="rect" href="arithmetic__subtract_8c.html#ae4386765635940545726bb78792e66d2" title="Implements the &quot;Subtract&quot; CLI command." alt="" coords="25,360,161,387"/>
+<area shape="poly" title=" " alt="" coords="278,225,241,288,214,322,182,350,161,362,158,357,179,346,210,318,237,285,273,222"/>
 </map>
 </div>
 
@@ -433,41 +471,43 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>MISC_ERROR_OK on success, MISC_ERROR_PARM if a parameter is NULL. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="misc_8c_source.html#l00122">122</a> of file <a class="el" href="misc_8c_source.html">misc.c</a>.</p>
-<div id="dynsection-9" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-9-summary" class="dynsummary" style="display:block;">
+<p class="definition">Definition at line <a class="el" href="misc_8c_source.html#l00123">123</a> of file <a class="el" href="misc_8c_source.html">misc.c</a>.</p>
+<div id="dynsection-10" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-10-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-9-content" class="dyncontent" style="display:none;">
+<div id="dynsection-10-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="misc_8c_abb1b01d9805cf9b2354fcc13f7a787bc_icgraph.png" border="0" usemap="#amisc_8c_abb1b01d9805cf9b2354fcc13f7a787bc_icgraph" loading="lazy" alt=""/></div>
 <map name="amisc_8c_abb1b01d9805cf9b2354fcc13f7a787bc_icgraph" id="amisc_8c_abb1b01d9805cf9b2354fcc13f7a787bc_icgraph">
-<area shape="rect" title="Parses a string token into a double value." alt="" coords="676,64,818,91"/>
-<area shape="rect" href="arithmetic__multiply_8c.html#af482ae8bde65fd4dbdeb93aa304f525f" title="Implements the &quot;Multiply&quot; CLI command." alt="" coords="473,13,606,40"/>
-<area shape="poly" title=" " alt="" coords="674,62,596,43,598,38,675,57"/>
-<area shape="rect" href="misc_8c.html#a61644e5eac7e4bc31a54f9aa02ffb823" title="Returns a pointer to the double parser function." alt="" coords="451,64,628,91"/>
-<area shape="poly" title=" " alt="" coords="660,80,628,80,628,75,660,75"/>
-<area shape="rect" href="misc_8c.html#a68c5009d2808dec85d359c07ac03a593" title=" " alt="" coords="479,224,600,251"/>
-<area shape="poly" title=" " alt="" coords="718,102,560,226,557,222,714,98"/>
-<area shape="rect" href="test__misc_8c.html#a1bf8fab5333d7b5925acfef5eed4caad" title="TODO." alt="" coords="232,5,403,32"/>
-<area shape="poly" title=" " alt="" coords="471,62,370,35,372,30,473,57"/>
-<area shape="rect" href="test__misc_8c.html#aeae02676e81724524ca1507f7a15f105" title="TODO." alt="" coords="232,56,403,99"/>
-<area shape="poly" title=" " alt="" coords="436,80,404,80,404,75,436,75"/>
+<area shape="rect" title="Parses a string token into a double value." alt="" coords="680,169,822,196"/>
+<area shape="rect" href="misc_8c.html#a61644e5eac7e4bc31a54f9aa02ffb823" title="Returns a pointer to the double parser function." alt="" coords="455,64,632,91"/>
+<area shape="poly" title=" " alt="" coords="708,164,570,93,573,89,710,159"/>
+<area shape="rect" href="misc_8c.html#a68c5009d2808dec85d359c07ac03a593" title=" " alt="" coords="483,275,604,301"/>
+<area shape="poly" title=" " alt="" coords="710,206,573,277,570,272,708,201"/>
+<area shape="rect" href="test__misc_8c.html#a1bf8fab5333d7b5925acfef5eed4caad" title="TODO." alt="" coords="234,5,405,32"/>
+<area shape="poly" title=" " alt="" coords="475,62,373,35,374,30,476,57"/>
+<area shape="rect" href="test__misc_8c.html#aeae02676e81724524ca1507f7a15f105" title="TODO." alt="" coords="234,56,405,99"/>
+<area shape="poly" title=" " alt="" coords="440,80,406,80,406,75,440,75"/>
 <area shape="rect" href="test__misc_8c.html#a9877dad8dda5b9bee37a33861e2c06e6" title="TODO." alt="" coords="103,35,184,61"/>
-<area shape="poly" title=" " alt="" coords="220,38,185,44,184,39,219,33"/>
+<area shape="poly" title=" " alt="" coords="221,38,185,44,184,39,220,33"/>
 <area shape="rect" href="test_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="TODO." alt="" coords="5,35,55,61"/>
 <area shape="poly" title=" " alt="" coords="87,51,55,51,55,45,87,45"/>
-<area shape="poly" title=" " alt="" coords="216,63,184,57,185,52,217,58"/>
-<area shape="rect" href="arithmetic__add_8c.html#aabab6eb58920b72696b44766f352d087" title="Implements the &quot;Add&quot; CLI command." alt="" coords="262,123,373,149"/>
-<area shape="poly" title=" " alt="" coords="503,218,456,190,402,164,371,152,373,147,404,159,458,186,506,213"/>
-<area shape="rect" href="arithmetic__divide_8c.html#a496b3a77db45806c3ca59439169b1e2f" title="Implements the &quot;Divide&quot; CLI command." alt="" coords="256,173,380,200"/>
-<area shape="poly" title=" " alt="" coords="463,223,379,203,380,198,464,217"/>
-<area shape="rect" href="arithmetic__log__n_8c.html#aee95770337ddfa4081b58fcfed717777" title="Implements the &quot;Log_N&quot; CLI command." alt="" coords="255,224,380,251"/>
-<area shape="poly" title=" " alt="" coords="463,240,381,240,381,235,463,235"/>
-<area shape="rect" href="arithmetic__power__n_8c.html#a407644e2eabb009c1f0461eef35b02f8" title="Implements the &quot;Power_N&quot; CLI command." alt="" coords="247,275,388,301"/>
-<area shape="poly" title=" " alt="" coords="464,257,380,277,379,271,463,252"/>
-<area shape="rect" href="arithmetic__root__n_8c.html#ae6e9b070a0fd2a1e3d9740d5affd700f" title="Implements the &quot;Root_N&quot; CLI command." alt="" coords="252,325,384,352"/>
-<area shape="poly" title=" " alt="" coords="506,262,458,289,404,316,373,327,371,322,402,311,456,284,503,257"/>
-<area shape="rect" href="arithmetic__subtract_8c.html#ae4386765635940545726bb78792e66d2" title="Implements the &quot;Subtract&quot; CLI command." alt="" coords="250,376,386,403"/>
-<area shape="poly" title=" " alt="" coords="520,265,471,316,439,343,405,366,379,378,377,373,402,362,436,339,467,312,516,261"/>
+<area shape="poly" title=" " alt="" coords="218,63,184,57,185,52,219,58"/>
+<area shape="rect" href="arithmetic__add_8c.html#aabab6eb58920b72696b44766f352d087" title="Implements the &quot;Add&quot; CLI command." alt="" coords="264,123,375,149"/>
+<area shape="poly" title=" " alt="" coords="520,264,471,213,440,187,406,164,374,150,376,145,409,159,443,182,475,209,524,261"/>
+<area shape="rect" href="arithmetic__determinant__n_8c.html#a8be9187b40fcc221c7cfbbca721a0ae0" title="Handles the &quot;Determinant_N&quot; CLI command." alt="" coords="232,173,407,200"/>
+<area shape="poly" title=" " alt="" coords="507,268,460,241,406,214,375,203,376,198,408,210,462,236,510,264"/>
+<area shape="rect" href="arithmetic__divide_8c.html#a496b3a77db45806c3ca59439169b1e2f" title="Implements the &quot;Divide&quot; CLI command." alt="" coords="258,224,382,251"/>
+<area shape="poly" title=" " alt="" coords="467,274,381,254,383,249,468,268"/>
+<area shape="rect" href="arithmetic__log__n_8c.html#aee95770337ddfa4081b58fcfed717777" title="Implements the &quot;Log_N&quot; CLI command." alt="" coords="257,275,382,301"/>
+<area shape="poly" title=" " alt="" coords="467,291,383,291,383,285,467,285"/>
+<area shape="rect" href="arithmetic__multiply_8c.html#af482ae8bde65fd4dbdeb93aa304f525f" title="Implements the &quot;Multiply&quot; CLI command." alt="" coords="254,325,386,352"/>
+<area shape="poly" title=" " alt="" coords="468,308,383,327,381,322,467,302"/>
+<area shape="rect" href="arithmetic__power__n_8c.html#a407644e2eabb009c1f0461eef35b02f8" title="Implements the &quot;Power_N&quot; CLI command." alt="" coords="249,376,390,403"/>
+<area shape="poly" title=" " alt="" coords="510,312,462,340,408,366,376,378,375,373,406,362,460,335,507,308"/>
+<area shape="rect" href="arithmetic__root__n_8c.html#ae6e9b070a0fd2a1e3d9740d5affd700f" title="Implements the &quot;Root_N&quot; CLI command." alt="" coords="254,427,386,453"/>
+<area shape="poly" title=" " alt="" coords="524,315,475,367,443,394,409,417,383,428,381,424,406,412,440,389,471,363,520,312"/>
+<area shape="rect" href="arithmetic__subtract_8c.html#ae4386765635940545726bb78792e66d2" title="Implements the &quot;Subtract&quot; CLI command." alt="" coords="252,477,388,504"/>
+<area shape="poly" title=" " alt="" coords="531,316,511,351,484,392,449,433,409,468,387,479,384,474,406,463,446,429,480,388,507,348,526,314"/>
 </map>
 </div>
 
@@ -492,26 +532,26 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Parses a string token into a double value. </p>
+<p>Parses a string token into an unsigned 32-bit integer value. </p>
 <pre class="fragment">   Supports decimal and hexadecimal (prefix "0x" or "0X") formats.
 </pre><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">value</td><td>Pointer to the double to store the result. </td></tr>
+    <tr><td class="paramname">value</td><td>Pointer to the uint32_t to store the result. </td></tr>
     <tr><td class="paramname">token</td><td>String token to parse. </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>MISC_ERROR_OK on success, MISC_ERROR_PARM if a parameter is NULL. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="misc_8c_source.html#l00147">147</a> of file <a class="el" href="misc_8c_source.html">misc.c</a>.</p>
-<div id="dynsection-10" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-10-summary" class="dynsummary" style="display:block;">
+<p class="definition">Definition at line <a class="el" href="misc_8c_source.html#l00148">148</a> of file <a class="el" href="misc_8c_source.html">misc.c</a>.</p>
+<div id="dynsection-11" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-11-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-10-content" class="dyncontent" style="display:none;">
+<div id="dynsection-11-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="misc_8c_a6b5224be201be73da4cd3fca715eb457_icgraph.png" border="0" usemap="#amisc_8c_a6b5224be201be73da4cd3fca715eb457_icgraph" loading="lazy" alt=""/></div>
 <map name="amisc_8c_a6b5224be201be73da4cd3fca715eb457_icgraph" id="amisc_8c_a6b5224be201be73da4cd3fca715eb457_icgraph">
-<area shape="rect" title="Parses a string token into a double value." alt="" coords="658,31,783,57"/>
-<area shape="rect" href="cli__handler_8c.html#a4f70031e038bd479c6946c80475765a7" title="This command change the precision output stream of ANS." alt="" coords="465,5,595,32"/>
+<area shape="rect" title="Parses a string token into an unsigned 32&#45;bit integer value." alt="" coords="658,31,783,57"/>
+<area shape="rect" href="cli__handler_8c.html#a4f70031e038bd479c6946c80475765a7" title="Command: Change the decimal precision of ANS output." alt="" coords="465,5,595,32"/>
 <area shape="poly" title=" " alt="" coords="642,36,595,30,596,25,642,31"/>
 <area shape="rect" href="misc_8c.html#ab9a46bba8f180f1d34eae69f3b2f3088" title="Returns a pointer to the unsigned integer parser function." alt="" coords="450,56,610,83"/>
 <area shape="poly" title=" " alt="" coords="642,57,611,61,610,56,642,52"/>
@@ -561,56 +601,58 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Pointer to the next token, or NULL if no more tokens are found. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="misc_8c_source.html#l00083">83</a> of file <a class="el" href="misc_8c_source.html">misc.c</a>.</p>
-<div id="dynsection-11" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-11-summary" class="dynsummary" style="display:block;">
+<p class="definition">Definition at line <a class="el" href="misc_8c_source.html#l00084">84</a> of file <a class="el" href="misc_8c_source.html">misc.c</a>.</p>
+<div id="dynsection-12" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-12-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-11-content" class="dyncontent" style="display:none;">
+<div id="dynsection-12-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="misc_8c_a26d79ae4b7a899d74727f732c288c069_icgraph.png" border="0" usemap="#amisc_8c_a26d79ae4b7a899d74727f732c288c069_icgraph" loading="lazy" alt=""/></div>
 <map name="amisc_8c_a26d79ae4b7a899d74727f732c288c069_icgraph" id="amisc_8c_a26d79ae4b7a899d74727f732c288c069_icgraph">
-<area shape="rect" title="Reentrant string tokenizer (public domain by Charlie Gordon)." alt="" coords="698,132,806,159"/>
-<area shape="rect" href="arithmetic__multiply_8c.html#af482ae8bde65fd4dbdeb93aa304f525f" title="Implements the &quot;Multiply&quot; CLI command." alt="" coords="496,5,629,32"/>
-<area shape="poly" title=" " alt="" coords="729,122,694,83,648,46,624,35,626,30,651,42,698,79,733,118"/>
-<area shape="rect" href="cli__handler_8c.html#ae1e4e87a1b834acd36551cb7222eee45" title="This function will check if receive a correct command and process." alt="" coords="494,208,631,235"/>
-<area shape="poly" title=" " alt="" coords="714,169,651,198,617,210,616,205,649,194,711,164"/>
-<area shape="rect" href="cli__handler_8c.html#a4f70031e038bd479c6946c80475765a7" title="This command change the precision output stream of ANS." alt="" coords="497,107,628,133"/>
-<area shape="poly" title=" " alt="" coords="682,139,628,131,629,126,682,133"/>
-<area shape="rect" href="misc_8c.html#a48b7b055fa582a8ecd21190bdd6d6150" title="Returns a pointer to the reentrant string tokenizer function." alt="" coords="498,56,627,83"/>
-<area shape="poly" title=" " alt="" coords="711,127,649,97,616,86,617,81,651,92,714,122"/>
-<area shape="rect" href="logs__file_8c.html#abbf7591eae5515f13aba5095f0a35428" title="Checks the log file handler&#39;s stream for new log entries." alt="" coords="475,157,650,184"/>
-<area shape="poly" title=" " alt="" coords="682,157,650,162,650,156,682,152"/>
-<area shape="rect" href="misc_8c.html#a68c5009d2808dec85d359c07ac03a593" title=" " alt="" coords="502,360,623,387"/>
-<area shape="poly" title=" " alt="" coords="732,172,577,361,573,358,728,169"/>
-<area shape="rect" href="cli__handler_8c.html#af2634b601b2a4cc0d082027768d690ab" title="Is a CLI handler, case multithread will stay in loop." alt="" coords="283,208,417,235"/>
-<area shape="poly" title=" " alt="" coords="479,224,418,224,418,219,479,219"/>
-<area shape="rect" href="controller_8c.html#a59522a85c6772a03c8a8c52813e1ca33" title="Parses a string token into a double value." alt="" coords="103,157,225,184"/>
-<area shape="poly" title=" " alt="" coords="283,206,215,187,216,182,285,201"/>
-<area shape="rect" href="main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="Functon to start aplication." alt="" coords="5,132,55,159"/>
-<area shape="poly" title=" " alt="" coords="87,159,55,153,56,147,88,154"/>
-<area shape="rect" href="test__misc_8c.html#a50f0de4e142af686ebeb05171cae1794" title="TODO." alt="" coords="282,56,419,83"/>
-<area shape="poly" title=" " alt="" coords="483,72,419,72,419,67,483,67"/>
-<area shape="rect" href="test__misc_8c.html#a9877dad8dda5b9bee37a33861e2c06e6" title="TODO." alt="" coords="123,56,204,83"/>
-<area shape="poly" title=" " alt="" coords="266,72,205,72,205,67,266,67"/>
-<area shape="rect" href="test_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="TODO." alt="" coords="5,56,55,83"/>
-<area shape="poly" title=" " alt="" coords="108,72,55,72,55,67,108,67"/>
-<area shape="poly" title=" " alt="" coords="460,173,226,173,226,168,460,168"/>
-<area shape="rect" href="logs__file_8c.html#aaacd01c248600c980910f867fd572659" title="Initializes the log file handler." alt="" coords="273,107,427,133"/>
-<area shape="poly" title=" " alt="" coords="488,156,409,137,410,131,489,150"/>
-<area shape="rect" href="controller_8c.html#a08e320ef3c3f21f3465a3cb8a7e0d7fa" title="Reentrant string tokenizer (public domain by Charlie Gordon)." alt="" coords="113,107,215,133"/>
-<area shape="poly" title=" " alt="" coords="257,123,215,123,215,117,257,117"/>
-<area shape="poly" title=" " alt="" coords="98,135,56,143,55,138,97,130"/>
-<area shape="rect" href="arithmetic__add_8c.html#aabab6eb58920b72696b44766f352d087" title="Implements the &quot;Add&quot; CLI command." alt="" coords="295,461,405,488"/>
-<area shape="poly" title=" " alt="" coords="528,398,482,425,428,452,399,463,397,458,426,447,479,420,526,393"/>
-<area shape="rect" href="arithmetic__divide_8c.html#a496b3a77db45806c3ca59439169b1e2f" title="Implements the &quot;Divide&quot; CLI command." alt="" coords="288,512,412,539"/>
-<area shape="poly" title=" " alt="" coords="542,401,494,452,462,479,429,502,405,514,402,509,426,498,459,475,490,448,538,397"/>
-<area shape="rect" href="arithmetic__log__n_8c.html#aee95770337ddfa4081b58fcfed717777" title="Implements the &quot;Log_N&quot; CLI command." alt="" coords="288,259,413,285"/>
-<area shape="poly" title=" " alt="" coords="526,354,479,326,426,300,397,288,399,283,428,295,482,322,528,349"/>
-<area shape="rect" href="arithmetic__power__n_8c.html#a407644e2eabb009c1f0461eef35b02f8" title="Implements the &quot;Power_N&quot; CLI command." alt="" coords="280,309,421,336"/>
-<area shape="poly" title=" " alt="" coords="488,358,409,339,410,334,489,353"/>
-<area shape="rect" href="arithmetic__root__n_8c.html#ae6e9b070a0fd2a1e3d9740d5affd700f" title="Implements the &quot;Root_N&quot; CLI command." alt="" coords="284,360,416,387"/>
-<area shape="poly" title=" " alt="" coords="487,376,417,376,417,371,487,371"/>
-<area shape="rect" href="arithmetic__subtract_8c.html#ae4386765635940545726bb78792e66d2" title="Implements the &quot;Subtract&quot; CLI command." alt="" coords="282,411,418,437"/>
-<area shape="poly" title=" " alt="" coords="489,394,410,413,409,407,488,388"/>
+<area shape="rect" title="Reentrant string tokenizer (public domain by Charlie Gordon)." alt="" coords="719,107,827,133"/>
+<area shape="rect" href="cli__handler_8c.html#ae1e4e87a1b834acd36551cb7222eee45" title="Checks and processes a received command from the RX stream." alt="" coords="515,157,652,184"/>
+<area shape="poly" title=" " alt="" coords="706,141,637,159,635,154,705,135"/>
+<area shape="rect" href="cli__handler_8c.html#a4f70031e038bd479c6946c80475765a7" title="Command: Change the decimal precision of ANS output." alt="" coords="518,56,649,83"/>
+<area shape="poly" title=" " alt="" coords="705,105,635,86,637,81,706,99"/>
+<area shape="rect" href="misc_8c.html#a48b7b055fa582a8ecd21190bdd6d6150" title="Returns a pointer to the reentrant string tokenizer function." alt="" coords="519,5,648,32"/>
+<area shape="poly" title=" " alt="" coords="744,98,710,71,669,46,642,35,644,30,672,42,713,67,747,94"/>
+<area shape="rect" href="logs__file_8c.html#abbf7591eae5515f13aba5095f0a35428" title="Checks the log file handler&#39;s stream for new log entries." alt="" coords="496,107,671,133"/>
+<area shape="poly" title=" " alt="" coords="703,123,671,123,671,117,703,117"/>
+<area shape="rect" href="misc_8c.html#a68c5009d2808dec85d359c07ac03a593" title=" " alt="" coords="523,360,644,387"/>
+<area shape="poly" title=" " alt="" coords="754,148,597,361,593,358,750,144"/>
+<area shape="rect" href="cli__handler_8c.html#af2634b601b2a4cc0d082027768d690ab" title="Main CLI handler loop. Processes received commands." alt="" coords="294,157,428,184"/>
+<area shape="poly" title=" " alt="" coords="499,173,428,173,428,168,499,168"/>
+<area shape="rect" href="controller_8c.html#a59522a85c6772a03c8a8c52813e1ca33" title="Parses a string token into a double value." alt="" coords="103,107,225,133"/>
+<area shape="poly" title=" " alt="" coords="290,155,218,137,219,131,292,150"/>
+<area shape="rect" href="main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="Functon to start aplication." alt="" coords="5,81,55,108"/>
+<area shape="poly" title=" " alt="" coords="87,108,55,102,56,97,88,103"/>
+<area shape="rect" href="test__misc_8c.html#a50f0de4e142af686ebeb05171cae1794" title="TODO." alt="" coords="292,5,429,32"/>
+<area shape="poly" title=" " alt="" coords="504,21,430,21,430,16,504,16"/>
+<area shape="rect" href="test__misc_8c.html#a9877dad8dda5b9bee37a33861e2c06e6" title="TODO." alt="" coords="123,5,204,32"/>
+<area shape="poly" title=" " alt="" coords="276,21,205,21,205,16,276,16"/>
+<area shape="rect" href="test_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="TODO." alt="" coords="5,5,55,32"/>
+<area shape="poly" title=" " alt="" coords="108,21,55,21,55,16,108,16"/>
+<area shape="poly" title=" " alt="" coords="481,123,225,123,225,117,481,117"/>
+<area shape="rect" href="logs__file_8c.html#aaacd01c248600c980910f867fd572659" title="Initializes the log file handler." alt="" coords="284,56,438,83"/>
+<area shape="poly" title=" " alt="" coords="506,105,422,86,423,81,507,100"/>
+<area shape="rect" href="controller_8c.html#a08e320ef3c3f21f3465a3cb8a7e0d7fa" title="Reentrant string tokenizer (public domain by Charlie Gordon)." alt="" coords="113,56,215,83"/>
+<area shape="poly" title=" " alt="" coords="268,72,215,72,215,67,268,67"/>
+<area shape="poly" title=" " alt="" coords="98,85,56,93,55,87,97,79"/>
+<area shape="rect" href="arithmetic__add_8c.html#aabab6eb58920b72696b44766f352d087" title="Implements the &quot;Add&quot; CLI command." alt="" coords="306,411,416,437"/>
+<area shape="poly" title=" " alt="" coords="508,393,417,414,416,409,507,388"/>
+<area shape="rect" href="arithmetic__determinant__n_8c.html#a8be9187b40fcc221c7cfbbca721a0ae0" title="Handles the &quot;Determinant_N&quot; CLI command." alt="" coords="273,461,448,488"/>
+<area shape="poly" title=" " alt="" coords="550,398,503,425,449,452,417,463,416,458,447,447,501,421,547,393"/>
+<area shape="rect" href="arithmetic__divide_8c.html#a496b3a77db45806c3ca59439169b1e2f" title="Implements the &quot;Divide&quot; CLI command." alt="" coords="298,512,423,539"/>
+<area shape="poly" title=" " alt="" coords="564,401,515,452,484,479,450,502,424,514,422,509,447,498,481,475,512,448,560,397"/>
+<area shape="rect" href="arithmetic__log__n_8c.html#aee95770337ddfa4081b58fcfed717777" title="Implements the &quot;Log_N&quot; CLI command." alt="" coords="298,563,423,589"/>
+<area shape="poly" title=" " alt="" coords="571,402,552,436,524,477,490,518,450,553,425,566,422,561,447,548,486,514,520,474,547,433,567,399"/>
+<area shape="rect" href="arithmetic__multiply_8c.html#af482ae8bde65fd4dbdeb93aa304f525f" title="Implements the &quot;Multiply&quot; CLI command." alt="" coords="294,208,427,235"/>
+<area shape="poly" title=" " alt="" coords="560,350,512,298,481,272,447,249,422,238,424,233,450,244,484,268,515,295,564,346"/>
+<area shape="rect" href="arithmetic__power__n_8c.html#a407644e2eabb009c1f0461eef35b02f8" title="Implements the &quot;Power_N&quot; CLI command." alt="" coords="290,259,431,285"/>
+<area shape="poly" title=" " alt="" coords="547,354,501,326,447,300,416,288,417,283,449,295,503,321,550,349"/>
+<area shape="rect" href="arithmetic__root__n_8c.html#ae6e9b070a0fd2a1e3d9740d5affd700f" title="Implements the &quot;Root_N&quot; CLI command." alt="" coords="294,309,427,336"/>
+<area shape="poly" title=" " alt="" coords="507,359,422,339,423,334,508,354"/>
+<area shape="rect" href="arithmetic__subtract_8c.html#ae4386765635940545726bb78792e66d2" title="Implements the &quot;Subtract&quot; CLI command." alt="" coords="292,360,429,387"/>
+<area shape="poly" title=" " alt="" coords="507,376,429,376,429,371,507,371"/>
 </map>
 </div>
 

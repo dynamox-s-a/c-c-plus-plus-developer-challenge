@@ -92,91 +92,153 @@ $(function(){initNavTree('arithmetic__determinant__n_8c_source.html','',''); });
 </div><!--header-->
 <div class="contents">
 <a href="arithmetic__determinant__n_8c.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span></div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment">/*</span></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment"> *   INCLUDES</span></div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;<a class="code" href="arithmetic__determinant__n_8h.html">arithmetic_determinant_n.h</a>&quot;</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &quot;<a class="code" href="cli__handler_8h.html">cli_handler.h</a>&quot;</span></div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &quot;<a class="code" href="misc_8h.html">misc.h</a>&quot;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment"> *   INCLUDES</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &quot;<a class="code" href="arithmetic__determinant__n_8h.html">arithmetic_determinant_n.h</a>&quot;</span></div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="comment">/*</span></div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="comment"> *   MACROS</span></div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment">/*</span></div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="comment"> *   EXTERNAL VARIABLES</span></div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="comment">/*</span></div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="comment"> *   LOCAL FUNCTIONS PROTOTYPE</span></div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="comment">/*</span></div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="comment"> *   CONSTANTS</span></div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="comment"> */</span></div>
-<div class="foldopen" id="foldopen00034" data-start="{" data-end="};">
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="arithmetic__determinant__n_8c.html#ad80658ab2b1b8dad9061e9de732cbde6">   34</a></span><span class="keyword">const</span> <a class="code hl_struct" href="structcli__handler__commands__t.html">cli_handler_commands_t</a> <a class="code hl_variable" href="arithmetic__determinant__n_8c.html#ad80658ab2b1b8dad9061e9de732cbde6">Arithmetic_Determinant_N_Cte</a> = {</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        .name = <span class="stringliteral">&quot;Determinant_N&quot;</span>,</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        .description = <span class="stringliteral">&quot;Determinant N the value to ANS - Sintax \&quot;Determinant [0x00000000]\&quot;\n&quot;</span>,</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        .func_ptr = <a class="code hl_function" href="arithmetic__determinant__n_8h.html#a8be9187b40fcc221c7cfbbca721a0ae0">Arithmetic_Determinant_N</a></div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>};</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#include &quot;<a class="code" href="cli__handler_8h.html">cli_handler.h</a>&quot;</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#include &quot;<a class="code" href="misc_8h.html">misc.h</a>&quot;</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#include &quot;math.h&quot;</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="comment"> *   MACROS</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="comment"> *   EXTERNAL VARIABLES</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="comment"> *   LOCAL FUNCTIONS PROTOTYPE</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><a class="code hl_enumeration" href="cli__handler_8h.html#a4e9566e27550032c11cf88cb0f72d72a">cli_handler_error_e</a> <a class="code hl_function" href="arithmetic__determinant__n_8c.html#a58c5df099b11cf1c4e54308a14deb346">determinant</a>(<span class="keywordtype">double</span>* result, <span class="keywordtype">double</span> *matrix, uint8_t n);</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="comment"> *   CONSTANTS</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="comment"> */</span></div>
+<div class="foldopen" id="foldopen00056" data-start="{" data-end="};">
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="arithmetic__determinant__n_8c.html#ad80658ab2b1b8dad9061e9de732cbde6">   56</a></span><span class="keyword">const</span> <a class="code hl_struct" href="structcli__handler__commands__t.html">cli_handler_commands_t</a> <a class="code hl_variable" href="arithmetic__determinant__n_8c.html#ad80658ab2b1b8dad9061e9de732cbde6">Arithmetic_Determinant_N_Cte</a> = {</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>        .name = <span class="stringliteral">&quot;Determinant_N&quot;</span>,</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>        .description = <span class="stringliteral">&quot;Determinant N the value to ANS - Sintax \&quot;Determinant [double, double, ...]\&quot;\n&quot;</span>,</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>        .func_ptr = <a class="code hl_function" href="arithmetic__determinant__n_8h.html#a8be9187b40fcc221c7cfbbca721a0ae0">Arithmetic_Determinant_N</a></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>};</div>
 </div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span></div>
-<div class="foldopen" id="foldopen00047" data-start="{" data-end="}">
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="arithmetic__determinant__n_8h.html#a8be9187b40fcc221c7cfbbca721a0ae0">   47</a></span><a class="code hl_enumeration" href="cli__handler_8h.html#a4e9566e27550032c11cf88cb0f72d72a">cli_handler_error_e</a> <a class="code hl_function" href="arithmetic__determinant__n_8c.html#a8be9187b40fcc221c7cfbbca721a0ae0">Arithmetic_Determinant_N</a>(<a class="code hl_struct" href="structcli__handler__t.html">cli_handler_t</a>* cli_handler, <span class="keywordtype">char</span>* saveptr){</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    </div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    printf(<span class="stringliteral">&quot;command_determinant_n&quot;</span>);</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="cli__handler_8h.html#a4e9566e27550032c11cf88cb0f72d72aa288daa5a1c16697b7dd720006b3c876e">CLI_HANDLER_ERROR_OK</a>; <span class="comment">/* Return OK */</span></div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>}</div>
-</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="comment">/*</span></div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="comment">    Based in book: </span></div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="comment">    &quot;Numerical Analysis 9th Edition&quot;</span></div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="comment">    by Richard L. Burden, J. Douglas Faires </span></div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="comment">    </span></div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="comment">    Step 1:</span></div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="comment">    - Select l11 and u11 satisfying l11u11 = a11 .</span></div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="comment">    - If l11u11 = 0 then OUTPUT (‘Factorization impossible’);</span></div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="comment"></span> </div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="comment">    Step 2:</span></div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="comment">    - For j = 2, . . . , n set u1j = a1j/l11 ; (First row of U.)</span></div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="comment">    - lj1 = aj1/u11 . (First column of L.)</span></div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="comment"></span> </div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="comment">    Step 3:</span></div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="comment"></span> </div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="comment">*/</span></div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="comment">/* Validação pré cálculo</span></div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="comment">    a matrix tem que ser nxn</span></div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="comment">*/</span></div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="comment">/*</span></div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="comment">    Verificação caso trivial</span></div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="comment">    Se tiver 2 linhas iguais é 0</span></div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span><span class="comment">    Se tiver uma linha toda 0 é 0</span></div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span><span class="comment">    Se tiver uma coluna toda 0 é 0</span></div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span><span class="comment">    Se tiver uma linha ou coluna com multiplos de outra é 0</span></div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span><span class="comment">    Se tiver uma linha ou coluna com soma de outras é 0</span></div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span><span class="comment">*/</span></div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span></div>
+<div class="foldopen" id="foldopen00073" data-start="{" data-end="}">
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno"><a class="line" href="arithmetic__determinant__n_8h.html#a8be9187b40fcc221c7cfbbca721a0ae0">   73</a></span><a class="code hl_enumeration" href="cli__handler_8h.html#a4e9566e27550032c11cf88cb0f72d72a">cli_handler_error_e</a> <a class="code hl_function" href="arithmetic__determinant__n_8c.html#a8be9187b40fcc221c7cfbbca721a0ae0">Arithmetic_Determinant_N</a>(<a class="code hl_struct" href="structcli__handler__t.html">cli_handler_t</a>* cli_handler, <span class="keywordtype">char</span>* saveptr){</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    <span class="keywordtype">double</span> size;</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    <a class="code hl_struct" href="structmisc__vector__t.html">misc_vector_t</a>* vector;</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    <a class="code hl_define" href="cli__handler_8h.html#ab628c36b50fd3de2c1c6cd5217197efc">CHECK_CLI_HANDLER_PTR</a>(cli_handler);</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    <a class="code hl_define" href="cli__handler_8h.html#ab628c36b50fd3de2c1c6cd5217197efc">CHECK_CLI_HANDLER_PTR</a>(saveptr);</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    <a class="code hl_function" href="misc_8h.html#a68c5009d2808dec85d359c07ac03a593">Misc_Get_Vector</a>(vector, saveptr);</div>
 <div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span><span class="comment">/*</span></div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span><span class="comment">    - Eliminação de Gauss</span></div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span><span class="comment">    - Triangulação do vetor utilizando </span></div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span><span class="comment">    - Cálculo do determinante pelos cofatores</span></div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span><span class="comment">*/</span></div>
-<div class="ttc" id="aarithmetic__determinant__n_8c_html_a8be9187b40fcc221c7cfbbca721a0ae0"><div class="ttname"><a href="arithmetic__determinant__n_8c.html#a8be9187b40fcc221c7cfbbca721a0ae0">Arithmetic_Determinant_N</a></div><div class="ttdeci">cli_handler_error_e Arithmetic_Determinant_N(cli_handler_t *cli_handler, char *saveptr)</div><div class="ttdoc">TODO.</div><div class="ttdef"><b>Definition</b> <a href="#l00047">arithmetic_determinant_n.c:47</a></div></div>
-<div class="ttc" id="aarithmetic__determinant__n_8c_html_ad80658ab2b1b8dad9061e9de732cbde6"><div class="ttname"><a href="arithmetic__determinant__n_8c.html#ad80658ab2b1b8dad9061e9de732cbde6">Arithmetic_Determinant_N_Cte</a></div><div class="ttdeci">const cli_handler_commands_t Arithmetic_Determinant_N_Cte</div><div class="ttdef"><b>Definition</b> <a href="#l00034">arithmetic_determinant_n.c:34</a></div></div>
-<div class="ttc" id="aarithmetic__determinant__n_8h_html"><div class="ttname"><a href="arithmetic__determinant__n_8h.html">arithmetic_determinant_n.h</a></div><div class="ttdoc">TODO.</div></div>
-<div class="ttc" id="aarithmetic__determinant__n_8h_html_a8be9187b40fcc221c7cfbbca721a0ae0"><div class="ttname"><a href="arithmetic__determinant__n_8h.html#a8be9187b40fcc221c7cfbbca721a0ae0">Arithmetic_Determinant_N</a></div><div class="ttdeci">cli_handler_error_e Arithmetic_Determinant_N(cli_handler_t *cli_handler, char *saveptr)</div><div class="ttdoc">TODO.</div><div class="ttdef"><b>Definition</b> <a href="#l00047">arithmetic_determinant_n.c:47</a></div></div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    <span class="keywordflow">if</span>(vector != NULL){</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>        size = sqrt((<span class="keywordtype">double</span>)vector-&gt;<a class="code hl_variable" href="structmisc__vector__t.html#ac057665de75567f5a6bf3f4505c6b62f">size</a>); <span class="comment">/* Calculate the size of the matrix */</span></div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>        <span class="keywordflow">if</span>(fmod(size, 1.0) != 0){</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>            <a class="code hl_function" href="cli__handler_8h.html#a08e94bea6b19563502c78f513e8f41ed">Cli_Handler_Out_Msg</a>(cli_handler, <span class="stringliteral">&quot;Error sintaxe or allocation error\n&quot;</span>); <span class="comment">/* Freeing resources */</span></div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>            <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="cli__handler_8h.html#a4e9566e27550032c11cf88cb0f72d72aa45bd74b42fbc4e04a5b64075ce5e2424">CLI_HANDLER_ERROR_PARM</a>; <span class="comment">/* Return error */</span></div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>        }</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>        <a class="code hl_function" href="arithmetic__determinant__n_8c.html#a58c5df099b11cf1c4e54308a14deb346">determinant</a>(&amp;cli_handler-&gt;<a class="code hl_variable" href="structcli__handler__t.html#ab97979060b77ff1c0d1f2b1e3bef60e9">ans</a>, vector-&gt;<a class="code hl_variable" href="structmisc__vector__t.html#a88f7c9592309ee5e21e28cf5962671e1">data</a>, (uint8_t)size); <span class="comment">/* Calculate determinant */</span></div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>        <a class="code hl_function" href="cli__handler_8h.html#a08e94bea6b19563502c78f513e8f41ed">Cli_Handler_Out_Msg</a>(cli_handler, <span class="stringliteral">&quot;Determinant = %.*f\n&quot;</span>, cli_handler-&gt;<a class="code hl_variable" href="structcli__handler__t.html#a091713d33898dfc53c64a4534cd800bc">config</a>.<a class="code hl_variable" href="structcli__handler__config__t.html#a11c0871528a2a032b355bcf76e324a72">decimal</a>, cli_handler-&gt;<a class="code hl_variable" href="structcli__handler__t.html#ab97979060b77ff1c0d1f2b1e3bef60e9">ans</a>); <span class="comment">/* Print result */</span></div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    }</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>        <a class="code hl_function" href="cli__handler_8h.html#a08e94bea6b19563502c78f513e8f41ed">Cli_Handler_Out_Msg</a>(cli_handler, <span class="stringliteral">&quot;Error sintaxe or allocation error\n&quot;</span>); <span class="comment">/* Freeing resources */</span></div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    }</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span> </div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="cli__handler_8h.html#a4e9566e27550032c11cf88cb0f72d72aa288daa5a1c16697b7dd720006b3c876e">CLI_HANDLER_ERROR_OK</a>; <span class="comment">/* Return OK */</span></div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>}</div>
+</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span></div>
+<div class="foldopen" id="foldopen00116" data-start="{" data-end="}">
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno"><a class="line" href="arithmetic__determinant__n_8c.html#a58c5df099b11cf1c4e54308a14deb346">  116</a></span><a class="code hl_enumeration" href="cli__handler_8h.html#a4e9566e27550032c11cf88cb0f72d72a">cli_handler_error_e</a> <a class="code hl_function" href="arithmetic__determinant__n_8c.html#a58c5df099b11cf1c4e54308a14deb346">determinant</a>(<span class="keywordtype">double</span>* result, <span class="keywordtype">double</span> *matrix, uint8_t n) {</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span> </div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    <span class="keywordtype">double</span> value = 0;</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>    <span class="keywordtype">double</span> det = 0;</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>    <span class="keywordtype">double</span> sign;</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span> </div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>    <span class="keywordtype">int</span> subSize;</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    <span class="keywordtype">int</span> subIndex;</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span> </div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>    <span class="keywordtype">double</span> *submatrix;</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>    <span class="keywordtype">double</span> sub_result;</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span> </div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>    <a class="code hl_define" href="cli__handler_8h.html#ab628c36b50fd3de2c1c6cd5217197efc">CHECK_CLI_HANDLER_PTR</a>(result);</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>    <a class="code hl_define" href="cli__handler_8h.html#ab628c36b50fd3de2c1c6cd5217197efc">CHECK_CLI_HANDLER_PTR</a>(matrix);</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span> </div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>    <span class="comment">/* Base cases */</span></div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>    <span class="keywordflow">if</span> (n == 1){</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>        value = matrix[0]; <span class="comment">/* Determinant of 1x1 */</span></div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>        *result = value;</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="cli__handler_8h.html#a4e9566e27550032c11cf88cb0f72d72aa288daa5a1c16697b7dd720006b3c876e">CLI_HANDLER_ERROR_OK</a>;</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>    }</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>    <span class="keywordflow">if</span> (n == 2) {</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>        value = matrix[0]*matrix[3] - matrix[1]*matrix[2]; <span class="comment">/* Determinant of 2x2 */</span></div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>        *result = value;</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="cli__handler_8h.html#a4e9566e27550032c11cf88cb0f72d72aa288daa5a1c16697b7dd720006b3c876e">CLI_HANDLER_ERROR_OK</a>;</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>    }</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span> </div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> p = 0; p &lt; n; p++) { <span class="comment">/* Loop over columns */</span></div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span> </div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>        subSize = (n-1)*(n-1);  <span class="comment">/* Size of the submatrix */</span></div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>        submatrix = malloc(subSize * <span class="keyword">sizeof</span>(<span class="keywordtype">double</span>)); <span class="comment">/* Allocate memory for the submatrix */</span></div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span> </div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>        <a class="code hl_define" href="cli__handler_8h.html#ab628c36b50fd3de2c1c6cd5217197efc">CHECK_CLI_HANDLER_PTR</a>(submatrix);</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span> </div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>        subIndex = 0;</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span> </div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 1; i &lt; n; i++) {</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span> </div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 0; j &lt; n; j++) {   <span class="comment">/* Loop over columns */</span></div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span> </div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>                <span class="keywordflow">if</span> (j == p) <span class="keywordflow">continue</span>;   <span class="comment">/* Skip column p */</span></div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>                submatrix[subIndex++] = matrix[i*n + j];    <span class="comment">/* Fill the submatrix */</span></div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>            }</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>        }</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span> </div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>        sign = (p % 2 == 0) ? 1 : -1; <span class="comment">/* Determine the sign */</span></div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span> </div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>        <a class="code hl_function" href="arithmetic__determinant__n_8c.html#a58c5df099b11cf1c4e54308a14deb346">determinant</a>(&amp;sub_result, submatrix, n-1); <span class="comment">/* Recursive call */</span></div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>        det += sign * matrix[p] * sub_result; <span class="comment">/* Update determinant */</span></div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>        free(submatrix);    <span class="comment">/* Free the submatrix memory */</span></div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>    }</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span> </div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>    *result = det;</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span> </div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>    <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="cli__handler_8h.html#a4e9566e27550032c11cf88cb0f72d72aa288daa5a1c16697b7dd720006b3c876e">CLI_HANDLER_ERROR_OK</a>;</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>}</div>
+</div>
+<div class="ttc" id="aarithmetic__determinant__n_8c_html_a58c5df099b11cf1c4e54308a14deb346"><div class="ttname"><a href="arithmetic__determinant__n_8c.html#a58c5df099b11cf1c4e54308a14deb346">determinant</a></div><div class="ttdeci">cli_handler_error_e determinant(double *result, double *matrix, uint8_t n)</div><div class="ttdoc">Recursively calculates the determinant of a square matrix.</div><div class="ttdef"><b>Definition</b> <a href="#l00116">arithmetic_determinant_n.c:116</a></div></div>
+<div class="ttc" id="aarithmetic__determinant__n_8c_html_a8be9187b40fcc221c7cfbbca721a0ae0"><div class="ttname"><a href="arithmetic__determinant__n_8c.html#a8be9187b40fcc221c7cfbbca721a0ae0">Arithmetic_Determinant_N</a></div><div class="ttdeci">cli_handler_error_e Arithmetic_Determinant_N(cli_handler_t *cli_handler, char *saveptr)</div><div class="ttdoc">Handles the &quot;Determinant_N&quot; CLI command.</div><div class="ttdef"><b>Definition</b> <a href="#l00073">arithmetic_determinant_n.c:73</a></div></div>
+<div class="ttc" id="aarithmetic__determinant__n_8c_html_ad80658ab2b1b8dad9061e9de732cbde6"><div class="ttname"><a href="arithmetic__determinant__n_8c.html#ad80658ab2b1b8dad9061e9de732cbde6">Arithmetic_Determinant_N_Cte</a></div><div class="ttdeci">const cli_handler_commands_t Arithmetic_Determinant_N_Cte</div><div class="ttdoc">CLI command constant for the &quot;Determinant_N&quot; operation.</div><div class="ttdef"><b>Definition</b> <a href="#l00056">arithmetic_determinant_n.c:56</a></div></div>
+<div class="ttc" id="aarithmetic__determinant__n_8h_html"><div class="ttname"><a href="arithmetic__determinant__n_8h.html">arithmetic_determinant_n.h</a></div></div>
+<div class="ttc" id="aarithmetic__determinant__n_8h_html_a8be9187b40fcc221c7cfbbca721a0ae0"><div class="ttname"><a href="arithmetic__determinant__n_8h.html#a8be9187b40fcc221c7cfbbca721a0ae0">Arithmetic_Determinant_N</a></div><div class="ttdeci">cli_handler_error_e Arithmetic_Determinant_N(cli_handler_t *cli_handler, char *saveptr)</div><div class="ttdoc">Handles the &quot;Determinant_N&quot; CLI command.</div><div class="ttdef"><b>Definition</b> <a href="#l00073">arithmetic_determinant_n.c:73</a></div></div>
 <div class="ttc" id="acli__handler_8h_html"><div class="ttname"><a href="cli__handler_8h.html">cli_handler.h</a></div><div class="ttdoc">CLI Handler - Receive commands and process.</div></div>
+<div class="ttc" id="acli__handler_8h_html_a08e94bea6b19563502c78f513e8f41ed"><div class="ttname"><a href="cli__handler_8h.html#a08e94bea6b19563502c78f513e8f41ed">Cli_Handler_Out_Msg</a></div><div class="ttdeci">cli_handler_error_e Cli_Handler_Out_Msg(cli_handler_t *cli_handler, const char *format,...)</div><div class="ttdoc">Sends a formatted message to the CLI TX stream (thread-safe).</div><div class="ttdef"><b>Definition</b> <a href="cli__handler_8c_source.html#l00186">cli_handler.c:186</a></div></div>
 <div class="ttc" id="acli__handler_8h_html_a4e9566e27550032c11cf88cb0f72d72a"><div class="ttname"><a href="cli__handler_8h.html#a4e9566e27550032c11cf88cb0f72d72a">cli_handler_error_e</a></div><div class="ttdeci">cli_handler_error_e</div><div class="ttdoc">Enumerate of errors.</div><div class="ttdef"><b>Definition</b> <a href="cli__handler_8h_source.html#l00052">cli_handler.h:52</a></div></div>
 <div class="ttc" id="acli__handler_8h_html_a4e9566e27550032c11cf88cb0f72d72aa288daa5a1c16697b7dd720006b3c876e"><div class="ttname"><a href="cli__handler_8h.html#a4e9566e27550032c11cf88cb0f72d72aa288daa5a1c16697b7dd720006b3c876e">CLI_HANDLER_ERROR_OK</a></div><div class="ttdeci">@ CLI_HANDLER_ERROR_OK</div><div class="ttdef"><b>Definition</b> <a href="cli__handler_8h_source.html#l00054">cli_handler.h:54</a></div></div>
+<div class="ttc" id="acli__handler_8h_html_a4e9566e27550032c11cf88cb0f72d72aa45bd74b42fbc4e04a5b64075ce5e2424"><div class="ttname"><a href="cli__handler_8h.html#a4e9566e27550032c11cf88cb0f72d72aa45bd74b42fbc4e04a5b64075ce5e2424">CLI_HANDLER_ERROR_PARM</a></div><div class="ttdeci">@ CLI_HANDLER_ERROR_PARM</div><div class="ttdef"><b>Definition</b> <a href="cli__handler_8h_source.html#l00056">cli_handler.h:56</a></div></div>
+<div class="ttc" id="acli__handler_8h_html_ab628c36b50fd3de2c1c6cd5217197efc"><div class="ttname"><a href="cli__handler_8h.html#ab628c36b50fd3de2c1c6cd5217197efc">CHECK_CLI_HANDLER_PTR</a></div><div class="ttdeci">#define CHECK_CLI_HANDLER_PTR(cli_handler)</div><div class="ttdef"><b>Definition</b> <a href="cli__handler_8h_source.html#l00039">cli_handler.h:39</a></div></div>
 <div class="ttc" id="amisc_8h_html"><div class="ttname"><a href="misc_8h.html">misc.h</a></div><div class="ttdoc">Utility functions for string parsing and conversion.</div></div>
+<div class="ttc" id="amisc_8h_html_a68c5009d2808dec85d359c07ac03a593"><div class="ttname"><a href="misc_8h.html#a68c5009d2808dec85d359c07ac03a593">Misc_Get_Vector</a></div><div class="ttdeci">misc_error_e Misc_Get_Vector(misc_vector_t *vector, char *saveptr)</div><div class="ttdef"><b>Definition</b> <a href="misc_8c_source.html#l00164">misc.c:164</a></div></div>
 <div class="ttc" id="astructcli__handler__commands__t_html"><div class="ttname"><a href="structcli__handler__commands__t.html">cli_handler_commands_t</a></div><div class="ttdoc">Commands of cli.</div><div class="ttdef"><b>Definition</b> <a href="cli__handler_8h_source.html#l00093">cli_handler.h:93</a></div></div>
+<div class="ttc" id="astructcli__handler__config__t_html_a11c0871528a2a032b355bcf76e324a72"><div class="ttname"><a href="structcli__handler__config__t.html#a11c0871528a2a032b355bcf76e324a72">cli_handler_config_t::decimal</a></div><div class="ttdeci">uint32_t decimal</div><div class="ttdef"><b>Definition</b> <a href="cli__handler_8h_source.html#l00109">cli_handler.h:109</a></div></div>
 <div class="ttc" id="astructcli__handler__t_html"><div class="ttname"><a href="structcli__handler__t.html">cli_handler_t</a></div><div class="ttdoc">Handler of cli.</div><div class="ttdef"><b>Definition</b> <a href="cli__handler_8h_source.html#l00116">cli_handler.h:116</a></div></div>
+<div class="ttc" id="astructcli__handler__t_html_a091713d33898dfc53c64a4534cd800bc"><div class="ttname"><a href="structcli__handler__t.html#a091713d33898dfc53c64a4534cd800bc">cli_handler_t::config</a></div><div class="ttdeci">cli_handler_config_t config</div><div class="ttdef"><b>Definition</b> <a href="cli__handler_8h_source.html#l00118">cli_handler.h:118</a></div></div>
+<div class="ttc" id="astructcli__handler__t_html_ab97979060b77ff1c0d1f2b1e3bef60e9"><div class="ttname"><a href="structcli__handler__t.html#ab97979060b77ff1c0d1f2b1e3bef60e9">cli_handler_t::ans</a></div><div class="ttdeci">double ans</div><div class="ttdef"><b>Definition</b> <a href="cli__handler_8h_source.html#l00122">cli_handler.h:122</a></div></div>
+<div class="ttc" id="astructmisc__vector__t_html"><div class="ttname"><a href="structmisc__vector__t.html">misc_vector_t</a></div><div class="ttdef"><b>Definition</b> <a href="misc_8h_source.html#l00054">misc.h:54</a></div></div>
+<div class="ttc" id="astructmisc__vector__t_html_a88f7c9592309ee5e21e28cf5962671e1"><div class="ttname"><a href="structmisc__vector__t.html#a88f7c9592309ee5e21e28cf5962671e1">misc_vector_t::data</a></div><div class="ttdeci">double * data</div><div class="ttdef"><b>Definition</b> <a href="misc_8h_source.html#l00056">misc.h:56</a></div></div>
+<div class="ttc" id="astructmisc__vector__t_html_ac057665de75567f5a6bf3f4505c6b62f"><div class="ttname"><a href="structmisc__vector__t.html#ac057665de75567f5a6bf3f4505c6b62f">misc_vector_t::size</a></div><div class="ttdeci">size_t size</div><div class="ttdef"><b>Definition</b> <a href="misc_8h_source.html#l00057">misc.h:57</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->

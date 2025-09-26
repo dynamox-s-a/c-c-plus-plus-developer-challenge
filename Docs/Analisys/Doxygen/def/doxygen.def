@@ -92,7 +92,7 @@ Flag indicates app is multithread
 _EnD_oF_dEf_TeXt_;
       sec-mem-referencedby = {
         sec-mem-ref-id = 'cli__handler_8c_1af2634b601b2a4cc0d082027768d690ab';
-        sec-mem-ref-line = '138';
+        sec-mem-ref-line = '157';
         sec-mem-ref-name = 'Cli_Handler_Check';
     };
     }; /* sec-member */
@@ -115,12 +115,12 @@ Strem of receive commands
 _EnD_oF_dEf_TeXt_;
       sec-mem-referencedby = {
         sec-mem-ref-id = 'cli__handler_8c_1ae1e4e87a1b834acd36551cb7222eee45';
-        sec-mem-ref-line = '183';
+        sec-mem-ref-line = '210';
         sec-mem-ref-name = 'check_receive_cmd';
     };
       sec-mem-referencedby = {
         sec-mem-ref-id = 'cli__handler_8c_1af2634b601b2a4cc0d082027768d690ab';
-        sec-mem-ref-line = '138';
+        sec-mem-ref-line = '157';
         sec-mem-ref-name = 'Cli_Handler_Check';
     };
     }; /* sec-member */
@@ -143,7 +143,7 @@ Strem of send answer
 _EnD_oF_dEf_TeXt_;
       sec-mem-referencedby = {
         sec-mem-ref-id = 'cli__handler_8c_1a08e94bea6b19563502c78f513e8f41ed';
-        sec-mem-ref-line = '159';
+        sec-mem-ref-line = '186';
         sec-mem-ref-name = 'Cli_Handler_Out_Msg';
     };
     }; /* sec-member */
@@ -168,6 +168,11 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-ref-id = 'arithmetic__add_8c_1aabab6eb58920b72696b44766f352d087';
         sec-mem-ref-line = '67';
         sec-mem-ref-name = 'Arithmetic_Add';
+    };
+      sec-mem-referencedby = {
+        sec-mem-ref-id = 'arithmetic__determinant__n_8c_1a8be9187b40fcc221c7cfbbca721a0ae0';
+        sec-mem-ref-line = '73';
+        sec-mem-ref-name = 'Arithmetic_Determinant_N';
     };
       sec-mem-referencedby = {
         sec-mem-ref-id = 'arithmetic__divide_8c_1a496b3a77db45806c3ca59439169b1e2f';
@@ -201,12 +206,12 @@ _EnD_oF_dEf_TeXt_;
     };
       sec-mem-referencedby = {
         sec-mem-ref-id = 'cli__handler_8c_1ad2002df80a92e4842fef5691c7db7b45';
-        sec-mem-ref-line = '242';
+        sec-mem-ref-line = '268';
         sec-mem-ref-name = 'command_clear';
     };
       sec-mem-referencedby = {
         sec-mem-ref-id = 'cli__handler_8c_1a4f70031e038bd479c6946c80475765a7';
-        sec-mem-ref-line = '217';
+        sec-mem-ref-line = '243';
         sec-mem-ref-name = 'command_decimal';
     };
     }; /* sec-member */
@@ -287,6 +292,11 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-ref-name = 'Arithmetic_Add';
     };
       sec-mem-referencedby = {
+        sec-mem-ref-id = 'arithmetic__determinant__n_8c_1a8be9187b40fcc221c7cfbbca721a0ae0';
+        sec-mem-ref-line = '73';
+        sec-mem-ref-name = 'Arithmetic_Determinant_N';
+    };
+      sec-mem-referencedby = {
         sec-mem-ref-id = 'arithmetic__divide_8c_1a496b3a77db45806c3ca59439169b1e2f';
         sec-mem-ref-line = '64';
         sec-mem-ref-name = 'Arithmetic_Divide';
@@ -318,32 +328,32 @@ _EnD_oF_dEf_TeXt_;
     };
       sec-mem-referencedby = {
         sec-mem-ref-id = 'cli__handler_8c_1ae1e4e87a1b834acd36551cb7222eee45';
-        sec-mem-ref-line = '183';
+        sec-mem-ref-line = '210';
         sec-mem-ref-name = 'check_receive_cmd';
     };
       sec-mem-referencedby = {
         sec-mem-ref-id = 'cli__handler_8c_1af2634b601b2a4cc0d082027768d690ab';
-        sec-mem-ref-line = '138';
+        sec-mem-ref-line = '157';
         sec-mem-ref-name = 'Cli_Handler_Check';
     };
       sec-mem-referencedby = {
         sec-mem-ref-id = 'cli__handler_8c_1a61fe594b1d9dd2f9fc0a5daf26fe6cb0';
-        sec-mem-ref-line = '113';
+        sec-mem-ref-line = '128';
         sec-mem-ref-name = 'Cli_Handler_Init';
     };
       sec-mem-referencedby = {
         sec-mem-ref-id = 'cli__handler_8c_1a08e94bea6b19563502c78f513e8f41ed';
-        sec-mem-ref-line = '159';
+        sec-mem-ref-line = '186';
         sec-mem-ref-name = 'Cli_Handler_Out_Msg';
     };
       sec-mem-referencedby = {
         sec-mem-ref-id = 'cli__handler_8c_1ad2002df80a92e4842fef5691c7db7b45';
-        sec-mem-ref-line = '242';
+        sec-mem-ref-line = '268';
         sec-mem-ref-name = 'command_clear';
     };
       sec-mem-referencedby = {
         sec-mem-ref-id = 'cli__handler_8c_1a4f70031e038bd479c6946c80475765a7';
-        sec-mem-ref-line = '217';
+        sec-mem-ref-line = '243';
         sec-mem-ref-name = 'command_decimal';
     };
     }; /* sec-member */
@@ -366,7 +376,7 @@ Used for recover context
 _EnD_oF_dEf_TeXt_;
       sec-mem-referencedby = {
         sec-mem-ref-id = 'cli__handler_8c_1a61fe594b1d9dd2f9fc0a5daf26fe6cb0';
-        sec-mem-ref-line = '113';
+        sec-mem-ref-line = '128';
         sec-mem-ref-name = 'Cli_Handler_Init';
     };
     }; /* sec-member */
@@ -389,12 +399,12 @@ Set true when initialize succesful
 _EnD_oF_dEf_TeXt_;
       sec-mem-referencedby = {
         sec-mem-ref-id = 'cli__handler_8c_1a61fe594b1d9dd2f9fc0a5daf26fe6cb0';
-        sec-mem-ref-line = '113';
+        sec-mem-ref-line = '128';
         sec-mem-ref-name = 'Cli_Handler_Init';
     };
       sec-mem-referencedby = {
         sec-mem-ref-id = 'cli__handler_8c_1a146e87ba3752e693de90825898166184';
-        sec-mem-ref-line = '275';
+        sec-mem-ref-line = '301';
         sec-mem-ref-name = 'command_exit';
     };
     }; /* sec-member */
@@ -419,6 +429,11 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-ref-id = 'arithmetic__add_8c_1aabab6eb58920b72696b44766f352d087';
         sec-mem-ref-line = '67';
         sec-mem-ref-name = 'Arithmetic_Add';
+    };
+      sec-mem-referencedby = {
+        sec-mem-ref-id = 'arithmetic__determinant__n_8c_1a8be9187b40fcc221c7cfbbca721a0ae0';
+        sec-mem-ref-line = '73';
+        sec-mem-ref-name = 'Arithmetic_Determinant_N';
     };
       sec-mem-referencedby = {
         sec-mem-ref-id = 'arithmetic__divide_8c_1a496b3a77db45806c3ca59439169b1e2f';
@@ -452,12 +467,12 @@ _EnD_oF_dEf_TeXt_;
     };
       sec-mem-referencedby = {
         sec-mem-ref-id = 'cli__handler_8c_1a61fe594b1d9dd2f9fc0a5daf26fe6cb0';
-        sec-mem-ref-line = '113';
+        sec-mem-ref-line = '128';
         sec-mem-ref-name = 'Cli_Handler_Init';
     };
       sec-mem-referencedby = {
         sec-mem-ref-id = 'cli__handler_8c_1ad2002df80a92e4842fef5691c7db7b45';
-        sec-mem-ref-line = '242';
+        sec-mem-ref-line = '268';
         sec-mem-ref-name = 'command_clear';
     };
     }; /* sec-member */
@@ -1095,6 +1110,11 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-ref-name = 'Arithmetic_Add';
     };
       sec-mem-referencedby = {
+        sec-mem-ref-id = 'arithmetic__determinant__n_8c_1a8be9187b40fcc221c7cfbbca721a0ae0';
+        sec-mem-ref-line = '73';
+        sec-mem-ref-name = 'Arithmetic_Determinant_N';
+    };
+      sec-mem-referencedby = {
         sec-mem-ref-id = 'arithmetic__divide_8c_1a496b3a77db45806c3ca59439169b1e2f';
         sec-mem-ref-line = '64';
         sec-mem-ref-name = 'Arithmetic_Divide';
@@ -1103,6 +1123,11 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-ref-id = 'arithmetic__log__n_8c_1aee95770337ddfa4081b58fcfed717777';
         sec-mem-ref-line = '66';
         sec-mem-ref-name = 'Arithmetic_Log_N';
+    };
+      sec-mem-referencedby = {
+        sec-mem-ref-id = 'arithmetic__multiply_8c_1af482ae8bde65fd4dbdeb93aa304f525f';
+        sec-mem-ref-line = '66';
+        sec-mem-ref-name = 'Arithmetic_Multiply';
     };
       sec-mem-referencedby = {
         sec-mem-ref-id = 'arithmetic__power__n_8c_1a407644e2eabb009c1f0461eef35b02f8';
@@ -1121,12 +1146,12 @@ _EnD_oF_dEf_TeXt_;
     };
       sec-mem-referencedby = {
         sec-mem-ref-id = 'misc_8c_1a11fd5e4c2d3fdfa47e049fa60d420e57';
-        sec-mem-ref-line = '192';
+        sec-mem-ref-line = '197';
         sec-mem-ref-name = 'Misc_Free_Vector';
     };
       sec-mem-referencedby = {
         sec-mem-ref-id = 'misc_8c_1a68c5009d2808dec85d359c07ac03a593';
-        sec-mem-ref-line = '163';
+        sec-mem-ref-line = '164';
         sec-mem-ref-name = 'Misc_Get_Vector';
     };
     }; /* sec-member */
@@ -1153,6 +1178,11 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-ref-name = 'Arithmetic_Add';
     };
       sec-mem-referencedby = {
+        sec-mem-ref-id = 'arithmetic__determinant__n_8c_1a8be9187b40fcc221c7cfbbca721a0ae0';
+        sec-mem-ref-line = '73';
+        sec-mem-ref-name = 'Arithmetic_Determinant_N';
+    };
+      sec-mem-referencedby = {
         sec-mem-ref-id = 'arithmetic__divide_8c_1a496b3a77db45806c3ca59439169b1e2f';
         sec-mem-ref-line = '64';
         sec-mem-ref-name = 'Arithmetic_Divide';
@@ -1161,6 +1191,11 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-ref-id = 'arithmetic__log__n_8c_1aee95770337ddfa4081b58fcfed717777';
         sec-mem-ref-line = '66';
         sec-mem-ref-name = 'Arithmetic_Log_N';
+    };
+      sec-mem-referencedby = {
+        sec-mem-ref-id = 'arithmetic__multiply_8c_1af482ae8bde65fd4dbdeb93aa304f525f';
+        sec-mem-ref-line = '66';
+        sec-mem-ref-name = 'Arithmetic_Multiply';
     };
       sec-mem-referencedby = {
         sec-mem-ref-id = 'arithmetic__power__n_8c_1a407644e2eabb009c1f0461eef35b02f8';
@@ -1179,7 +1214,7 @@ _EnD_oF_dEf_TeXt_;
     };
       sec-mem-referencedby = {
         sec-mem-ref-id = 'misc_8c_1a68c5009d2808dec85d359c07ac03a593';
-        sec-mem-ref-line = '163';
+        sec-mem-ref-line = '164';
         sec-mem-ref-name = 'Misc_Get_Vector';
     };
     }; /* sec-member */
@@ -1265,17 +1300,17 @@ Stream buffer
 _EnD_oF_dEf_TeXt_;
       sec-mem-referencedby = {
         sec-mem-ref-id = 'cli__handler_8c_1ae1e4e87a1b834acd36551cb7222eee45';
-        sec-mem-ref-line = '183';
+        sec-mem-ref-line = '210';
         sec-mem-ref-name = 'check_receive_cmd';
     };
       sec-mem-referencedby = {
         sec-mem-ref-id = 'cli__handler_8c_1af2634b601b2a4cc0d082027768d690ab';
-        sec-mem-ref-line = '138';
+        sec-mem-ref-line = '157';
         sec-mem-ref-name = 'Cli_Handler_Check';
     };
       sec-mem-referencedby = {
         sec-mem-ref-id = 'cli__handler_8c_1a08e94bea6b19563502c78f513e8f41ed';
-        sec-mem-ref-line = '159';
+        sec-mem-ref-line = '186';
         sec-mem-ref-name = 'Cli_Handler_Out_Msg';
     };
       sec-mem-referencedby = {
@@ -1290,7 +1325,7 @@ _EnD_oF_dEf_TeXt_;
     };
       sec-mem-referencedby = {
         sec-mem-ref-id = 'stream_8c_1afcc0e80a2915e78719f8c9b9390c1b9d';
-        sec-mem-ref-line = '71';
+        sec-mem-ref-line = '67';
         sec-mem-ref-name = 'Stream_Init';
     };
     }; /* sec-member */
@@ -1318,7 +1353,7 @@ _EnD_oF_dEf_TeXt_;
     };
       sec-mem-referencedby = {
         sec-mem-ref-id = 'stream_8c_1afcc0e80a2915e78719f8c9b9390c1b9d';
-        sec-mem-ref-line = '71';
+        sec-mem-ref-line = '67';
         sec-mem-ref-name = 'Stream_Init';
     };
     }; /* sec-member */
@@ -1341,12 +1376,12 @@ Flag indicates stream state of mutex
 _EnD_oF_dEf_TeXt_;
       sec-mem-referencedby = {
         sec-mem-ref-id = 'cli__handler_8c_1af2634b601b2a4cc0d082027768d690ab';
-        sec-mem-ref-line = '138';
+        sec-mem-ref-line = '157';
         sec-mem-ref-name = 'Cli_Handler_Check';
     };
       sec-mem-referencedby = {
         sec-mem-ref-id = 'cli__handler_8c_1a08e94bea6b19563502c78f513e8f41ed';
-        sec-mem-ref-line = '159';
+        sec-mem-ref-line = '186';
         sec-mem-ref-name = 'Cli_Handler_Out_Msg';
     };
       sec-mem-referencedby = {
@@ -1361,7 +1396,7 @@ _EnD_oF_dEf_TeXt_;
     };
       sec-mem-referencedby = {
         sec-mem-ref-id = 'stream_8c_1afcc0e80a2915e78719f8c9b9390c1b9d';
-        sec-mem-ref-line = '71';
+        sec-mem-ref-line = '67';
         sec-mem-ref-name = 'Stream_Init';
     };
     }; /* sec-member */
@@ -1652,7 +1687,7 @@ and prints the result to the CLI output. Supports multiple values separated by '
 _EnD_oF_dEf_TeXt_;
       func-mem-referenceto = {
         func-mem-ref-id = 'arithmetic__add_8c_1a5cd15c77e3515386a1f4146d7d5ef597';
-        func-mem-ref-line = '100';
+        func-mem-ref-line = '102';
         func-mem-ref-name = 'add_values';
     };
       func-mem-referenceto = {
@@ -1672,7 +1707,7 @@ _EnD_oF_dEf_TeXt_;
     };
       func-mem-referenceto = {
         func-mem-ref-id = 'cli__handler_8c_1a08e94bea6b19563502c78f513e8f41ed';
-        func-mem-ref-line = '159';
+        func-mem-ref-line = '186';
         func-mem-ref-name = 'Cli_Handler_Out_Msg';
     };
       func-mem-referenceto = {
@@ -1691,8 +1726,13 @@ _EnD_oF_dEf_TeXt_;
         func-mem-ref-name = 'cli_handler_config_t::decimal';
     };
       func-mem-referenceto = {
+        func-mem-ref-id = 'misc_8c_1a11fd5e4c2d3fdfa47e049fa60d420e57';
+        func-mem-ref-line = '197';
+        func-mem-ref-name = 'Misc_Free_Vector';
+    };
+      func-mem-referenceto = {
         func-mem-ref-id = 'misc_8c_1a68c5009d2808dec85d359c07ac03a593';
-        func-mem-ref-line = '163';
+        func-mem-ref-line = '164';
         func-mem-ref-name = 'Misc_Get_Vector';
     };
       func-mem-referenceto = {
@@ -1737,32 +1777,82 @@ _EnD_oF_dEf_TeXt_;
         func-mem-param-declname = 'saveptr';
       }; /*        func-mem-param--param */
       func-mem-desc-file = 'C:/Users/Émerson/Documents/GitHub/c-c-plus-plus-developer-challenge/Code/CLI/Drivers/Arithmetic/Inc/arithmetic_determinant_n.h';
-      func-mem-desc-line = '46';
+      func-mem-desc-line = '49';
       func-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
-TODO.
+Handles the "Determinant_N" CLI command.
 _EnD_oF_dEf_TeXt_;
       func-mem-documentation = <<_EnD_oF_dEf_TeXt_
-@param cli_handler Pointer of handler CLI
-@param token Pointer of token receive
-@return TODO
+Parses the input stream for matrix values, checks if the matrix is square,
+and computes its determinant. Prints the result or an error message to the CLI output.
+
+@param cli_handler Pointer to the CLI handler structure.
+@param saveptr     Pointer to the input stream to parse.
+@return            CLI_HANDLER_ERROR_OK on success, error code otherwise.
 _EnD_oF_dEf_TeXt_;
+      func-mem-referenceto = {
+        func-mem-ref-id = 'cli__handler_8h_1ab97979060b77ff1c0d1f2b1e3bef60e9';
+        func-mem-ref-line = '122';
+        func-mem-ref-name = 'cli_handler_t::ans';
+    };
+      func-mem-referenceto = {
+        func-mem-ref-id = 'cli__handler_8h_1ab628c36b50fd3de2c1c6cd5217197efc';
+        func-mem-ref-line = '39';
+        func-mem-ref-name = 'CHECK_CLI_HANDLER_PTR';
+    };
       func-mem-referenceto = {
         func-mem-ref-id = 'cli__handler_8h_1a4e9566e27550032c11cf88cb0f72d72aa288daa5a1c16697b7dd720006b3c876e';
         func-mem-ref-line = '54';
         func-mem-ref-name = 'CLI_HANDLER_ERROR_OK';
+    };
+      func-mem-referenceto = {
+        func-mem-ref-id = 'cli__handler_8h_1a4e9566e27550032c11cf88cb0f72d72aa45bd74b42fbc4e04a5b64075ce5e2424';
+        func-mem-ref-line = '56';
+        func-mem-ref-name = 'CLI_HANDLER_ERROR_PARM';
+    };
+      func-mem-referenceto = {
+        func-mem-ref-id = 'cli__handler_8c_1a08e94bea6b19563502c78f513e8f41ed';
+        func-mem-ref-line = '186';
+        func-mem-ref-name = 'Cli_Handler_Out_Msg';
+    };
+      func-mem-referenceto = {
+        func-mem-ref-id = 'cli__handler_8h_1a091713d33898dfc53c64a4534cd800bc';
+        func-mem-ref-line = '118';
+        func-mem-ref-name = 'cli_handler_t::config';
+    };
+      func-mem-referenceto = {
+        func-mem-ref-id = 'misc_8h_1a88f7c9592309ee5e21e28cf5962671e1';
+        func-mem-ref-line = '56';
+        func-mem-ref-name = 'misc_vector_t::data';
+    };
+      func-mem-referenceto = {
+        func-mem-ref-id = 'cli__handler_8h_1a11c0871528a2a032b355bcf76e324a72';
+        func-mem-ref-line = '109';
+        func-mem-ref-name = 'cli_handler_config_t::decimal';
+    };
+      func-mem-referenceto = {
+        func-mem-ref-id = 'arithmetic__determinant__n_8c_1a58c5df099b11cf1c4e54308a14deb346';
+        func-mem-ref-line = '116';
+        func-mem-ref-name = 'determinant';
+    };
+      func-mem-referenceto = {
+        func-mem-ref-id = 'misc_8c_1a68c5009d2808dec85d359c07ac03a593';
+        func-mem-ref-line = '164';
+        func-mem-ref-name = 'Misc_Get_Vector';
+    };
+      func-mem-referenceto = {
+        func-mem-ref-id = 'misc_8h_1ac057665de75567f5a6bf3f4505c6b62f';
+        func-mem-ref-line = '57';
+        func-mem-ref-name = 'misc_vector_t::size';
     };
     }; /* func-member */
     };
   file-full-name  = 'C:/Users/Émerson/Documents/GitHub/c-c-plus-plus-developer-challenge/Code/CLI/Drivers/Arithmetic/Inc/arithmetic_determinant_n.h';
   file-first-line = '1';
   file-briefdesc  = <<_EnD_oF_dEf_TeXt_
-TODO.
+
 _EnD_oF_dEf_TeXt_;
   file-documentation = <<_EnD_oF_dEf_TeXt_
- TODO
 
-@author  Emerson Isaias da Silva
-@date    21-09-2025
 _EnD_oF_dEf_TeXt_;
 }; /* file */
 file = {
@@ -1820,7 +1910,7 @@ _EnD_oF_dEf_TeXt_;
     };
       func-mem-referenceto = {
         func-mem-ref-id = 'cli__handler_8c_1a08e94bea6b19563502c78f513e8f41ed';
-        func-mem-ref-line = '159';
+        func-mem-ref-line = '186';
         func-mem-ref-name = 'Cli_Handler_Out_Msg';
     };
       func-mem-referenceto = {
@@ -1840,12 +1930,17 @@ _EnD_oF_dEf_TeXt_;
     };
       func-mem-referenceto = {
         func-mem-ref-id = 'arithmetic__divide_8c_1a6eb136221287622b5358966dd95ed0cc';
-        func-mem-ref-line = '97';
+        func-mem-ref-line = '99';
         func-mem-ref-name = 'divide_values';
     };
       func-mem-referenceto = {
+        func-mem-ref-id = 'misc_8c_1a11fd5e4c2d3fdfa47e049fa60d420e57';
+        func-mem-ref-line = '197';
+        func-mem-ref-name = 'Misc_Free_Vector';
+    };
+      func-mem-referenceto = {
         func-mem-ref-id = 'misc_8c_1a68c5009d2808dec85d359c07ac03a593';
-        func-mem-ref-line = '163';
+        func-mem-ref-line = '164';
         func-mem-ref-name = 'Misc_Get_Vector';
     };
       func-mem-referenceto = {
@@ -1923,7 +2018,7 @@ _EnD_oF_dEf_TeXt_;
     };
       func-mem-referenceto = {
         func-mem-ref-id = 'cli__handler_8c_1a08e94bea6b19563502c78f513e8f41ed';
-        func-mem-ref-line = '159';
+        func-mem-ref-line = '186';
         func-mem-ref-name = 'Cli_Handler_Out_Msg';
     };
       func-mem-referenceto = {
@@ -1943,12 +2038,17 @@ _EnD_oF_dEf_TeXt_;
     };
       func-mem-referenceto = {
         func-mem-ref-id = 'arithmetic__log__n_8c_1ad52d32211165049cfe04fd019c160f7e';
-        func-mem-ref-line = '99';
+        func-mem-ref-line = '101';
         func-mem-ref-name = 'log_n_values';
     };
       func-mem-referenceto = {
+        func-mem-ref-id = 'misc_8c_1a11fd5e4c2d3fdfa47e049fa60d420e57';
+        func-mem-ref-line = '197';
+        func-mem-ref-name = 'Misc_Free_Vector';
+    };
+      func-mem-referenceto = {
         func-mem-ref-id = 'misc_8c_1a68c5009d2808dec85d359c07ac03a593';
-        func-mem-ref-line = '163';
+        func-mem-ref-line = '164';
         func-mem-ref-name = 'Misc_Get_Vector';
     };
       func-mem-referenceto = {
@@ -2015,13 +2115,18 @@ _EnD_oF_dEf_TeXt_;
         func-mem-ref-name = 'cli_handler_t::ans';
     };
       func-mem-referenceto = {
+        func-mem-ref-id = 'cli__handler_8h_1ab628c36b50fd3de2c1c6cd5217197efc';
+        func-mem-ref-line = '39';
+        func-mem-ref-name = 'CHECK_CLI_HANDLER_PTR';
+    };
+      func-mem-referenceto = {
         func-mem-ref-id = 'cli__handler_8h_1a4e9566e27550032c11cf88cb0f72d72aa288daa5a1c16697b7dd720006b3c876e';
         func-mem-ref-line = '54';
         func-mem-ref-name = 'CLI_HANDLER_ERROR_OK';
     };
       func-mem-referenceto = {
         func-mem-ref-id = 'cli__handler_8c_1a08e94bea6b19563502c78f513e8f41ed';
-        func-mem-ref-line = '159';
+        func-mem-ref-line = '186';
         func-mem-ref-name = 'Cli_Handler_Out_Msg';
     };
       func-mem-referenceto = {
@@ -2030,24 +2135,34 @@ _EnD_oF_dEf_TeXt_;
         func-mem-ref-name = 'cli_handler_t::config';
     };
       func-mem-referenceto = {
+        func-mem-ref-id = 'misc_8h_1a88f7c9592309ee5e21e28cf5962671e1';
+        func-mem-ref-line = '56';
+        func-mem-ref-name = 'misc_vector_t::data';
+    };
+      func-mem-referenceto = {
         func-mem-ref-id = 'cli__handler_8h_1a11c0871528a2a032b355bcf76e324a72';
         func-mem-ref-line = '109';
         func-mem-ref-name = 'cli_handler_config_t::decimal';
     };
       func-mem-referenceto = {
-        func-mem-ref-id = 'misc_8c_1abb1b01d9805cf9b2354fcc13f7a787bc';
-        func-mem-ref-line = '122';
-        func-mem-ref-name = 'Misc_Parser_Double';
+        func-mem-ref-id = 'misc_8c_1a11fd5e4c2d3fdfa47e049fa60d420e57';
+        func-mem-ref-line = '197';
+        func-mem-ref-name = 'Misc_Free_Vector';
     };
       func-mem-referenceto = {
-        func-mem-ref-id = 'misc_8c_1a26d79ae4b7a899d74727f732c288c069';
-        func-mem-ref-line = '83';
-        func-mem-ref-name = 'Misc_Strtok_R';
+        func-mem-ref-id = 'misc_8c_1a68c5009d2808dec85d359c07ac03a593';
+        func-mem-ref-line = '164';
+        func-mem-ref-name = 'Misc_Get_Vector';
     };
       func-mem-referenceto = {
         func-mem-ref-id = 'arithmetic__multiply_8c_1a2906ee645ed4472639cf4e523e052a84';
-        func-mem-ref-line = '91';
+        func-mem-ref-line = '101';
         func-mem-ref-name = 'multiply_values';
+    };
+      func-mem-referenceto = {
+        func-mem-ref-id = 'misc_8h_1ac057665de75567f5a6bf3f4505c6b62f';
+        func-mem-ref-line = '57';
+        func-mem-ref-name = 'misc_vector_t::size';
     };
     }; /* func-member */
     };
@@ -2119,7 +2234,7 @@ _EnD_oF_dEf_TeXt_;
     };
       func-mem-referenceto = {
         func-mem-ref-id = 'cli__handler_8c_1a08e94bea6b19563502c78f513e8f41ed';
-        func-mem-ref-line = '159';
+        func-mem-ref-line = '186';
         func-mem-ref-name = 'Cli_Handler_Out_Msg';
     };
       func-mem-referenceto = {
@@ -2138,13 +2253,18 @@ _EnD_oF_dEf_TeXt_;
         func-mem-ref-name = 'cli_handler_config_t::decimal';
     };
       func-mem-referenceto = {
+        func-mem-ref-id = 'misc_8c_1a11fd5e4c2d3fdfa47e049fa60d420e57';
+        func-mem-ref-line = '197';
+        func-mem-ref-name = 'Misc_Free_Vector';
+    };
+      func-mem-referenceto = {
         func-mem-ref-id = 'misc_8c_1a68c5009d2808dec85d359c07ac03a593';
-        func-mem-ref-line = '163';
+        func-mem-ref-line = '164';
         func-mem-ref-name = 'Misc_Get_Vector';
     };
       func-mem-referenceto = {
         func-mem-ref-id = 'arithmetic__power__n_8c_1afc1bfd0421e2093ca0913097d4f2140f';
-        func-mem-ref-line = '98';
+        func-mem-ref-line = '100';
         func-mem-ref-name = 'power_n_values';
     };
       func-mem-referenceto = {
@@ -2229,7 +2349,7 @@ _EnD_oF_dEf_TeXt_;
     };
       func-mem-referenceto = {
         func-mem-ref-id = 'cli__handler_8c_1a08e94bea6b19563502c78f513e8f41ed';
-        func-mem-ref-line = '159';
+        func-mem-ref-line = '186';
         func-mem-ref-name = 'Cli_Handler_Out_Msg';
     };
       func-mem-referenceto = {
@@ -2248,13 +2368,18 @@ _EnD_oF_dEf_TeXt_;
         func-mem-ref-name = 'cli_handler_config_t::decimal';
     };
       func-mem-referenceto = {
+        func-mem-ref-id = 'misc_8c_1a11fd5e4c2d3fdfa47e049fa60d420e57';
+        func-mem-ref-line = '197';
+        func-mem-ref-name = 'Misc_Free_Vector';
+    };
+      func-mem-referenceto = {
         func-mem-ref-id = 'misc_8c_1a68c5009d2808dec85d359c07ac03a593';
-        func-mem-ref-line = '163';
+        func-mem-ref-line = '164';
         func-mem-ref-name = 'Misc_Get_Vector';
     };
       func-mem-referenceto = {
         func-mem-ref-id = 'arithmetic__root__n_8c_1acb2fea1f5d859beb6409a0097e81ba0b';
-        func-mem-ref-line = '98';
+        func-mem-ref-line = '100';
         func-mem-ref-name = 'root_n_values';
     };
       func-mem-referenceto = {
@@ -2328,7 +2453,7 @@ _EnD_oF_dEf_TeXt_;
     };
       func-mem-referenceto = {
         func-mem-ref-id = 'cli__handler_8c_1a08e94bea6b19563502c78f513e8f41ed';
-        func-mem-ref-line = '159';
+        func-mem-ref-line = '186';
         func-mem-ref-name = 'Cli_Handler_Out_Msg';
     };
       func-mem-referenceto = {
@@ -2347,8 +2472,13 @@ _EnD_oF_dEf_TeXt_;
         func-mem-ref-name = 'cli_handler_config_t::decimal';
     };
       func-mem-referenceto = {
+        func-mem-ref-id = 'misc_8c_1a11fd5e4c2d3fdfa47e049fa60d420e57';
+        func-mem-ref-line = '197';
+        func-mem-ref-name = 'Misc_Free_Vector';
+    };
+      func-mem-referenceto = {
         func-mem-ref-id = 'misc_8c_1a68c5009d2808dec85d359c07ac03a593';
-        func-mem-ref-line = '163';
+        func-mem-ref-line = '164';
         func-mem-ref-name = 'Misc_Get_Vector';
     };
       func-mem-referenceto = {
@@ -2358,7 +2488,7 @@ _EnD_oF_dEf_TeXt_;
     };
       func-mem-referenceto = {
         func-mem-ref-id = 'arithmetic__subtract_8c_1a81c8d930dfaf3213d073bb39b28ad8f5';
-        func-mem-ref-line = '97';
+        func-mem-ref-line = '99';
         func-mem-ref-name = 'subtract_values';
     };
     }; /* func-member */
@@ -2407,7 +2537,7 @@ _EnD_oF_dEf_TeXt_;
         func-mem-param-declname = 'value2';
       }; /*        func-mem-param--param */
       func-mem-desc-file = 'C:/Users/Émerson/Documents/GitHub/c-c-plus-plus-developer-challenge/Code/CLI/Drivers/Arithmetic/Src/arithmetic_add.c';
-      func-mem-desc-line = '100';
+      func-mem-desc-line = '102';
       func-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 Adds two double values and stores the result.
 _EnD_oF_dEf_TeXt_;
@@ -2464,7 +2594,7 @@ and prints the result to the CLI output. Supports multiple values separated by '
 _EnD_oF_dEf_TeXt_;
       func-mem-referenceto = {
         func-mem-ref-id = 'arithmetic__add_8c_1a5cd15c77e3515386a1f4146d7d5ef597';
-        func-mem-ref-line = '100';
+        func-mem-ref-line = '102';
         func-mem-ref-name = 'add_values';
     };
       func-mem-referenceto = {
@@ -2484,7 +2614,7 @@ _EnD_oF_dEf_TeXt_;
     };
       func-mem-referenceto = {
         func-mem-ref-id = 'cli__handler_8c_1a08e94bea6b19563502c78f513e8f41ed';
-        func-mem-ref-line = '159';
+        func-mem-ref-line = '186';
         func-mem-ref-name = 'Cli_Handler_Out_Msg';
     };
       func-mem-referenceto = {
@@ -2503,8 +2633,13 @@ _EnD_oF_dEf_TeXt_;
         func-mem-ref-name = 'cli_handler_config_t::decimal';
     };
       func-mem-referenceto = {
+        func-mem-ref-id = 'misc_8c_1a11fd5e4c2d3fdfa47e049fa60d420e57';
+        func-mem-ref-line = '197';
+        func-mem-ref-name = 'Misc_Free_Vector';
+    };
+      func-mem-referenceto = {
         func-mem-ref-id = 'misc_8c_1a68c5009d2808dec85d359c07ac03a593';
-        func-mem-ref-line = '163';
+        func-mem-ref-line = '164';
         func-mem-ref-name = 'Misc_Get_Vector';
     };
       func-mem-referenceto = {
@@ -2562,6 +2697,78 @@ file = {
     func = {
     func-member = {
       func-mem-kind = 'function';
+      func-mem-id   = 'arithmetic__determinant__n_8c_1a58c5df099b11cf1c4e54308a14deb346';
+      func-mem-virt = non-virtual;
+      func-mem-prot = public;
+      func-mem-type = <<_EnD_oF_dEf_TeXt_
+cli_handler_error_e
+_EnD_oF_dEf_TeXt_;
+      func-mem-name = 'determinant';
+      func-mem-param = {
+        func-mem-param-type = <<_EnD_oF_dEf_TeXt_
+double *
+_EnD_oF_dEf_TeXt_;
+        func-mem-param-declname = 'result';
+      }; /*        func-mem-param--param */
+      func-mem-param = {
+        func-mem-param-type = <<_EnD_oF_dEf_TeXt_
+double *
+_EnD_oF_dEf_TeXt_;
+        func-mem-param-declname = 'matrix';
+      }; /*        func-mem-param--param */
+      func-mem-param = {
+        func-mem-param-type = <<_EnD_oF_dEf_TeXt_
+uint8_t
+_EnD_oF_dEf_TeXt_;
+        func-mem-param-declname = 'n';
+      }; /*        func-mem-param--param */
+      func-mem-desc-file = 'C:/Users/Émerson/Documents/GitHub/c-c-plus-plus-developer-challenge/Code/CLI/Drivers/Arithmetic/Src/arithmetic_determinant_n.c';
+      func-mem-desc-line = '116';
+      func-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+Recursively calculates the determinant of a square matrix.
+_EnD_oF_dEf_TeXt_;
+      func-mem-documentation = <<_EnD_oF_dEf_TeXt_
+@param result Pointer to store the determinant result.
+@param matrix Pointer to the matrix data (flattened, row-major order).
+@param n      Size of the matrix (n x n).
+@return       CLI_HANDLER_ERROR_OK on success, error code otherwise.
+
+Uses Laplace expansion to compute the determinant for matrices larger than 2x2.
+Allocates submatrices dynamically for recursion. Handles base cases for 1x1 and 2x2 matrices.
+
+@param result Pointer to store the determinant result.
+@param matrix Pointer to the matrix data (flattened, row-major order).
+@param n      Size of the matrix (n x n).
+@return       CLI_HANDLER_ERROR_OK on success, error code otherwise.
+_EnD_oF_dEf_TeXt_;
+      func-mem-referenceto = {
+        func-mem-ref-id = 'cli__handler_8h_1ab628c36b50fd3de2c1c6cd5217197efc';
+        func-mem-ref-line = '39';
+        func-mem-ref-name = 'CHECK_CLI_HANDLER_PTR';
+    };
+      func-mem-referenceto = {
+        func-mem-ref-id = 'cli__handler_8h_1a4e9566e27550032c11cf88cb0f72d72aa288daa5a1c16697b7dd720006b3c876e';
+        func-mem-ref-line = '54';
+        func-mem-ref-name = 'CLI_HANDLER_ERROR_OK';
+    };
+      func-mem-referenceto = {
+        func-mem-ref-id = 'arithmetic__determinant__n_8c_1a58c5df099b11cf1c4e54308a14deb346';
+        func-mem-ref-line = '116';
+        func-mem-ref-name = 'determinant';
+    };
+      func-mem-referencedby = {
+        func-mem-ref-id = 'arithmetic__determinant__n_8c_1a8be9187b40fcc221c7cfbbca721a0ae0';
+        func-mem-ref-line = '73';
+        func-mem-ref-name = 'Arithmetic_Determinant_N';
+    };
+      func-mem-referencedby = {
+        func-mem-ref-id = 'arithmetic__determinant__n_8c_1a58c5df099b11cf1c4e54308a14deb346';
+        func-mem-ref-line = '116';
+        func-mem-ref-name = 'determinant';
+    };
+    }; /* func-member */
+    func-member = {
+      func-mem-kind = 'function';
       func-mem-id   = 'arithmetic__determinant__n_8c_1a8be9187b40fcc221c7cfbbca721a0ae0';
       func-mem-virt = non-virtual;
       func-mem-prot = public;
@@ -2582,19 +2789,72 @@ _EnD_oF_dEf_TeXt_;
         func-mem-param-declname = 'saveptr';
       }; /*        func-mem-param--param */
       func-mem-desc-file = 'C:/Users/Émerson/Documents/GitHub/c-c-plus-plus-developer-challenge/Code/CLI/Drivers/Arithmetic/Src/arithmetic_determinant_n.c';
-      func-mem-desc-line = '47';
+      func-mem-desc-line = '73';
       func-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
-TODO.
+Handles the "Determinant_N" CLI command.
 _EnD_oF_dEf_TeXt_;
       func-mem-documentation = <<_EnD_oF_dEf_TeXt_
-@param cli_handler Pointer of handler CLI
-@param token Pointer of token receive
-@return TODO
+Parses the input stream for matrix values, checks if the matrix is square,
+and computes its determinant. Prints the result or an error message to the CLI output.
+
+@param cli_handler Pointer to the CLI handler structure.
+@param saveptr     Pointer to the input stream to parse.
+@return            CLI_HANDLER_ERROR_OK on success, error code otherwise.
 _EnD_oF_dEf_TeXt_;
+      func-mem-referenceto = {
+        func-mem-ref-id = 'cli__handler_8h_1ab97979060b77ff1c0d1f2b1e3bef60e9';
+        func-mem-ref-line = '122';
+        func-mem-ref-name = 'cli_handler_t::ans';
+    };
+      func-mem-referenceto = {
+        func-mem-ref-id = 'cli__handler_8h_1ab628c36b50fd3de2c1c6cd5217197efc';
+        func-mem-ref-line = '39';
+        func-mem-ref-name = 'CHECK_CLI_HANDLER_PTR';
+    };
       func-mem-referenceto = {
         func-mem-ref-id = 'cli__handler_8h_1a4e9566e27550032c11cf88cb0f72d72aa288daa5a1c16697b7dd720006b3c876e';
         func-mem-ref-line = '54';
         func-mem-ref-name = 'CLI_HANDLER_ERROR_OK';
+    };
+      func-mem-referenceto = {
+        func-mem-ref-id = 'cli__handler_8h_1a4e9566e27550032c11cf88cb0f72d72aa45bd74b42fbc4e04a5b64075ce5e2424';
+        func-mem-ref-line = '56';
+        func-mem-ref-name = 'CLI_HANDLER_ERROR_PARM';
+    };
+      func-mem-referenceto = {
+        func-mem-ref-id = 'cli__handler_8c_1a08e94bea6b19563502c78f513e8f41ed';
+        func-mem-ref-line = '186';
+        func-mem-ref-name = 'Cli_Handler_Out_Msg';
+    };
+      func-mem-referenceto = {
+        func-mem-ref-id = 'cli__handler_8h_1a091713d33898dfc53c64a4534cd800bc';
+        func-mem-ref-line = '118';
+        func-mem-ref-name = 'cli_handler_t::config';
+    };
+      func-mem-referenceto = {
+        func-mem-ref-id = 'misc_8h_1a88f7c9592309ee5e21e28cf5962671e1';
+        func-mem-ref-line = '56';
+        func-mem-ref-name = 'misc_vector_t::data';
+    };
+      func-mem-referenceto = {
+        func-mem-ref-id = 'cli__handler_8h_1a11c0871528a2a032b355bcf76e324a72';
+        func-mem-ref-line = '109';
+        func-mem-ref-name = 'cli_handler_config_t::decimal';
+    };
+      func-mem-referenceto = {
+        func-mem-ref-id = 'arithmetic__determinant__n_8c_1a58c5df099b11cf1c4e54308a14deb346';
+        func-mem-ref-line = '116';
+        func-mem-ref-name = 'determinant';
+    };
+      func-mem-referenceto = {
+        func-mem-ref-id = 'misc_8c_1a68c5009d2808dec85d359c07ac03a593';
+        func-mem-ref-line = '164';
+        func-mem-ref-name = 'Misc_Get_Vector';
+    };
+      func-mem-referenceto = {
+        func-mem-ref-id = 'misc_8h_1ac057665de75567f5a6bf3f4505c6b62f';
+        func-mem-ref-line = '57';
+        func-mem-ref-name = 'misc_vector_t::size';
     };
     }; /* func-member */
     };
@@ -2611,27 +2871,31 @@ _EnD_oF_dEf_TeXt_;
       var-mem-initializer = <<_EnD_oF_dEf_TeXt_
 = {
         .name = "Determinant_N",
-        .description = "Determinant N the value to ANS - Sintax \"Determinant [0x00000000]\"\n",
+        .description = "Determinant N the value to ANS - Sintax \"Determinant [double, double, ...]\"\n",
         .func_ptr = Arithmetic_Determinant_N
 }
 _EnD_oF_dEf_TeXt_;
       var-mem-desc-file = 'C:/Users/Émerson/Documents/GitHub/c-c-plus-plus-developer-challenge/Code/CLI/Drivers/Arithmetic/Src/arithmetic_determinant_n.c';
-      var-mem-desc-line = '34';
+      var-mem-desc-line = '56';
       var-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
-
+CLI command constant for the "Determinant_N" operation.
 _EnD_oF_dEf_TeXt_;
       var-mem-documentation = <<_EnD_oF_dEf_TeXt_
-
+ - name:        Command name ("Determinant_N")
+ - description: Command description and usage syntax
+ - func_ptr:    Pointer to the function that implements the command
 _EnD_oF_dEf_TeXt_;
     }; /* var-member */
     };
   file-full-name  = 'C:/Users/Émerson/Documents/GitHub/c-c-plus-plus-developer-challenge/Code/CLI/Drivers/Arithmetic/Src/arithmetic_determinant_n.c';
   file-first-line = '1';
   file-briefdesc  = <<_EnD_oF_dEf_TeXt_
-TODO.
+Implementation of the determinant calculation command for the CLI calculator.
 _EnD_oF_dEf_TeXt_;
   file-documentation = <<_EnD_oF_dEf_TeXt_
- TODO
+This module implements the "Determinant_N" command for the CLI calculator, allowing users to compute
+the determinant of a square matrix provided as a flat vector. It parses input tokens, checks matrix validity,
+performs the determinant calculation recursively, and prints the result to the CLI output stream.
 
 @author  Emerson Isaias da Silva
 @date    21-09-2025
@@ -2669,7 +2933,7 @@ _EnD_oF_dEf_TeXt_;
         func-mem-param-declname = 'value2';
       }; /*        func-mem-param--param */
       func-mem-desc-file = 'C:/Users/Émerson/Documents/GitHub/c-c-plus-plus-developer-challenge/Code/CLI/Drivers/Arithmetic/Src/arithmetic_divide.c';
-      func-mem-desc-line = '97';
+      func-mem-desc-line = '99';
       func-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 Divides two double values and stores the result.
 _EnD_oF_dEf_TeXt_;
@@ -2741,7 +3005,7 @@ _EnD_oF_dEf_TeXt_;
     };
       func-mem-referenceto = {
         func-mem-ref-id = 'cli__handler_8c_1a08e94bea6b19563502c78f513e8f41ed';
-        func-mem-ref-line = '159';
+        func-mem-ref-line = '186';
         func-mem-ref-name = 'Cli_Handler_Out_Msg';
     };
       func-mem-referenceto = {
@@ -2761,12 +3025,17 @@ _EnD_oF_dEf_TeXt_;
     };
       func-mem-referenceto = {
         func-mem-ref-id = 'arithmetic__divide_8c_1a6eb136221287622b5358966dd95ed0cc';
-        func-mem-ref-line = '97';
+        func-mem-ref-line = '99';
         func-mem-ref-name = 'divide_values';
     };
       func-mem-referenceto = {
+        func-mem-ref-id = 'misc_8c_1a11fd5e4c2d3fdfa47e049fa60d420e57';
+        func-mem-ref-line = '197';
+        func-mem-ref-name = 'Misc_Free_Vector';
+    };
+      func-mem-referenceto = {
         func-mem-ref-id = 'misc_8c_1a68c5009d2808dec85d359c07ac03a593';
-        func-mem-ref-line = '163';
+        func-mem-ref-line = '164';
         func-mem-ref-name = 'Misc_Get_Vector';
     };
       func-mem-referenceto = {
@@ -2850,7 +3119,7 @@ _EnD_oF_dEf_TeXt_;
         func-mem-param-declname = 'value2';
       }; /*        func-mem-param--param */
       func-mem-desc-file = 'C:/Users/Émerson/Documents/GitHub/c-c-plus-plus-developer-challenge/Code/CLI/Drivers/Arithmetic/Src/arithmetic_log_n.c';
-      func-mem-desc-line = '99';
+      func-mem-desc-line = '101';
       func-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 Calculates the logarithm of value1 with base value2 and stores the result.
 _EnD_oF_dEf_TeXt_;
@@ -2922,7 +3191,7 @@ _EnD_oF_dEf_TeXt_;
     };
       func-mem-referenceto = {
         func-mem-ref-id = 'cli__handler_8c_1a08e94bea6b19563502c78f513e8f41ed';
-        func-mem-ref-line = '159';
+        func-mem-ref-line = '186';
         func-mem-ref-name = 'Cli_Handler_Out_Msg';
     };
       func-mem-referenceto = {
@@ -2942,12 +3211,17 @@ _EnD_oF_dEf_TeXt_;
     };
       func-mem-referenceto = {
         func-mem-ref-id = 'arithmetic__log__n_8c_1ad52d32211165049cfe04fd019c160f7e';
-        func-mem-ref-line = '99';
+        func-mem-ref-line = '101';
         func-mem-ref-name = 'log_n_values';
     };
       func-mem-referenceto = {
+        func-mem-ref-id = 'misc_8c_1a11fd5e4c2d3fdfa47e049fa60d420e57';
+        func-mem-ref-line = '197';
+        func-mem-ref-name = 'Misc_Free_Vector';
+    };
+      func-mem-referenceto = {
         func-mem-ref-id = 'misc_8c_1a68c5009d2808dec85d359c07ac03a593';
-        func-mem-ref-line = '163';
+        func-mem-ref-line = '164';
         func-mem-ref-name = 'Misc_Get_Vector';
     };
       func-mem-referenceto = {
@@ -2970,7 +3244,7 @@ _EnD_oF_dEf_TeXt_;
       var-mem-initializer = <<_EnD_oF_dEf_TeXt_
 = {
         .name = "Log_N",
-        .description = "Log N the value to ANS - Sintax \"Log_N [0x00000000]\"\n",
+        .description = "Log N the value to ANS - Sintax \"Log_N [double, double, ...]\"\n",
         .func_ptr = Arithmetic_Log_N
 }
 _EnD_oF_dEf_TeXt_;
@@ -3031,7 +3305,7 @@ _EnD_oF_dEf_TeXt_;
         func-mem-param-declname = 'value2';
       }; /*        func-mem-param--param */
       func-mem-desc-file = 'C:/Users/Émerson/Documents/GitHub/c-c-plus-plus-developer-challenge/Code/CLI/Drivers/Arithmetic/Src/arithmetic_multiply.c';
-      func-mem-desc-line = '91';
+      func-mem-desc-line = '101';
       func-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 Multiplies two double values and stores the result.
 _EnD_oF_dEf_TeXt_;
@@ -3092,13 +3366,18 @@ _EnD_oF_dEf_TeXt_;
         func-mem-ref-name = 'cli_handler_t::ans';
     };
       func-mem-referenceto = {
+        func-mem-ref-id = 'cli__handler_8h_1ab628c36b50fd3de2c1c6cd5217197efc';
+        func-mem-ref-line = '39';
+        func-mem-ref-name = 'CHECK_CLI_HANDLER_PTR';
+    };
+      func-mem-referenceto = {
         func-mem-ref-id = 'cli__handler_8h_1a4e9566e27550032c11cf88cb0f72d72aa288daa5a1c16697b7dd720006b3c876e';
         func-mem-ref-line = '54';
         func-mem-ref-name = 'CLI_HANDLER_ERROR_OK';
     };
       func-mem-referenceto = {
         func-mem-ref-id = 'cli__handler_8c_1a08e94bea6b19563502c78f513e8f41ed';
-        func-mem-ref-line = '159';
+        func-mem-ref-line = '186';
         func-mem-ref-name = 'Cli_Handler_Out_Msg';
     };
       func-mem-referenceto = {
@@ -3107,24 +3386,34 @@ _EnD_oF_dEf_TeXt_;
         func-mem-ref-name = 'cli_handler_t::config';
     };
       func-mem-referenceto = {
+        func-mem-ref-id = 'misc_8h_1a88f7c9592309ee5e21e28cf5962671e1';
+        func-mem-ref-line = '56';
+        func-mem-ref-name = 'misc_vector_t::data';
+    };
+      func-mem-referenceto = {
         func-mem-ref-id = 'cli__handler_8h_1a11c0871528a2a032b355bcf76e324a72';
         func-mem-ref-line = '109';
         func-mem-ref-name = 'cli_handler_config_t::decimal';
     };
       func-mem-referenceto = {
-        func-mem-ref-id = 'misc_8c_1abb1b01d9805cf9b2354fcc13f7a787bc';
-        func-mem-ref-line = '122';
-        func-mem-ref-name = 'Misc_Parser_Double';
+        func-mem-ref-id = 'misc_8c_1a11fd5e4c2d3fdfa47e049fa60d420e57';
+        func-mem-ref-line = '197';
+        func-mem-ref-name = 'Misc_Free_Vector';
     };
       func-mem-referenceto = {
-        func-mem-ref-id = 'misc_8c_1a26d79ae4b7a899d74727f732c288c069';
-        func-mem-ref-line = '83';
-        func-mem-ref-name = 'Misc_Strtok_R';
+        func-mem-ref-id = 'misc_8c_1a68c5009d2808dec85d359c07ac03a593';
+        func-mem-ref-line = '164';
+        func-mem-ref-name = 'Misc_Get_Vector';
     };
       func-mem-referenceto = {
         func-mem-ref-id = 'arithmetic__multiply_8c_1a2906ee645ed4472639cf4e523e052a84';
-        func-mem-ref-line = '91';
+        func-mem-ref-line = '101';
         func-mem-ref-name = 'multiply_values';
+    };
+      func-mem-referenceto = {
+        func-mem-ref-id = 'misc_8h_1ac057665de75567f5a6bf3f4505c6b62f';
+        func-mem-ref-line = '57';
+        func-mem-ref-name = 'misc_vector_t::size';
     };
     }; /* func-member */
     };
@@ -3202,7 +3491,7 @@ _EnD_oF_dEf_TeXt_;
         func-mem-param-declname = 'value2';
       }; /*        func-mem-param--param */
       func-mem-desc-file = 'C:/Users/Émerson/Documents/GitHub/c-c-plus-plus-developer-challenge/Code/CLI/Drivers/Arithmetic/Src/arithmetic_power_n.c';
-      func-mem-desc-line = '98';
+      func-mem-desc-line = '100';
       func-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 Raises one double value to the power of another and stores the result.
 _EnD_oF_dEf_TeXt_;
@@ -3274,7 +3563,7 @@ _EnD_oF_dEf_TeXt_;
     };
       func-mem-referenceto = {
         func-mem-ref-id = 'cli__handler_8c_1a08e94bea6b19563502c78f513e8f41ed';
-        func-mem-ref-line = '159';
+        func-mem-ref-line = '186';
         func-mem-ref-name = 'Cli_Handler_Out_Msg';
     };
       func-mem-referenceto = {
@@ -3293,13 +3582,18 @@ _EnD_oF_dEf_TeXt_;
         func-mem-ref-name = 'cli_handler_config_t::decimal';
     };
       func-mem-referenceto = {
+        func-mem-ref-id = 'misc_8c_1a11fd5e4c2d3fdfa47e049fa60d420e57';
+        func-mem-ref-line = '197';
+        func-mem-ref-name = 'Misc_Free_Vector';
+    };
+      func-mem-referenceto = {
         func-mem-ref-id = 'misc_8c_1a68c5009d2808dec85d359c07ac03a593';
-        func-mem-ref-line = '163';
+        func-mem-ref-line = '164';
         func-mem-ref-name = 'Misc_Get_Vector';
     };
       func-mem-referenceto = {
         func-mem-ref-id = 'arithmetic__power__n_8c_1afc1bfd0421e2093ca0913097d4f2140f';
-        func-mem-ref-line = '98';
+        func-mem-ref-line = '100';
         func-mem-ref-name = 'power_n_values';
     };
       func-mem-referenceto = {
@@ -3322,7 +3616,7 @@ _EnD_oF_dEf_TeXt_;
       var-mem-initializer = <<_EnD_oF_dEf_TeXt_
 = {
         .name = "Power_N",
-        .description = "Power N the value to ANS - Sintax \"Power_N [int, int, ...]\"\n",
+        .description = "Power N the value to ANS - Sintax \"Power_N [double, double, ...]\"\n",
         .func_ptr = Arithmetic_Power_N
 }
 _EnD_oF_dEf_TeXt_;
@@ -3383,7 +3677,7 @@ _EnD_oF_dEf_TeXt_;
         func-mem-param-declname = 'value2';
       }; /*        func-mem-param--param */
       func-mem-desc-file = 'C:/Users/Émerson/Documents/GitHub/c-c-plus-plus-developer-challenge/Code/CLI/Drivers/Arithmetic/Src/arithmetic_root_n.c';
-      func-mem-desc-line = '98';
+      func-mem-desc-line = '100';
       func-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 Computes the N-th root of a value and stores the result.
 _EnD_oF_dEf_TeXt_;
@@ -3455,7 +3749,7 @@ _EnD_oF_dEf_TeXt_;
     };
       func-mem-referenceto = {
         func-mem-ref-id = 'cli__handler_8c_1a08e94bea6b19563502c78f513e8f41ed';
-        func-mem-ref-line = '159';
+        func-mem-ref-line = '186';
         func-mem-ref-name = 'Cli_Handler_Out_Msg';
     };
       func-mem-referenceto = {
@@ -3474,13 +3768,18 @@ _EnD_oF_dEf_TeXt_;
         func-mem-ref-name = 'cli_handler_config_t::decimal';
     };
       func-mem-referenceto = {
+        func-mem-ref-id = 'misc_8c_1a11fd5e4c2d3fdfa47e049fa60d420e57';
+        func-mem-ref-line = '197';
+        func-mem-ref-name = 'Misc_Free_Vector';
+    };
+      func-mem-referenceto = {
         func-mem-ref-id = 'misc_8c_1a68c5009d2808dec85d359c07ac03a593';
-        func-mem-ref-line = '163';
+        func-mem-ref-line = '164';
         func-mem-ref-name = 'Misc_Get_Vector';
     };
       func-mem-referenceto = {
         func-mem-ref-id = 'arithmetic__root__n_8c_1acb2fea1f5d859beb6409a0097e81ba0b';
-        func-mem-ref-line = '98';
+        func-mem-ref-line = '100';
         func-mem-ref-name = 'root_n_values';
     };
       func-mem-referenceto = {
@@ -3503,7 +3802,7 @@ _EnD_oF_dEf_TeXt_;
       var-mem-initializer = <<_EnD_oF_dEf_TeXt_
 = {
         .name = "Root_N",
-        .description = "Root N the value to ANS - Sintax \"Root_N [0x00000000]\"\n",
+        .description = "Root N the value to ANS - Sintax \"Root_N [double, double, ...]\"\n",
         .func_ptr = Arithmetic_Root_N
 }
 _EnD_oF_dEf_TeXt_;
@@ -3564,7 +3863,7 @@ _EnD_oF_dEf_TeXt_;
         func-mem-param-declname = 'value2';
       }; /*        func-mem-param--param */
       func-mem-desc-file = 'C:/Users/Émerson/Documents/GitHub/c-c-plus-plus-developer-challenge/Code/CLI/Drivers/Arithmetic/Src/arithmetic_subtract.c';
-      func-mem-desc-line = '97';
+      func-mem-desc-line = '99';
       func-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 Subtracts one double value from another and stores the result.
 _EnD_oF_dEf_TeXt_;
@@ -3636,7 +3935,7 @@ _EnD_oF_dEf_TeXt_;
     };
       func-mem-referenceto = {
         func-mem-ref-id = 'cli__handler_8c_1a08e94bea6b19563502c78f513e8f41ed';
-        func-mem-ref-line = '159';
+        func-mem-ref-line = '186';
         func-mem-ref-name = 'Cli_Handler_Out_Msg';
     };
       func-mem-referenceto = {
@@ -3655,8 +3954,13 @@ _EnD_oF_dEf_TeXt_;
         func-mem-ref-name = 'cli_handler_config_t::decimal';
     };
       func-mem-referenceto = {
+        func-mem-ref-id = 'misc_8c_1a11fd5e4c2d3fdfa47e049fa60d420e57';
+        func-mem-ref-line = '197';
+        func-mem-ref-name = 'Misc_Free_Vector';
+    };
+      func-mem-referenceto = {
         func-mem-ref-id = 'misc_8c_1a68c5009d2808dec85d359c07ac03a593';
-        func-mem-ref-line = '163';
+        func-mem-ref-line = '164';
         func-mem-ref-name = 'Misc_Get_Vector';
     };
       func-mem-referenceto = {
@@ -3666,7 +3970,7 @@ _EnD_oF_dEf_TeXt_;
     };
       func-mem-referenceto = {
         func-mem-ref-id = 'arithmetic__subtract_8c_1a81c8d930dfaf3213d073bb39b28ad8f5';
-        func-mem-ref-line = '97';
+        func-mem-ref-line = '99';
         func-mem-ref-name = 'subtract_values';
     };
     }; /* func-member */
@@ -4611,7 +4915,7 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       define-mem-referencedby = {
         define-mem-ref-id = 'cli__handler_8c_1af2634b601b2a4cc0d082027768d690ab';
-        define-mem-ref-line = '138';
+        define-mem-ref-line = '157';
         define-mem-ref-name = 'Cli_Handler_Check';
     };
     }; /* define-member */
@@ -4641,6 +4945,11 @@ _EnD_oF_dEf_TeXt_;
         define-mem-ref-name = 'Arithmetic_Add';
     };
       define-mem-referencedby = {
+        define-mem-ref-id = 'arithmetic__determinant__n_8c_1a8be9187b40fcc221c7cfbbca721a0ae0';
+        define-mem-ref-line = '73';
+        define-mem-ref-name = 'Arithmetic_Determinant_N';
+    };
+      define-mem-referencedby = {
         define-mem-ref-id = 'arithmetic__divide_8c_1a496b3a77db45806c3ca59439169b1e2f';
         define-mem-ref-line = '64';
         define-mem-ref-name = 'Arithmetic_Divide';
@@ -4649,6 +4958,11 @@ _EnD_oF_dEf_TeXt_;
         define-mem-ref-id = 'arithmetic__log__n_8c_1aee95770337ddfa4081b58fcfed717777';
         define-mem-ref-line = '66';
         define-mem-ref-name = 'Arithmetic_Log_N';
+    };
+      define-mem-referencedby = {
+        define-mem-ref-id = 'arithmetic__multiply_8c_1af482ae8bde65fd4dbdeb93aa304f525f';
+        define-mem-ref-line = '66';
+        define-mem-ref-name = 'Arithmetic_Multiply';
     };
       define-mem-referencedby = {
         define-mem-ref-id = 'arithmetic__power__n_8c_1a407644e2eabb009c1f0461eef35b02f8';
@@ -4667,18 +4981,23 @@ _EnD_oF_dEf_TeXt_;
     };
       define-mem-referencedby = {
         define-mem-ref-id = 'cli__handler_8c_1af2634b601b2a4cc0d082027768d690ab';
-        define-mem-ref-line = '138';
+        define-mem-ref-line = '157';
         define-mem-ref-name = 'Cli_Handler_Check';
     };
       define-mem-referencedby = {
         define-mem-ref-id = 'cli__handler_8c_1a61fe594b1d9dd2f9fc0a5daf26fe6cb0';
-        define-mem-ref-line = '113';
+        define-mem-ref-line = '128';
         define-mem-ref-name = 'Cli_Handler_Init';
     };
       define-mem-referencedby = {
         define-mem-ref-id = 'cli__handler_8c_1a4f70031e038bd479c6946c80475765a7';
-        define-mem-ref-line = '217';
+        define-mem-ref-line = '243';
         define-mem-ref-name = 'command_decimal';
+    };
+      define-mem-referencedby = {
+        define-mem-ref-id = 'arithmetic__determinant__n_8c_1a58c5df099b11cf1c4e54308a14deb346';
+        define-mem-ref-line = '116';
+        define-mem-ref-name = 'determinant';
     };
     }; /* define-member */
     define-member = {
@@ -4703,7 +5022,7 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       define-mem-referencedby = {
         define-mem-ref-id = 'cli__handler_8c_1af2634b601b2a4cc0d082027768d690ab';
-        define-mem-ref-line = '138';
+        define-mem-ref-line = '157';
         define-mem-ref-name = 'Cli_Handler_Check';
     };
     }; /* define-member */
@@ -4808,11 +5127,13 @@ _EnD_oF_dEf_TeXt_;
       func-mem-desc-file = 'C:/Users/Émerson/Documents/GitHub/c-c-plus-plus-developer-challenge/Code/CLI/Drivers/Cli_Handler/Inc/cli_handler.h';
       func-mem-desc-line = '132';
       func-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
-This function initialize and configure handler CLI.
+Initializes and configures the CLI handler.
 _EnD_oF_dEf_TeXt_;
       func-mem-documentation = <<_EnD_oF_dEf_TeXt_
-@param cli_handler Pointer of handler CLI
-@return cli_handler_error_e
+@param cli_handler Pointer to the CLI handler structure.
+@param config      Pointer to the CLI handler configuration structure.
+@param param       Optional user context pointer.
+@return            CLI_HANDLER_ERROR_OK on success, error code otherwise.
 _EnD_oF_dEf_TeXt_;
       func-mem-referenceto = {
         func-mem-ref-id = 'cli__handler_8h_1ab97979060b77ff1c0d1f2b1e3bef60e9';
@@ -4831,7 +5152,7 @@ _EnD_oF_dEf_TeXt_;
     };
       func-mem-referenceto = {
         func-mem-ref-id = 'cli__handler_8c_1a08e94bea6b19563502c78f513e8f41ed';
-        func-mem-ref-line = '159';
+        func-mem-ref-line = '186';
         func-mem-ref-name = 'Cli_Handler_Out_Msg';
     };
       func-mem-referenceto = {
@@ -4873,11 +5194,14 @@ _EnD_oF_dEf_TeXt_;
       func-mem-desc-file = 'C:/Users/Émerson/Documents/GitHub/c-c-plus-plus-developer-challenge/Code/CLI/Drivers/Cli_Handler/Inc/cli_handler.h';
       func-mem-desc-line = '136';
       func-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
-Is a CLI handler, case multithread will stay in loop.
+Main CLI handler loop. Processes received commands.
 _EnD_oF_dEf_TeXt_;
       func-mem-documentation = <<_EnD_oF_dEf_TeXt_
-@param cli_handler Pointer of handler CLI
-@return cli_handler_error_e
+If multithreading is enabled, this function stays in a loop. It locks the RX stream,
+checks for received commands, and dispatches them for processing.
+
+@param cli_handler Pointer to the CLI handler structure.
+@return            CLI_HANDLER_ERROR_OK on success, error code otherwise.
 _EnD_oF_dEf_TeXt_;
       func-mem-referenceto = {
         func-mem-ref-id = 'stream_8h_1a3e28afc66aa98dd3735d76eed039097c';
@@ -4901,7 +5225,7 @@ _EnD_oF_dEf_TeXt_;
     };
       func-mem-referenceto = {
         func-mem-ref-id = 'cli__handler_8c_1ae1e4e87a1b834acd36551cb7222eee45';
-        func-mem-ref-line = '183';
+        func-mem-ref-line = '210';
         func-mem-ref-name = 'check_receive_cmd';
     };
       func-mem-referenceto = {
@@ -4974,10 +5298,13 @@ _EnD_oF_dEf_TeXt_;
       func-mem-desc-file = 'C:/Users/Émerson/Documents/GitHub/c-c-plus-plus-developer-challenge/Code/CLI/Drivers/Cli_Handler/Inc/cli_handler.h';
       func-mem-desc-line = '137';
       func-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
-
+Sends a formatted message to the CLI TX stream (thread-safe).
 _EnD_oF_dEf_TeXt_;
       func-mem-documentation = <<_EnD_oF_dEf_TeXt_
-
+@param cli_handler Pointer to the CLI handler structure.
+@param format      Format string (printf-style).
+@param ...         Arguments for the format string.
+@return            CLI_HANDLER_ERROR_OK on success, error code otherwise.
 _EnD_oF_dEf_TeXt_;
       func-mem-referenceto = {
         func-mem-ref-id = 'stream_8h_1a3e28afc66aa98dd3735d76eed039097c';
@@ -5020,6 +5347,11 @@ _EnD_oF_dEf_TeXt_;
         func-mem-ref-name = 'Arithmetic_Add';
     };
       func-mem-referencedby = {
+        func-mem-ref-id = 'arithmetic__determinant__n_8c_1a8be9187b40fcc221c7cfbbca721a0ae0';
+        func-mem-ref-line = '73';
+        func-mem-ref-name = 'Arithmetic_Determinant_N';
+    };
+      func-mem-referencedby = {
         func-mem-ref-id = 'arithmetic__divide_8c_1a496b3a77db45806c3ca59439169b1e2f';
         func-mem-ref-line = '64';
         func-mem-ref-name = 'Arithmetic_Divide';
@@ -5051,32 +5383,32 @@ _EnD_oF_dEf_TeXt_;
     };
       func-mem-referencedby = {
         func-mem-ref-id = 'cli__handler_8c_1ae1e4e87a1b834acd36551cb7222eee45';
-        func-mem-ref-line = '183';
+        func-mem-ref-line = '210';
         func-mem-ref-name = 'check_receive_cmd';
     };
       func-mem-referencedby = {
         func-mem-ref-id = 'cli__handler_8c_1a61fe594b1d9dd2f9fc0a5daf26fe6cb0';
-        func-mem-ref-line = '113';
+        func-mem-ref-line = '128';
         func-mem-ref-name = 'Cli_Handler_Init';
     };
       func-mem-referencedby = {
         func-mem-ref-id = 'cli__handler_8c_1ad2002df80a92e4842fef5691c7db7b45';
-        func-mem-ref-line = '242';
+        func-mem-ref-line = '268';
         func-mem-ref-name = 'command_clear';
     };
       func-mem-referencedby = {
         func-mem-ref-id = 'cli__handler_8c_1a4f70031e038bd479c6946c80475765a7';
-        func-mem-ref-line = '217';
+        func-mem-ref-line = '243';
         func-mem-ref-name = 'command_decimal';
     };
       func-mem-referencedby = {
         func-mem-ref-id = 'cli__handler_8c_1a146e87ba3752e693de90825898166184';
-        func-mem-ref-line = '275';
+        func-mem-ref-line = '301';
         func-mem-ref-name = 'command_exit';
     };
       func-mem-referencedby = {
         func-mem-ref-id = 'cli__handler_8c_1abd4f8f2b1924ef573587ceec554d68eb';
-        func-mem-ref-line = '258';
+        func-mem-ref-line = '284';
         func-mem-ref-name = 'command_help';
     };
     }; /* func-member */
@@ -5113,13 +5445,13 @@ _EnD_oF_dEf_TeXt_;
         func-mem-param-declname = 'cli_handler';
       }; /*        func-mem-param--param */
       func-mem-desc-file = 'C:/Users/Émerson/Documents/GitHub/c-c-plus-plus-developer-challenge/Code/CLI/Drivers/Cli_Handler/Src/cli_handler.c';
-      func-mem-desc-line = '183';
+      func-mem-desc-line = '210';
       func-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
-This function will check if receive a correct command and process.
+Checks and processes a received command from the RX stream.
 _EnD_oF_dEf_TeXt_;
       func-mem-documentation = <<_EnD_oF_dEf_TeXt_
-@param cli_handler Pointer of handler CLI
-@return cli_handler_error_e
+@param cli_handler Pointer to the CLI handler structure.
+@return            CLI_HANDLER_ERROR_OK on success, error code otherwise.
 _EnD_oF_dEf_TeXt_;
       func-mem-referenceto = {
         func-mem-ref-id = 'stream_8h_1a3e28afc66aa98dd3735d76eed039097c';
@@ -5133,12 +5465,12 @@ _EnD_oF_dEf_TeXt_;
     };
       func-mem-referenceto = {
         func-mem-ref-id = 'cli__handler_8c_1a08e94bea6b19563502c78f513e8f41ed';
-        func-mem-ref-line = '159';
+        func-mem-ref-line = '186';
         func-mem-ref-name = 'Cli_Handler_Out_Msg';
     };
       func-mem-referenceto = {
         func-mem-ref-id = 'cli__handler_8c_1af2dbb5e0be61d8908797db7de3414b44';
-        func-mem-ref-line = '88';
+        func-mem-ref-line = '101';
         func-mem-ref-name = 'Commands';
     };
       func-mem-referenceto = {
@@ -5148,7 +5480,7 @@ _EnD_oF_dEf_TeXt_;
     };
       func-mem-referenceto = {
         func-mem-ref-id = 'misc_8c_1a26d79ae4b7a899d74727f732c288c069';
-        func-mem-ref-line = '83';
+        func-mem-ref-line = '84';
         func-mem-ref-name = 'Misc_Strtok_R';
     };
       func-mem-referenceto = {
@@ -5158,7 +5490,7 @@ _EnD_oF_dEf_TeXt_;
     };
       func-mem-referencedby = {
         func-mem-ref-id = 'cli__handler_8c_1af2634b601b2a4cc0d082027768d690ab';
-        func-mem-ref-line = '138';
+        func-mem-ref-line = '157';
         func-mem-ref-name = 'Cli_Handler_Check';
     };
     }; /* func-member */
@@ -5184,14 +5516,14 @@ _EnD_oF_dEf_TeXt_;
         func-mem-param-declname = 'saveptr';
       }; /*        func-mem-param--param */
       func-mem-desc-file = 'C:/Users/Émerson/Documents/GitHub/c-c-plus-plus-developer-challenge/Code/CLI/Drivers/Cli_Handler/Src/cli_handler.c';
-      func-mem-desc-line = '217';
+      func-mem-desc-line = '243';
       func-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
-This command change the precision output stream of ANS.
+Command: Change the decimal precision of ANS output.
 _EnD_oF_dEf_TeXt_;
       func-mem-documentation = <<_EnD_oF_dEf_TeXt_
-@param cli_handler Pointer of handler CLI
-@param token Pointer of token receive
-@return cli_handler_error_e
+@param cli_handler Pointer to the CLI handler structure.
+@param saveptr     Pointer to the input stream to parse.
+@return            CLI_HANDLER_ERROR_OK on success, error code otherwise.
 _EnD_oF_dEf_TeXt_;
       func-mem-referenceto = {
         func-mem-ref-id = 'cli__handler_8h_1ab628c36b50fd3de2c1c6cd5217197efc';
@@ -5205,7 +5537,7 @@ _EnD_oF_dEf_TeXt_;
     };
       func-mem-referenceto = {
         func-mem-ref-id = 'cli__handler_8c_1a08e94bea6b19563502c78f513e8f41ed';
-        func-mem-ref-line = '159';
+        func-mem-ref-line = '186';
         func-mem-ref-name = 'Cli_Handler_Out_Msg';
     };
       func-mem-referenceto = {
@@ -5220,12 +5552,12 @@ _EnD_oF_dEf_TeXt_;
     };
       func-mem-referenceto = {
         func-mem-ref-id = 'misc_8c_1a6b5224be201be73da4cd3fca715eb457';
-        func-mem-ref-line = '147';
+        func-mem-ref-line = '148';
         func-mem-ref-name = 'Misc_Parser_Uint';
     };
       func-mem-referenceto = {
         func-mem-ref-id = 'misc_8c_1a26d79ae4b7a899d74727f732c288c069';
-        func-mem-ref-line = '83';
+        func-mem-ref-line = '84';
         func-mem-ref-name = 'Misc_Strtok_R';
     };
     }; /* func-member */
@@ -5251,14 +5583,14 @@ _EnD_oF_dEf_TeXt_;
         func-mem-param-declname = 'saveptr';
       }; /*        func-mem-param--param */
       func-mem-desc-file = 'C:/Users/Émerson/Documents/GitHub/c-c-plus-plus-developer-challenge/Code/CLI/Drivers/Cli_Handler/Src/cli_handler.c';
-      func-mem-desc-line = '242';
+      func-mem-desc-line = '268';
       func-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
-This command clear ANS variable.
+Command: Clear the ANS variable.
 _EnD_oF_dEf_TeXt_;
       func-mem-documentation = <<_EnD_oF_dEf_TeXt_
-@param cli_handler Pointer of handler CLI
-@param token Pointer of token receive
-@return cli_handler_error_e
+@param cli_handler Pointer to the CLI handler structure.
+@param saveptr     Pointer to the input stream to parse.
+@return            CLI_HANDLER_ERROR_OK on success, error code otherwise.
 _EnD_oF_dEf_TeXt_;
       func-mem-referenceto = {
         func-mem-ref-id = 'cli__handler_8h_1ab97979060b77ff1c0d1f2b1e3bef60e9';
@@ -5272,7 +5604,7 @@ _EnD_oF_dEf_TeXt_;
     };
       func-mem-referenceto = {
         func-mem-ref-id = 'cli__handler_8c_1a08e94bea6b19563502c78f513e8f41ed';
-        func-mem-ref-line = '159';
+        func-mem-ref-line = '186';
         func-mem-ref-name = 'Cli_Handler_Out_Msg';
     };
       func-mem-referenceto = {
@@ -5308,14 +5640,14 @@ _EnD_oF_dEf_TeXt_;
         func-mem-param-declname = 'saveptr';
       }; /*        func-mem-param--param */
       func-mem-desc-file = 'C:/Users/Émerson/Documents/GitHub/c-c-plus-plus-developer-challenge/Code/CLI/Drivers/Cli_Handler/Src/cli_handler.c';
-      func-mem-desc-line = '258';
+      func-mem-desc-line = '284';
       func-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
-This command return all information about others commands.
+Command: Show help for all available commands.
 _EnD_oF_dEf_TeXt_;
       func-mem-documentation = <<_EnD_oF_dEf_TeXt_
-@param cli_handler Pointer of handler CLI
-@param token Pointer of token receive
-@return cli_handler_error_e
+@param cli_handler Pointer to the CLI handler structure.
+@param saveptr     Pointer to the input stream to parse.
+@return            CLI_HANDLER_ERROR_OK on success, error code otherwise.
 _EnD_oF_dEf_TeXt_;
       func-mem-referenceto = {
         func-mem-ref-id = 'cli__handler_8h_1a4e9566e27550032c11cf88cb0f72d72aa288daa5a1c16697b7dd720006b3c876e';
@@ -5324,12 +5656,12 @@ _EnD_oF_dEf_TeXt_;
     };
       func-mem-referenceto = {
         func-mem-ref-id = 'cli__handler_8c_1a08e94bea6b19563502c78f513e8f41ed';
-        func-mem-ref-line = '159';
+        func-mem-ref-line = '186';
         func-mem-ref-name = 'Cli_Handler_Out_Msg';
     };
       func-mem-referenceto = {
         func-mem-ref-id = 'cli__handler_8c_1af2dbb5e0be61d8908797db7de3414b44';
-        func-mem-ref-line = '88';
+        func-mem-ref-line = '101';
         func-mem-ref-name = 'Commands';
     };
     }; /* func-member */
@@ -5355,14 +5687,14 @@ _EnD_oF_dEf_TeXt_;
         func-mem-param-declname = 'saveptr';
       }; /*        func-mem-param--param */
       func-mem-desc-file = 'C:/Users/Émerson/Documents/GitHub/c-c-plus-plus-developer-challenge/Code/CLI/Drivers/Cli_Handler/Src/cli_handler.c';
-      func-mem-desc-line = '275';
+      func-mem-desc-line = '301';
       func-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
-This command deinitilize handler.
+Command: Deinitialize the CLI handler and exit the application.
 _EnD_oF_dEf_TeXt_;
       func-mem-documentation = <<_EnD_oF_dEf_TeXt_
-@param cli_handler Pointer of handler CLI
-@param token Pointer of token receive
-@return cli_handler_error_e
+@param cli_handler Pointer to the CLI handler structure.
+@param saveptr     Pointer to the input stream to parse.
+@return            CLI_HANDLER_ERROR_OK on success, error code otherwise.
 _EnD_oF_dEf_TeXt_;
       func-mem-referenceto = {
         func-mem-ref-id = 'cli__handler_8h_1a4e9566e27550032c11cf88cb0f72d72aa288daa5a1c16697b7dd720006b3c876e';
@@ -5371,7 +5703,7 @@ _EnD_oF_dEf_TeXt_;
     };
       func-mem-referenceto = {
         func-mem-ref-id = 'cli__handler_8c_1a08e94bea6b19563502c78f513e8f41ed';
-        func-mem-ref-line = '159';
+        func-mem-ref-line = '186';
         func-mem-ref-name = 'Cli_Handler_Out_Msg';
     };
       func-mem-referenceto = {
@@ -5408,13 +5740,15 @@ _EnD_oF_dEf_TeXt_;
         func-mem-param-declname = 'param';
       }; /*        func-mem-param--param */
       func-mem-desc-file = 'C:/Users/Émerson/Documents/GitHub/c-c-plus-plus-developer-challenge/Code/CLI/Drivers/Cli_Handler/Src/cli_handler.c';
-      func-mem-desc-line = '113';
+      func-mem-desc-line = '128';
       func-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
-This function initialize and configure handler CLI.
+Initializes and configures the CLI handler.
 _EnD_oF_dEf_TeXt_;
       func-mem-documentation = <<_EnD_oF_dEf_TeXt_
-@param cli_handler Pointer of handler CLI
-@return cli_handler_error_e
+@param cli_handler Pointer to the CLI handler structure.
+@param config      Pointer to the CLI handler configuration structure.
+@param param       Optional user context pointer.
+@return            CLI_HANDLER_ERROR_OK on success, error code otherwise.
 _EnD_oF_dEf_TeXt_;
       func-mem-referenceto = {
         func-mem-ref-id = 'cli__handler_8h_1ab97979060b77ff1c0d1f2b1e3bef60e9';
@@ -5433,7 +5767,7 @@ _EnD_oF_dEf_TeXt_;
     };
       func-mem-referenceto = {
         func-mem-ref-id = 'cli__handler_8c_1a08e94bea6b19563502c78f513e8f41ed';
-        func-mem-ref-line = '159';
+        func-mem-ref-line = '186';
         func-mem-ref-name = 'Cli_Handler_Out_Msg';
     };
       func-mem-referenceto = {
@@ -5473,13 +5807,16 @@ _EnD_oF_dEf_TeXt_;
         func-mem-param-declname = 'cli_handler';
       }; /*        func-mem-param--param */
       func-mem-desc-file = 'C:/Users/Émerson/Documents/GitHub/c-c-plus-plus-developer-challenge/Code/CLI/Drivers/Cli_Handler/Src/cli_handler.c';
-      func-mem-desc-line = '138';
+      func-mem-desc-line = '157';
       func-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
-Is a CLI handler, case multithread will stay in loop.
+Main CLI handler loop. Processes received commands.
 _EnD_oF_dEf_TeXt_;
       func-mem-documentation = <<_EnD_oF_dEf_TeXt_
-@param cli_handler Pointer of handler CLI
-@return cli_handler_error_e
+If multithreading is enabled, this function stays in a loop. It locks the RX stream,
+checks for received commands, and dispatches them for processing.
+
+@param cli_handler Pointer to the CLI handler structure.
+@return            CLI_HANDLER_ERROR_OK on success, error code otherwise.
 _EnD_oF_dEf_TeXt_;
       func-mem-referenceto = {
         func-mem-ref-id = 'stream_8h_1a3e28afc66aa98dd3735d76eed039097c';
@@ -5503,7 +5840,7 @@ _EnD_oF_dEf_TeXt_;
     };
       func-mem-referenceto = {
         func-mem-ref-id = 'cli__handler_8c_1ae1e4e87a1b834acd36551cb7222eee45';
-        func-mem-ref-line = '183';
+        func-mem-ref-line = '210';
         func-mem-ref-name = 'check_receive_cmd';
     };
       func-mem-referenceto = {
@@ -5574,12 +5911,15 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       }; /*        func-mem-param--param */
       func-mem-desc-file = 'C:/Users/Émerson/Documents/GitHub/c-c-plus-plus-developer-challenge/Code/CLI/Drivers/Cli_Handler/Src/cli_handler.c';
-      func-mem-desc-line = '159';
+      func-mem-desc-line = '186';
       func-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
-
+Sends a formatted message to the CLI TX stream (thread-safe).
 _EnD_oF_dEf_TeXt_;
       func-mem-documentation = <<_EnD_oF_dEf_TeXt_
-
+@param cli_handler Pointer to the CLI handler structure.
+@param format      Format string (printf-style).
+@param ...         Arguments for the format string.
+@return            CLI_HANDLER_ERROR_OK on success, error code otherwise.
 _EnD_oF_dEf_TeXt_;
       func-mem-referenceto = {
         func-mem-ref-id = 'stream_8h_1a3e28afc66aa98dd3735d76eed039097c';
@@ -5622,6 +5962,11 @@ _EnD_oF_dEf_TeXt_;
         func-mem-ref-name = 'Arithmetic_Add';
     };
       func-mem-referencedby = {
+        func-mem-ref-id = 'arithmetic__determinant__n_8c_1a8be9187b40fcc221c7cfbbca721a0ae0';
+        func-mem-ref-line = '73';
+        func-mem-ref-name = 'Arithmetic_Determinant_N';
+    };
+      func-mem-referencedby = {
         func-mem-ref-id = 'arithmetic__divide_8c_1a496b3a77db45806c3ca59439169b1e2f';
         func-mem-ref-line = '64';
         func-mem-ref-name = 'Arithmetic_Divide';
@@ -5653,32 +5998,32 @@ _EnD_oF_dEf_TeXt_;
     };
       func-mem-referencedby = {
         func-mem-ref-id = 'cli__handler_8c_1ae1e4e87a1b834acd36551cb7222eee45';
-        func-mem-ref-line = '183';
+        func-mem-ref-line = '210';
         func-mem-ref-name = 'check_receive_cmd';
     };
       func-mem-referencedby = {
         func-mem-ref-id = 'cli__handler_8c_1a61fe594b1d9dd2f9fc0a5daf26fe6cb0';
-        func-mem-ref-line = '113';
+        func-mem-ref-line = '128';
         func-mem-ref-name = 'Cli_Handler_Init';
     };
       func-mem-referencedby = {
         func-mem-ref-id = 'cli__handler_8c_1ad2002df80a92e4842fef5691c7db7b45';
-        func-mem-ref-line = '242';
+        func-mem-ref-line = '268';
         func-mem-ref-name = 'command_clear';
     };
       func-mem-referencedby = {
         func-mem-ref-id = 'cli__handler_8c_1a4f70031e038bd479c6946c80475765a7';
-        func-mem-ref-line = '217';
+        func-mem-ref-line = '243';
         func-mem-ref-name = 'command_decimal';
     };
       func-mem-referencedby = {
         func-mem-ref-id = 'cli__handler_8c_1a146e87ba3752e693de90825898166184';
-        func-mem-ref-line = '275';
+        func-mem-ref-line = '301';
         func-mem-ref-name = 'command_exit';
     };
       func-mem-referencedby = {
         func-mem-ref-id = 'cli__handler_8c_1abd4f8f2b1924ef573587ceec554d68eb';
-        func-mem-ref-line = '258';
+        func-mem-ref-line = '284';
         func-mem-ref-name = 'command_help';
     };
     }; /* func-member */
@@ -5694,7 +6039,7 @@ cli_handler_commands_t
 _EnD_oF_dEf_TeXt_;
       var-mem-name = 'Arithmetic_Add_Cte';
       var-mem-desc-file = 'C:/Users/Émerson/Documents/GitHub/c-c-plus-plus-developer-challenge/Code/CLI/Drivers/Cli_Handler/Src/cli_handler.c';
-      var-mem-desc-line = '41';
+      var-mem-desc-line = '51';
       var-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 Constant structure defining the "Add" CLI command.
 _EnD_oF_dEf_TeXt_;
@@ -5714,12 +6059,14 @@ cli_handler_commands_t
 _EnD_oF_dEf_TeXt_;
       var-mem-name = 'Arithmetic_Determinant_N_Cte';
       var-mem-desc-file = 'C:/Users/Émerson/Documents/GitHub/c-c-plus-plus-developer-challenge/Code/CLI/Drivers/Cli_Handler/Src/cli_handler.c';
-      var-mem-desc-line = '42';
+      var-mem-desc-line = '52';
       var-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
-
+CLI command constant for the "Determinant_N" operation.
 _EnD_oF_dEf_TeXt_;
       var-mem-documentation = <<_EnD_oF_dEf_TeXt_
-
+ - name:        Command name ("Determinant_N")
+ - description: Command description and usage syntax
+ - func_ptr:    Pointer to the function that implements the command
 _EnD_oF_dEf_TeXt_;
     }; /* var-member */
     var-member = {
@@ -5732,7 +6079,7 @@ cli_handler_commands_t
 _EnD_oF_dEf_TeXt_;
       var-mem-name = 'Arithmetic_Devide_Cte';
       var-mem-desc-file = 'C:/Users/Émerson/Documents/GitHub/c-c-plus-plus-developer-challenge/Code/CLI/Drivers/Cli_Handler/Src/cli_handler.c';
-      var-mem-desc-line = '43';
+      var-mem-desc-line = '53';
       var-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 Constant structure defining the "Divide" CLI command.
 _EnD_oF_dEf_TeXt_;
@@ -5752,7 +6099,7 @@ cli_handler_commands_t
 _EnD_oF_dEf_TeXt_;
       var-mem-name = 'Arithmetic_Log_N_Cte';
       var-mem-desc-file = 'C:/Users/Émerson/Documents/GitHub/c-c-plus-plus-developer-challenge/Code/CLI/Drivers/Cli_Handler/Src/cli_handler.c';
-      var-mem-desc-line = '44';
+      var-mem-desc-line = '54';
       var-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 Constant structure defining the "Log_N" CLI command.
 _EnD_oF_dEf_TeXt_;
@@ -5772,7 +6119,7 @@ cli_handler_commands_t
 _EnD_oF_dEf_TeXt_;
       var-mem-name = 'Arithmetic_Multiply_Cte';
       var-mem-desc-file = 'C:/Users/Émerson/Documents/GitHub/c-c-plus-plus-developer-challenge/Code/CLI/Drivers/Cli_Handler/Src/cli_handler.c';
-      var-mem-desc-line = '45';
+      var-mem-desc-line = '55';
       var-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 Constant structure defining the "Multiply" CLI command.
 _EnD_oF_dEf_TeXt_;
@@ -5792,7 +6139,7 @@ cli_handler_commands_t
 _EnD_oF_dEf_TeXt_;
       var-mem-name = 'Arithmetic_Power_N_Cte';
       var-mem-desc-file = 'C:/Users/Émerson/Documents/GitHub/c-c-plus-plus-developer-challenge/Code/CLI/Drivers/Cli_Handler/Src/cli_handler.c';
-      var-mem-desc-line = '46';
+      var-mem-desc-line = '56';
       var-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 Constant structure defining the "Power_N" CLI command.
 _EnD_oF_dEf_TeXt_;
@@ -5812,7 +6159,7 @@ cli_handler_commands_t
 _EnD_oF_dEf_TeXt_;
       var-mem-name = 'Arithmetic_Root_N_Cte';
       var-mem-desc-file = 'C:/Users/Émerson/Documents/GitHub/c-c-plus-plus-developer-challenge/Code/CLI/Drivers/Cli_Handler/Src/cli_handler.c';
-      var-mem-desc-line = '47';
+      var-mem-desc-line = '57';
       var-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 Constant structure defining the "Root_N" CLI command.
 _EnD_oF_dEf_TeXt_;
@@ -5832,7 +6179,7 @@ cli_handler_commands_t
 _EnD_oF_dEf_TeXt_;
       var-mem-name = 'Arithmetic_Subtract_Cte';
       var-mem-desc-file = 'C:/Users/Émerson/Documents/GitHub/c-c-plus-plus-developer-challenge/Code/CLI/Drivers/Cli_Handler/Src/cli_handler.c';
-      var-mem-desc-line = '48';
+      var-mem-desc-line = '58';
       var-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 Constant structure defining the "Subtract" CLI command.
 _EnD_oF_dEf_TeXt_;
@@ -5859,7 +6206,7 @@ _EnD_oF_dEf_TeXt_;
 }
 _EnD_oF_dEf_TeXt_;
       var-mem-desc-file = 'C:/Users/Émerson/Documents/GitHub/c-c-plus-plus-developer-challenge/Code/CLI/Drivers/Cli_Handler/Src/cli_handler.c';
-      var-mem-desc-line = '64';
+      var-mem-desc-line = '74';
       var-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -5884,7 +6231,7 @@ _EnD_oF_dEf_TeXt_;
 }
 _EnD_oF_dEf_TeXt_;
       var-mem-desc-file = 'C:/Users/Émerson/Documents/GitHub/c-c-plus-plus-developer-challenge/Code/CLI/Drivers/Cli_Handler/Src/cli_handler.c';
-      var-mem-desc-line = '70';
+      var-mem-desc-line = '80';
       var-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -5909,7 +6256,7 @@ _EnD_oF_dEf_TeXt_;
 }
 _EnD_oF_dEf_TeXt_;
       var-mem-desc-file = 'C:/Users/Émerson/Documents/GitHub/c-c-plus-plus-developer-challenge/Code/CLI/Drivers/Cli_Handler/Src/cli_handler.c';
-      var-mem-desc-line = '76';
+      var-mem-desc-line = '86';
       var-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -5934,7 +6281,7 @@ _EnD_oF_dEf_TeXt_;
 }
 _EnD_oF_dEf_TeXt_;
       var-mem-desc-file = 'C:/Users/Émerson/Documents/GitHub/c-c-plus-plus-developer-challenge/Code/CLI/Drivers/Cli_Handler/Src/cli_handler.c';
-      var-mem-desc-line = '82';
+      var-mem-desc-line = '92';
       var-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -5972,21 +6319,21 @@ _EnD_oF_dEf_TeXt_;
 }
 _EnD_oF_dEf_TeXt_;
       var-mem-desc-file = 'C:/Users/Émerson/Documents/GitHub/c-c-plus-plus-developer-challenge/Code/CLI/Drivers/Cli_Handler/Src/cli_handler.c';
-      var-mem-desc-line = '88';
+      var-mem-desc-line = '101';
       var-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
-
+Table of all available commands (arithmetic and controller).
 _EnD_oF_dEf_TeXt_;
       var-mem-documentation = <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
       var-mem-referencedby = {
         var-mem-ref-id = 'cli__handler_8c_1ae1e4e87a1b834acd36551cb7222eee45';
-        var-mem-ref-line = '183';
+        var-mem-ref-line = '210';
         var-mem-ref-name = 'check_receive_cmd';
     };
       var-mem-referencedby = {
         var-mem-ref-id = 'cli__handler_8c_1abd4f8f2b1924ef573587ceec554d68eb';
-        var-mem-ref-line = '258';
+        var-mem-ref-line = '284';
         var-mem-ref-name = 'command_help';
     };
     }; /* var-member */
@@ -5997,7 +6344,16 @@ _EnD_oF_dEf_TeXt_;
 CLI Handler - Receive commands and process.
 _EnD_oF_dEf_TeXt_;
   file-documentation = <<_EnD_oF_dEf_TeXt_
- Receive a command from stream rx and return answare in stream tx
+This module implements the CLI handler for the application. It receives commands from the RX stream,
+parses and processes them, and returns responses in the TX stream. It supports arithmetic and controller
+commands, manages command lookup, and provides thread-safe access to streams.
+
+Main features:
+  - Command registration and lookup
+  - Command parsing and dispatch
+  - Output formatting and message sending
+  - Thread-safe stream access using mutexes
+  - Built-in commands: Decimal, Clear, Help, Exit
 
 @author  Emerson Isaias da Silva
 @date    21-09-2025
@@ -6210,7 +6566,7 @@ _EnD_oF_dEf_TeXt_;
     };
       func-mem-referenceto = {
         func-mem-ref-id = 'cli__handler_8c_1a61fe594b1d9dd2f9fc0a5daf26fe6cb0';
-        func-mem-ref-line = '113';
+        func-mem-ref-line = '128';
         func-mem-ref-name = 'Cli_Handler_Init';
     };
       func-mem-referenceto = {
@@ -6240,7 +6596,7 @@ _EnD_oF_dEf_TeXt_;
     };
       func-mem-referenceto = {
         func-mem-ref-id = 'stream_8c_1afcc0e80a2915e78719f8c9b9390c1b9d';
-        func-mem-ref-line = '71';
+        func-mem-ref-line = '67';
         func-mem-ref-name = 'Stream_Init';
     };
       func-mem-referenceto = {
@@ -6294,7 +6650,7 @@ _EnD_oF_dEf_TeXt_;
     };
       func-mem-referenceto = {
         func-mem-ref-id = 'cli__handler_8c_1af2634b601b2a4cc0d082027768d690ab';
-        func-mem-ref-line = '138';
+        func-mem-ref-line = '157';
         func-mem-ref-name = 'Cli_Handler_Check';
     };
       func-mem-referenceto = {
@@ -6490,7 +6846,7 @@ _EnD_oF_dEf_TeXt_;
     };
       func-mem-referenceto = {
         func-mem-ref-id = 'cli__handler_8c_1a61fe594b1d9dd2f9fc0a5daf26fe6cb0';
-        func-mem-ref-line = '113';
+        func-mem-ref-line = '128';
         func-mem-ref-name = 'Cli_Handler_Init';
     };
       func-mem-referenceto = {
@@ -6520,7 +6876,7 @@ _EnD_oF_dEf_TeXt_;
     };
       func-mem-referenceto = {
         func-mem-ref-id = 'stream_8c_1afcc0e80a2915e78719f8c9b9390c1b9d';
-        func-mem-ref-line = '71';
+        func-mem-ref-line = '67';
         func-mem-ref-name = 'Stream_Init';
     };
       func-mem-referenceto = {
@@ -6574,7 +6930,7 @@ _EnD_oF_dEf_TeXt_;
     };
       func-mem-referenceto = {
         func-mem-ref-id = 'cli__handler_8c_1af2634b601b2a4cc0d082027768d690ab';
-        func-mem-ref-line = '138';
+        func-mem-ref-line = '157';
         func-mem-ref-name = 'Cli_Handler_Check';
     };
       func-mem-referenceto = {
@@ -6824,7 +7180,7 @@ _EnD_oF_dEf_TeXt_;
     };
       func-mem-referenceto = {
         func-mem-ref-id = 'misc_8c_1a26d79ae4b7a899d74727f732c288c069';
-        func-mem-ref-line = '83';
+        func-mem-ref-line = '84';
         func-mem-ref-name = 'Misc_Strtok_R';
     };
       func-mem-referenceto = {
@@ -7286,7 +7642,7 @@ _EnD_oF_dEf_TeXt_;
     };
       func-mem-referenceto = {
         func-mem-ref-id = 'misc_8c_1a26d79ae4b7a899d74727f732c288c069';
-        func-mem-ref-line = '83';
+        func-mem-ref-line = '84';
         func-mem-ref-name = 'Misc_Strtok_R';
     };
       func-mem-referenceto = {
@@ -7612,23 +7968,18 @@ _EnD_oF_dEf_TeXt_;
 @return       Pointer to the next token, or NULL if no more tokens are found.
 _EnD_oF_dEf_TeXt_;
       func-mem-referencedby = {
-        func-mem-ref-id = 'arithmetic__multiply_8c_1af482ae8bde65fd4dbdeb93aa304f525f';
-        func-mem-ref-line = '66';
-        func-mem-ref-name = 'Arithmetic_Multiply';
-    };
-      func-mem-referencedby = {
         func-mem-ref-id = 'cli__handler_8c_1ae1e4e87a1b834acd36551cb7222eee45';
-        func-mem-ref-line = '183';
+        func-mem-ref-line = '210';
         func-mem-ref-name = 'check_receive_cmd';
     };
       func-mem-referencedby = {
         func-mem-ref-id = 'cli__handler_8c_1a4f70031e038bd479c6946c80475765a7';
-        func-mem-ref-line = '217';
+        func-mem-ref-line = '243';
         func-mem-ref-name = 'command_decimal';
     };
       func-mem-referencedby = {
         func-mem-ref-id = 'misc_8c_1a48b7b055fa582a8ecd21190bdd6d6150';
-        func-mem-ref-line = '51';
+        func-mem-ref-line = '52';
         func-mem-ref-name = 'get_strtok_internal';
     };
       func-mem-referencedby = {
@@ -7638,7 +7989,7 @@ _EnD_oF_dEf_TeXt_;
     };
       func-mem-referencedby = {
         func-mem-ref-id = 'misc_8c_1a68c5009d2808dec85d359c07ac03a593';
-        func-mem-ref-line = '163';
+        func-mem-ref-line = '164';
         func-mem-ref-name = 'Misc_Get_Vector';
     };
     }; /* func-member */
@@ -7678,7 +8029,7 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       func-mem-referenceto = {
         func-mem-ref-id = 'misc_8c_1adb9ccd818f1c9c699811f22fb8fc78e0';
-        func-mem-ref-line = '29';
+        func-mem-ref-line = '30';
         func-mem-ref-name = 'CHECK_MISC_PTR';
     };
       func-mem-referenceto = {
@@ -7687,18 +8038,13 @@ _EnD_oF_dEf_TeXt_;
         func-mem-ref-name = 'MISC_ERROR_OK';
     };
       func-mem-referencedby = {
-        func-mem-ref-id = 'arithmetic__multiply_8c_1af482ae8bde65fd4dbdeb93aa304f525f';
-        func-mem-ref-line = '66';
-        func-mem-ref-name = 'Arithmetic_Multiply';
-    };
-      func-mem-referencedby = {
         func-mem-ref-id = 'misc_8c_1a61644e5eac7e4bc31a54f9aa02ffb823';
-        func-mem-ref-line = '59';
+        func-mem-ref-line = '60';
         func-mem-ref-name = 'get_parser_double_internal';
     };
       func-mem-referencedby = {
         func-mem-ref-id = 'misc_8c_1a68c5009d2808dec85d359c07ac03a593';
-        func-mem-ref-line = '163';
+        func-mem-ref-line = '164';
         func-mem-ref-name = 'Misc_Get_Vector';
     };
     }; /* func-member */
@@ -7726,19 +8072,19 @@ _EnD_oF_dEf_TeXt_;
       func-mem-desc-file = 'C:/Users/Émerson/Documents/GitHub/c-c-plus-plus-developer-challenge/Code/CLI/Drivers/Misc/Inc/misc.h';
       func-mem-desc-line = '70';
       func-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
-Parses a string token into a double value.
+Parses a string token into an unsigned 32-bit integer value.
 _EnD_oF_dEf_TeXt_;
       func-mem-documentation = <<_EnD_oF_dEf_TeXt_
 @iverbatim 
    Supports decimal and hexadecimal (prefix "0x" or "0X") formats.
 @endiverbatim\ilinebr 
-@param value Pointer to the double to store the result.
+@param value Pointer to the uint32_t to store the result.
 @param token String token to parse.
 @return      MISC_ERROR_OK on success, MISC_ERROR_PARM if a parameter is NULL.
 _EnD_oF_dEf_TeXt_;
       func-mem-referenceto = {
         func-mem-ref-id = 'misc_8c_1adb9ccd818f1c9c699811f22fb8fc78e0';
-        func-mem-ref-line = '29';
+        func-mem-ref-line = '30';
         func-mem-ref-name = 'CHECK_MISC_PTR';
     };
       func-mem-referenceto = {
@@ -7748,12 +8094,12 @@ _EnD_oF_dEf_TeXt_;
     };
       func-mem-referencedby = {
         func-mem-ref-id = 'cli__handler_8c_1a4f70031e038bd479c6946c80475765a7';
-        func-mem-ref-line = '217';
+        func-mem-ref-line = '243';
         func-mem-ref-name = 'command_decimal';
     };
       func-mem-referencedby = {
         func-mem-ref-id = 'misc_8c_1ab9a46bba8f180f1d34eae69f3b2f3088';
-        func-mem-ref-line = '67';
+        func-mem-ref-line = '68';
         func-mem-ref-name = 'get_parser_uint_internal';
     };
     }; /* func-member */
@@ -7788,7 +8134,7 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       func-mem-referenceto = {
         func-mem-ref-id = 'misc_8c_1adb9ccd818f1c9c699811f22fb8fc78e0';
-        func-mem-ref-line = '29';
+        func-mem-ref-line = '30';
         func-mem-ref-name = 'CHECK_MISC_PTR';
     };
       func-mem-referenceto = {
@@ -7808,12 +8154,12 @@ _EnD_oF_dEf_TeXt_;
     };
       func-mem-referenceto = {
         func-mem-ref-id = 'misc_8c_1abb1b01d9805cf9b2354fcc13f7a787bc';
-        func-mem-ref-line = '122';
+        func-mem-ref-line = '123';
         func-mem-ref-name = 'Misc_Parser_Double';
     };
       func-mem-referenceto = {
         func-mem-ref-id = 'misc_8c_1a26d79ae4b7a899d74727f732c288c069';
-        func-mem-ref-line = '83';
+        func-mem-ref-line = '84';
         func-mem-ref-name = 'Misc_Strtok_R';
     };
       func-mem-referenceto = {
@@ -7827,6 +8173,11 @@ _EnD_oF_dEf_TeXt_;
         func-mem-ref-name = 'Arithmetic_Add';
     };
       func-mem-referencedby = {
+        func-mem-ref-id = 'arithmetic__determinant__n_8c_1a8be9187b40fcc221c7cfbbca721a0ae0';
+        func-mem-ref-line = '73';
+        func-mem-ref-name = 'Arithmetic_Determinant_N';
+    };
+      func-mem-referencedby = {
         func-mem-ref-id = 'arithmetic__divide_8c_1a496b3a77db45806c3ca59439169b1e2f';
         func-mem-ref-line = '64';
         func-mem-ref-name = 'Arithmetic_Divide';
@@ -7835,6 +8186,11 @@ _EnD_oF_dEf_TeXt_;
         func-mem-ref-id = 'arithmetic__log__n_8c_1aee95770337ddfa4081b58fcfed717777';
         func-mem-ref-line = '66';
         func-mem-ref-name = 'Arithmetic_Log_N';
+    };
+      func-mem-referencedby = {
+        func-mem-ref-id = 'arithmetic__multiply_8c_1af482ae8bde65fd4dbdeb93aa304f525f';
+        func-mem-ref-line = '66';
+        func-mem-ref-name = 'Arithmetic_Multiply';
     };
       func-mem-referencedby = {
         func-mem-ref-id = 'arithmetic__power__n_8c_1a407644e2eabb009c1f0461eef35b02f8';
@@ -7870,10 +8226,11 @@ _EnD_oF_dEf_TeXt_;
       func-mem-desc-file = 'C:/Users/Émerson/Documents/GitHub/c-c-plus-plus-developer-challenge/Code/CLI/Drivers/Misc/Inc/misc.h';
       func-mem-desc-line = '73';
       func-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
-
+Frees the memory allocated for a misc_vector_t structure.
 _EnD_oF_dEf_TeXt_;
       func-mem-documentation = <<_EnD_oF_dEf_TeXt_
-
+@param vector Pointer to the misc_vector_t structure to free.
+@return       MISC_ERROR_OK.
 _EnD_oF_dEf_TeXt_;
       func-mem-referenceto = {
         func-mem-ref-id = 'misc_8h_1a88f7c9592309ee5e21e28cf5962671e1';
@@ -7884,6 +8241,41 @@ _EnD_oF_dEf_TeXt_;
         func-mem-ref-id = 'misc_8h_1a25b115665f3c765f38bee6102330aba5aa5ed3420e209c2fc827e71c4ce71d34c';
         func-mem-ref-line = '42';
         func-mem-ref-name = 'MISC_ERROR_OK';
+    };
+      func-mem-referencedby = {
+        func-mem-ref-id = 'arithmetic__add_8c_1aabab6eb58920b72696b44766f352d087';
+        func-mem-ref-line = '67';
+        func-mem-ref-name = 'Arithmetic_Add';
+    };
+      func-mem-referencedby = {
+        func-mem-ref-id = 'arithmetic__divide_8c_1a496b3a77db45806c3ca59439169b1e2f';
+        func-mem-ref-line = '64';
+        func-mem-ref-name = 'Arithmetic_Divide';
+    };
+      func-mem-referencedby = {
+        func-mem-ref-id = 'arithmetic__log__n_8c_1aee95770337ddfa4081b58fcfed717777';
+        func-mem-ref-line = '66';
+        func-mem-ref-name = 'Arithmetic_Log_N';
+    };
+      func-mem-referencedby = {
+        func-mem-ref-id = 'arithmetic__multiply_8c_1af482ae8bde65fd4dbdeb93aa304f525f';
+        func-mem-ref-line = '66';
+        func-mem-ref-name = 'Arithmetic_Multiply';
+    };
+      func-mem-referencedby = {
+        func-mem-ref-id = 'arithmetic__power__n_8c_1a407644e2eabb009c1f0461eef35b02f8';
+        func-mem-ref-line = '65';
+        func-mem-ref-name = 'Arithmetic_Power_N';
+    };
+      func-mem-referencedby = {
+        func-mem-ref-id = 'arithmetic__root__n_8c_1ae6e9b070a0fd2a1e3d9740d5affd700f';
+        func-mem-ref-line = '65';
+        func-mem-ref-name = 'Arithmetic_Root_N';
+    };
+      func-mem-referencedby = {
+        func-mem-ref-id = 'arithmetic__subtract_8c_1ae4386765635940545726bb78792e66d2';
+        func-mem-ref-line = '64';
+        func-mem-ref-name = 'Arithmetic_Subtract';
     };
     }; /* func-member */
     func-member = {
@@ -7910,7 +8302,7 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       func-mem-referenceto = {
         func-mem-ref-id = 'misc_8c_1a26d79ae4b7a899d74727f732c288c069';
-        func-mem-ref-line = '83';
+        func-mem-ref-line = '84';
         func-mem-ref-name = 'Misc_Strtok_R';
     };
       func-mem-referencedby = {
@@ -7943,7 +8335,7 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       func-mem-referenceto = {
         func-mem-ref-id = 'misc_8c_1abb1b01d9805cf9b2354fcc13f7a787bc';
-        func-mem-ref-line = '122';
+        func-mem-ref-line = '123';
         func-mem-ref-name = 'Misc_Parser_Double';
     };
       func-mem-referencedby = {
@@ -7981,7 +8373,7 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       func-mem-referenceto = {
         func-mem-ref-id = 'misc_8c_1a6b5224be201be73da4cd3fca715eb457';
-        func-mem-ref-line = '147';
+        func-mem-ref-line = '148';
         func-mem-ref-name = 'Misc_Parser_Uint';
     };
       func-mem-referencedby = {
@@ -8023,7 +8415,7 @@ file = {
 do { if ((misc_ptr) == NULL) return MISC_ERROR_PARM; } while(0)
 _EnD_oF_dEf_TeXt_;
       define-mem-desc-file = 'C:/Users/Émerson/Documents/GitHub/c-c-plus-plus-developer-challenge/Code/CLI/Drivers/Misc/Src/misc.c';
-      define-mem-desc-line = '29';
+      define-mem-desc-line = '30';
       define-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -8032,17 +8424,17 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       define-mem-referencedby = {
         define-mem-ref-id = 'misc_8c_1a68c5009d2808dec85d359c07ac03a593';
-        define-mem-ref-line = '163';
+        define-mem-ref-line = '164';
         define-mem-ref-name = 'Misc_Get_Vector';
     };
       define-mem-referencedby = {
         define-mem-ref-id = 'misc_8c_1abb1b01d9805cf9b2354fcc13f7a787bc';
-        define-mem-ref-line = '122';
+        define-mem-ref-line = '123';
         define-mem-ref-name = 'Misc_Parser_Double';
     };
       define-mem-referencedby = {
         define-mem-ref-id = 'misc_8c_1a6b5224be201be73da4cd3fca715eb457';
-        define-mem-ref-line = '147';
+        define-mem-ref-line = '148';
         define-mem-ref-name = 'Misc_Parser_Uint';
     };
     }; /* define-member */
@@ -8063,7 +8455,7 @@ void
 _EnD_oF_dEf_TeXt_;
       }; /*        func-mem-param--param */
       func-mem-desc-file = 'C:/Users/Émerson/Documents/GitHub/c-c-plus-plus-developer-challenge/Code/CLI/Drivers/Misc/Src/misc.c';
-      func-mem-desc-line = '51';
+      func-mem-desc-line = '52';
       func-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 Returns a pointer to the reentrant string tokenizer function.
 _EnD_oF_dEf_TeXt_;
@@ -8072,7 +8464,7 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       func-mem-referenceto = {
         func-mem-ref-id = 'misc_8c_1a26d79ae4b7a899d74727f732c288c069';
-        func-mem-ref-line = '83';
+        func-mem-ref-line = '84';
         func-mem-ref-name = 'Misc_Strtok_R';
     };
       func-mem-referencedby = {
@@ -8096,7 +8488,7 @@ void
 _EnD_oF_dEf_TeXt_;
       }; /*        func-mem-param--param */
       func-mem-desc-file = 'C:/Users/Émerson/Documents/GitHub/c-c-plus-plus-developer-challenge/Code/CLI/Drivers/Misc/Src/misc.c';
-      func-mem-desc-line = '59';
+      func-mem-desc-line = '60';
       func-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 Returns a pointer to the double parser function.
 _EnD_oF_dEf_TeXt_;
@@ -8105,7 +8497,7 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       func-mem-referenceto = {
         func-mem-ref-id = 'misc_8c_1abb1b01d9805cf9b2354fcc13f7a787bc';
-        func-mem-ref-line = '122';
+        func-mem-ref-line = '123';
         func-mem-ref-name = 'Misc_Parser_Double';
     };
       func-mem-referencedby = {
@@ -8134,7 +8526,7 @@ void
 _EnD_oF_dEf_TeXt_;
       }; /*        func-mem-param--param */
       func-mem-desc-file = 'C:/Users/Émerson/Documents/GitHub/c-c-plus-plus-developer-challenge/Code/CLI/Drivers/Misc/Src/misc.c';
-      func-mem-desc-line = '67';
+      func-mem-desc-line = '68';
       func-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 Returns a pointer to the unsigned integer parser function.
 _EnD_oF_dEf_TeXt_;
@@ -8143,7 +8535,7 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       func-mem-referenceto = {
         func-mem-ref-id = 'misc_8c_1a6b5224be201be73da4cd3fca715eb457';
-        func-mem-ref-line = '147';
+        func-mem-ref-line = '148';
         func-mem-ref-name = 'Misc_Parser_Uint';
     };
       func-mem-referencedby = {
@@ -8180,7 +8572,7 @@ _EnD_oF_dEf_TeXt_;
         func-mem-param-declname = 'nextp';
       }; /*        func-mem-param--param */
       func-mem-desc-file = 'C:/Users/Émerson/Documents/GitHub/c-c-plus-plus-developer-challenge/Code/CLI/Drivers/Misc/Src/misc.c';
-      func-mem-desc-line = '83';
+      func-mem-desc-line = '84';
       func-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 Reentrant string tokenizer (public domain by Charlie Gordon).
 _EnD_oF_dEf_TeXt_;
@@ -8191,23 +8583,18 @@ _EnD_oF_dEf_TeXt_;
 @return       Pointer to the next token, or NULL if no more tokens are found.
 _EnD_oF_dEf_TeXt_;
       func-mem-referencedby = {
-        func-mem-ref-id = 'arithmetic__multiply_8c_1af482ae8bde65fd4dbdeb93aa304f525f';
-        func-mem-ref-line = '66';
-        func-mem-ref-name = 'Arithmetic_Multiply';
-    };
-      func-mem-referencedby = {
         func-mem-ref-id = 'cli__handler_8c_1ae1e4e87a1b834acd36551cb7222eee45';
-        func-mem-ref-line = '183';
+        func-mem-ref-line = '210';
         func-mem-ref-name = 'check_receive_cmd';
     };
       func-mem-referencedby = {
         func-mem-ref-id = 'cli__handler_8c_1a4f70031e038bd479c6946c80475765a7';
-        func-mem-ref-line = '217';
+        func-mem-ref-line = '243';
         func-mem-ref-name = 'command_decimal';
     };
       func-mem-referencedby = {
         func-mem-ref-id = 'misc_8c_1a48b7b055fa582a8ecd21190bdd6d6150';
-        func-mem-ref-line = '51';
+        func-mem-ref-line = '52';
         func-mem-ref-name = 'get_strtok_internal';
     };
       func-mem-referencedby = {
@@ -8217,7 +8604,7 @@ _EnD_oF_dEf_TeXt_;
     };
       func-mem-referencedby = {
         func-mem-ref-id = 'misc_8c_1a68c5009d2808dec85d359c07ac03a593';
-        func-mem-ref-line = '163';
+        func-mem-ref-line = '164';
         func-mem-ref-name = 'Misc_Get_Vector';
     };
     }; /* func-member */
@@ -8243,7 +8630,7 @@ _EnD_oF_dEf_TeXt_;
         func-mem-param-declname = 'token';
       }; /*        func-mem-param--param */
       func-mem-desc-file = 'C:/Users/Émerson/Documents/GitHub/c-c-plus-plus-developer-challenge/Code/CLI/Drivers/Misc/Src/misc.c';
-      func-mem-desc-line = '122';
+      func-mem-desc-line = '123';
       func-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 Parses a string token into a double value.
 _EnD_oF_dEf_TeXt_;
@@ -8257,7 +8644,7 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       func-mem-referenceto = {
         func-mem-ref-id = 'misc_8c_1adb9ccd818f1c9c699811f22fb8fc78e0';
-        func-mem-ref-line = '29';
+        func-mem-ref-line = '30';
         func-mem-ref-name = 'CHECK_MISC_PTR';
     };
       func-mem-referenceto = {
@@ -8266,18 +8653,13 @@ _EnD_oF_dEf_TeXt_;
         func-mem-ref-name = 'MISC_ERROR_OK';
     };
       func-mem-referencedby = {
-        func-mem-ref-id = 'arithmetic__multiply_8c_1af482ae8bde65fd4dbdeb93aa304f525f';
-        func-mem-ref-line = '66';
-        func-mem-ref-name = 'Arithmetic_Multiply';
-    };
-      func-mem-referencedby = {
         func-mem-ref-id = 'misc_8c_1a61644e5eac7e4bc31a54f9aa02ffb823';
-        func-mem-ref-line = '59';
+        func-mem-ref-line = '60';
         func-mem-ref-name = 'get_parser_double_internal';
     };
       func-mem-referencedby = {
         func-mem-ref-id = 'misc_8c_1a68c5009d2808dec85d359c07ac03a593';
-        func-mem-ref-line = '163';
+        func-mem-ref-line = '164';
         func-mem-ref-name = 'Misc_Get_Vector';
     };
     }; /* func-member */
@@ -8303,21 +8685,21 @@ _EnD_oF_dEf_TeXt_;
         func-mem-param-declname = 'token';
       }; /*        func-mem-param--param */
       func-mem-desc-file = 'C:/Users/Émerson/Documents/GitHub/c-c-plus-plus-developer-challenge/Code/CLI/Drivers/Misc/Src/misc.c';
-      func-mem-desc-line = '147';
+      func-mem-desc-line = '148';
       func-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
-Parses a string token into a double value.
+Parses a string token into an unsigned 32-bit integer value.
 _EnD_oF_dEf_TeXt_;
       func-mem-documentation = <<_EnD_oF_dEf_TeXt_
 @iverbatim 
    Supports decimal and hexadecimal (prefix "0x" or "0X") formats.
 @endiverbatim\ilinebr 
-@param value Pointer to the double to store the result.
+@param value Pointer to the uint32_t to store the result.
 @param token String token to parse.
 @return      MISC_ERROR_OK on success, MISC_ERROR_PARM if a parameter is NULL.
 _EnD_oF_dEf_TeXt_;
       func-mem-referenceto = {
         func-mem-ref-id = 'misc_8c_1adb9ccd818f1c9c699811f22fb8fc78e0';
-        func-mem-ref-line = '29';
+        func-mem-ref-line = '30';
         func-mem-ref-name = 'CHECK_MISC_PTR';
     };
       func-mem-referenceto = {
@@ -8327,12 +8709,12 @@ _EnD_oF_dEf_TeXt_;
     };
       func-mem-referencedby = {
         func-mem-ref-id = 'cli__handler_8c_1a4f70031e038bd479c6946c80475765a7';
-        func-mem-ref-line = '217';
+        func-mem-ref-line = '243';
         func-mem-ref-name = 'command_decimal';
     };
       func-mem-referencedby = {
         func-mem-ref-id = 'misc_8c_1ab9a46bba8f180f1d34eae69f3b2f3088';
-        func-mem-ref-line = '67';
+        func-mem-ref-line = '68';
         func-mem-ref-name = 'get_parser_uint_internal';
     };
     }; /* func-member */
@@ -8358,7 +8740,7 @@ _EnD_oF_dEf_TeXt_;
         func-mem-param-declname = 'saveptr';
       }; /*        func-mem-param--param */
       func-mem-desc-file = 'C:/Users/Émerson/Documents/GitHub/c-c-plus-plus-developer-challenge/Code/CLI/Drivers/Misc/Src/misc.c';
-      func-mem-desc-line = '163';
+      func-mem-desc-line = '164';
       func-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -8367,7 +8749,7 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       func-mem-referenceto = {
         func-mem-ref-id = 'misc_8c_1adb9ccd818f1c9c699811f22fb8fc78e0';
-        func-mem-ref-line = '29';
+        func-mem-ref-line = '30';
         func-mem-ref-name = 'CHECK_MISC_PTR';
     };
       func-mem-referenceto = {
@@ -8387,12 +8769,12 @@ _EnD_oF_dEf_TeXt_;
     };
       func-mem-referenceto = {
         func-mem-ref-id = 'misc_8c_1abb1b01d9805cf9b2354fcc13f7a787bc';
-        func-mem-ref-line = '122';
+        func-mem-ref-line = '123';
         func-mem-ref-name = 'Misc_Parser_Double';
     };
       func-mem-referenceto = {
         func-mem-ref-id = 'misc_8c_1a26d79ae4b7a899d74727f732c288c069';
-        func-mem-ref-line = '83';
+        func-mem-ref-line = '84';
         func-mem-ref-name = 'Misc_Strtok_R';
     };
       func-mem-referenceto = {
@@ -8406,6 +8788,11 @@ _EnD_oF_dEf_TeXt_;
         func-mem-ref-name = 'Arithmetic_Add';
     };
       func-mem-referencedby = {
+        func-mem-ref-id = 'arithmetic__determinant__n_8c_1a8be9187b40fcc221c7cfbbca721a0ae0';
+        func-mem-ref-line = '73';
+        func-mem-ref-name = 'Arithmetic_Determinant_N';
+    };
+      func-mem-referencedby = {
         func-mem-ref-id = 'arithmetic__divide_8c_1a496b3a77db45806c3ca59439169b1e2f';
         func-mem-ref-line = '64';
         func-mem-ref-name = 'Arithmetic_Divide';
@@ -8414,6 +8801,11 @@ _EnD_oF_dEf_TeXt_;
         func-mem-ref-id = 'arithmetic__log__n_8c_1aee95770337ddfa4081b58fcfed717777';
         func-mem-ref-line = '66';
         func-mem-ref-name = 'Arithmetic_Log_N';
+    };
+      func-mem-referencedby = {
+        func-mem-ref-id = 'arithmetic__multiply_8c_1af482ae8bde65fd4dbdeb93aa304f525f';
+        func-mem-ref-line = '66';
+        func-mem-ref-name = 'Arithmetic_Multiply';
     };
       func-mem-referencedby = {
         func-mem-ref-id = 'arithmetic__power__n_8c_1a407644e2eabb009c1f0461eef35b02f8';
@@ -8447,12 +8839,13 @@ _EnD_oF_dEf_TeXt_;
         func-mem-param-declname = 'vector';
       }; /*        func-mem-param--param */
       func-mem-desc-file = 'C:/Users/Émerson/Documents/GitHub/c-c-plus-plus-developer-challenge/Code/CLI/Drivers/Misc/Src/misc.c';
-      func-mem-desc-line = '192';
+      func-mem-desc-line = '197';
       func-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
-
+Frees the memory allocated for a misc_vector_t structure.
 _EnD_oF_dEf_TeXt_;
       func-mem-documentation = <<_EnD_oF_dEf_TeXt_
-
+@param vector Pointer to the misc_vector_t structure to free.
+@return       MISC_ERROR_OK.
 _EnD_oF_dEf_TeXt_;
       func-mem-referenceto = {
         func-mem-ref-id = 'misc_8h_1a88f7c9592309ee5e21e28cf5962671e1';
@@ -8463,6 +8856,41 @@ _EnD_oF_dEf_TeXt_;
         func-mem-ref-id = 'misc_8h_1a25b115665f3c765f38bee6102330aba5aa5ed3420e209c2fc827e71c4ce71d34c';
         func-mem-ref-line = '42';
         func-mem-ref-name = 'MISC_ERROR_OK';
+    };
+      func-mem-referencedby = {
+        func-mem-ref-id = 'arithmetic__add_8c_1aabab6eb58920b72696b44766f352d087';
+        func-mem-ref-line = '67';
+        func-mem-ref-name = 'Arithmetic_Add';
+    };
+      func-mem-referencedby = {
+        func-mem-ref-id = 'arithmetic__divide_8c_1a496b3a77db45806c3ca59439169b1e2f';
+        func-mem-ref-line = '64';
+        func-mem-ref-name = 'Arithmetic_Divide';
+    };
+      func-mem-referencedby = {
+        func-mem-ref-id = 'arithmetic__log__n_8c_1aee95770337ddfa4081b58fcfed717777';
+        func-mem-ref-line = '66';
+        func-mem-ref-name = 'Arithmetic_Log_N';
+    };
+      func-mem-referencedby = {
+        func-mem-ref-id = 'arithmetic__multiply_8c_1af482ae8bde65fd4dbdeb93aa304f525f';
+        func-mem-ref-line = '66';
+        func-mem-ref-name = 'Arithmetic_Multiply';
+    };
+      func-mem-referencedby = {
+        func-mem-ref-id = 'arithmetic__power__n_8c_1a407644e2eabb009c1f0461eef35b02f8';
+        func-mem-ref-line = '65';
+        func-mem-ref-name = 'Arithmetic_Power_N';
+    };
+      func-mem-referencedby = {
+        func-mem-ref-id = 'arithmetic__root__n_8c_1ae6e9b070a0fd2a1e3d9740d5affd700f';
+        func-mem-ref-line = '65';
+        func-mem-ref-name = 'Arithmetic_Root_N';
+    };
+      func-mem-referencedby = {
+        func-mem-ref-id = 'arithmetic__subtract_8c_1ae4386765635940545726bb78792e66d2';
+        func-mem-ref-line = '64';
+        func-mem-ref-name = 'Arithmetic_Subtract';
     };
     }; /* func-member */
     };
@@ -8476,6 +8904,7 @@ This module provides miscellaneous helper functions, including:
   - A reentrant string tokenizer (strtok_r)
   - String to double and unsigned integer parsers with hexadecimal support
   - Getter functions to retrieve function pointers for unit testing
+  - Dynamic vector allocation and freeing for parsed values
 
 @author  Emerson Isaias da Silva
 @date    21-09-2025
@@ -8598,7 +9027,7 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       func-mem-referenceto = {
         func-mem-ref-id = 'misc_8c_1a48b7b055fa582a8ecd21190bdd6d6150';
-        func-mem-ref-line = '51';
+        func-mem-ref-line = '52';
         func-mem-ref-name = 'get_strtok_internal';
     };
       func-mem-referenceto = {
@@ -8642,7 +9071,7 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       func-mem-referenceto = {
         func-mem-ref-id = 'misc_8c_1a61644e5eac7e4bc31a54f9aa02ffb823';
-        func-mem-ref-line = '59';
+        func-mem-ref-line = '60';
         func-mem-ref-name = 'get_parser_double_internal';
     };
       func-mem-referenceto = {
@@ -8691,7 +9120,7 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       func-mem-referenceto = {
         func-mem-ref-id = 'misc_8c_1a61644e5eac7e4bc31a54f9aa02ffb823';
-        func-mem-ref-line = '59';
+        func-mem-ref-line = '60';
         func-mem-ref-name = 'get_parser_double_internal';
     };
       func-mem-referenceto = {
@@ -8735,7 +9164,7 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       func-mem-referenceto = {
         func-mem-ref-id = 'misc_8c_1ab9a46bba8f180f1d34eae69f3b2f3088';
-        func-mem-ref-line = '67';
+        func-mem-ref-line = '68';
         func-mem-ref-name = 'get_parser_uint_internal';
     };
       func-mem-referenceto = {
@@ -8887,7 +9316,7 @@ _EnD_oF_dEf_TeXt_;
     };
       func-mem-referencedby = {
         func-mem-ref-id = 'stream_8c_1afcc0e80a2915e78719f8c9b9390c1b9d';
-        func-mem-ref-line = '71';
+        func-mem-ref-line = '67';
         func-mem-ref-name = 'Stream_Init';
     };
     }; /* func-member */
@@ -8936,12 +9365,12 @@ _EnD_oF_dEf_TeXt_;
     };
       func-mem-referencedby = {
         func-mem-ref-id = 'cli__handler_8c_1af2634b601b2a4cc0d082027768d690ab';
-        func-mem-ref-line = '138';
+        func-mem-ref-line = '157';
         func-mem-ref-name = 'Cli_Handler_Check';
     };
       func-mem-referencedby = {
         func-mem-ref-id = 'cli__handler_8c_1a08e94bea6b19563502c78f513e8f41ed';
-        func-mem-ref-line = '159';
+        func-mem-ref-line = '186';
         func-mem-ref-name = 'Cli_Handler_Out_Msg';
     };
       func-mem-referencedby = {
@@ -8999,12 +9428,12 @@ _EnD_oF_dEf_TeXt_;
     };
       func-mem-referencedby = {
         func-mem-ref-id = 'cli__handler_8c_1af2634b601b2a4cc0d082027768d690ab';
-        func-mem-ref-line = '138';
+        func-mem-ref-line = '157';
         func-mem-ref-name = 'Cli_Handler_Check';
     };
       func-mem-referencedby = {
         func-mem-ref-id = 'cli__handler_8c_1a08e94bea6b19563502c78f513e8f41ed';
-        func-mem-ref-line = '159';
+        func-mem-ref-line = '186';
         func-mem-ref-name = 'Cli_Handler_Out_Msg';
     };
       func-mem-referencedby = {
@@ -9119,7 +9548,7 @@ _EnD_oF_dEf_TeXt_;
     };
       func-mem-referencedby = {
         func-mem-ref-id = 'stream_8c_1afcc0e80a2915e78719f8c9b9390c1b9d';
-        func-mem-ref-line = '71';
+        func-mem-ref-line = '67';
         func-mem-ref-name = 'Stream_Init';
     };
     }; /* func-member */
@@ -9168,12 +9597,12 @@ _EnD_oF_dEf_TeXt_;
     };
       func-mem-referencedby = {
         func-mem-ref-id = 'cli__handler_8c_1af2634b601b2a4cc0d082027768d690ab';
-        func-mem-ref-line = '138';
+        func-mem-ref-line = '157';
         func-mem-ref-name = 'Cli_Handler_Check';
     };
       func-mem-referencedby = {
         func-mem-ref-id = 'cli__handler_8c_1a08e94bea6b19563502c78f513e8f41ed';
-        func-mem-ref-line = '159';
+        func-mem-ref-line = '186';
         func-mem-ref-name = 'Cli_Handler_Out_Msg';
     };
       func-mem-referencedby = {
@@ -9231,12 +9660,12 @@ _EnD_oF_dEf_TeXt_;
     };
       func-mem-referencedby = {
         func-mem-ref-id = 'cli__handler_8c_1af2634b601b2a4cc0d082027768d690ab';
-        func-mem-ref-line = '138';
+        func-mem-ref-line = '157';
         func-mem-ref-name = 'Cli_Handler_Check';
     };
       func-mem-referencedby = {
         func-mem-ref-id = 'cli__handler_8c_1a08e94bea6b19563502c78f513e8f41ed';
-        func-mem-ref-line = '159';
+        func-mem-ref-line = '186';
         func-mem-ref-name = 'Cli_Handler_Out_Msg';
     };
       func-mem-referencedby = {
@@ -9338,12 +9767,12 @@ _EnD_oF_dEf_TeXt_;
     };
       func-mem-referenceto = {
         func-mem-ref-id = 'stream_8c_1af656bbd7cc748192d13e7997e6a66d9b';
-        func-mem-ref-line = '33';
+        func-mem-ref-line = '31';
         func-mem-ref-name = 'CHECK_STREAM_PTR';
     };
       func-mem-referenceto = {
         func-mem-ref-id = 'stream_8c_1a368c01c4ae5e5e473fae0a457df9b2ea';
-        func-mem-ref-line = '38';
+        func-mem-ref-line = '34';
         func-mem-ref-name = 'CHECK_STREAM_VALID';
     };
       func-mem-referenceto = {
@@ -9399,16 +9828,16 @@ file = {
 do { if ((stream_ptr) == NULL) return STREAM_ERROR_PARM; } while(0)
 _EnD_oF_dEf_TeXt_;
       define-mem-desc-file = 'C:/Users/Émerson/Documents/GitHub/c-c-plus-plus-developer-challenge/Code/CLI/Drivers/Stream/Src/stream.c';
-      define-mem-desc-line = '33';
+      define-mem-desc-line = '31';
       define-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
-Checks if a stream pointer is NULL and returns STREAM_ERROR_PARM if so.
+
 _EnD_oF_dEf_TeXt_;
       define-mem-documentation = <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
       define-mem-referencedby = {
         define-mem-ref-id = 'stream_8c_1afcc0e80a2915e78719f8c9b9390c1b9d';
-        define-mem-ref-line = '71';
+        define-mem-ref-line = '67';
         define-mem-ref-name = 'Stream_Init';
     };
     }; /* define-member */
@@ -9428,16 +9857,16 @@ _EnD_oF_dEf_TeXt_;
 do { if ((value) == (expected)) return STREAM_ERROR_PARM; } while(0)
 _EnD_oF_dEf_TeXt_;
       define-mem-desc-file = 'C:/Users/Émerson/Documents/GitHub/c-c-plus-plus-developer-challenge/Code/CLI/Drivers/Stream/Src/stream.c';
-      define-mem-desc-line = '38';
+      define-mem-desc-line = '34';
       define-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
-Checks if a value matches the expected invalid value and returns STREAM_ERROR_PARM if so.
+
 _EnD_oF_dEf_TeXt_;
       define-mem-documentation = <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
       define-mem-referencedby = {
         define-mem-ref-id = 'stream_8c_1afcc0e80a2915e78719f8c9b9390c1b9d';
-        define-mem-ref-line = '71';
+        define-mem-ref-line = '67';
         define-mem-ref-name = 'Stream_Init';
     };
     }; /* define-member */
@@ -9471,7 +9900,7 @@ _EnD_oF_dEf_TeXt_;
         func-mem-param-declname = 'size';
       }; /*        func-mem-param--param */
       func-mem-desc-file = 'C:/Users/Émerson/Documents/GitHub/c-c-plus-plus-developer-challenge/Code/CLI/Drivers/Stream/Src/stream.c';
-      func-mem-desc-line = '71';
+      func-mem-desc-line = '67';
       func-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 Initializes a stream buffer handler.
 _EnD_oF_dEf_TeXt_;
@@ -9491,12 +9920,12 @@ _EnD_oF_dEf_TeXt_;
     };
       func-mem-referenceto = {
         func-mem-ref-id = 'stream_8c_1af656bbd7cc748192d13e7997e6a66d9b';
-        func-mem-ref-line = '33';
+        func-mem-ref-line = '31';
         func-mem-ref-name = 'CHECK_STREAM_PTR';
     };
       func-mem-referenceto = {
         func-mem-ref-id = 'stream_8c_1a368c01c4ae5e5e473fae0a457df9b2ea';
-        func-mem-ref-line = '38';
+        func-mem-ref-line = '34';
         func-mem-ref-name = 'CHECK_STREAM_VALID';
     };
       func-mem-referenceto = {
@@ -9538,13 +9967,6 @@ embedded applications where safe and efficient stream management is required.
 
 @author  Emerson Isaias da Silva
 @date    25-09-2025
-
-This module provides functions to initialize and manage a stream buffer handler,
-including mutex protection and buffer clearing. It is designed for use in CLI or
-embedded applications where safe and efficient stream management is required.
-
-@author  Emerson Isaias da Silva
-@date    21-09-2025
 _EnD_oF_dEf_TeXt_;
 }; /* file */
 file = {

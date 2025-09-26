@@ -127,9 +127,7 @@ $(function(){initNavTree('stream_8c.html','',''); });
 <tr class="heading"><td colspan="2"><h2 id="header-define-members" class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
 <tr class="memitem:af656bbd7cc748192d13e7997e6a66d9b" id="r_af656bbd7cc748192d13e7997e6a66d9b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af656bbd7cc748192d13e7997e6a66d9b">CHECK_STREAM_PTR</a>(stream_ptr)</td></tr>
-<tr class="memdesc:af656bbd7cc748192d13e7997e6a66d9b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if a stream pointer is NULL and returns STREAM_ERROR_PARM if so.  <br /></td></tr>
 <tr class="memitem:a368c01c4ae5e5e473fae0a457df9b2ea" id="r_a368c01c4ae5e5e473fae0a457df9b2ea"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a368c01c4ae5e5e473fae0a457df9b2ea">CHECK_STREAM_VALID</a>(value,  expected)</td></tr>
-<tr class="memdesc:a368c01c4ae5e5e473fae0a457df9b2ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if a value matches the expected invalid value and returns STREAM_ERROR_PARM if so.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
@@ -140,10 +138,7 @@ Functions</h2></td></tr>
 <div class="textblock"><p>Stream buffer handler implementation for CLI application. </p>
 <p>This module provides functions to initialize and manage a stream buffer handler, including mutex protection and buffer clearing. It is designed for use in CLI or embedded applications where safe and efficient stream management is required.</p>
 <dl class="section author"><dt>Author</dt><dd>Emerson Isaias da Silva </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>25-09-2025</dd></dl>
-<p>This module provides functions to initialize and manage a stream buffer handler, including mutex protection and buffer clearing. It is designed for use in CLI or embedded applications where safe and efficient stream management is required.</p>
-<dl class="section author"><dt>Author</dt><dd>Emerson Isaias da Silva </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>21-09-2025 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>25-09-2025 </dd></dl>
 
 <p class="definition">Definition in file <a class="el" href="stream_8c_source.html">stream.c</a>.</p>
 </div><a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">Macro Definition Documentation</h2>
@@ -164,9 +159,7 @@ Functions</h2></td></tr>
 <b>Value:</b><div class="fragment"><div class="line"><span class="keywordflow">do</span> { <span class="keywordflow">if</span> ((stream_ptr) == NULL) <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="stream_8h.html#aa4422dce8758ebf7568fbedac9417d2da97e05ed222fe41c62e120485188815e0">STREAM_ERROR_PARM</a>; } <span class="keywordflow">while</span>(0)</div>
 <div class="ttc" id="astream_8h_html_aa4422dce8758ebf7568fbedac9417d2da97e05ed222fe41c62e120485188815e0"><div class="ttname"><a href="stream_8h.html#aa4422dce8758ebf7568fbedac9417d2da97e05ed222fe41c62e120485188815e0">STREAM_ERROR_PARM</a></div><div class="ttdeci">@ STREAM_ERROR_PARM</div><div class="ttdef"><b>Definition</b> <a href="stream_8h_source.html#l00045">stream.h:45</a></div></div>
 </div><!-- fragment -->
-<p>Checks if a stream pointer is NULL and returns STREAM_ERROR_PARM if so. </p>
-
-<p class="definition">Definition at line <a class="el" href="stream_8c_source.html#l00033">33</a> of file <a class="el" href="stream_8c_source.html">stream.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="stream_8c_source.html#l00031">31</a> of file <a class="el" href="stream_8c_source.html">stream.c</a>.</p>
 
 </div>
 </div>
@@ -190,9 +183,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <b>Value:</b><div class="fragment"><div class="line"><span class="keywordflow">do</span> { <span class="keywordflow">if</span> ((value) == (expected)) <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="stream_8h.html#aa4422dce8758ebf7568fbedac9417d2da97e05ed222fe41c62e120485188815e0">STREAM_ERROR_PARM</a>; } <span class="keywordflow">while</span>(0)</div>
 </div><!-- fragment -->
-<p>Checks if a value matches the expected invalid value and returns STREAM_ERROR_PARM if so. </p>
-
-<p class="definition">Definition at line <a class="el" href="stream_8c_source.html#l00038">38</a> of file <a class="el" href="stream_8c_source.html">stream.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="stream_8c_source.html#l00034">34</a> of file <a class="el" href="stream_8c_source.html">stream.c</a>.</p>
 
 </div>
 </div>
@@ -233,7 +224,7 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>STREAM_ERROR_OK on success, STREAM_ERROR_PARM if any parameter is invalid. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="stream_8c_source.html#l00071">71</a> of file <a class="el" href="stream_8c_source.html">stream.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="stream_8c_source.html#l00067">67</a> of file <a class="el" href="stream_8c_source.html">stream.c</a>.</p>
 <div id="dynsection-1" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">
 </div>

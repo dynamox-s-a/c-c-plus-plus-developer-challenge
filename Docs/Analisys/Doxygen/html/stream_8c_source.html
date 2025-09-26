@@ -108,48 +108,56 @@ $(function(){initNavTree('stream_8c_source.html','',''); });
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="comment">/*</span></div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="comment"> *   MACROS</span></div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span></div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="stream_8c.html#af656bbd7cc748192d13e7997e6a66d9b">   33</a></span><span class="preprocessor">#define CHECK_STREAM_PTR(stream_ptr)       do { if ((stream_ptr) == NULL) return STREAM_ERROR_PARM; } while(0)</span></div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span></div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="stream_8c.html#a368c01c4ae5e5e473fae0a457df9b2ea">   38</a></span><span class="preprocessor">#define CHECK_STREAM_VALID(value, expected) do { if ((value) == (expected)) return STREAM_ERROR_PARM; } while(0)</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="comment">/* Verify NULL parameter */</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="stream_8c.html#af656bbd7cc748192d13e7997e6a66d9b">   31</a></span><span class="preprocessor">#define CHECK_STREAM_PTR(stream_ptr)       do { if ((stream_ptr) == NULL) return STREAM_ERROR_PARM; } while(0)</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="comment">/* Verify value */</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="stream_8c.html#a368c01c4ae5e5e473fae0a457df9b2ea">   34</a></span><span class="preprocessor">#define CHECK_STREAM_VALID(value, expected) do { if ((value) == (expected)) return STREAM_ERROR_PARM; } while(0)</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="comment"> *   EXTERNAL VARIABLES</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="comment"> */</span></div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="comment">/*</span></div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="comment"> *   EXTERNAL VARIABLES</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="comment"> *   LOCAL FUNCTIONS PROTOTYPE</span></div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="comment"> */</span></div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="comment">/*</span></div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="comment"> *   LOCAL FUNCTIONS PROTOTYPE</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="comment"> *   CONSTANTS</span></div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="comment"> */</span></div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="comment">/*</span></div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="comment"> *   CONSTANTS</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="comment"> *   UNIT TEST</span></div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="comment"> */</span></div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="comment">/*</span></div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="comment"> *   UNIT TEST</span></div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="comment">/*</span></div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="comment"> *   IMPLEMENTATION</span></div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span></div>
-<div class="foldopen" id="foldopen00071" data-start="{" data-end="}">
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno"><a class="line" href="stream_8h.html#afcc0e80a2915e78719f8c9b9390c1b9d">   71</a></span><a class="code hl_enumeration" href="stream_8h.html#aa4422dce8758ebf7568fbedac9417d2d">stream_error_e</a> <a class="code hl_function" href="stream_8c.html#afcc0e80a2915e78719f8c9b9390c1b9d">Stream_Init</a>(<a class="code hl_struct" href="structstream__handler__t.html">stream_handler_t</a>* stream, <span class="keywordtype">char</span>* buffer, <span class="keywordtype">size_t</span> size) {</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    <a class="code hl_define" href="stream_8c.html#af656bbd7cc748192d13e7997e6a66d9b">CHECK_STREAM_PTR</a>(stream);       <span class="comment">/* Check stream pointer */</span></div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    <a class="code hl_define" href="stream_8c.html#af656bbd7cc748192d13e7997e6a66d9b">CHECK_STREAM_PTR</a>(buffer);       <span class="comment">/* Check buffer pointer */</span></div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    <a class="code hl_define" href="stream_8c.html#a368c01c4ae5e5e473fae0a457df9b2ea">CHECK_STREAM_VALID</a>(size, 0);    <span class="comment">/* Check size valid */</span></div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    <a class="code hl_function" href="mutex_8h.html#a1091556e67f882c9daa0022ce9024919">Mutex_Init</a>(&amp;stream-&gt;<a class="code hl_variable" href="structstream__handler__t.html#a5332877416a7a83d75e3ed55d6e90f98">mutex</a>);     <span class="comment">/* Initialize mutex */</span></div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    stream-&gt;<a class="code hl_variable" href="structstream__handler__t.html#a3e28afc66aa98dd3735d76eed039097c">buffer</a> = buffer;        <span class="comment">/* Set stream buffer */</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="comment"> *   IMPLEMENTATION</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span></div>
+<div class="foldopen" id="foldopen00067" data-start="{" data-end="}">
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="stream_8h.html#afcc0e80a2915e78719f8c9b9390c1b9d">   67</a></span><a class="code hl_enumeration" href="stream_8h.html#aa4422dce8758ebf7568fbedac9417d2d">stream_error_e</a> <a class="code hl_function" href="stream_8c.html#afcc0e80a2915e78719f8c9b9390c1b9d">Stream_Init</a>(<a class="code hl_struct" href="structstream__handler__t.html">stream_handler_t</a>* stream, <span class="keywordtype">char</span>* buffer, <span class="keywordtype">size_t</span> size) {</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    <a class="code hl_define" href="stream_8c.html#af656bbd7cc748192d13e7997e6a66d9b">CHECK_STREAM_PTR</a>(stream);       <span class="comment">/* Check stream pointer */</span></div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    <a class="code hl_define" href="stream_8c.html#af656bbd7cc748192d13e7997e6a66d9b">CHECK_STREAM_PTR</a>(buffer);       <span class="comment">/* Check buffer pointer */</span></div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    <a class="code hl_define" href="stream_8c.html#a368c01c4ae5e5e473fae0a457df9b2ea">CHECK_STREAM_VALID</a>(size, 0);    <span class="comment">/* Check size valid */</span></div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    <a class="code hl_function" href="mutex_8h.html#a1091556e67f882c9daa0022ce9024919">Mutex_Init</a>(&amp;stream-&gt;<a class="code hl_variable" href="structstream__handler__t.html#a5332877416a7a83d75e3ed55d6e90f98">mutex</a>);     <span class="comment">/* Initialize mutex */</span></div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    stream-&gt;<a class="code hl_variable" href="structstream__handler__t.html#a3e28afc66aa98dd3735d76eed039097c">buffer</a> = buffer;        <span class="comment">/* Set stream buffer */</span></div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
 <div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    memset(stream-&gt;<a class="code hl_variable" href="structstream__handler__t.html#a3e28afc66aa98dd3735d76eed039097c">buffer</a>, <span class="charliteral">&#39;\0&#39;</span>, size);  <span class="comment">/* Clean Stream buffer */</span></div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    stream-&gt;<a class="code hl_variable" href="structstream__handler__t.html#a3373faf0317feb2b4aa4606981895642">size</a> = size;        <span class="comment">/* Set stream size */</span></div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="stream_8h.html#aa4422dce8758ebf7568fbedac9417d2dabffab43163c1475d9694655f7412bb4d">STREAM_ERROR_OK</a>;     <span class="comment">/* Return success */</span></div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>}</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    stream-&gt;<a class="code hl_variable" href="structstream__handler__t.html#a3373faf0317feb2b4aa4606981895642">size</a> = size;        <span class="comment">/* Set stream size */</span></div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="stream_8h.html#aa4422dce8758ebf7568fbedac9417d2dabffab43163c1475d9694655f7412bb4d">STREAM_ERROR_OK</a>;     <span class="comment">/* Return success */</span></div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>}</div>
 </div>
 <div class="ttc" id="amutex_8h_html_a1091556e67f882c9daa0022ce9024919"><div class="ttname"><a href="mutex_8h.html#a1091556e67f882c9daa0022ce9024919">Mutex_Init</a></div><div class="ttdeci">mutex_error_e Mutex_Init(mutex_handler_t *mutex)</div><div class="ttdoc">Initializes a mutex handler.</div><div class="ttdef"><b>Definition</b> <a href="mutex_8c_source.html#l00063">mutex.c:63</a></div></div>
-<div class="ttc" id="astream_8c_html_a368c01c4ae5e5e473fae0a457df9b2ea"><div class="ttname"><a href="stream_8c.html#a368c01c4ae5e5e473fae0a457df9b2ea">CHECK_STREAM_VALID</a></div><div class="ttdeci">#define CHECK_STREAM_VALID(value, expected)</div><div class="ttdoc">Checks if a value matches the expected invalid value and returns STREAM_ERROR_PARM if so.</div><div class="ttdef"><b>Definition</b> <a href="#l00038">stream.c:38</a></div></div>
-<div class="ttc" id="astream_8c_html_af656bbd7cc748192d13e7997e6a66d9b"><div class="ttname"><a href="stream_8c.html#af656bbd7cc748192d13e7997e6a66d9b">CHECK_STREAM_PTR</a></div><div class="ttdeci">#define CHECK_STREAM_PTR(stream_ptr)</div><div class="ttdoc">Checks if a stream pointer is NULL and returns STREAM_ERROR_PARM if so.</div><div class="ttdef"><b>Definition</b> <a href="#l00033">stream.c:33</a></div></div>
-<div class="ttc" id="astream_8c_html_afcc0e80a2915e78719f8c9b9390c1b9d"><div class="ttname"><a href="stream_8c.html#afcc0e80a2915e78719f8c9b9390c1b9d">Stream_Init</a></div><div class="ttdeci">stream_error_e Stream_Init(stream_handler_t *stream, char *buffer, size_t size)</div><div class="ttdoc">Initializes a stream buffer handler.</div><div class="ttdef"><b>Definition</b> <a href="#l00071">stream.c:71</a></div></div>
+<div class="ttc" id="astream_8c_html_a368c01c4ae5e5e473fae0a457df9b2ea"><div class="ttname"><a href="stream_8c.html#a368c01c4ae5e5e473fae0a457df9b2ea">CHECK_STREAM_VALID</a></div><div class="ttdeci">#define CHECK_STREAM_VALID(value, expected)</div><div class="ttdef"><b>Definition</b> <a href="#l00034">stream.c:34</a></div></div>
+<div class="ttc" id="astream_8c_html_af656bbd7cc748192d13e7997e6a66d9b"><div class="ttname"><a href="stream_8c.html#af656bbd7cc748192d13e7997e6a66d9b">CHECK_STREAM_PTR</a></div><div class="ttdeci">#define CHECK_STREAM_PTR(stream_ptr)</div><div class="ttdef"><b>Definition</b> <a href="#l00031">stream.c:31</a></div></div>
+<div class="ttc" id="astream_8c_html_afcc0e80a2915e78719f8c9b9390c1b9d"><div class="ttname"><a href="stream_8c.html#afcc0e80a2915e78719f8c9b9390c1b9d">Stream_Init</a></div><div class="ttdeci">stream_error_e Stream_Init(stream_handler_t *stream, char *buffer, size_t size)</div><div class="ttdoc">Initializes a stream buffer handler.</div><div class="ttdef"><b>Definition</b> <a href="#l00067">stream.c:67</a></div></div>
 <div class="ttc" id="astream_8h_html"><div class="ttname"><a href="stream_8h.html">stream.h</a></div></div>
 <div class="ttc" id="astream_8h_html_aa4422dce8758ebf7568fbedac9417d2d"><div class="ttname"><a href="stream_8h.html#aa4422dce8758ebf7568fbedac9417d2d">stream_error_e</a></div><div class="ttdeci">stream_error_e</div><div class="ttdef"><b>Definition</b> <a href="stream_8h_source.html#l00041">stream.h:41</a></div></div>
 <div class="ttc" id="astream_8h_html_aa4422dce8758ebf7568fbedac9417d2dabffab43163c1475d9694655f7412bb4d"><div class="ttname"><a href="stream_8h.html#aa4422dce8758ebf7568fbedac9417d2dabffab43163c1475d9694655f7412bb4d">STREAM_ERROR_OK</a></div><div class="ttdeci">@ STREAM_ERROR_OK</div><div class="ttdef"><b>Definition</b> <a href="stream_8h_source.html#l00043">stream.h:43</a></div></div>

@@ -1,12 +1,12 @@
 <map id="Controller_Init" name="Controller_Init">
 <area shape="rect" id="Node000001" title="Reentrant string tokenizer (public domain by Charlie Gordon)." alt="" coords="5,107,108,133"/>
-<area shape="rect" id="Node000002" href="$cli__handler_8c.html#a61fe594b1d9dd2f9fc0a5daf26fe6cb0" title="This function initialize and configure handler CLI." alt="" coords="176,56,290,83"/>
+<area shape="rect" id="Node000002" href="$cli__handler_8c.html#a61fe594b1d9dd2f9fc0a5daf26fe6cb0" title="Initializes and configures the CLI handler." alt="" coords="176,56,290,83"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="105,103,168,85,170,90,106,109"/>
 <area shape="rect" id="Node000006" href="$logs__file_8c.html#aaacd01c248600c980910f867fd572659" title="Initializes the log file handler." alt="" coords="156,107,310,133"/>
 <area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="108,117,140,117,140,123,108,123"/>
 <area shape="rect" id="Node000012" href="$stream_8c.html#afcc0e80a2915e78719f8c9b9390c1b9d" title="Initializes a stream buffer handler." alt="" coords="189,157,277,184"/>
 <area shape="poly" id="edge14_Node000001_Node000012" title=" " alt="" coords="106,131,175,151,174,157,105,137"/>
-<area shape="rect" id="Node000003" href="$cli__handler_8c.html#a08e94bea6b19563502c78f513e8f41ed" title=" " alt="" coords="370,56,520,83"/>
+<area shape="rect" id="Node000003" href="$cli__handler_8c.html#a08e94bea6b19563502c78f513e8f41ed" title="Sends a formatted message to the CLI TX stream (thread&#45;safe)." alt="" coords="370,56,520,83"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="290,67,355,67,355,72,290,72"/>
 <area shape="rect" id="Node000004" href="$mutex_8c.html#a2afa4ac9d94043fec3f0d361edb4d0d9" title="Locks the mutex handler (busy&#45;wait)." alt="" coords="588,56,681,83"/>
 <area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="520,67,573,67,573,72,520,72"/>

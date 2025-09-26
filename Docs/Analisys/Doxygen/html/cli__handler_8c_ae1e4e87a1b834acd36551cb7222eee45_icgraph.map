@@ -1,6 +1,6 @@
 <map id="check_receive_cmd" name="check_receive_cmd">
-<area shape="rect" id="Node000001" title="This function will check if receive a correct command and process." alt="" coords="455,5,593,32"/>
-<area shape="rect" id="Node000002" href="$cli__handler_8c.html#af2634b601b2a4cc0d082027768d690ab" title="Is a CLI handler, case multithread will stay in loop." alt="" coords="273,5,407,32"/>
+<area shape="rect" id="Node000001" title="Checks and processes a received command from the RX stream." alt="" coords="455,5,593,32"/>
+<area shape="rect" id="Node000002" href="$cli__handler_8c.html#af2634b601b2a4cc0d082027768d690ab" title="Main CLI handler loop. Processes received commands." alt="" coords="273,5,407,32"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="440,21,407,21,407,16,440,16"/>
 <area shape="rect" id="Node000003" href="$controller_8c.html#a59522a85c6772a03c8a8c52813e1ca33" title="Parses a string token into a double value." alt="" coords="103,5,225,32"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="258,21,225,21,225,16,258,16"/>

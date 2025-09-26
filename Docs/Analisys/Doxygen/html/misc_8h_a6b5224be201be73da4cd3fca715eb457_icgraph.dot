@@ -5,9 +5,9 @@ digraph "Misc_Parser_Uint"
   edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
   node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
   rankdir="RL";
-  Node1 [id="Node000001",label="Misc_Parser_Uint",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip="Parses a string token into a double value."];
+  Node1 [id="Node000001",label="Misc_Parser_Uint",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip="Parses a string token into an unsigned 32-bit integer value."];
   Node1 -> Node2 [id="edge1_Node000001_Node000002",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node2 [id="Node000002",label="command_decimal",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$cli__handler_8c.html#a4f70031e038bd479c6946c80475765a7",tooltip="This command change the precision output stream of ANS."];
+  Node2 [id="Node000002",label="command_decimal",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$cli__handler_8c.html#a4f70031e038bd479c6946c80475765a7",tooltip="Command: Change the decimal precision of ANS output."];
   Node1 -> Node3 [id="edge2_Node000001_Node000003",dir="back",color="steelblue1",style="solid",tooltip=" "];
   Node3 [id="Node000003",label="get_parser_uint_internal",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$misc_8c.html#ab9a46bba8f180f1d34eae69f3b2f3088",tooltip="Returns a pointer to the unsigned integer parser function."];
   Node3 -> Node4 [id="edge3_Node000003_Node000004",dir="back",color="steelblue1",style="solid",tooltip=" "];

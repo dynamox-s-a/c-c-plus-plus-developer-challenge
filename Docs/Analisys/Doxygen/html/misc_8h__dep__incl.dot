@@ -8,7 +8,7 @@ digraph "Drivers/Misc/Inc/misc.h"
   Node1 -> Node2 [id="edge1_Node000001_Node000002",dir="back",color="steelblue1",style="solid",tooltip=" "];
   Node2 [id="Node000002",label="Drivers/Arithmetic\l/Src/arithmetic_add.c",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$arithmetic__add_8c.html",tooltip="Implementation of the addition command for the CLI calculator."];
   Node1 -> Node3 [id="edge2_Node000001_Node000003",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node3 [id="Node000003",label="Drivers/Arithmetic\l/Src/arithmetic_determinant_n.c",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$arithmetic__determinant__n_8c.html",tooltip="TODO."];
+  Node3 [id="Node000003",label="Drivers/Arithmetic\l/Src/arithmetic_determinant_n.c",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$arithmetic__determinant__n_8c.html",tooltip="Implementation of the determinant calculation command for the CLI calculator."];
   Node1 -> Node4 [id="edge3_Node000001_Node000004",dir="back",color="steelblue1",style="solid",tooltip=" "];
   Node4 [id="Node000004",label="Drivers/Arithmetic\l/Src/arithmetic_divide.c",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$arithmetic__divide_8c.html",tooltip="Implementation of the division command for the CLI calculator."];
   Node1 -> Node5 [id="edge4_Node000001_Node000005",dir="back",color="steelblue1",style="solid",tooltip=" "];
@@ -29,7 +29,7 @@ digraph "Drivers/Misc/Inc/misc.h"
   Node11 -> Node12 [id="edge12_Node000011_Node000012",dir="back",color="steelblue1",style="solid",tooltip=" "];
   Node12 [id="Node000012",label="Drivers/Cli_Handler\l/Src/cli_handler.c",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$cli__handler_8c.html",tooltip="CLI Handler - Receive commands and process."];
   Node10 -> Node13 [id="edge13_Node000010_Node000013",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node13 [id="Node000013",label="Drivers/Arithmetic\l/Inc/arithmetic_determinant_n.h",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$arithmetic__determinant__n_8h.html",tooltip="TODO."];
+  Node13 [id="Node000013",label="Drivers/Arithmetic\l/Inc/arithmetic_determinant_n.h",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$arithmetic__determinant__n_8h.html",tooltip=" "];
   Node13 -> Node3 [id="edge14_Node000013_Node000003",dir="back",color="steelblue1",style="solid",tooltip=" "];
   Node13 -> Node12 [id="edge15_Node000013_Node000012",dir="back",color="steelblue1",style="solid",tooltip=" "];
   Node10 -> Node14 [id="edge16_Node000010_Node000014",dir="back",color="steelblue1",style="solid",tooltip=" "];

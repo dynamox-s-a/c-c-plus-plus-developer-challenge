@@ -16,9 +16,9 @@
 <area shape="poly" id="edge26_Node000002_Node000004" title=" " alt="" coords="1261,118,1431,123,1632,135,1726,144,1807,155,1868,168,1888,176,1901,185,1908,196,1910,209,1903,234,1887,258,1867,279,1863,275,1883,255,1898,232,1905,209,1903,198,1897,189,1886,181,1866,173,1806,160,1726,149,1632,140,1431,129,1261,123"/>
 <area shape="rect" id="Node000005" href="$cli__handler_8c.html" title="CLI Handler &#45; Receive commands and process." alt="" coords="882,277,1017,320"/>
 <area shape="poly" id="edge34_Node000002_Node000005" title=" " alt="" coords="1095,130,1064,138,1032,150,1002,167,977,188,964,209,956,233,951,277,946,277,951,232,959,207,973,185,999,162,1030,145,1062,133,1094,125"/>
-<area shape="rect" id="Node000006" href="$arithmetic__determinant__n_8h.html" title="TODO." alt="" coords="1181,187,1385,229"/>
+<area shape="rect" id="Node000006" href="$arithmetic__determinant__n_8h.html" title=" " alt="" coords="1181,187,1385,229"/>
 <area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="1216,147,1260,184,1257,188,1212,151"/>
-<area shape="rect" id="Node000007" href="$arithmetic__determinant__n_8c.html" title="TODO." alt="" coords="1320,277,1526,320"/>
+<area shape="rect" id="Node000007" href="$arithmetic__determinant__n_8c.html" title="Implementation of the determinant calculation command for the CLI calculator." alt="" coords="1320,277,1526,320"/>
 <area shape="poly" id="edge27_Node000002_Node000007" title=" " alt="" coords="1261,116,1362,120,1472,131,1524,139,1570,151,1607,166,1632,185,1642,202,1642,218,1634,233,1620,245,1578,266,1527,281,1526,276,1576,261,1617,241,1630,229,1637,217,1637,204,1628,188,1604,171,1568,156,1523,145,1471,136,1361,125,1261,121"/>
 <area shape="rect" id="Node000008" href="$arithmetic__divide_8h.html" title="Implementation of the division command for the CLI calculator." alt="" coords="1461,187,1617,229"/>
 <area shape="poly" id="edge8_Node000002_Node000008" title=" " alt="" coords="1261,136,1461,185,1460,190,1260,141"/>

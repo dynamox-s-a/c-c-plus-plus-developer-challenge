@@ -1,0 +1,6 @@
+<map id="determinant" name="determinant">
+<area shape="rect" id="Node000001" title="Recursively calculates the determinant of a square matrix." alt="" coords="229,29,318,56"/>
+<area shape="poly" id="edge2_Node000001_Node000001" title=" " alt="" coords="304,16,293,10,273,8,255,10,245,15,242,20,247,28,242,30,237,21,241,11,253,5,273,3,295,5,307,12"/>
+<area shape="rect" id="Node000002" href="$arithmetic__determinant__n_8c.html#a8be9187b40fcc221c7cfbbca721a0ae0" title="Handles the &quot;Determinant_N&quot; CLI command." alt="" coords="5,29,181,56"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="213,45,181,45,181,40,213,40"/>
+</map>

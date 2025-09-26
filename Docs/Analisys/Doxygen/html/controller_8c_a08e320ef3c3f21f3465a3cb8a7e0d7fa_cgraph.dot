@@ -7,9 +7,9 @@ digraph "Controller_Init"
   rankdir="LR";
   Node1 [id="Node000001",label="Controller_Init",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip="Reentrant string tokenizer (public domain by Charlie Gordon)."];
   Node1 -> Node2 [id="edge1_Node000001_Node000002",color="steelblue1",style="solid",tooltip=" "];
-  Node2 [id="Node000002",label="Cli_Handler_Init",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$cli__handler_8c.html#a61fe594b1d9dd2f9fc0a5daf26fe6cb0",tooltip="This function initialize and configure handler CLI."];
+  Node2 [id="Node000002",label="Cli_Handler_Init",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$cli__handler_8c.html#a61fe594b1d9dd2f9fc0a5daf26fe6cb0",tooltip="Initializes and configures the CLI handler."];
   Node2 -> Node3 [id="edge2_Node000002_Node000003",color="steelblue1",style="solid",tooltip=" "];
-  Node3 [id="Node000003",label="Cli_Handler_Out_Msg",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$cli__handler_8c.html#a08e94bea6b19563502c78f513e8f41ed",tooltip=" "];
+  Node3 [id="Node000003",label="Cli_Handler_Out_Msg",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$cli__handler_8c.html#a08e94bea6b19563502c78f513e8f41ed",tooltip="Sends a formatted message to the CLI TX stream (thread-safe)."];
   Node3 -> Node4 [id="edge3_Node000003_Node000004",color="steelblue1",style="solid",tooltip=" "];
   Node4 [id="Node000004",label="Mutex_Lock",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$mutex_8c.html#a2afa4ac9d94043fec3f0d361edb4d0d9",tooltip="Locks the mutex handler (busy-wait)."];
   Node3 -> Node5 [id="edge4_Node000003_Node000005",color="steelblue1",style="solid",tooltip=" "];

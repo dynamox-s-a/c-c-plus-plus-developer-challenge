@@ -138,9 +138,9 @@ $(function(){initNavTree('cli__handler_8h.html','',''); });
 <area shape="poly" title=" " alt="" coords="1172,32,891,39,530,52,211,72,106,84,75,91,60,98,50,117,51,141,58,164,68,185,63,187,53,166,45,141,45,116,56,94,73,86,106,79,211,67,530,47,891,34,1172,27"/>
 <area shape="rect" href="cli__handler_8c.html" title="CLI Handler &#45; Receive commands and process." alt="" coords="810,187,946,229"/>
 <area shape="poly" title=" " alt="" coords="1172,30,1068,34,954,44,901,53,854,64,817,79,792,98,786,109,785,119,795,143,818,165,844,184,841,188,814,169,791,146,780,120,781,107,788,94,814,75,852,59,900,48,954,39,1068,28,1172,25"/>
-<area shape="rect" href="arithmetic__determinant__n_8h.html" title="TODO." alt="" coords="289,96,494,139"/>
+<area shape="rect" href="arithmetic__determinant__n_8h.html" title=" " alt="" coords="289,96,494,139"/>
 <area shape="poly" title=" " alt="" coords="1172,36,880,60,513,99,494,101,494,96,512,93,880,54,1172,31"/>
-<area shape="rect" href="arithmetic__determinant__n_8c.html" title="TODO." alt="" coords="184,187,390,229"/>
+<area shape="rect" href="arithmetic__determinant__n_8c.html" title="Implementation of the determinant calculation command for the CLI calculator." alt="" coords="184,187,390,229"/>
 <area shape="poly" title=" " alt="" coords="1172,30,945,31,662,40,527,48,411,61,324,77,295,87,279,98,268,117,267,141,272,164,280,185,275,187,267,166,262,141,263,116,275,94,293,82,323,72,410,55,527,43,662,35,945,26,1172,25"/>
 <area shape="rect" href="arithmetic__divide_8h.html" title="Implementation of the division command for the CLI calculator." alt="" coords="569,96,726,139"/>
 <area shape="poly" title=" " alt="" coords="1173,40,977,64,745,99,726,102,725,97,744,93,976,59,1172,35"/>
@@ -244,10 +244,11 @@ Enumerations</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a61fe594b1d9dd2f9fc0a5daf26fe6cb0" id="r_a61fe594b1d9dd2f9fc0a5daf26fe6cb0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#a4e9566e27550032c11cf88cb0f72d72a">cli_handler_error_e</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a61fe594b1d9dd2f9fc0a5daf26fe6cb0">Cli_Handler_Init</a> (<a class="el" href="structcli__handler__t.html">cli_handler_t</a> *cli_handler, <a class="el" href="structcli__handler__config__t.html">cli_handler_config_t</a> *config, void *param)</td></tr>
-<tr class="memdesc:a61fe594b1d9dd2f9fc0a5daf26fe6cb0"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function initialize and configure handler CLI.  <br /></td></tr>
+<tr class="memdesc:a61fe594b1d9dd2f9fc0a5daf26fe6cb0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes and configures the CLI handler.  <br /></td></tr>
 <tr class="memitem:af2634b601b2a4cc0d082027768d690ab" id="r_af2634b601b2a4cc0d082027768d690ab"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#a4e9566e27550032c11cf88cb0f72d72a">cli_handler_error_e</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af2634b601b2a4cc0d082027768d690ab">Cli_Handler_Check</a> (<a class="el" href="structcli__handler__t.html">cli_handler_t</a> *cli_handler)</td></tr>
-<tr class="memdesc:af2634b601b2a4cc0d082027768d690ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Is a CLI handler, case multithread will stay in loop.  <br /></td></tr>
+<tr class="memdesc:af2634b601b2a4cc0d082027768d690ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main CLI handler loop. Processes received commands.  <br /></td></tr>
 <tr class="memitem:a08e94bea6b19563502c78f513e8f41ed" id="r_a08e94bea6b19563502c78f513e8f41ed"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#a4e9566e27550032c11cf88cb0f72d72a">cli_handler_error_e</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a08e94bea6b19563502c78f513e8f41ed">Cli_Handler_Out_Msg</a> (<a class="el" href="structcli__handler__t.html">cli_handler_t</a> *cli_handler, const char *format,...)</td></tr>
+<tr class="memdesc:a08e94bea6b19563502c78f513e8f41ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a formatted message to the CLI TX stream (thread-safe).  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>CLI Handler - Receive commands and process. </p>
@@ -426,30 +427,31 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Is a CLI handler, case multithread will stay in loop. </p>
+<p>Main CLI handler loop. Processes received commands. </p>
+<p>If multithreading is enabled, this function stays in a loop. It locks the RX stream, checks for received commands, and dispatches them for processing.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">cli_handler</td><td>Pointer of handler CLI </td></tr>
+    <tr><td class="paramname">cli_handler</td><td>Pointer to the CLI handler structure. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><a class="el" href="#a4e9566e27550032c11cf88cb0f72d72a" title="Enumerate of errors.">cli_handler_error_e</a> </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>CLI_HANDLER_ERROR_OK on success, error code otherwise. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="cli__handler_8c_source.html#l00138">138</a> of file <a class="el" href="cli__handler_8c_source.html">cli_handler.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="cli__handler_8c_source.html#l00157">157</a> of file <a class="el" href="cli__handler_8c_source.html">cli_handler.c</a>.</p>
 <div id="dynsection-2" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-2-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-2-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="cli__handler_8h_af2634b601b2a4cc0d082027768d690ab_cgraph.png" border="0" usemap="#acli__handler_8h_af2634b601b2a4cc0d082027768d690ab_cgraph" loading="lazy" alt=""/></div>
 <map name="acli__handler_8h_af2634b601b2a4cc0d082027768d690ab_cgraph" id="acli__handler_8h_af2634b601b2a4cc0d082027768d690ab_cgraph">
-<area shape="rect" title="Is a CLI handler, case multithread will stay in loop." alt="" coords="5,55,140,82"/>
-<area shape="rect" href="cli__handler_8c.html#ae1e4e87a1b834acd36551cb7222eee45" title="This function will check if receive a correct command and process." alt="" coords="188,55,325,82"/>
+<area shape="rect" title="Main CLI handler loop. Processes received commands." alt="" coords="5,55,140,82"/>
+<area shape="rect" href="cli__handler_8c.html#ae1e4e87a1b834acd36551cb7222eee45" title="Checks and processes a received command from the RX stream." alt="" coords="188,55,325,82"/>
 <area shape="poly" title=" " alt="" coords="140,66,172,66,172,71,140,71"/>
 <area shape="rect" href="mutex_8c.html#a2afa4ac9d94043fec3f0d361edb4d0d9" title="Locks the mutex handler (busy&#45;wait)." alt="" coords="577,55,669,82"/>
 <area shape="poly" title=" " alt="" coords="114,52,191,31,293,11,349,5,408,3,466,6,523,16,558,28,590,44,587,49,556,33,522,21,465,11,408,8,350,10,293,16,192,36,115,57"/>
 <area shape="rect" href="mutex_8c.html#aa332c26b7b4ca9d847c79a031c4b151f" title="Unlocks the mutex handler." alt="" coords="570,106,676,133"/>
 <area shape="poly" title=" " alt="" coords="133,80,188,92,280,108,373,117,468,120,555,119,555,125,468,125,373,122,280,113,187,97,132,85"/>
-<area shape="rect" href="cli__handler_8c.html#a08e94bea6b19563502c78f513e8f41ed" title=" " alt="" coords="373,81,522,107"/>
+<area shape="rect" href="cli__handler_8c.html#a08e94bea6b19563502c78f513e8f41ed" title="Sends a formatted message to the CLI TX stream (thread&#45;safe)." alt="" coords="373,81,522,107"/>
 <area shape="poly" title=" " alt="" coords="326,75,358,80,358,85,325,81"/>
 <area shape="rect" href="misc_8c.html#a26d79ae4b7a899d74727f732c288c069" title="Reentrant string tokenizer (public domain by Charlie Gordon)." alt="" coords="394,30,502,57"/>
 <area shape="poly" title=" " alt="" coords="325,57,378,50,379,55,326,62"/>
@@ -463,7 +465,7 @@ Functions</h2></td></tr>
 <div id="dynsection-3-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="cli__handler_8h_af2634b601b2a4cc0d082027768d690ab_icgraph.png" border="0" usemap="#acli__handler_8h_af2634b601b2a4cc0d082027768d690ab_icgraph" loading="lazy" alt=""/></div>
 <map name="acli__handler_8h_af2634b601b2a4cc0d082027768d690ab_icgraph" id="acli__handler_8h_af2634b601b2a4cc0d082027768d690ab_icgraph">
-<area shape="rect" title="Is a CLI handler, case multithread will stay in loop." alt="" coords="273,5,407,32"/>
+<area shape="rect" title="Main CLI handler loop. Processes received commands." alt="" coords="273,5,407,32"/>
 <area shape="rect" href="controller_8c.html#a59522a85c6772a03c8a8c52813e1ca33" title="Parses a string token into a double value." alt="" coords="103,5,225,32"/>
 <area shape="poly" title=" " alt="" coords="258,21,225,21,225,16,258,16"/>
 <area shape="rect" href="main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="Functon to start aplication." alt="" coords="5,5,55,32"/>
@@ -497,24 +499,26 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>This function initialize and configure handler CLI. </p>
+<p>Initializes and configures the CLI handler. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">cli_handler</td><td>Pointer of handler CLI </td></tr>
+    <tr><td class="paramname">cli_handler</td><td>Pointer to the CLI handler structure. </td></tr>
+    <tr><td class="paramname">config</td><td>Pointer to the CLI handler configuration structure. </td></tr>
+    <tr><td class="paramname">param</td><td>Optional user context pointer. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><a class="el" href="#a4e9566e27550032c11cf88cb0f72d72a" title="Enumerate of errors.">cli_handler_error_e</a> </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>CLI_HANDLER_ERROR_OK on success, error code otherwise. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="cli__handler_8c_source.html#l00113">113</a> of file <a class="el" href="cli__handler_8c_source.html">cli_handler.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="cli__handler_8c_source.html#l00128">128</a> of file <a class="el" href="cli__handler_8c_source.html">cli_handler.c</a>.</p>
 <div id="dynsection-4" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-4-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-4-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="cli__handler_8h_a61fe594b1d9dd2f9fc0a5daf26fe6cb0_cgraph.png" border="0" usemap="#acli__handler_8h_a61fe594b1d9dd2f9fc0a5daf26fe6cb0_cgraph" loading="lazy" alt=""/></div>
 <map name="acli__handler_8h_a61fe594b1d9dd2f9fc0a5daf26fe6cb0_cgraph" id="acli__handler_8h_a61fe594b1d9dd2f9fc0a5daf26fe6cb0_cgraph">
-<area shape="rect" title="This function initialize and configure handler CLI." alt="" coords="5,31,120,57"/>
-<area shape="rect" href="cli__handler_8c.html#a08e94bea6b19563502c78f513e8f41ed" title=" " alt="" coords="168,31,317,57"/>
+<area shape="rect" title="Initializes and configures the CLI handler." alt="" coords="5,31,120,57"/>
+<area shape="rect" href="cli__handler_8c.html#a08e94bea6b19563502c78f513e8f41ed" title="Sends a formatted message to the CLI TX stream (thread&#45;safe)." alt="" coords="168,31,317,57"/>
 <area shape="poly" title=" " alt="" coords="120,41,152,41,152,47,120,47"/>
 <area shape="rect" href="mutex_8c.html#a2afa4ac9d94043fec3f0d361edb4d0d9" title="Locks the mutex handler (busy&#45;wait)." alt="" coords="372,5,464,32"/>
 <area shape="poly" title=" " alt="" coords="317,31,356,25,357,30,318,36"/>
@@ -528,7 +532,7 @@ Functions</h2></td></tr>
 <div id="dynsection-5-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="cli__handler_8h_a61fe594b1d9dd2f9fc0a5daf26fe6cb0_icgraph.png" border="0" usemap="#acli__handler_8h_a61fe594b1d9dd2f9fc0a5daf26fe6cb0_icgraph" loading="lazy" alt=""/></div>
 <map name="acli__handler_8h_a61fe594b1d9dd2f9fc0a5daf26fe6cb0_icgraph" id="acli__handler_8h_a61fe594b1d9dd2f9fc0a5daf26fe6cb0_icgraph">
-<area shape="rect" title="This function initialize and configure handler CLI." alt="" coords="253,5,367,32"/>
+<area shape="rect" title="Initializes and configures the CLI handler." alt="" coords="253,5,367,32"/>
 <area shape="rect" href="controller_8c.html#a08e320ef3c3f21f3465a3cb8a7e0d7fa" title="Reentrant string tokenizer (public domain by Charlie Gordon)." alt="" coords="103,5,205,32"/>
 <area shape="poly" title=" " alt="" coords="237,21,205,21,205,16,237,16"/>
 <area shape="rect" href="main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="Functon to start aplication." alt="" coords="5,5,55,32"/>
@@ -562,14 +566,25 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="cli__handler_8c_source.html#l00159">159</a> of file <a class="el" href="cli__handler_8c_source.html">cli_handler.c</a>.</p>
+<p>Sends a formatted message to the CLI TX stream (thread-safe). </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cli_handler</td><td>Pointer to the CLI handler structure. </td></tr>
+    <tr><td class="paramname">format</td><td>Format string (printf-style). </td></tr>
+    <tr><td class="paramname">...</td><td>Arguments for the format string. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>CLI_HANDLER_ERROR_OK on success, error code otherwise. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="cli__handler_8c_source.html#l00186">186</a> of file <a class="el" href="cli__handler_8c_source.html">cli_handler.c</a>.</p>
 <div id="dynsection-6" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-6-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-6-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="cli__handler_8h_a08e94bea6b19563502c78f513e8f41ed_cgraph.png" border="0" usemap="#acli__handler_8h_a08e94bea6b19563502c78f513e8f41ed_cgraph" loading="lazy" alt=""/></div>
 <map name="acli__handler_8h_a08e94bea6b19563502c78f513e8f41ed_cgraph" id="acli__handler_8h_a08e94bea6b19563502c78f513e8f41ed_cgraph">
-<area shape="rect" title=" " alt="" coords="5,31,155,57"/>
+<area shape="rect" title="Sends a formatted message to the CLI TX stream (thread&#45;safe)." alt="" coords="5,31,155,57"/>
 <area shape="rect" href="mutex_8c.html#a2afa4ac9d94043fec3f0d361edb4d0d9" title="Locks the mutex handler (busy&#45;wait)." alt="" coords="209,5,302,32"/>
 <area shape="poly" title=" " alt="" coords="155,31,194,25,194,30,155,36"/>
 <area shape="rect" href="mutex_8c.html#aa332c26b7b4ca9d847c79a031c4b151f" title="Unlocks the mutex handler." alt="" coords="203,56,308,83"/>
@@ -582,42 +597,44 @@ Functions</h2></td></tr>
 <div id="dynsection-7-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="cli__handler_8h_a08e94bea6b19563502c78f513e8f41ed_icgraph.png" border="0" usemap="#acli__handler_8h_a08e94bea6b19563502c78f513e8f41ed_icgraph" loading="lazy" alt=""/></div>
 <map name="acli__handler_8h_a08e94bea6b19563502c78f513e8f41ed_icgraph" id="acli__handler_8h_a08e94bea6b19563502c78f513e8f41ed_icgraph">
-<area shape="rect" title=" " alt="" coords="645,309,794,336"/>
-<area shape="rect" href="arithmetic__add_8c.html#aabab6eb58920b72696b44766f352d087" title="Implements the &quot;Add&quot; CLI command." alt="" coords="471,5,581,32"/>
-<area shape="poly" title=" " alt="" coords="711,294,698,242,676,175,642,106,621,74,595,46,578,35,582,30,598,42,625,71,647,103,681,173,703,240,716,293"/>
-<area shape="rect" href="arithmetic__divide_8c.html#a496b3a77db45806c3ca59439169b1e2f" title="Implements the &quot;Divide&quot; CLI command." alt="" coords="464,56,588,83"/>
-<area shape="poly" title=" " alt="" coords="708,295,693,252,670,199,637,144,617,119,595,97,578,86,580,81,598,93,621,115,641,141,674,196,698,250,713,294"/>
-<area shape="rect" href="arithmetic__log__n_8c.html#aee95770337ddfa4081b58fcfed717777" title="Implements the &quot;Log_N&quot; CLI command." alt="" coords="463,107,589,133"/>
-<area shape="poly" title=" " alt="" coords="704,297,662,223,631,182,595,147,576,136,578,132,598,143,635,179,667,220,708,294"/>
-<area shape="rect" href="arithmetic__multiply_8c.html#af482ae8bde65fd4dbdeb93aa304f525f" title="Implements the &quot;Multiply&quot; CLI command." alt="" coords="460,157,592,184"/>
-<area shape="poly" title=" " alt="" coords="697,299,654,248,626,221,595,198,573,187,576,182,598,194,629,217,658,244,701,295"/>
-<area shape="rect" href="arithmetic__power__n_8c.html#a407644e2eabb009c1f0461eef35b02f8" title="Implements the &quot;Power_N&quot; CLI command." alt="" coords="455,208,597,235"/>
-<area shape="poly" title=" " alt="" coords="685,302,643,275,595,249,569,238,571,233,598,244,646,271,688,298"/>
-<area shape="rect" href="arithmetic__root__n_8c.html#ae6e9b070a0fd2a1e3d9740d5affd700f" title="Implements the &quot;Root_N&quot; CLI command." alt="" coords="460,259,592,285"/>
-<area shape="poly" title=" " alt="" coords="651,307,579,289,580,283,652,302"/>
-<area shape="rect" href="arithmetic__subtract_8c.html#ae4386765635940545726bb78792e66d2" title="Implements the &quot;Subtract&quot; CLI command." alt="" coords="458,309,594,336"/>
-<area shape="poly" title=" " alt="" coords="629,325,595,325,595,320,629,320"/>
-<area shape="rect" href="cli__handler_8c.html#ae1e4e87a1b834acd36551cb7222eee45" title="This function will check if receive a correct command and process." alt="" coords="457,360,595,387"/>
-<area shape="poly" title=" " alt="" coords="652,343,580,362,579,357,651,338"/>
-<area shape="rect" href="cli__handler_8c.html#a61fe594b1d9dd2f9fc0a5daf26fe6cb0" title="This function initialize and configure handler CLI." alt="" coords="469,411,583,437"/>
-<area shape="poly" title=" " alt="" coords="688,347,646,375,598,401,571,413,569,408,595,396,643,370,685,343"/>
-<area shape="rect" href="cli__handler_8c.html#ad2002df80a92e4842fef5691c7db7b45" title="This command clear ANS variable." alt="" coords="469,461,583,488"/>
-<area shape="poly" title=" " alt="" coords="701,350,658,401,629,428,598,452,576,463,573,458,595,447,626,424,654,397,697,347"/>
-<area shape="rect" href="cli__handler_8c.html#a4f70031e038bd479c6946c80475765a7" title="This command change the precision output stream of ANS." alt="" coords="461,512,591,539"/>
-<area shape="poly" title=" " alt="" coords="708,351,667,426,635,466,598,502,578,514,576,509,595,498,631,463,662,423,704,349"/>
-<area shape="rect" href="cli__handler_8c.html#a146e87ba3752e693de90825898166184" title="This command deinitilize handler." alt="" coords="473,563,579,589"/>
-<area shape="poly" title=" " alt="" coords="713,352,698,395,674,449,641,504,621,530,598,553,580,564,578,560,595,549,617,526,637,501,670,447,693,393,708,350"/>
-<area shape="rect" href="cli__handler_8c.html#abd4f8f2b1924ef573587ceec554d68eb" title="This command return all information about others commands." alt="" coords="471,613,581,640"/>
-<area shape="poly" title=" " alt="" coords="716,352,703,405,681,472,647,542,625,574,598,603,582,615,578,611,595,599,621,571,642,539,676,470,698,404,711,351"/>
-<area shape="rect" href="cli__handler_8c.html#af2634b601b2a4cc0d082027768d690ab" title="Is a CLI handler, case multithread will stay in loop." alt="" coords="273,360,407,387"/>
-<area shape="poly" title=" " alt="" coords="442,376,408,376,408,371,442,371"/>
-<area shape="rect" href="controller_8c.html#a59522a85c6772a03c8a8c52813e1ca33" title="Parses a string token into a double value." alt="" coords="103,360,225,387"/>
-<area shape="poly" title=" " alt="" coords="258,376,225,376,225,371,258,371"/>
-<area shape="rect" href="main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="Functon to start aplication." alt="" coords="5,385,55,412"/>
-<area shape="poly" title=" " alt="" coords="88,390,56,397,55,391,87,385"/>
-<area shape="rect" href="controller_8c.html#a08e320ef3c3f21f3465a3cb8a7e0d7fa" title="Reentrant string tokenizer (public domain by Charlie Gordon)." alt="" coords="113,411,215,437"/>
-<area shape="poly" title=" " alt="" coords="453,427,215,427,215,421,453,421"/>
-<area shape="poly" title=" " alt="" coords="97,414,55,406,56,401,98,409"/>
+<area shape="rect" title="Sends a formatted message to the CLI TX stream (thread&#45;safe)." alt="" coords="679,335,828,361"/>
+<area shape="rect" href="arithmetic__add_8c.html#aabab6eb58920b72696b44766f352d087" title="Implements the &quot;Add&quot; CLI command." alt="" coords="488,5,598,32"/>
+<area shape="poly" title=" " alt="" coords="746,319,736,262,715,188,700,149,681,112,657,77,629,46,614,36,597,29,599,24,617,31,632,42,661,73,685,109,705,147,720,186,741,261,751,319"/>
+<area shape="rect" href="arithmetic__determinant__n_8c.html#a8be9187b40fcc221c7cfbbca721a0ae0" title="Handles the &quot;Determinant_N&quot; CLI command." alt="" coords="455,56,631,83"/>
+<area shape="poly" title=" " alt="" coords="744,320,731,271,708,211,675,149,654,121,629,97,611,86,614,81,632,93,658,118,679,146,713,209,736,270,749,319"/>
+<area shape="rect" href="arithmetic__divide_8c.html#a496b3a77db45806c3ca59439169b1e2f" title="Implements the &quot;Divide&quot; CLI command." alt="" coords="481,107,605,133"/>
+<area shape="poly" title=" " alt="" coords="740,321,725,282,701,235,669,188,629,147,604,134,607,129,632,143,673,184,706,232,730,280,745,319"/>
+<area shape="rect" href="arithmetic__log__n_8c.html#aee95770337ddfa4081b58fcfed717777" title="Implements the &quot;Log_N&quot; CLI command." alt="" coords="480,157,606,184"/>
+<area shape="poly" title=" " alt="" coords="735,323,693,260,663,227,629,198,605,186,608,181,632,194,667,223,697,257,740,320"/>
+<area shape="rect" href="arithmetic__multiply_8c.html#af482ae8bde65fd4dbdeb93aa304f525f" title="Implements the &quot;Multiply&quot; CLI command." alt="" coords="477,208,609,235"/>
+<area shape="poly" title=" " alt="" coords="727,325,684,286,629,249,603,238,605,233,632,244,687,282,730,321"/>
+<area shape="rect" href="arithmetic__power__n_8c.html#a407644e2eabb009c1f0461eef35b02f8" title="Implements the &quot;Power_N&quot; CLI command." alt="" coords="472,259,614,285"/>
+<area shape="poly" title=" " alt="" coords="707,331,630,300,594,288,596,283,632,295,709,326"/>
+<area shape="rect" href="arithmetic__root__n_8c.html#ae6e9b070a0fd2a1e3d9740d5affd700f" title="Implements the &quot;Root_N&quot; CLI command." alt="" coords="477,309,609,336"/>
+<area shape="poly" title=" " alt="" coords="663,340,609,333,610,328,664,335"/>
+<area shape="rect" href="arithmetic__subtract_8c.html#ae4386765635940545726bb78792e66d2" title="Implements the &quot;Subtract&quot; CLI command." alt="" coords="475,360,611,387"/>
+<area shape="poly" title=" " alt="" coords="664,361,612,368,611,362,663,356"/>
+<area shape="rect" href="cli__handler_8c.html#ae1e4e87a1b834acd36551cb7222eee45" title="Checks and processes a received command from the RX stream." alt="" coords="474,411,612,437"/>
+<area shape="poly" title=" " alt="" coords="709,370,632,401,596,413,594,408,630,396,707,365"/>
+<area shape="rect" href="cli__handler_8c.html#a61fe594b1d9dd2f9fc0a5daf26fe6cb0" title="Initializes and configures the CLI handler." alt="" coords="486,461,600,488"/>
+<area shape="poly" title=" " alt="" coords="730,375,687,414,632,452,601,464,599,459,629,447,684,410,727,371"/>
+<area shape="rect" href="cli__handler_8c.html#ad2002df80a92e4842fef5691c7db7b45" title="Command: Clear the ANS variable." alt="" coords="486,512,600,539"/>
+<area shape="poly" title=" " alt="" coords="740,376,697,439,667,473,632,502,601,517,599,512,629,498,663,469,693,436,735,373"/>
+<area shape="rect" href="cli__handler_8c.html#a4f70031e038bd479c6946c80475765a7" title="Command: Change the decimal precision of ANS output." alt="" coords="478,563,608,589"/>
+<area shape="poly" title=" " alt="" coords="745,377,730,416,706,464,673,512,632,553,610,565,607,561,629,549,669,508,701,461,725,414,740,375"/>
+<area shape="rect" href="cli__handler_8c.html#a146e87ba3752e693de90825898166184" title="Command: Deinitialize the CLI handler and exit the application." alt="" coords="490,613,596,640"/>
+<area shape="poly" title=" " alt="" coords="749,377,736,426,713,487,679,550,658,578,632,603,616,614,598,621,596,616,613,609,629,599,654,575,675,547,708,485,731,425,744,376"/>
+<area shape="rect" href="cli__handler_8c.html#abd4f8f2b1924ef573587ceec554d68eb" title="Command: Show help for all available commands." alt="" coords="488,664,598,691"/>
+<area shape="poly" title=" " alt="" coords="751,377,741,435,720,510,705,549,685,587,661,623,632,654,617,665,599,672,597,667,614,660,629,650,657,619,681,584,700,547,715,508,736,434,746,377"/>
+<area shape="rect" href="cli__handler_8c.html#af2634b601b2a4cc0d082027768d690ab" title="Main CLI handler loop. Processes received commands." alt="" coords="273,411,407,437"/>
+<area shape="poly" title=" " alt="" coords="459,427,408,427,408,421,459,421"/>
+<area shape="rect" href="controller_8c.html#a59522a85c6772a03c8a8c52813e1ca33" title="Parses a string token into a double value." alt="" coords="103,411,225,437"/>
+<area shape="poly" title=" " alt="" coords="258,427,225,427,225,421,258,421"/>
+<area shape="rect" href="main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="Functon to start aplication." alt="" coords="5,436,55,463"/>
+<area shape="poly" title=" " alt="" coords="88,441,56,447,55,442,87,436"/>
+<area shape="rect" href="controller_8c.html#a08e320ef3c3f21f3465a3cb8a7e0d7fa" title="Reentrant string tokenizer (public domain by Charlie Gordon)." alt="" coords="113,461,215,488"/>
+<area shape="poly" title=" " alt="" coords="470,477,215,477,215,472,470,472"/>
+<area shape="poly" title=" " alt="" coords="97,465,55,457,56,451,98,459"/>
 </map>
 </div>
 

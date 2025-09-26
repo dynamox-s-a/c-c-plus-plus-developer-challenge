@@ -127,7 +127,7 @@ $(function(){initNavTree('cli__handler_8c.html','',''); });
 <area shape="poly" title=" " alt="" coords="1259,33,1304,43,1345,60,1361,72,1373,87,1378,104,1375,123,1362,156,1344,186,1300,239,1251,282,1208,313,1205,309,1248,278,1296,235,1340,183,1357,153,1370,122,1372,104,1368,89,1358,76,1342,65,1302,48,1257,38"/>
 <area shape="rect" href="arithmetic__add_8h.html" title=" " alt="" coords="549,96,666,123"/>
 <area shape="poly" title=" " alt="" coords="1122,39,682,98,681,93,1122,34"/>
-<area shape="rect" href="arithmetic__determinant__n_8h.html" title="TODO." alt="" coords="690,96,868,123"/>
+<area shape="rect" href="arithmetic__determinant__n_8h.html" title=" " alt="" coords="690,96,868,123"/>
 <area shape="poly" title=" " alt="" coords="1122,44,859,95,858,90,1121,39"/>
 <area shape="rect" href="arithmetic__divide_8h.html" title="Implementation of the division command for the CLI calculator." alt="" coords="893,96,1023,123"/>
 <area shape="poly" title=" " alt="" coords="1131,51,1010,93,1008,88,1129,46"/>
@@ -180,26 +180,28 @@ $(function(){initNavTree('cli__handler_8c.html','',''); });
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:ae1e4e87a1b834acd36551cb7222eee45" id="r_ae1e4e87a1b834acd36551cb7222eee45"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="cli__handler_8h.html#a4e9566e27550032c11cf88cb0f72d72a">cli_handler_error_e</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae1e4e87a1b834acd36551cb7222eee45">check_receive_cmd</a> (<a class="el" href="structcli__handler__t.html">cli_handler_t</a> *cli_handler)</td></tr>
-<tr class="memdesc:ae1e4e87a1b834acd36551cb7222eee45"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function will check if receive a correct command and process.  <br /></td></tr>
+<tr class="memdesc:ae1e4e87a1b834acd36551cb7222eee45"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks and processes a received command from the RX stream.  <br /></td></tr>
 <tr class="memitem:a4f70031e038bd479c6946c80475765a7" id="r_a4f70031e038bd479c6946c80475765a7"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="cli__handler_8h.html#a4e9566e27550032c11cf88cb0f72d72a">cli_handler_error_e</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4f70031e038bd479c6946c80475765a7">command_decimal</a> (<a class="el" href="structcli__handler__t.html">cli_handler_t</a> *cli_handler, char *saveptr)</td></tr>
-<tr class="memdesc:a4f70031e038bd479c6946c80475765a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">This command change the precision output stream of ANS.  <br /></td></tr>
+<tr class="memdesc:a4f70031e038bd479c6946c80475765a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Command: Change the decimal precision of ANS output.  <br /></td></tr>
 <tr class="memitem:ad2002df80a92e4842fef5691c7db7b45" id="r_ad2002df80a92e4842fef5691c7db7b45"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="cli__handler_8h.html#a4e9566e27550032c11cf88cb0f72d72a">cli_handler_error_e</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad2002df80a92e4842fef5691c7db7b45">command_clear</a> (<a class="el" href="structcli__handler__t.html">cli_handler_t</a> *cli_handler, char *saveptr)</td></tr>
-<tr class="memdesc:ad2002df80a92e4842fef5691c7db7b45"><td class="mdescLeft">&#160;</td><td class="mdescRight">This command clear ANS variable.  <br /></td></tr>
+<tr class="memdesc:ad2002df80a92e4842fef5691c7db7b45"><td class="mdescLeft">&#160;</td><td class="mdescRight">Command: Clear the ANS variable.  <br /></td></tr>
 <tr class="memitem:abd4f8f2b1924ef573587ceec554d68eb" id="r_abd4f8f2b1924ef573587ceec554d68eb"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="cli__handler_8h.html#a4e9566e27550032c11cf88cb0f72d72a">cli_handler_error_e</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abd4f8f2b1924ef573587ceec554d68eb">command_help</a> (<a class="el" href="structcli__handler__t.html">cli_handler_t</a> *cli_handler, char *saveptr)</td></tr>
-<tr class="memdesc:abd4f8f2b1924ef573587ceec554d68eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">This command return all information about others commands.  <br /></td></tr>
+<tr class="memdesc:abd4f8f2b1924ef573587ceec554d68eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Command: Show help for all available commands.  <br /></td></tr>
 <tr class="memitem:a146e87ba3752e693de90825898166184" id="r_a146e87ba3752e693de90825898166184"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="cli__handler_8h.html#a4e9566e27550032c11cf88cb0f72d72a">cli_handler_error_e</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a146e87ba3752e693de90825898166184">command_exit</a> (<a class="el" href="structcli__handler__t.html">cli_handler_t</a> *cli_handler, char *saveptr)</td></tr>
-<tr class="memdesc:a146e87ba3752e693de90825898166184"><td class="mdescLeft">&#160;</td><td class="mdescRight">This command deinitilize handler.  <br /></td></tr>
+<tr class="memdesc:a146e87ba3752e693de90825898166184"><td class="mdescLeft">&#160;</td><td class="mdescRight">Command: Deinitialize the CLI handler and exit the application.  <br /></td></tr>
 <tr class="memitem:a61fe594b1d9dd2f9fc0a5daf26fe6cb0" id="r_a61fe594b1d9dd2f9fc0a5daf26fe6cb0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="cli__handler_8h.html#a4e9566e27550032c11cf88cb0f72d72a">cli_handler_error_e</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a61fe594b1d9dd2f9fc0a5daf26fe6cb0">Cli_Handler_Init</a> (<a class="el" href="structcli__handler__t.html">cli_handler_t</a> *cli_handler, <a class="el" href="structcli__handler__config__t.html">cli_handler_config_t</a> *config, void *param)</td></tr>
-<tr class="memdesc:a61fe594b1d9dd2f9fc0a5daf26fe6cb0"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function initialize and configure handler CLI.  <br /></td></tr>
+<tr class="memdesc:a61fe594b1d9dd2f9fc0a5daf26fe6cb0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes and configures the CLI handler.  <br /></td></tr>
 <tr class="memitem:af2634b601b2a4cc0d082027768d690ab" id="r_af2634b601b2a4cc0d082027768d690ab"><td class="memItemLeft" align="right" valign="top"><a class="el" href="cli__handler_8h.html#a4e9566e27550032c11cf88cb0f72d72a">cli_handler_error_e</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af2634b601b2a4cc0d082027768d690ab">Cli_Handler_Check</a> (<a class="el" href="structcli__handler__t.html">cli_handler_t</a> *cli_handler)</td></tr>
-<tr class="memdesc:af2634b601b2a4cc0d082027768d690ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Is a CLI handler, case multithread will stay in loop.  <br /></td></tr>
+<tr class="memdesc:af2634b601b2a4cc0d082027768d690ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main CLI handler loop. Processes received commands.  <br /></td></tr>
 <tr class="memitem:a08e94bea6b19563502c78f513e8f41ed" id="r_a08e94bea6b19563502c78f513e8f41ed"><td class="memItemLeft" align="right" valign="top"><a class="el" href="cli__handler_8h.html#a4e9566e27550032c11cf88cb0f72d72a">cli_handler_error_e</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a08e94bea6b19563502c78f513e8f41ed">Cli_Handler_Out_Msg</a> (<a class="el" href="structcli__handler__t.html">cli_handler_t</a> *cli_handler, const char *format,...)</td></tr>
+<tr class="memdesc:a08e94bea6b19563502c78f513e8f41ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a formatted message to the CLI TX stream (thread-safe).  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
 <tr class="memitem:a3fbe47a3383ba9342bf394bbf49c4e9c" id="r_a3fbe47a3383ba9342bf394bbf49c4e9c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structcli__handler__commands__t.html">cli_handler_commands_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3fbe47a3383ba9342bf394bbf49c4e9c">Arithmetic_Add_Cte</a></td></tr>
 <tr class="memdesc:a3fbe47a3383ba9342bf394bbf49c4e9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constant structure defining the "Add" CLI command.  <br /></td></tr>
 <tr class="memitem:a50ef7ac0c7a8ad524cc7bbd7fadacc4e" id="r_a50ef7ac0c7a8ad524cc7bbd7fadacc4e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structcli__handler__commands__t.html">cli_handler_commands_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a50ef7ac0c7a8ad524cc7bbd7fadacc4e">Arithmetic_Determinant_N_Cte</a></td></tr>
+<tr class="memdesc:a50ef7ac0c7a8ad524cc7bbd7fadacc4e"><td class="mdescLeft">&#160;</td><td class="mdescRight">CLI command constant for the "Determinant_N" operation.  <br /></td></tr>
 <tr class="memitem:af1bb747dc2f8072d9b7ff11fb115118e" id="r_af1bb747dc2f8072d9b7ff11fb115118e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structcli__handler__commands__t.html">cli_handler_commands_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af1bb747dc2f8072d9b7ff11fb115118e">Arithmetic_Devide_Cte</a></td></tr>
 <tr class="memdesc:af1bb747dc2f8072d9b7ff11fb115118e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constant structure defining the "Divide" CLI command.  <br /></td></tr>
 <tr class="memitem:a74b74ffc42feb42a42bf03a6b2e49fe1" id="r_a74b74ffc42feb42a42bf03a6b2e49fe1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structcli__handler__commands__t.html">cli_handler_commands_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a74b74ffc42feb42a42bf03a6b2e49fe1">Arithmetic_Log_N_Cte</a></td></tr>
@@ -217,10 +219,18 @@ Variables</h2></td></tr>
 <tr class="memitem:ac7dde3c7bef811034312eff4909be8bb" id="r_ac7dde3c7bef811034312eff4909be8bb"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structcli__handler__commands__t.html">cli_handler_commands_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac7dde3c7bef811034312eff4909be8bb">Cli_Handler_Help</a></td></tr>
 <tr class="memitem:a0b8c6c001d4777003cb2872129985d86" id="r_a0b8c6c001d4777003cb2872129985d86"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structcli__handler__commands__t.html">cli_handler_commands_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0b8c6c001d4777003cb2872129985d86">Cli_Handler_Exit</a></td></tr>
 <tr class="memitem:af2dbb5e0be61d8908797db7de3414b44" id="r_af2dbb5e0be61d8908797db7de3414b44"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structcli__handler__commands__t.html">cli_handler_commands_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af2dbb5e0be61d8908797db7de3414b44">Commands</a> []</td></tr>
+<tr class="memdesc:af2dbb5e0be61d8908797db7de3414b44"><td class="mdescLeft">&#160;</td><td class="mdescRight">Table of all available commands (arithmetic and controller).  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>CLI Handler - Receive commands and process. </p>
-<p>Receive a command from stream rx and return answare in stream tx</p>
+<p>This module implements the CLI handler for the application. It receives commands from the RX stream, parses and processes them, and returns responses in the TX stream. It supports arithmetic and controller commands, manages command lookup, and provides thread-safe access to streams.</p>
+<p>Main features:</p><ul>
+<li>Command registration and lookup</li>
+<li>Command parsing and dispatch</li>
+<li>Output formatting and message sending</li>
+<li>Thread-safe stream access using mutexes</li>
+<li>Built-in commands: Decimal, Clear, Help, Exit</li>
+</ul>
 <dl class="section author"><dt>Author</dt><dd>Emerson Isaias da Silva </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>21-09-2025 </dd></dl>
 
@@ -249,24 +259,24 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>This function will check if receive a correct command and process. </p>
+<p>Checks and processes a received command from the RX stream. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">cli_handler</td><td>Pointer of handler CLI </td></tr>
+    <tr><td class="paramname">cli_handler</td><td>Pointer to the CLI handler structure. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><a class="el" href="cli__handler_8h.html#a4e9566e27550032c11cf88cb0f72d72a" title="Enumerate of errors.">cli_handler_error_e</a> </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>CLI_HANDLER_ERROR_OK on success, error code otherwise. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="cli__handler_8c_source.html#l00183">183</a> of file <a class="el" href="cli__handler_8c_source.html">cli_handler.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="cli__handler_8c_source.html#l00210">210</a> of file <a class="el" href="cli__handler_8c_source.html">cli_handler.c</a>.</p>
 <div id="dynsection-1" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-1-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="cli__handler_8c_ae1e4e87a1b834acd36551cb7222eee45_cgraph.png" border="0" usemap="#acli__handler_8c_ae1e4e87a1b834acd36551cb7222eee45_cgraph" loading="lazy" alt=""/></div>
 <map name="acli__handler_8c_ae1e4e87a1b834acd36551cb7222eee45_cgraph" id="acli__handler_8c_ae1e4e87a1b834acd36551cb7222eee45_cgraph">
-<area shape="rect" title="This function will check if receive a correct command and process." alt="" coords="5,56,143,83"/>
-<area shape="rect" href="cli__handler_8c.html#a08e94bea6b19563502c78f513e8f41ed" title=" " alt="" coords="191,31,340,57"/>
+<area shape="rect" title="Checks and processes a received command from the RX stream." alt="" coords="5,56,143,83"/>
+<area shape="rect" href="cli__handler_8c.html#a08e94bea6b19563502c78f513e8f41ed" title="Sends a formatted message to the CLI TX stream (thread&#45;safe)." alt="" coords="191,31,340,57"/>
 <area shape="poly" title=" " alt="" coords="143,58,175,53,176,59,143,63"/>
 <area shape="rect" href="misc_8c.html#a26d79ae4b7a899d74727f732c288c069" title="Reentrant string tokenizer (public domain by Charlie Gordon)." alt="" coords="211,81,320,108"/>
 <area shape="poly" title=" " alt="" coords="143,76,197,83,196,88,143,81"/>
@@ -282,8 +292,8 @@ Variables</h2></td></tr>
 <div id="dynsection-2-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="cli__handler_8c_ae1e4e87a1b834acd36551cb7222eee45_icgraph.png" border="0" usemap="#acli__handler_8c_ae1e4e87a1b834acd36551cb7222eee45_icgraph" loading="lazy" alt=""/></div>
 <map name="acli__handler_8c_ae1e4e87a1b834acd36551cb7222eee45_icgraph" id="acli__handler_8c_ae1e4e87a1b834acd36551cb7222eee45_icgraph">
-<area shape="rect" title="This function will check if receive a correct command and process." alt="" coords="455,5,593,32"/>
-<area shape="rect" href="cli__handler_8c.html#af2634b601b2a4cc0d082027768d690ab" title="Is a CLI handler, case multithread will stay in loop." alt="" coords="273,5,407,32"/>
+<area shape="rect" title="Checks and processes a received command from the RX stream." alt="" coords="455,5,593,32"/>
+<area shape="rect" href="cli__handler_8c.html#af2634b601b2a4cc0d082027768d690ab" title="Main CLI handler loop. Processes received commands." alt="" coords="273,5,407,32"/>
 <area shape="poly" title=" " alt="" coords="440,21,407,21,407,16,440,16"/>
 <area shape="rect" href="controller_8c.html#a59522a85c6772a03c8a8c52813e1ca33" title="Parses a string token into a double value." alt="" coords="103,5,225,32"/>
 <area shape="poly" title=" " alt="" coords="258,21,225,21,225,16,258,16"/>
@@ -309,30 +319,31 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Is a CLI handler, case multithread will stay in loop. </p>
+<p>Main CLI handler loop. Processes received commands. </p>
+<p>If multithreading is enabled, this function stays in a loop. It locks the RX stream, checks for received commands, and dispatches them for processing.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">cli_handler</td><td>Pointer of handler CLI </td></tr>
+    <tr><td class="paramname">cli_handler</td><td>Pointer to the CLI handler structure. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><a class="el" href="cli__handler_8h.html#a4e9566e27550032c11cf88cb0f72d72a" title="Enumerate of errors.">cli_handler_error_e</a> </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>CLI_HANDLER_ERROR_OK on success, error code otherwise. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="cli__handler_8c_source.html#l00138">138</a> of file <a class="el" href="cli__handler_8c_source.html">cli_handler.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="cli__handler_8c_source.html#l00157">157</a> of file <a class="el" href="cli__handler_8c_source.html">cli_handler.c</a>.</p>
 <div id="dynsection-3" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-3-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-3-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="cli__handler_8c_af2634b601b2a4cc0d082027768d690ab_cgraph.png" border="0" usemap="#acli__handler_8c_af2634b601b2a4cc0d082027768d690ab_cgraph" loading="lazy" alt=""/></div>
 <map name="acli__handler_8c_af2634b601b2a4cc0d082027768d690ab_cgraph" id="acli__handler_8c_af2634b601b2a4cc0d082027768d690ab_cgraph">
-<area shape="rect" title="Is a CLI handler, case multithread will stay in loop." alt="" coords="5,55,140,82"/>
-<area shape="rect" href="cli__handler_8c.html#ae1e4e87a1b834acd36551cb7222eee45" title="This function will check if receive a correct command and process." alt="" coords="188,55,325,82"/>
+<area shape="rect" title="Main CLI handler loop. Processes received commands." alt="" coords="5,55,140,82"/>
+<area shape="rect" href="cli__handler_8c.html#ae1e4e87a1b834acd36551cb7222eee45" title="Checks and processes a received command from the RX stream." alt="" coords="188,55,325,82"/>
 <area shape="poly" title=" " alt="" coords="140,66,172,66,172,71,140,71"/>
 <area shape="rect" href="mutex_8c.html#a2afa4ac9d94043fec3f0d361edb4d0d9" title="Locks the mutex handler (busy&#45;wait)." alt="" coords="577,55,669,82"/>
 <area shape="poly" title=" " alt="" coords="114,52,191,31,293,11,349,5,408,3,466,6,523,16,558,28,590,44,587,49,556,33,522,21,465,11,408,8,350,10,293,16,192,36,115,57"/>
 <area shape="rect" href="mutex_8c.html#aa332c26b7b4ca9d847c79a031c4b151f" title="Unlocks the mutex handler." alt="" coords="570,106,676,133"/>
 <area shape="poly" title=" " alt="" coords="133,80,188,92,280,108,373,117,468,120,555,119,555,125,468,125,373,122,280,113,187,97,132,85"/>
-<area shape="rect" href="cli__handler_8c.html#a08e94bea6b19563502c78f513e8f41ed" title=" " alt="" coords="373,81,522,107"/>
+<area shape="rect" href="cli__handler_8c.html#a08e94bea6b19563502c78f513e8f41ed" title="Sends a formatted message to the CLI TX stream (thread&#45;safe)." alt="" coords="373,81,522,107"/>
 <area shape="poly" title=" " alt="" coords="326,75,358,80,358,85,325,81"/>
 <area shape="rect" href="misc_8c.html#a26d79ae4b7a899d74727f732c288c069" title="Reentrant string tokenizer (public domain by Charlie Gordon)." alt="" coords="394,30,502,57"/>
 <area shape="poly" title=" " alt="" coords="325,57,378,50,379,55,326,62"/>
@@ -346,7 +357,7 @@ Variables</h2></td></tr>
 <div id="dynsection-4-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="cli__handler_8c_af2634b601b2a4cc0d082027768d690ab_icgraph.png" border="0" usemap="#acli__handler_8c_af2634b601b2a4cc0d082027768d690ab_icgraph" loading="lazy" alt=""/></div>
 <map name="acli__handler_8c_af2634b601b2a4cc0d082027768d690ab_icgraph" id="acli__handler_8c_af2634b601b2a4cc0d082027768d690ab_icgraph">
-<area shape="rect" title="Is a CLI handler, case multithread will stay in loop." alt="" coords="273,5,407,32"/>
+<area shape="rect" title="Main CLI handler loop. Processes received commands." alt="" coords="273,5,407,32"/>
 <area shape="rect" href="controller_8c.html#a59522a85c6772a03c8a8c52813e1ca33" title="Parses a string token into a double value." alt="" coords="103,5,225,32"/>
 <area shape="poly" title=" " alt="" coords="258,21,225,21,225,16,258,16"/>
 <area shape="rect" href="main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="Functon to start aplication." alt="" coords="5,5,55,32"/>
@@ -380,24 +391,26 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>This function initialize and configure handler CLI. </p>
+<p>Initializes and configures the CLI handler. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">cli_handler</td><td>Pointer of handler CLI </td></tr>
+    <tr><td class="paramname">cli_handler</td><td>Pointer to the CLI handler structure. </td></tr>
+    <tr><td class="paramname">config</td><td>Pointer to the CLI handler configuration structure. </td></tr>
+    <tr><td class="paramname">param</td><td>Optional user context pointer. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><a class="el" href="cli__handler_8h.html#a4e9566e27550032c11cf88cb0f72d72a" title="Enumerate of errors.">cli_handler_error_e</a> </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>CLI_HANDLER_ERROR_OK on success, error code otherwise. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="cli__handler_8c_source.html#l00113">113</a> of file <a class="el" href="cli__handler_8c_source.html">cli_handler.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="cli__handler_8c_source.html#l00128">128</a> of file <a class="el" href="cli__handler_8c_source.html">cli_handler.c</a>.</p>
 <div id="dynsection-5" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-5-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-5-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="cli__handler_8c_a61fe594b1d9dd2f9fc0a5daf26fe6cb0_cgraph.png" border="0" usemap="#acli__handler_8c_a61fe594b1d9dd2f9fc0a5daf26fe6cb0_cgraph" loading="lazy" alt=""/></div>
 <map name="acli__handler_8c_a61fe594b1d9dd2f9fc0a5daf26fe6cb0_cgraph" id="acli__handler_8c_a61fe594b1d9dd2f9fc0a5daf26fe6cb0_cgraph">
-<area shape="rect" title="This function initialize and configure handler CLI." alt="" coords="5,31,120,57"/>
-<area shape="rect" href="cli__handler_8c.html#a08e94bea6b19563502c78f513e8f41ed" title=" " alt="" coords="168,31,317,57"/>
+<area shape="rect" title="Initializes and configures the CLI handler." alt="" coords="5,31,120,57"/>
+<area shape="rect" href="cli__handler_8c.html#a08e94bea6b19563502c78f513e8f41ed" title="Sends a formatted message to the CLI TX stream (thread&#45;safe)." alt="" coords="168,31,317,57"/>
 <area shape="poly" title=" " alt="" coords="120,41,152,41,152,47,120,47"/>
 <area shape="rect" href="mutex_8c.html#a2afa4ac9d94043fec3f0d361edb4d0d9" title="Locks the mutex handler (busy&#45;wait)." alt="" coords="372,5,464,32"/>
 <area shape="poly" title=" " alt="" coords="317,31,356,25,357,30,318,36"/>
@@ -411,7 +424,7 @@ Variables</h2></td></tr>
 <div id="dynsection-6-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="cli__handler_8c_a61fe594b1d9dd2f9fc0a5daf26fe6cb0_icgraph.png" border="0" usemap="#acli__handler_8c_a61fe594b1d9dd2f9fc0a5daf26fe6cb0_icgraph" loading="lazy" alt=""/></div>
 <map name="acli__handler_8c_a61fe594b1d9dd2f9fc0a5daf26fe6cb0_icgraph" id="acli__handler_8c_a61fe594b1d9dd2f9fc0a5daf26fe6cb0_icgraph">
-<area shape="rect" title="This function initialize and configure handler CLI." alt="" coords="253,5,367,32"/>
+<area shape="rect" title="Initializes and configures the CLI handler." alt="" coords="253,5,367,32"/>
 <area shape="rect" href="controller_8c.html#a08e320ef3c3f21f3465a3cb8a7e0d7fa" title="Reentrant string tokenizer (public domain by Charlie Gordon)." alt="" coords="103,5,205,32"/>
 <area shape="poly" title=" " alt="" coords="237,21,205,21,205,16,237,16"/>
 <area shape="rect" href="main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="Functon to start aplication." alt="" coords="5,5,55,32"/>
@@ -445,14 +458,25 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="cli__handler_8c_source.html#l00159">159</a> of file <a class="el" href="cli__handler_8c_source.html">cli_handler.c</a>.</p>
+<p>Sends a formatted message to the CLI TX stream (thread-safe). </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cli_handler</td><td>Pointer to the CLI handler structure. </td></tr>
+    <tr><td class="paramname">format</td><td>Format string (printf-style). </td></tr>
+    <tr><td class="paramname">...</td><td>Arguments for the format string. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>CLI_HANDLER_ERROR_OK on success, error code otherwise. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="cli__handler_8c_source.html#l00186">186</a> of file <a class="el" href="cli__handler_8c_source.html">cli_handler.c</a>.</p>
 <div id="dynsection-7" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-7-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-7-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="cli__handler_8c_a08e94bea6b19563502c78f513e8f41ed_cgraph.png" border="0" usemap="#acli__handler_8c_a08e94bea6b19563502c78f513e8f41ed_cgraph" loading="lazy" alt=""/></div>
 <map name="acli__handler_8c_a08e94bea6b19563502c78f513e8f41ed_cgraph" id="acli__handler_8c_a08e94bea6b19563502c78f513e8f41ed_cgraph">
-<area shape="rect" title=" " alt="" coords="5,31,155,57"/>
+<area shape="rect" title="Sends a formatted message to the CLI TX stream (thread&#45;safe)." alt="" coords="5,31,155,57"/>
 <area shape="rect" href="mutex_8c.html#a2afa4ac9d94043fec3f0d361edb4d0d9" title="Locks the mutex handler (busy&#45;wait)." alt="" coords="209,5,302,32"/>
 <area shape="poly" title=" " alt="" coords="155,31,194,25,194,30,155,36"/>
 <area shape="rect" href="mutex_8c.html#aa332c26b7b4ca9d847c79a031c4b151f" title="Unlocks the mutex handler." alt="" coords="203,56,308,83"/>
@@ -465,42 +489,44 @@ Variables</h2></td></tr>
 <div id="dynsection-8-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="cli__handler_8c_a08e94bea6b19563502c78f513e8f41ed_icgraph.png" border="0" usemap="#acli__handler_8c_a08e94bea6b19563502c78f513e8f41ed_icgraph" loading="lazy" alt=""/></div>
 <map name="acli__handler_8c_a08e94bea6b19563502c78f513e8f41ed_icgraph" id="acli__handler_8c_a08e94bea6b19563502c78f513e8f41ed_icgraph">
-<area shape="rect" title=" " alt="" coords="645,309,794,336"/>
-<area shape="rect" href="arithmetic__add_8c.html#aabab6eb58920b72696b44766f352d087" title="Implements the &quot;Add&quot; CLI command." alt="" coords="471,5,581,32"/>
-<area shape="poly" title=" " alt="" coords="711,294,698,242,676,175,642,106,621,74,595,46,578,35,582,30,598,42,625,71,647,103,681,173,703,240,716,293"/>
-<area shape="rect" href="arithmetic__divide_8c.html#a496b3a77db45806c3ca59439169b1e2f" title="Implements the &quot;Divide&quot; CLI command." alt="" coords="464,56,588,83"/>
-<area shape="poly" title=" " alt="" coords="708,295,693,252,670,199,637,144,617,119,595,97,578,86,580,81,598,93,621,115,641,141,674,196,698,250,713,294"/>
-<area shape="rect" href="arithmetic__log__n_8c.html#aee95770337ddfa4081b58fcfed717777" title="Implements the &quot;Log_N&quot; CLI command." alt="" coords="463,107,589,133"/>
-<area shape="poly" title=" " alt="" coords="704,297,662,223,631,182,595,147,576,136,578,132,598,143,635,179,667,220,708,294"/>
-<area shape="rect" href="arithmetic__multiply_8c.html#af482ae8bde65fd4dbdeb93aa304f525f" title="Implements the &quot;Multiply&quot; CLI command." alt="" coords="460,157,592,184"/>
-<area shape="poly" title=" " alt="" coords="697,299,654,248,626,221,595,198,573,187,576,182,598,194,629,217,658,244,701,295"/>
-<area shape="rect" href="arithmetic__power__n_8c.html#a407644e2eabb009c1f0461eef35b02f8" title="Implements the &quot;Power_N&quot; CLI command." alt="" coords="455,208,597,235"/>
-<area shape="poly" title=" " alt="" coords="685,302,643,275,595,249,569,238,571,233,598,244,646,271,688,298"/>
-<area shape="rect" href="arithmetic__root__n_8c.html#ae6e9b070a0fd2a1e3d9740d5affd700f" title="Implements the &quot;Root_N&quot; CLI command." alt="" coords="460,259,592,285"/>
-<area shape="poly" title=" " alt="" coords="651,307,579,289,580,283,652,302"/>
-<area shape="rect" href="arithmetic__subtract_8c.html#ae4386765635940545726bb78792e66d2" title="Implements the &quot;Subtract&quot; CLI command." alt="" coords="458,309,594,336"/>
-<area shape="poly" title=" " alt="" coords="629,325,595,325,595,320,629,320"/>
-<area shape="rect" href="cli__handler_8c.html#ae1e4e87a1b834acd36551cb7222eee45" title="This function will check if receive a correct command and process." alt="" coords="457,360,595,387"/>
-<area shape="poly" title=" " alt="" coords="652,343,580,362,579,357,651,338"/>
-<area shape="rect" href="cli__handler_8c.html#a61fe594b1d9dd2f9fc0a5daf26fe6cb0" title="This function initialize and configure handler CLI." alt="" coords="469,411,583,437"/>
-<area shape="poly" title=" " alt="" coords="688,347,646,375,598,401,571,413,569,408,595,396,643,370,685,343"/>
-<area shape="rect" href="cli__handler_8c.html#ad2002df80a92e4842fef5691c7db7b45" title="This command clear ANS variable." alt="" coords="469,461,583,488"/>
-<area shape="poly" title=" " alt="" coords="701,350,658,401,629,428,598,452,576,463,573,458,595,447,626,424,654,397,697,347"/>
-<area shape="rect" href="cli__handler_8c.html#a4f70031e038bd479c6946c80475765a7" title="This command change the precision output stream of ANS." alt="" coords="461,512,591,539"/>
-<area shape="poly" title=" " alt="" coords="708,351,667,426,635,466,598,502,578,514,576,509,595,498,631,463,662,423,704,349"/>
-<area shape="rect" href="cli__handler_8c.html#a146e87ba3752e693de90825898166184" title="This command deinitilize handler." alt="" coords="473,563,579,589"/>
-<area shape="poly" title=" " alt="" coords="713,352,698,395,674,449,641,504,621,530,598,553,580,564,578,560,595,549,617,526,637,501,670,447,693,393,708,350"/>
-<area shape="rect" href="cli__handler_8c.html#abd4f8f2b1924ef573587ceec554d68eb" title="This command return all information about others commands." alt="" coords="471,613,581,640"/>
-<area shape="poly" title=" " alt="" coords="716,352,703,405,681,472,647,542,625,574,598,603,582,615,578,611,595,599,621,571,642,539,676,470,698,404,711,351"/>
-<area shape="rect" href="cli__handler_8c.html#af2634b601b2a4cc0d082027768d690ab" title="Is a CLI handler, case multithread will stay in loop." alt="" coords="273,360,407,387"/>
-<area shape="poly" title=" " alt="" coords="442,376,408,376,408,371,442,371"/>
-<area shape="rect" href="controller_8c.html#a59522a85c6772a03c8a8c52813e1ca33" title="Parses a string token into a double value." alt="" coords="103,360,225,387"/>
-<area shape="poly" title=" " alt="" coords="258,376,225,376,225,371,258,371"/>
-<area shape="rect" href="main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="Functon to start aplication." alt="" coords="5,385,55,412"/>
-<area shape="poly" title=" " alt="" coords="88,390,56,397,55,391,87,385"/>
-<area shape="rect" href="controller_8c.html#a08e320ef3c3f21f3465a3cb8a7e0d7fa" title="Reentrant string tokenizer (public domain by Charlie Gordon)." alt="" coords="113,411,215,437"/>
-<area shape="poly" title=" " alt="" coords="453,427,215,427,215,421,453,421"/>
-<area shape="poly" title=" " alt="" coords="97,414,55,406,56,401,98,409"/>
+<area shape="rect" title="Sends a formatted message to the CLI TX stream (thread&#45;safe)." alt="" coords="679,335,828,361"/>
+<area shape="rect" href="arithmetic__add_8c.html#aabab6eb58920b72696b44766f352d087" title="Implements the &quot;Add&quot; CLI command." alt="" coords="488,5,598,32"/>
+<area shape="poly" title=" " alt="" coords="746,319,736,262,715,188,700,149,681,112,657,77,629,46,614,36,597,29,599,24,617,31,632,42,661,73,685,109,705,147,720,186,741,261,751,319"/>
+<area shape="rect" href="arithmetic__determinant__n_8c.html#a8be9187b40fcc221c7cfbbca721a0ae0" title="Handles the &quot;Determinant_N&quot; CLI command." alt="" coords="455,56,631,83"/>
+<area shape="poly" title=" " alt="" coords="744,320,731,271,708,211,675,149,654,121,629,97,611,86,614,81,632,93,658,118,679,146,713,209,736,270,749,319"/>
+<area shape="rect" href="arithmetic__divide_8c.html#a496b3a77db45806c3ca59439169b1e2f" title="Implements the &quot;Divide&quot; CLI command." alt="" coords="481,107,605,133"/>
+<area shape="poly" title=" " alt="" coords="740,321,725,282,701,235,669,188,629,147,604,134,607,129,632,143,673,184,706,232,730,280,745,319"/>
+<area shape="rect" href="arithmetic__log__n_8c.html#aee95770337ddfa4081b58fcfed717777" title="Implements the &quot;Log_N&quot; CLI command." alt="" coords="480,157,606,184"/>
+<area shape="poly" title=" " alt="" coords="735,323,693,260,663,227,629,198,605,186,608,181,632,194,667,223,697,257,740,320"/>
+<area shape="rect" href="arithmetic__multiply_8c.html#af482ae8bde65fd4dbdeb93aa304f525f" title="Implements the &quot;Multiply&quot; CLI command." alt="" coords="477,208,609,235"/>
+<area shape="poly" title=" " alt="" coords="727,325,684,286,629,249,603,238,605,233,632,244,687,282,730,321"/>
+<area shape="rect" href="arithmetic__power__n_8c.html#a407644e2eabb009c1f0461eef35b02f8" title="Implements the &quot;Power_N&quot; CLI command." alt="" coords="472,259,614,285"/>
+<area shape="poly" title=" " alt="" coords="707,331,630,300,594,288,596,283,632,295,709,326"/>
+<area shape="rect" href="arithmetic__root__n_8c.html#ae6e9b070a0fd2a1e3d9740d5affd700f" title="Implements the &quot;Root_N&quot; CLI command." alt="" coords="477,309,609,336"/>
+<area shape="poly" title=" " alt="" coords="663,340,609,333,610,328,664,335"/>
+<area shape="rect" href="arithmetic__subtract_8c.html#ae4386765635940545726bb78792e66d2" title="Implements the &quot;Subtract&quot; CLI command." alt="" coords="475,360,611,387"/>
+<area shape="poly" title=" " alt="" coords="664,361,612,368,611,362,663,356"/>
+<area shape="rect" href="cli__handler_8c.html#ae1e4e87a1b834acd36551cb7222eee45" title="Checks and processes a received command from the RX stream." alt="" coords="474,411,612,437"/>
+<area shape="poly" title=" " alt="" coords="709,370,632,401,596,413,594,408,630,396,707,365"/>
+<area shape="rect" href="cli__handler_8c.html#a61fe594b1d9dd2f9fc0a5daf26fe6cb0" title="Initializes and configures the CLI handler." alt="" coords="486,461,600,488"/>
+<area shape="poly" title=" " alt="" coords="730,375,687,414,632,452,601,464,599,459,629,447,684,410,727,371"/>
+<area shape="rect" href="cli__handler_8c.html#ad2002df80a92e4842fef5691c7db7b45" title="Command: Clear the ANS variable." alt="" coords="486,512,600,539"/>
+<area shape="poly" title=" " alt="" coords="740,376,697,439,667,473,632,502,601,517,599,512,629,498,663,469,693,436,735,373"/>
+<area shape="rect" href="cli__handler_8c.html#a4f70031e038bd479c6946c80475765a7" title="Command: Change the decimal precision of ANS output." alt="" coords="478,563,608,589"/>
+<area shape="poly" title=" " alt="" coords="745,377,730,416,706,464,673,512,632,553,610,565,607,561,629,549,669,508,701,461,725,414,740,375"/>
+<area shape="rect" href="cli__handler_8c.html#a146e87ba3752e693de90825898166184" title="Command: Deinitialize the CLI handler and exit the application." alt="" coords="490,613,596,640"/>
+<area shape="poly" title=" " alt="" coords="749,377,736,426,713,487,679,550,658,578,632,603,616,614,598,621,596,616,613,609,629,599,654,575,675,547,708,485,731,425,744,376"/>
+<area shape="rect" href="cli__handler_8c.html#abd4f8f2b1924ef573587ceec554d68eb" title="Command: Show help for all available commands." alt="" coords="488,664,598,691"/>
+<area shape="poly" title=" " alt="" coords="751,377,741,435,720,510,705,549,685,587,661,623,632,654,617,665,599,672,597,667,614,660,629,650,657,619,681,584,700,547,715,508,736,434,746,377"/>
+<area shape="rect" href="cli__handler_8c.html#af2634b601b2a4cc0d082027768d690ab" title="Main CLI handler loop. Processes received commands." alt="" coords="273,411,407,437"/>
+<area shape="poly" title=" " alt="" coords="459,427,408,427,408,421,459,421"/>
+<area shape="rect" href="controller_8c.html#a59522a85c6772a03c8a8c52813e1ca33" title="Parses a string token into a double value." alt="" coords="103,411,225,437"/>
+<area shape="poly" title=" " alt="" coords="258,427,225,427,225,421,258,421"/>
+<area shape="rect" href="main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="Functon to start aplication." alt="" coords="5,436,55,463"/>
+<area shape="poly" title=" " alt="" coords="88,441,56,447,55,442,87,436"/>
+<area shape="rect" href="controller_8c.html#a08e320ef3c3f21f3465a3cb8a7e0d7fa" title="Reentrant string tokenizer (public domain by Charlie Gordon)." alt="" coords="113,461,215,488"/>
+<area shape="poly" title=" " alt="" coords="470,477,215,477,215,472,470,472"/>
+<area shape="poly" title=" " alt="" coords="97,465,55,457,56,451,98,459"/>
 </map>
 </div>
 
@@ -533,25 +559,25 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>This command clear ANS variable. </p>
+<p>Command: Clear the ANS variable. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">cli_handler</td><td>Pointer of handler CLI </td></tr>
-    <tr><td class="paramname">token</td><td>Pointer of token receive </td></tr>
+    <tr><td class="paramname">cli_handler</td><td>Pointer to the CLI handler structure. </td></tr>
+    <tr><td class="paramname">saveptr</td><td>Pointer to the input stream to parse. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><a class="el" href="cli__handler_8h.html#a4e9566e27550032c11cf88cb0f72d72a" title="Enumerate of errors.">cli_handler_error_e</a> </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>CLI_HANDLER_ERROR_OK on success, error code otherwise. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="cli__handler_8c_source.html#l00242">242</a> of file <a class="el" href="cli__handler_8c_source.html">cli_handler.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="cli__handler_8c_source.html#l00268">268</a> of file <a class="el" href="cli__handler_8c_source.html">cli_handler.c</a>.</p>
 <div id="dynsection-9" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-9-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-9-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="cli__handler_8c_ad2002df80a92e4842fef5691c7db7b45_cgraph.png" border="0" usemap="#acli__handler_8c_ad2002df80a92e4842fef5691c7db7b45_cgraph" loading="lazy" alt=""/></div>
 <map name="acli__handler_8c_ad2002df80a92e4842fef5691c7db7b45_cgraph" id="acli__handler_8c_ad2002df80a92e4842fef5691c7db7b45_cgraph">
-<area shape="rect" title="This command clear ANS variable." alt="" coords="5,31,119,57"/>
-<area shape="rect" href="cli__handler_8c.html#a08e94bea6b19563502c78f513e8f41ed" title=" " alt="" coords="167,31,316,57"/>
+<area shape="rect" title="Command: Clear the ANS variable." alt="" coords="5,31,119,57"/>
+<area shape="rect" href="cli__handler_8c.html#a08e94bea6b19563502c78f513e8f41ed" title="Sends a formatted message to the CLI TX stream (thread&#45;safe)." alt="" coords="167,31,316,57"/>
 <area shape="poly" title=" " alt="" coords="119,41,151,41,151,47,119,47"/>
 <area shape="rect" href="mutex_8c.html#a2afa4ac9d94043fec3f0d361edb4d0d9" title="Locks the mutex handler (busy&#45;wait)." alt="" coords="370,5,463,32"/>
 <area shape="poly" title=" " alt="" coords="316,31,355,25,356,30,317,36"/>
@@ -589,27 +615,27 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>This command change the precision output stream of ANS. </p>
+<p>Command: Change the decimal precision of ANS output. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">cli_handler</td><td>Pointer of handler CLI </td></tr>
-    <tr><td class="paramname">token</td><td>Pointer of token receive </td></tr>
+    <tr><td class="paramname">cli_handler</td><td>Pointer to the CLI handler structure. </td></tr>
+    <tr><td class="paramname">saveptr</td><td>Pointer to the input stream to parse. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><a class="el" href="cli__handler_8h.html#a4e9566e27550032c11cf88cb0f72d72a" title="Enumerate of errors.">cli_handler_error_e</a> </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>CLI_HANDLER_ERROR_OK on success, error code otherwise. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="cli__handler_8c_source.html#l00217">217</a> of file <a class="el" href="cli__handler_8c_source.html">cli_handler.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="cli__handler_8c_source.html#l00243">243</a> of file <a class="el" href="cli__handler_8c_source.html">cli_handler.c</a>.</p>
 <div id="dynsection-10" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-10-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-10-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="cli__handler_8c_a4f70031e038bd479c6946c80475765a7_cgraph.png" border="0" usemap="#acli__handler_8c_a4f70031e038bd479c6946c80475765a7_cgraph" loading="lazy" alt=""/></div>
 <map name="acli__handler_8c_a4f70031e038bd479c6946c80475765a7_cgraph" id="acli__handler_8c_a4f70031e038bd479c6946c80475765a7_cgraph">
-<area shape="rect" title="This command change the precision output stream of ANS." alt="" coords="5,81,136,108"/>
-<area shape="rect" href="cli__handler_8c.html#a08e94bea6b19563502c78f513e8f41ed" title=" " alt="" coords="184,31,333,57"/>
+<area shape="rect" title="Command: Change the decimal precision of ANS output." alt="" coords="5,81,136,108"/>
+<area shape="rect" href="cli__handler_8c.html#a08e94bea6b19563502c78f513e8f41ed" title="Sends a formatted message to the CLI TX stream (thread&#45;safe)." alt="" coords="184,31,333,57"/>
 <area shape="poly" title=" " alt="" coords="122,78,191,59,192,64,124,83"/>
-<area shape="rect" href="misc_8c.html#a6b5224be201be73da4cd3fca715eb457" title="Parses a string token into a double value." alt="" coords="196,81,321,108"/>
+<area shape="rect" href="misc_8c.html#a6b5224be201be73da4cd3fca715eb457" title="Parses a string token into an unsigned 32&#45;bit integer value." alt="" coords="196,81,321,108"/>
 <area shape="poly" title=" " alt="" coords="136,92,180,92,180,97,136,97"/>
 <area shape="rect" href="misc_8c.html#a26d79ae4b7a899d74727f732c288c069" title="Reentrant string tokenizer (public domain by Charlie Gordon)." alt="" coords="204,132,312,159"/>
 <area shape="poly" title=" " alt="" coords="124,106,192,125,191,130,122,111"/>
@@ -649,25 +675,25 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>This command deinitilize handler. </p>
+<p>Command: Deinitialize the CLI handler and exit the application. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">cli_handler</td><td>Pointer of handler CLI </td></tr>
-    <tr><td class="paramname">token</td><td>Pointer of token receive </td></tr>
+    <tr><td class="paramname">cli_handler</td><td>Pointer to the CLI handler structure. </td></tr>
+    <tr><td class="paramname">saveptr</td><td>Pointer to the input stream to parse. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><a class="el" href="cli__handler_8h.html#a4e9566e27550032c11cf88cb0f72d72a" title="Enumerate of errors.">cli_handler_error_e</a> </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>CLI_HANDLER_ERROR_OK on success, error code otherwise. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="cli__handler_8c_source.html#l00275">275</a> of file <a class="el" href="cli__handler_8c_source.html">cli_handler.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="cli__handler_8c_source.html#l00301">301</a> of file <a class="el" href="cli__handler_8c_source.html">cli_handler.c</a>.</p>
 <div id="dynsection-11" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-11-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-11-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="cli__handler_8c_a146e87ba3752e693de90825898166184_cgraph.png" border="0" usemap="#acli__handler_8c_a146e87ba3752e693de90825898166184_cgraph" loading="lazy" alt=""/></div>
 <map name="acli__handler_8c_a146e87ba3752e693de90825898166184_cgraph" id="acli__handler_8c_a146e87ba3752e693de90825898166184_cgraph">
-<area shape="rect" title="This command deinitilize handler." alt="" coords="5,31,112,57"/>
-<area shape="rect" href="cli__handler_8c.html#a08e94bea6b19563502c78f513e8f41ed" title=" " alt="" coords="160,31,309,57"/>
+<area shape="rect" title="Command: Deinitialize the CLI handler and exit the application." alt="" coords="5,31,112,57"/>
+<area shape="rect" href="cli__handler_8c.html#a08e94bea6b19563502c78f513e8f41ed" title="Sends a formatted message to the CLI TX stream (thread&#45;safe)." alt="" coords="160,31,309,57"/>
 <area shape="poly" title=" " alt="" coords="112,41,144,41,144,47,112,47"/>
 <area shape="rect" href="mutex_8c.html#a2afa4ac9d94043fec3f0d361edb4d0d9" title="Locks the mutex handler (busy&#45;wait)." alt="" coords="364,5,456,32"/>
 <area shape="poly" title=" " alt="" coords="309,31,348,25,349,30,310,36"/>
@@ -705,25 +731,25 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>This command return all information about others commands. </p>
+<p>Command: Show help for all available commands. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">cli_handler</td><td>Pointer of handler CLI </td></tr>
-    <tr><td class="paramname">token</td><td>Pointer of token receive </td></tr>
+    <tr><td class="paramname">cli_handler</td><td>Pointer to the CLI handler structure. </td></tr>
+    <tr><td class="paramname">saveptr</td><td>Pointer to the input stream to parse. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><a class="el" href="cli__handler_8h.html#a4e9566e27550032c11cf88cb0f72d72a" title="Enumerate of errors.">cli_handler_error_e</a> </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>CLI_HANDLER_ERROR_OK on success, error code otherwise. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="cli__handler_8c_source.html#l00258">258</a> of file <a class="el" href="cli__handler_8c_source.html">cli_handler.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="cli__handler_8c_source.html#l00284">284</a> of file <a class="el" href="cli__handler_8c_source.html">cli_handler.c</a>.</p>
 <div id="dynsection-12" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-12-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-12-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="cli__handler_8c_abd4f8f2b1924ef573587ceec554d68eb_cgraph.png" border="0" usemap="#acli__handler_8c_abd4f8f2b1924ef573587ceec554d68eb_cgraph" loading="lazy" alt=""/></div>
 <map name="acli__handler_8c_abd4f8f2b1924ef573587ceec554d68eb_cgraph" id="acli__handler_8c_abd4f8f2b1924ef573587ceec554d68eb_cgraph">
-<area shape="rect" title="This command return all information about others commands." alt="" coords="5,31,115,57"/>
-<area shape="rect" href="cli__handler_8c.html#a08e94bea6b19563502c78f513e8f41ed" title=" " alt="" coords="163,31,312,57"/>
+<area shape="rect" title="Command: Show help for all available commands." alt="" coords="5,31,115,57"/>
+<area shape="rect" href="cli__handler_8c.html#a08e94bea6b19563502c78f513e8f41ed" title="Sends a formatted message to the CLI TX stream (thread&#45;safe)." alt="" coords="163,31,312,57"/>
 <area shape="poly" title=" " alt="" coords="115,41,147,41,147,47,115,47"/>
 <area shape="rect" href="mutex_8c.html#a2afa4ac9d94043fec3f0d361edb4d0d9" title="Locks the mutex handler (busy&#45;wait)." alt="" coords="366,5,459,32"/>
 <area shape="poly" title=" " alt="" coords="312,31,351,25,352,30,313,36"/>
@@ -786,7 +812,14 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="arithmetic__determinant__n_8c_source.html#l00034">34</a> of file <a class="el" href="arithmetic__determinant__n_8c_source.html">arithmetic_determinant_n.c</a>.</p>
+<p>CLI command constant for the "Determinant_N" operation. </p>
+<ul>
+<li>name: Command name ("Determinant_N")</li>
+<li>description: Command description and usage syntax</li>
+<li>func_ptr: Pointer to the function that implements the command </li>
+</ul>
+
+<p class="definition">Definition at line <a class="el" href="arithmetic__determinant__n_8c_source.html#l00056">56</a> of file <a class="el" href="arithmetic__determinant__n_8c_source.html">arithmetic_determinant_n.c</a>.</p>
 
 </div>
 </div>
@@ -992,9 +1025,9 @@ Variables</h2></td></tr>
 <div class="line">        .description = <span class="stringliteral">&quot;Clear the value to ANS - Sintax \&quot;Clear\&quot;\n&quot;</span>,</div>
 <div class="line">        .func_ptr = <a class="code hl_function" href="#ad2002df80a92e4842fef5691c7db7b45">command_clear</a></div>
 <div class="line">}</div>
-<div class="ttc" id="acli__handler_8c_html_ad2002df80a92e4842fef5691c7db7b45"><div class="ttname"><a href="#ad2002df80a92e4842fef5691c7db7b45">command_clear</a></div><div class="ttdeci">static cli_handler_error_e command_clear(cli_handler_t *cli_handler, char *saveptr)</div><div class="ttdoc">This command clear ANS variable.</div><div class="ttdef"><b>Definition</b> <a href="cli__handler_8c_source.html#l00242">cli_handler.c:242</a></div></div>
+<div class="ttc" id="acli__handler_8c_html_ad2002df80a92e4842fef5691c7db7b45"><div class="ttname"><a href="#ad2002df80a92e4842fef5691c7db7b45">command_clear</a></div><div class="ttdeci">static cli_handler_error_e command_clear(cli_handler_t *cli_handler, char *saveptr)</div><div class="ttdoc">Command: Clear the ANS variable.</div><div class="ttdef"><b>Definition</b> <a href="cli__handler_8c_source.html#l00268">cli_handler.c:268</a></div></div>
 </div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="cli__handler_8c_source.html#l00070">70</a> of file <a class="el" href="cli__handler_8c_source.html">cli_handler.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="cli__handler_8c_source.html#l00080">80</a> of file <a class="el" href="cli__handler_8c_source.html">cli_handler.c</a>.</p>
 
 </div>
 </div>
@@ -1014,9 +1047,9 @@ Variables</h2></td></tr>
 <div class="line">        .description = <span class="stringliteral">&quot;Change decimal configuration - Sintax \&quot;Decimal [uint]\&quot;\n&quot;</span>,</div>
 <div class="line">        .func_ptr = <a class="code hl_function" href="#a4f70031e038bd479c6946c80475765a7">command_decimal</a></div>
 <div class="line">}</div>
-<div class="ttc" id="acli__handler_8c_html_a4f70031e038bd479c6946c80475765a7"><div class="ttname"><a href="#a4f70031e038bd479c6946c80475765a7">command_decimal</a></div><div class="ttdeci">static cli_handler_error_e command_decimal(cli_handler_t *cli_handler, char *saveptr)</div><div class="ttdoc">This command change the precision output stream of ANS.</div><div class="ttdef"><b>Definition</b> <a href="cli__handler_8c_source.html#l00217">cli_handler.c:217</a></div></div>
+<div class="ttc" id="acli__handler_8c_html_a4f70031e038bd479c6946c80475765a7"><div class="ttname"><a href="#a4f70031e038bd479c6946c80475765a7">command_decimal</a></div><div class="ttdeci">static cli_handler_error_e command_decimal(cli_handler_t *cli_handler, char *saveptr)</div><div class="ttdoc">Command: Change the decimal precision of ANS output.</div><div class="ttdef"><b>Definition</b> <a href="cli__handler_8c_source.html#l00243">cli_handler.c:243</a></div></div>
 </div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="cli__handler_8c_source.html#l00064">64</a> of file <a class="el" href="cli__handler_8c_source.html">cli_handler.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="cli__handler_8c_source.html#l00074">74</a> of file <a class="el" href="cli__handler_8c_source.html">cli_handler.c</a>.</p>
 
 </div>
 </div>
@@ -1036,9 +1069,9 @@ Variables</h2></td></tr>
 <div class="line">        .description = <span class="stringliteral">&quot;Exit of code - Sintax \&quot;Exit\&quot;\n&quot;</span>,</div>
 <div class="line">        .func_ptr = <a class="code hl_function" href="#a146e87ba3752e693de90825898166184">command_exit</a></div>
 <div class="line">}</div>
-<div class="ttc" id="acli__handler_8c_html_a146e87ba3752e693de90825898166184"><div class="ttname"><a href="#a146e87ba3752e693de90825898166184">command_exit</a></div><div class="ttdeci">static cli_handler_error_e command_exit(cli_handler_t *cli_handler, char *saveptr)</div><div class="ttdoc">This command deinitilize handler.</div><div class="ttdef"><b>Definition</b> <a href="cli__handler_8c_source.html#l00275">cli_handler.c:275</a></div></div>
+<div class="ttc" id="acli__handler_8c_html_a146e87ba3752e693de90825898166184"><div class="ttname"><a href="#a146e87ba3752e693de90825898166184">command_exit</a></div><div class="ttdeci">static cli_handler_error_e command_exit(cli_handler_t *cli_handler, char *saveptr)</div><div class="ttdoc">Command: Deinitialize the CLI handler and exit the application.</div><div class="ttdef"><b>Definition</b> <a href="cli__handler_8c_source.html#l00301">cli_handler.c:301</a></div></div>
 </div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="cli__handler_8c_source.html#l00082">82</a> of file <a class="el" href="cli__handler_8c_source.html">cli_handler.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="cli__handler_8c_source.html#l00092">92</a> of file <a class="el" href="cli__handler_8c_source.html">cli_handler.c</a>.</p>
 
 </div>
 </div>
@@ -1058,9 +1091,9 @@ Variables</h2></td></tr>
 <div class="line">        .description = <span class="stringliteral">&quot;Return all sintax of code - Sintax \&quot;Help\&quot;\n&quot;</span>,</div>
 <div class="line">        .func_ptr = <a class="code hl_function" href="#abd4f8f2b1924ef573587ceec554d68eb">command_help</a></div>
 <div class="line">}</div>
-<div class="ttc" id="acli__handler_8c_html_abd4f8f2b1924ef573587ceec554d68eb"><div class="ttname"><a href="#abd4f8f2b1924ef573587ceec554d68eb">command_help</a></div><div class="ttdeci">static cli_handler_error_e command_help(cli_handler_t *cli_handler, char *saveptr)</div><div class="ttdoc">This command return all information about others commands.</div><div class="ttdef"><b>Definition</b> <a href="cli__handler_8c_source.html#l00258">cli_handler.c:258</a></div></div>
+<div class="ttc" id="acli__handler_8c_html_abd4f8f2b1924ef573587ceec554d68eb"><div class="ttname"><a href="#abd4f8f2b1924ef573587ceec554d68eb">command_help</a></div><div class="ttdeci">static cli_handler_error_e command_help(cli_handler_t *cli_handler, char *saveptr)</div><div class="ttdoc">Command: Show help for all available commands.</div><div class="ttdef"><b>Definition</b> <a href="cli__handler_8c_source.html#l00284">cli_handler.c:284</a></div></div>
 </div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="cli__handler_8c_source.html#l00076">76</a> of file <a class="el" href="cli__handler_8c_source.html">cli_handler.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="cli__handler_8c_source.html#l00086">86</a> of file <a class="el" href="cli__handler_8c_source.html">cli_handler.c</a>.</p>
 
 </div>
 </div>
@@ -1094,19 +1127,21 @@ Variables</h2></td></tr>
 <div class="line">    &amp;<a class="code hl_variable" href="#a0b8c6c001d4777003cb2872129985d86">Cli_Handler_Exit</a></div>
 <div class="line">}</div>
 <div class="ttc" id="aarithmetic__add_8c_html_af231f16499dc2bfe61af34dbd9d15abc"><div class="ttname"><a href="arithmetic__add_8c.html#af231f16499dc2bfe61af34dbd9d15abc">Arithmetic_Add_Cte</a></div><div class="ttdeci">const cli_handler_commands_t Arithmetic_Add_Cte</div><div class="ttdoc">Constant structure defining the &quot;Add&quot; CLI command.</div><div class="ttdef"><b>Definition</b> <a href="arithmetic__add_8c_source.html#l00050">arithmetic_add.c:50</a></div></div>
-<div class="ttc" id="aarithmetic__determinant__n_8c_html_ad80658ab2b1b8dad9061e9de732cbde6"><div class="ttname"><a href="arithmetic__determinant__n_8c.html#ad80658ab2b1b8dad9061e9de732cbde6">Arithmetic_Determinant_N_Cte</a></div><div class="ttdeci">const cli_handler_commands_t Arithmetic_Determinant_N_Cte</div><div class="ttdef"><b>Definition</b> <a href="arithmetic__determinant__n_8c_source.html#l00034">arithmetic_determinant_n.c:34</a></div></div>
+<div class="ttc" id="aarithmetic__determinant__n_8c_html_ad80658ab2b1b8dad9061e9de732cbde6"><div class="ttname"><a href="arithmetic__determinant__n_8c.html#ad80658ab2b1b8dad9061e9de732cbde6">Arithmetic_Determinant_N_Cte</a></div><div class="ttdeci">const cli_handler_commands_t Arithmetic_Determinant_N_Cte</div><div class="ttdoc">CLI command constant for the &quot;Determinant_N&quot; operation.</div><div class="ttdef"><b>Definition</b> <a href="arithmetic__determinant__n_8c_source.html#l00056">arithmetic_determinant_n.c:56</a></div></div>
 <div class="ttc" id="aarithmetic__divide_8c_html_a2348ea9d7a7521da96405699c4d7ad95"><div class="ttname"><a href="arithmetic__divide_8c.html#a2348ea9d7a7521da96405699c4d7ad95">Arithmetic_Devide_Cte</a></div><div class="ttdeci">const cli_handler_commands_t Arithmetic_Devide_Cte</div><div class="ttdoc">Constant structure defining the &quot;Divide&quot; CLI command.</div><div class="ttdef"><b>Definition</b> <a href="arithmetic__divide_8c_source.html#l00047">arithmetic_divide.c:47</a></div></div>
 <div class="ttc" id="aarithmetic__log__n_8c_html_a4ca4629efe63aa21480b0e60c0c12be8"><div class="ttname"><a href="arithmetic__log__n_8c.html#a4ca4629efe63aa21480b0e60c0c12be8">Arithmetic_Log_N_Cte</a></div><div class="ttdeci">const cli_handler_commands_t Arithmetic_Log_N_Cte</div><div class="ttdoc">Constant structure defining the &quot;Log_N&quot; CLI command.</div><div class="ttdef"><b>Definition</b> <a href="arithmetic__log__n_8c_source.html#l00049">arithmetic_log_n.c:49</a></div></div>
 <div class="ttc" id="aarithmetic__multiply_8c_html_a5f1a8e7d7e1c0a45326c9cd408e304a8"><div class="ttname"><a href="arithmetic__multiply_8c.html#a5f1a8e7d7e1c0a45326c9cd408e304a8">Arithmetic_Multiply_Cte</a></div><div class="ttdeci">const cli_handler_commands_t Arithmetic_Multiply_Cte</div><div class="ttdoc">Constant structure defining the &quot;Multiply&quot; CLI command.</div><div class="ttdef"><b>Definition</b> <a href="arithmetic__multiply_8c_source.html#l00049">arithmetic_multiply.c:49</a></div></div>
 <div class="ttc" id="aarithmetic__power__n_8c_html_a39adb63ba4ad418d09a965e9507d5f20"><div class="ttname"><a href="arithmetic__power__n_8c.html#a39adb63ba4ad418d09a965e9507d5f20">Arithmetic_Power_N_Cte</a></div><div class="ttdeci">const cli_handler_commands_t Arithmetic_Power_N_Cte</div><div class="ttdoc">Constant structure defining the &quot;Power_N&quot; CLI command.</div><div class="ttdef"><b>Definition</b> <a href="arithmetic__power__n_8c_source.html#l00048">arithmetic_power_n.c:48</a></div></div>
 <div class="ttc" id="aarithmetic__root__n_8c_html_a5adb96d572dc38e8b11f1d02dd33b4d5"><div class="ttname"><a href="arithmetic__root__n_8c.html#a5adb96d572dc38e8b11f1d02dd33b4d5">Arithmetic_Root_N_Cte</a></div><div class="ttdeci">const cli_handler_commands_t Arithmetic_Root_N_Cte</div><div class="ttdoc">Constant structure defining the &quot;Root_N&quot; CLI command.</div><div class="ttdef"><b>Definition</b> <a href="arithmetic__root__n_8c_source.html#l00048">arithmetic_root_n.c:48</a></div></div>
 <div class="ttc" id="aarithmetic__subtract_8c_html_a96995251de2adf6386d9b0088c308de6"><div class="ttname"><a href="arithmetic__subtract_8c.html#a96995251de2adf6386d9b0088c308de6">Arithmetic_Subtract_Cte</a></div><div class="ttdeci">const cli_handler_commands_t Arithmetic_Subtract_Cte</div><div class="ttdoc">Constant structure defining the &quot;Subtract&quot; CLI command.</div><div class="ttdef"><b>Definition</b> <a href="arithmetic__subtract_8c_source.html#l00047">arithmetic_subtract.c:47</a></div></div>
-<div class="ttc" id="acli__handler_8c_html_a061623207d2fc7a4ea1cb1431cd0f000"><div class="ttname"><a href="#a061623207d2fc7a4ea1cb1431cd0f000">Cli_Handler_Clear</a></div><div class="ttdeci">const cli_handler_commands_t Cli_Handler_Clear</div><div class="ttdef"><b>Definition</b> <a href="cli__handler_8c_source.html#l00070">cli_handler.c:70</a></div></div>
-<div class="ttc" id="acli__handler_8c_html_a0b8c6c001d4777003cb2872129985d86"><div class="ttname"><a href="#a0b8c6c001d4777003cb2872129985d86">Cli_Handler_Exit</a></div><div class="ttdeci">const cli_handler_commands_t Cli_Handler_Exit</div><div class="ttdef"><b>Definition</b> <a href="cli__handler_8c_source.html#l00082">cli_handler.c:82</a></div></div>
-<div class="ttc" id="acli__handler_8c_html_a2b49283ae5bd6deb593c8a457c4b422e"><div class="ttname"><a href="#a2b49283ae5bd6deb593c8a457c4b422e">Cli_Handler_Decimal</a></div><div class="ttdeci">const cli_handler_commands_t Cli_Handler_Decimal</div><div class="ttdef"><b>Definition</b> <a href="cli__handler_8c_source.html#l00064">cli_handler.c:64</a></div></div>
-<div class="ttc" id="acli__handler_8c_html_ac7dde3c7bef811034312eff4909be8bb"><div class="ttname"><a href="#ac7dde3c7bef811034312eff4909be8bb">Cli_Handler_Help</a></div><div class="ttdeci">const cli_handler_commands_t Cli_Handler_Help</div><div class="ttdef"><b>Definition</b> <a href="cli__handler_8c_source.html#l00076">cli_handler.c:76</a></div></div>
+<div class="ttc" id="acli__handler_8c_html_a061623207d2fc7a4ea1cb1431cd0f000"><div class="ttname"><a href="#a061623207d2fc7a4ea1cb1431cd0f000">Cli_Handler_Clear</a></div><div class="ttdeci">const cli_handler_commands_t Cli_Handler_Clear</div><div class="ttdef"><b>Definition</b> <a href="cli__handler_8c_source.html#l00080">cli_handler.c:80</a></div></div>
+<div class="ttc" id="acli__handler_8c_html_a0b8c6c001d4777003cb2872129985d86"><div class="ttname"><a href="#a0b8c6c001d4777003cb2872129985d86">Cli_Handler_Exit</a></div><div class="ttdeci">const cli_handler_commands_t Cli_Handler_Exit</div><div class="ttdef"><b>Definition</b> <a href="cli__handler_8c_source.html#l00092">cli_handler.c:92</a></div></div>
+<div class="ttc" id="acli__handler_8c_html_a2b49283ae5bd6deb593c8a457c4b422e"><div class="ttname"><a href="#a2b49283ae5bd6deb593c8a457c4b422e">Cli_Handler_Decimal</a></div><div class="ttdeci">const cli_handler_commands_t Cli_Handler_Decimal</div><div class="ttdef"><b>Definition</b> <a href="cli__handler_8c_source.html#l00074">cli_handler.c:74</a></div></div>
+<div class="ttc" id="acli__handler_8c_html_ac7dde3c7bef811034312eff4909be8bb"><div class="ttname"><a href="#ac7dde3c7bef811034312eff4909be8bb">Cli_Handler_Help</a></div><div class="ttdeci">const cli_handler_commands_t Cli_Handler_Help</div><div class="ttdef"><b>Definition</b> <a href="cli__handler_8c_source.html#l00086">cli_handler.c:86</a></div></div>
 </div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="cli__handler_8c_source.html#l00088">88</a> of file <a class="el" href="cli__handler_8c_source.html">cli_handler.c</a>.</p>
+<p>Table of all available commands (arithmetic and controller). </p>
+
+<p class="definition">Definition at line <a class="el" href="cli__handler_8c_source.html#l00101">101</a> of file <a class="el" href="cli__handler_8c_source.html">cli_handler.c</a>.</p>
 
 </div>
 </div>

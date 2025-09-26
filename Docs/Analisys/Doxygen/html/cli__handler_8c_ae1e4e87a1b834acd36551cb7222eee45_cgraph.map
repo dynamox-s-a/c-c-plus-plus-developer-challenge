@@ -1,6 +1,6 @@
 <map id="check_receive_cmd" name="check_receive_cmd">
-<area shape="rect" id="Node000001" title="This function will check if receive a correct command and process." alt="" coords="5,56,143,83"/>
-<area shape="rect" id="Node000002" href="$cli__handler_8c.html#a08e94bea6b19563502c78f513e8f41ed" title=" " alt="" coords="191,31,340,57"/>
+<area shape="rect" id="Node000001" title="Checks and processes a received command from the RX stream." alt="" coords="5,56,143,83"/>
+<area shape="rect" id="Node000002" href="$cli__handler_8c.html#a08e94bea6b19563502c78f513e8f41ed" title="Sends a formatted message to the CLI TX stream (thread&#45;safe)." alt="" coords="191,31,340,57"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="143,58,175,53,176,59,143,63"/>
 <area shape="rect" id="Node000005" href="$misc_8c.html#a26d79ae4b7a899d74727f732c288c069" title="Reentrant string tokenizer (public domain by Charlie Gordon)." alt="" coords="211,81,320,108"/>
 <area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="143,76,197,83,196,88,143,81"/>

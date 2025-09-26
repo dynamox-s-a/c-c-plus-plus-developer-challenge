@@ -1,6 +1,6 @@
 <map id="Misc_Parser_Uint" name="Misc_Parser_Uint">
-<area shape="rect" id="Node000001" title="Parses a string token into a double value." alt="" coords="658,31,783,57"/>
-<area shape="rect" id="Node000002" href="$cli__handler_8c.html#a4f70031e038bd479c6946c80475765a7" title="This command change the precision output stream of ANS." alt="" coords="465,5,595,32"/>
+<area shape="rect" id="Node000001" title="Parses a string token into an unsigned 32&#45;bit integer value." alt="" coords="658,31,783,57"/>
+<area shape="rect" id="Node000002" href="$cli__handler_8c.html#a4f70031e038bd479c6946c80475765a7" title="Command: Change the decimal precision of ANS output." alt="" coords="465,5,595,32"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="642,36,595,30,596,25,642,31"/>
 <area shape="rect" id="Node000003" href="$misc_8c.html#ab9a46bba8f180f1d34eae69f3b2f3088" title="Returns a pointer to the unsigned integer parser function." alt="" coords="450,56,610,83"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="642,57,611,61,610,56,642,52"/>

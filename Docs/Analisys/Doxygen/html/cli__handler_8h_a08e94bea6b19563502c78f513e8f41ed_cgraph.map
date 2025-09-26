@@ -1,5 +1,5 @@
 <map id="Cli_Handler_Out_Msg" name="Cli_Handler_Out_Msg">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,31,155,57"/>
+<area shape="rect" id="Node000001" title="Sends a formatted message to the CLI TX stream (thread&#45;safe)." alt="" coords="5,31,155,57"/>
 <area shape="rect" id="Node000002" href="$mutex_8c.html#a2afa4ac9d94043fec3f0d361edb4d0d9" title="Locks the mutex handler (busy&#45;wait)." alt="" coords="209,5,302,32"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="155,31,194,25,194,30,155,36"/>
 <area shape="rect" id="Node000003" href="$mutex_8c.html#aa332c26b7b4ca9d847c79a031c4b151f" title="Unlocks the mutex handler." alt="" coords="203,56,308,83"/>

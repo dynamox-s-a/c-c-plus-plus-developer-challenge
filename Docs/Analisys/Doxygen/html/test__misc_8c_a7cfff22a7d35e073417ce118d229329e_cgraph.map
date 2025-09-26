@@ -2,6 +2,6 @@
 <area shape="rect" id="Node000001" title="TODO." alt="" coords="5,5,176,32"/>
 <area shape="rect" id="Node000002" href="$misc_8c.html#ab9a46bba8f180f1d34eae69f3b2f3088" title="Returns a pointer to the unsigned integer parser function." alt="" coords="224,5,383,32"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="176,16,208,16,208,21,176,21"/>
-<area shape="rect" id="Node000003" href="$misc_8c.html#a6b5224be201be73da4cd3fca715eb457" title="Parses a string token into a double value." alt="" coords="431,5,556,32"/>
+<area shape="rect" id="Node000003" href="$misc_8c.html#a6b5224be201be73da4cd3fca715eb457" title="Parses a string token into an unsigned 32&#45;bit integer value." alt="" coords="431,5,556,32"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="383,16,415,16,415,21,383,21"/>
 </map>
