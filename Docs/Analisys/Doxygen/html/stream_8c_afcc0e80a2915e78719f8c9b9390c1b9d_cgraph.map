@@ -1,0 +1,5 @@
+<map id="Stream_Init" name="Stream_Init">
+<area shape="rect" id="Node000001" title="Initializes a stream buffer handler." alt="" coords="5,5,94,32"/>
+<area shape="rect" id="Node000002" href="$mutex_8c.html#a1091556e67f882c9daa0022ce9024919" title="Initializes a mutex handler." alt="" coords="142,5,224,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="94,16,126,16,126,21,94,21"/>
+</map>

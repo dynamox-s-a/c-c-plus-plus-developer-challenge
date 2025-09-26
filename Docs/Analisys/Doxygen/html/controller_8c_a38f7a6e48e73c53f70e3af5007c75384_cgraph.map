@@ -1,0 +1,7 @@
+<map id="receive_terminal_command" name="receive_terminal_command">
+<area shape="rect" id="Node000001" title="This function will check if receive a correct command and process." alt="" coords="5,31,186,57"/>
+<area shape="rect" id="Node000002" href="$mutex_8c.html#a2afa4ac9d94043fec3f0d361edb4d0d9" title="Locks the mutex handler (busy&#45;wait)." alt="" coords="240,5,332,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="186,29,224,24,225,29,186,35"/>
+<area shape="rect" id="Node000003" href="$mutex_8c.html#aa332c26b7b4ca9d847c79a031c4b151f" title="Unlocks the mutex handler." alt="" coords="234,56,339,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="186,53,219,58,218,63,186,59"/>
+</map>

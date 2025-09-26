@@ -1,0 +1,5 @@
+<map id="save_string" name="save_string">
+<area shape="rect" id="Node000001" title="Saves a single log entry (token) to the log file." alt="" coords="5,5,94,32"/>
+<area shape="rect" id="Node000002" href="$logs__file_8c.html#a13b1f3d9c0ed37cab2e6c7a9356653a8" title="Gets the current date and time as a formatted string." alt="" coords="142,5,276,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="94,16,126,16,126,21,94,21"/>
+</map>

@@ -1,0 +1,13 @@
+<map id="command_decimal" name="command_decimal">
+<area shape="rect" id="Node000001" title="This command change the precision output stream of ANS." alt="" coords="5,81,136,108"/>
+<area shape="rect" id="Node000002" href="$cli__handler_8c.html#a08e94bea6b19563502c78f513e8f41ed" title=" " alt="" coords="184,31,333,57"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="122,78,191,59,192,64,124,83"/>
+<area shape="rect" id="Node000005" href="$misc_8c.html#a6b5224be201be73da4cd3fca715eb457" title="Parses a string token into a double value." alt="" coords="196,81,321,108"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="136,92,180,92,180,97,136,97"/>
+<area shape="rect" id="Node000006" href="$misc_8c.html#a26d79ae4b7a899d74727f732c288c069" title="Reentrant string tokenizer (public domain by Charlie Gordon)." alt="" coords="204,132,312,159"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="124,106,192,125,191,130,122,111"/>
+<area shape="rect" id="Node000003" href="$mutex_8c.html#a2afa4ac9d94043fec3f0d361edb4d0d9" title="Locks the mutex handler (busy&#45;wait)." alt="" coords="388,5,480,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="333,31,372,25,373,30,334,36"/>
+<area shape="rect" id="Node000004" href="$mutex_8c.html#aa332c26b7b4ca9d847c79a031c4b151f" title="Unlocks the mutex handler." alt="" coords="381,56,486,83"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="334,52,366,57,365,62,333,57"/>
+</map>

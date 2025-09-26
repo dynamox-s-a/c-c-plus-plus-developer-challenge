@@ -1,0 +1,22 @@
+<map id="Drivers/Logs_File/Inc/logs_file.h" name="Drivers/Logs_File/Inc/logs_file.h">
+<area shape="rect" id="Node000001" title="Implementation of log file handling for CLI application." alt="" coords="229,5,374,48"/>
+<area shape="rect" id="Node000002" href="$misc_8h.html" title="Utility functions for string parsing and conversion." alt="" coords="238,96,298,123"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="295,50,282,83,277,81,290,48"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="147,245,221,272"/>
+<area shape="poly" id="edge12_Node000001_Node000003" title=" " alt="" coords="312,48,320,79,326,118,324,160,318,180,309,199,294,216,276,229,237,248,235,243,274,225,291,212,305,196,314,178,319,159,321,118,315,80,306,49"/>
+<area shape="rect" id="Node000006" href="$stream_8h.html" title=" " alt="" coords="115,96,187,123"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="264,51,189,91,186,86,261,46"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="399,96,460,123"/>
+<area shape="poly" id="edge11_Node000001_Node000008" title=" " alt="" coords="336,46,398,85,395,90,333,51"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="278,122,292,157,294,179,288,199,265,224,237,242,234,237,262,220,283,196,288,178,287,159,273,124"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="117,171,185,197"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="249,125,185,165,183,160,246,121"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="209,171,274,197"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="266,124,254,157,249,155,261,122"/>
+<area shape="poly" id="edge8_Node000006_Node000003" title=" " alt="" coords="115,121,73,132,34,149,20,159,11,170,9,182,14,196,38,219,68,236,100,246,132,252,131,257,99,251,66,241,35,224,10,199,3,183,6,168,16,155,32,144,72,127,113,115"/>
+<area shape="poly" id="edge9_Node000006_Node000004" title=" " alt="" coords="153,123,153,155,148,155,148,123"/>
+<area shape="poly" id="edge10_Node000006_Node000005" title=" " alt="" coords="168,121,216,159,213,163,165,125"/>
+<area shape="rect" id="Node000007" href="$mutex_8h.html" title="Simple mutex implementation for mutual exclusion." alt="" coords="25,171,93,197"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="136,125,88,163,85,159,133,121"/>
+<area shape="poly" id="edge7_Node000007_Node000003" title=" " alt="" coords="82,196,151,235,148,240,79,200"/>
+</map>

@@ -1,0 +1,85 @@
+<map id="Drivers/Misc/Inc/misc.h" name="Drivers/Misc/Inc/misc.h">
+<area shape="rect" id="Node000001" title="Utility functions for string parsing and conversion." alt="" coords="2123,5,2284,32"/>
+<area shape="rect" id="Node000002" href="$arithmetic__add_8c.html" title="Implementation of the addition command for the CLI calculator." alt="" coords="5,261,151,304"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="2108,23,1651,25,1023,33,716,40,452,51,261,65,201,73,171,82,150,100,132,121,106,171,91,221,83,261,78,260,85,220,101,169,128,118,146,96,169,78,200,68,260,59,452,45,716,35,1023,27,1651,19,2108,17"/>
+<area shape="rect" id="Node000003" href="$arithmetic__determinant__n_8c.html" title="TODO." alt="" coords="235,261,441,304"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="2108,23,1662,25,1049,33,751,41,494,51,308,65,250,73,221,82,188,110,168,141,164,158,164,175,169,193,179,212,206,239,241,258,239,263,203,244,175,215,164,195,159,176,159,157,163,139,184,106,218,78,249,68,307,60,494,46,750,36,1049,28,1662,20,2108,17"/>
+<area shape="rect" id="Node000004" href="$arithmetic__divide_8c.html" title="Implementation of the division command for the CLI calculator." alt="" coords="1876,261,2034,304"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="2201,48,2192,84,2177,129,2154,175,2123,215,2082,245,2036,265,2034,260,2079,240,2119,211,2149,172,2172,127,2187,83,2196,46"/>
+<area shape="rect" id="Node000005" href="$arithmetic__log__n_8c.html" title="Implementation of the logarithm base N command for the CLI calculator." alt="" coords="466,261,621,304"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="2108,22,1699,23,1138,30,860,37,613,48,423,63,356,72,312,83,271,98,240,113,215,136,192,172,185,193,186,202,192,212,211,226,240,236,314,247,393,253,453,259,466,261,465,267,452,264,392,258,313,253,238,241,209,230,188,215,181,204,180,193,188,170,211,133,237,109,269,93,311,77,355,67,422,58,613,43,859,32,1138,25,1699,18,2108,17"/>
+<area shape="rect" id="Node000006" href="$arithmetic__multiply_8c.html" title="Implementation of the multiplication command for the CLI calculator." alt="" coords="1683,261,1852,304"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="2190,47,2163,84,2126,130,2080,176,2027,216,1960,237,1853,264,1851,259,1959,232,2025,211,2076,172,2122,126,2159,81,2185,43"/>
+<area shape="rect" id="Node000007" href="$arithmetic__power__n_8c.html" title="Implementation of the power (exponentiation) command for the CLI calculator." alt="" coords="2058,261,2231,304"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="2217,46,2227,81,2235,124,2236,170,2224,214,2205,242,2181,263,2178,259,2201,238,2220,212,2231,169,2230,124,2222,82,2211,48"/>
+<area shape="rect" id="Node000008" href="$arithmetic__root__n_8c.html" title="Implementation of the root (N&#45;th root) command for the CLI calculator." alt="" coords="2255,261,2416,304"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="2225,43,2250,79,2299,179,2331,260,2326,262,2294,181,2245,81,2221,46"/>
+<area shape="rect" id="Node000009" href="$arithmetic__subtract_8c.html" title="Implementation of the subtraction command for the CLI calculator." alt="" coords="872,261,1044,304"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="2108,22,1667,25,1371,32,1061,43,762,62,502,89,395,106,308,125,244,148,222,160,207,172,200,182,198,192,200,202,206,211,287,223,470,241,872,272,872,278,469,246,286,229,203,216,195,204,193,192,195,180,203,169,219,155,242,143,306,120,394,100,501,83,762,56,1061,38,1371,26,1667,20,2108,17"/>
+<area shape="rect" id="Node000010" href="$cli__handler_8h.html" title="CLI Handler &#45; Receive commands and process." alt="" coords="1348,80,1483,123"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="2108,32,1484,96,1483,90,2107,27"/>
+<area shape="rect" id="Node000012" href="$cli__handler_8c.html" title="CLI Handler &#45; Receive commands and process." alt="" coords="1102,261,1238,304"/>
+<area shape="poly" id="edge47_Node000001_Node000012" title=" " alt="" coords="2108,25,1779,38,1348,64,1140,84,960,108,886,122,826,138,782,154,756,173,729,200,702,221,655,244,624,249,616,246,619,239,652,230,729,225,861,232,1056,259,1103,267,1102,272,1055,264,860,238,729,230,653,235,622,243,621,244,624,244,653,239,699,217,725,196,752,169,779,150,824,133,885,117,959,103,1139,78,1348,59,1778,32,2108,20"/>
+<area shape="rect" id="Node000020" href="$controller_8h.html" title="Utility functions for string parsing and conversion." alt="" coords="2443,171,2566,213"/>
+<area shape="poly" id="edge48_Node000001_Node000020" title=" " alt="" coords="2300,29,2364,47,2396,60,2426,78,2450,98,2470,123,2498,169,2493,172,2466,126,2446,102,2423,82,2394,65,2363,52,2298,34"/>
+<area shape="rect" id="Node000023" href="$logs__file_8h.html" title="Implementation of log file handling for CLI application." alt="" coords="2495,80,2640,123"/>
+<area shape="poly" id="edge49_Node000001_Node000023" title=" " alt="" coords="2276,33,2495,81,2493,87,2275,38"/>
+<area shape="rect" id="Node000024" href="$logs__file_8c.html" title="Implementation of log file handling for CLI application." alt="" coords="2816,171,2964,213"/>
+<area shape="poly" id="edge54_Node000001_Node000024" title=" " alt="" coords="2299,24,2495,44,2588,59,2654,78,2670,88,2681,98,2690,109,2705,120,2761,147,2817,168,2815,173,2759,152,2702,125,2687,113,2677,102,2667,92,2652,82,2587,64,2495,49,2299,29"/>
+<area shape="rect" id="Node000026" href="$misc_8c.html" title="Utility functions for string parsing and conversion." alt="" coords="2716,88,2878,115"/>
+<area shape="poly" id="edge55_Node000001_Node000026" title=" " alt="" coords="2299,27,2484,48,2697,77,2738,85,2737,90,2696,83,2483,53,2298,32"/>
+<area shape="rect" id="Node000027" href="$test__misc_8c.html" title=" " alt="" coords="2902,80,3051,123"/>
+<area shape="poly" id="edge56_Node000001_Node000027" title=" " alt="" coords="2300,21,2566,40,2729,56,2890,77,2903,79,2902,85,2890,83,2728,61,2566,45,2299,27"/>
+<area shape="poly" id="edge34_Node000010_Node000002" title=" " alt="" coords="1332,107,1063,114,711,126,389,146,273,159,206,173,172,191,141,215,96,263,92,259,138,211,169,187,204,168,272,153,388,141,711,121,1063,108,1332,102"/>
+<area shape="poly" id="edge35_Node000010_Node000003" title=" " alt="" coords="1332,104,1132,105,879,114,752,122,634,134,535,151,462,173,429,192,399,215,355,263,351,259,396,211,426,187,460,168,534,146,634,129,751,117,879,108,1132,100,1332,99"/>
+<area shape="poly" id="edge36_Node000010_Node000004" title=" " alt="" coords="1499,103,1643,111,1809,124,1952,143,2001,155,2028,169,2035,181,2037,194,2028,219,2009,243,1986,263,1982,259,2005,239,2023,216,2032,193,2030,183,2024,173,1999,160,1951,148,1809,129,1643,116,1499,109"/>
+<area shape="poly" id="edge37_Node000010_Node000005" title=" " alt="" coords="1332,105,1113,107,842,116,713,124,602,136,519,152,492,162,476,173,470,183,468,193,476,216,495,239,517,259,513,263,491,243,472,219,463,193,465,181,472,169,490,157,518,147,601,131,713,119,842,111,1113,102,1332,100"/>
+<area shape="poly" id="edge38_Node000010_Node000006" title=" " alt="" coords="1498,103,1582,109,1670,121,1747,140,1776,153,1796,169,1806,192,1804,217,1795,241,1784,262,1779,260,1791,239,1799,216,1801,193,1792,172,1773,158,1745,145,1669,126,1581,114,1498,108"/>
+<area shape="poly" id="edge39_Node000010_Node000007" title=" " alt="" coords="1499,101,1634,107,1795,118,1945,138,2005,151,2050,168,2078,188,2102,212,2136,259,2131,262,2098,215,2075,192,2047,173,2003,156,1944,143,1794,123,1634,112,1498,107"/>
+<area shape="poly" id="edge40_Node000010_Node000008" title=" " alt="" coords="1499,100,1616,103,1765,113,1929,134,2012,149,2092,168,2151,187,2209,212,2301,258,2299,263,2206,216,2149,192,2091,173,2011,154,1929,139,1765,119,1616,108,1498,105"/>
+<area shape="poly" id="edge41_Node000010_Node000009" title=" " alt="" coords="1332,108,1238,113,1135,125,1044,144,1009,157,985,173,971,192,963,216,959,261,954,261,958,214,966,190,982,169,1007,152,1042,139,1134,120,1237,108,1332,102"/>
+<area shape="rect" id="Node000011" href="$arithmetic__add_8h.html" title=" " alt="" coords="217,171,360,213"/>
+<area shape="poly" id="edge10_Node000010_Node000011" title=" " alt="" coords="1332,107,1158,111,921,122,652,142,380,173,361,176,360,171,379,168,651,137,921,117,1158,106,1332,101"/>
+<area shape="poly" id="edge42_Node000010_Node000012" title=" " alt="" coords="1334,121,1280,141,1254,156,1230,173,1212,193,1197,217,1178,262,1173,260,1192,214,1208,190,1227,169,1251,151,1277,137,1332,116"/>
+<area shape="rect" id="Node000013" href="$arithmetic__determinant__n_8h.html" title="TODO." alt="" coords="486,171,691,213"/>
+<area shape="poly" id="edge13_Node000010_Node000013" title=" " alt="" coords="1332,113,754,173,692,181,691,175,754,168,1332,108"/>
+<area shape="rect" id="Node000014" href="$arithmetic__divide_8h.html" title="Implementation of the division command for the CLI calculator." alt="" coords="1430,171,1587,213"/>
+<area shape="poly" id="edge16_Node000010_Node000014" title=" " alt="" coords="1450,131,1489,168,1485,172,1446,135"/>
+<area shape="rect" id="Node000015" href="$arithmetic__log__n_8h.html" title="Implementation of the logarithm base N command for the CLI calculator." alt="" coords="767,171,920,213"/>
+<area shape="poly" id="edge19_Node000010_Node000015" title=" " alt="" coords="1333,116,1152,140,940,173,921,177,920,172,939,168,1151,135,1332,110"/>
+<area shape="rect" id="Node000016" href="$arithmetic__multiply_8h.html" title="Implementation of the multiplication command for the CLI calculator." alt="" coords="1240,171,1406,213"/>
+<area shape="poly" id="edge22_Node000010_Node000016" title=" " alt="" coords="1385,135,1346,172,1343,168,1381,131"/>
+<area shape="rect" id="Node000017" href="$arithmetic__power__n_8h.html" title="TODO." alt="" coords="1611,171,1782,213"/>
+<area shape="poly" id="edge25_Node000010_Node000017" title=" " alt="" coords="1496,125,1631,167,1630,173,1495,130"/>
+<area shape="rect" id="Node000018" href="$arithmetic__root__n_8h.html" title=" " alt="" coords="1856,171,2014,213"/>
+<area shape="poly" id="edge28_Node000010_Node000018" title=" " alt="" coords="1499,112,1838,168,1856,171,1855,177,1838,173,1498,118"/>
+<area shape="rect" id="Node000019" href="$arithmetic__subtract_8h.html" title="TODO." alt="" coords="996,171,1165,213"/>
+<area shape="poly" id="edge31_Node000010_Node000019" title=" " alt="" coords="1333,127,1159,173,1158,168,1332,122"/>
+<area shape="poly" id="edge43_Node000010_Node000020" title=" " alt="" coords="1499,104,1878,125,2125,144,2374,168,2443,178,2443,183,2374,173,2124,149,1877,131,1498,109"/>
+<area shape="rect" id="Node000021" href="$controller_8c.html" title="Utility functions for string parsing and conversion." alt="" coords="2548,261,2672,304"/>
+<area shape="poly" id="edge46_Node000010_Node000021" title=" " alt="" coords="1499,104,1794,123,1979,142,2165,168,2272,189,2377,213,2549,260,2547,265,2376,218,2270,194,2164,173,1979,147,1793,129,1498,109"/>
+<area shape="poly" id="edge11_Node000011_Node000002" title=" " alt="" coords="226,222,128,263,126,258,224,217"/>
+<area shape="poly" id="edge12_Node000011_Node000012" title=" " alt="" coords="376,201,474,211,638,224,765,232,893,241,1056,259,1103,266,1102,271,1055,264,892,246,765,237,637,229,474,216,375,206"/>
+<area shape="poly" id="edge14_Node000013_Node000003" title=" " alt="" coords="517,221,398,263,396,258,515,216"/>
+<area shape="poly" id="edge15_Node000013_Node000012" title=" " alt="" coords="706,210,710,211,883,234,1056,259,1103,266,1102,272,1055,264,882,240,710,216,706,215"/>
+<area shape="poly" id="edge17_Node000014_Node000004" title=" " alt="" coords="1603,211,1864,259,1876,261,1875,266,1863,264,1602,216"/>
+<area shape="poly" id="edge18_Node000014_Node000012" title=" " alt="" coords="1416,220,1238,266,1237,261,1415,215"/>
+<area shape="poly" id="edge20_Node000015_Node000005" title=" " alt="" coords="759,221,614,263,613,258,758,216"/>
+<area shape="poly" id="edge21_Node000015_Node000012" title=" " alt="" coords="935,215,1103,260,1102,266,934,220"/>
+<area shape="poly" id="edge23_Node000016_Node000006" title=" " alt="" coords="1422,211,1683,263,1682,268,1421,217"/>
+<area shape="poly" id="edge24_Node000016_Node000012" title=" " alt="" coords="1275,224,1207,263,1204,259,1273,219"/>
+<area shape="poly" id="edge26_Node000017_Node000007" title=" " alt="" coords="1798,210,2047,259,2058,261,2057,266,2045,264,1797,215"/>
+<area shape="poly" id="edge27_Node000017_Node000012" title=" " alt="" coords="1596,217,1239,274,1238,269,1595,211"/>
+<area shape="poly" id="edge29_Node000018_Node000008" title=" " alt="" coords="2030,211,2255,261,2254,266,2029,217"/>
+<area shape="poly" id="edge30_Node000018_Node000012" title=" " alt="" coords="1841,210,1794,216,1484,252,1238,277,1238,272,1483,247,1794,211,1841,204"/>
+<area shape="poly" id="edge32_Node000019_Node000009" title=" " alt="" coords="1042,225,988,263,985,259,1038,220"/>
+<area shape="poly" id="edge33_Node000019_Node000012" title=" " alt="" coords="1114,222,1151,259,1148,263,1110,226"/>
+<area shape="poly" id="edge44_Node000020_Node000021" title=" " alt="" coords="2543,222,2587,259,2584,263,2539,226"/>
+<area shape="rect" id="Node000022" href="$main_8c.html" title="TODO." alt="" coords="2440,269,2524,296"/>
+<area shape="poly" id="edge45_Node000020_Node000022" title=" " alt="" coords="2498,229,2488,270,2483,268,2493,228"/>
+<area shape="poly" id="edge50_Node000023_Node000020" title=" " alt="" coords="2546,137,2521,172,2517,169,2542,134"/>
+<area shape="poly" id="edge51_Node000023_Node000021" title=" " alt="" coords="2578,137,2608,260,2603,262,2573,139"/>
+<area shape="poly" id="edge52_Node000023_Node000024" title=" " alt="" coords="2656,124,2817,168,2815,173,2654,129"/>
+<area shape="rect" id="Node000025" href="$test__logs__file_8c.html" title=" " alt="" coords="2640,171,2793,213"/>
+<area shape="poly" id="edge53_Node000023_Node000025" title=" " alt="" coords="2617,129,2683,168,2681,172,2614,133"/>
+</map>

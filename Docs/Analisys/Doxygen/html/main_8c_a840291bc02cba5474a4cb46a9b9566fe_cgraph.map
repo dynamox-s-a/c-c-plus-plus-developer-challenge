@@ -1,0 +1,47 @@
+<map id="main" name="main">
+<area shape="rect" id="Node000001" title="Functon to start aplication." alt="" coords="5,177,55,204"/>
+<area shape="rect" id="Node000002" href="$controller_8c.html#a59522a85c6772a03c8a8c52813e1ca33" title="Parses a string token into a double value." alt="" coords="103,152,225,178"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="54,183,87,177,88,182,55,188"/>
+<area shape="rect" id="Node000014" href="$controller_8c.html#a08e320ef3c3f21f3465a3cb8a7e0d7fa" title="Reentrant string tokenizer (public domain by Charlie Gordon)." alt="" coords="113,202,215,229"/>
+<area shape="poly" id="edge21_Node000001_Node000014" title=" " alt="" coords="55,192,98,200,97,206,54,198"/>
+<area shape="rect" id="Node000003" href="$cli__handler_8c.html#af2634b601b2a4cc0d082027768d690ab" title="Is a CLI handler, case multithread will stay in loop." alt="" coords="283,89,417,116"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="205,149,293,119,295,124,207,154"/>
+<area shape="rect" id="Node000009" href="$logs__file_8c.html#abbf7591eae5515f13aba5095f0a35428" title="Checks the log file handler&#39;s stream for new log entries." alt="" coords="475,253,650,280"/>
+<area shape="poly" id="edge10_Node000002_Node000009" title=" " alt="" coords="220,176,493,246,492,251,219,182"/>
+<area shape="rect" id="Node000013" href="$controller_8c.html#a38f7a6e48e73c53f70e3af5007c75384" title="This function will check if receive a correct command and process." alt="" coords="698,25,878,52"/>
+<area shape="poly" id="edge18_Node000002_Node000013" title=" " alt="" coords="175,149,215,111,242,90,272,75,324,57,378,43,487,28,592,23,682,26,682,31,592,29,488,33,379,49,325,62,274,80,245,95,218,115,179,153"/>
+<area shape="rect" id="Node000004" href="$cli__handler_8c.html#ae1e4e87a1b834acd36551cb7222eee45" title="This function will check if receive a correct command and process." alt="" coords="494,126,631,153"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="418,112,479,122,478,128,417,117"/>
+<area shape="rect" id="Node000006" href="$mutex_8c.html#a2afa4ac9d94043fec3f0d361edb4d0d9" title="Locks the mutex handler (busy&#45;wait)." alt="" coords="947,101,1039,128"/>
+<area shape="poly" id="edge8_Node000003_Node000006" title=" " alt="" coords="418,101,931,111,931,116,418,106"/>
+<area shape="rect" id="Node000007" href="$mutex_8c.html#aa332c26b7b4ca9d847c79a031c4b151f" title="Unlocks the mutex handler." alt="" coords="940,38,1046,65"/>
+<area shape="poly" id="edge9_Node000003_Node000007" title=" " alt="" coords="385,86,471,56,593,25,663,12,734,5,807,4,878,10,947,30,945,35,878,16,807,9,735,10,663,18,594,30,473,61,387,91"/>
+<area shape="rect" id="Node000005" href="$cli__handler_8c.html#a08e94bea6b19563502c78f513e8f41ed" title=" " alt="" coords="713,126,862,153"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="631,137,698,137,698,142,631,142"/>
+<area shape="rect" id="Node000008" href="$misc_8c.html#a26d79ae4b7a899d74727f732c288c069" title="Reentrant string tokenizer (public domain by Charlie Gordon)." alt="" coords="734,177,842,204"/>
+<area shape="poly" id="edge7_Node000004_Node000008" title=" " alt="" coords="626,151,719,172,718,178,625,156"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="863,128,931,119,932,125,863,133"/>
+<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="820,123,945,69,947,74,822,128"/>
+<area shape="poly" id="edge12_Node000009_Node000006" title=" " alt="" coords="628,278,684,285,748,286,814,279,846,270,877,257,911,234,939,203,961,170,977,140,982,143,966,173,943,206,914,238,879,262,848,275,815,284,748,292,684,290,627,283"/>
+<area shape="poly" id="edge13_Node000009_Node000007" title=" " alt="" coords="650,259,781,245,839,231,876,214,890,200,897,185,902,155,906,122,912,105,924,87,942,71,946,75,928,91,917,107,911,123,907,156,902,187,894,203,880,218,840,236,782,250,651,265"/>
+<area shape="poly" id="edge11_Node000009_Node000008" title=" " alt="" coords="604,250,730,207,732,212,606,255"/>
+<area shape="rect" id="Node000010" href="$logs__file_8c.html#ac2bb0fd3f78e0f6a15e26bf6eb74ed85" title="Prints a log entry with a timestamp to the terminal." alt="" coords="738,380,838,406"/>
+<area shape="poly" id="edge14_Node000009_Node000010" title=" " alt="" coords="631,278,651,290,668,309,676,329,683,348,699,366,725,379,722,384,696,370,679,351,671,331,664,312,648,294,628,283"/>
+<area shape="rect" id="Node000012" href="$logs__file_8c.html#aca9e74f515bef270bfef19ce7f4e1973" title="Saves a single log entry (token) to the log file." alt="" coords="744,329,832,356"/>
+<area shape="poly" id="edge16_Node000009_Node000012" title=" " alt="" coords="614,278,651,289,699,308,734,321,732,326,697,313,649,294,613,283"/>
+<area shape="rect" id="Node000011" href="$logs__file_8c.html#a13b1f3d9c0ed37cab2e6c7a9356653a8" title="Gets the current date and time as a formatted string." alt="" coords="926,354,1060,381"/>
+<area shape="poly" id="edge15_Node000010_Node000011" title=" " alt="" coords="837,384,910,375,911,381,838,390"/>
+<area shape="poly" id="edge17_Node000012_Node000011" title=" " alt="" coords="833,345,911,355,910,360,832,350"/>
+<area shape="poly" id="edge19_Node000013_Node000006" title=" " alt="" coords="830,50,879,68,944,93,942,98,877,73,828,55"/>
+<area shape="poly" id="edge20_Node000013_Node000007" title=" " alt="" coords="879,42,925,45,925,50,878,47"/>
+<area shape="rect" id="Node000015" href="$cli__handler_8c.html#a61fe594b1d9dd2f9fc0a5daf26fe6cb0" title="This function initialize and configure handler CLI." alt="" coords="505,177,620,204"/>
+<area shape="poly" id="edge22_Node000014_Node000015" title=" " alt="" coords="215,210,490,192,490,198,215,215"/>
+<area shape="rect" id="Node000016" href="$logs__file_8c.html#aaacd01c248600c980910f867fd572659" title="Initializes the log file handler." alt="" coords="273,253,427,280"/>
+<area shape="poly" id="edge24_Node000014_Node000016" title=" " alt="" coords="216,227,285,246,284,251,215,232"/>
+<area shape="rect" id="Node000017" href="$stream_8c.html#afcc0e80a2915e78719f8c9b9390c1b9d" title="Initializes a stream buffer handler." alt="" coords="306,304,394,330"/>
+<area shape="poly" id="edge26_Node000014_Node000017" title=" " alt="" coords="183,227,223,258,274,289,292,297,290,302,272,294,220,262,180,232"/>
+<area shape="poly" id="edge23_Node000015_Node000005" title=" " alt="" coords="619,175,710,154,711,160,621,180"/>
+<area shape="poly" id="edge25_Node000016_Node000009" title=" " alt="" coords="428,264,460,264,460,269,428,269"/>
+<area shape="rect" id="Node000018" href="$mutex_8c.html#a1091556e67f882c9daa0022ce9024919" title="Initializes a mutex handler." alt="" coords="521,304,604,330"/>
+<area shape="poly" id="edge27_Node000017_Node000018" title=" " alt="" coords="395,314,506,314,506,320,395,320"/>
+</map>

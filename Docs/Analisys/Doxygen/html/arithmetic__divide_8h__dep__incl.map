@@ -1,0 +1,7 @@
+<map id="Drivers/Arithmetic/Inc/arithmetic_divide.h" name="Drivers/Arithmetic/Inc/arithmetic_divide.h">
+<area shape="rect" id="Node000001" title="Implementation of the division command for the CLI calculator." alt="" coords="92,5,248,48"/>
+<area shape="rect" id="Node000002" href="$arithmetic__divide_8c.html" title="Implementation of the division command for the CLI calculator." alt="" coords="5,96,164,139"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="141,61,106,98,102,94,137,58"/>
+<area shape="rect" id="Node000003" href="$cli__handler_8c.html" title="CLI Handler &#45; Receive commands and process." alt="" coords="188,96,323,139"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="202,58,237,94,234,98,198,61"/>
+</map>

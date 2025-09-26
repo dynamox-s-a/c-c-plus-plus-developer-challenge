@@ -1,0 +1,7 @@
+<map id="Drivers/Arithmetic/Inc/arithmetic_log_n.h" name="Drivers/Arithmetic/Inc/arithmetic_log_n.h">
+<area shape="rect" id="Node000001" title="Implementation of the logarithm base N command for the CLI calculator." alt="" coords="90,5,244,48"/>
+<area shape="rect" id="Node000002" href="$arithmetic__log__n_8c.html" title="Implementation of the logarithm base N command for the CLI calculator." alt="" coords="5,96,161,139"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="139,61,104,98,100,94,135,58"/>
+<area shape="rect" id="Node000003" href="$cli__handler_8c.html" title="CLI Handler &#45; Receive commands and process." alt="" coords="185,96,320,139"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="199,58,235,94,231,98,196,61"/>
+</map>

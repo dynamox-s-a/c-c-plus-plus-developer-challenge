@@ -1,0 +1,7 @@
+<map id="Drivers/Arithmetic/Inc/arithmetic_multiply.h" name="Drivers/Arithmetic/Inc/arithmetic_multiply.h">
+<area shape="rect" id="Node000001" title="Implementation of the multiplication command for the CLI calculator." alt="" coords="94,5,261,48"/>
+<area shape="rect" id="Node000002" href="$arithmetic__multiply_8c.html" title="Implementation of the multiplication command for the CLI calculator." alt="" coords="5,96,174,139"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="148,61,112,98,108,94,145,57"/>
+<area shape="rect" id="Node000003" href="$cli__handler_8c.html" title="CLI Handler &#45; Receive commands and process." alt="" coords="198,96,333,139"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="210,57,247,94,243,98,207,61"/>
+</map>

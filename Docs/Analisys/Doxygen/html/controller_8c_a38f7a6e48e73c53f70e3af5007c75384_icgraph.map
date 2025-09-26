@@ -1,0 +1,7 @@
+<map id="receive_terminal_command" name="receive_terminal_command">
+<area shape="rect" id="Node000001" title="This function will check if receive a correct command and process." alt="" coords="273,5,453,32"/>
+<area shape="rect" id="Node000002" href="$controller_8c.html#a59522a85c6772a03c8a8c52813e1ca33" title="Parses a string token into a double value." alt="" coords="103,5,225,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="258,21,225,21,225,16,258,16"/>
+<area shape="rect" id="Node000003" href="$main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="Functon to start aplication." alt="" coords="5,5,55,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="87,21,55,21,55,16,87,16"/>
+</map>

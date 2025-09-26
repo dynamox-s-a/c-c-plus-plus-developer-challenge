@@ -1,0 +1,45 @@
+<map id="Misc_Strtok_R" name="Misc_Strtok_R">
+<area shape="rect" id="Node000001" title="Reentrant string tokenizer (public domain by Charlie Gordon)." alt="" coords="698,132,806,159"/>
+<area shape="rect" id="Node000002" href="$arithmetic__multiply_8c.html#af482ae8bde65fd4dbdeb93aa304f525f" title="Implements the &quot;Multiply&quot; CLI command." alt="" coords="496,5,629,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="729,122,694,83,648,46,624,35,626,30,651,42,698,79,733,118"/>
+<area shape="rect" id="Node000003" href="$cli__handler_8c.html#ae1e4e87a1b834acd36551cb7222eee45" title="This function will check if receive a correct command and process." alt="" coords="494,208,631,235"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="714,169,651,198,617,210,616,205,649,194,711,164"/>
+<area shape="rect" id="Node000007" href="$cli__handler_8c.html#a4f70031e038bd479c6946c80475765a7" title="This command change the precision output stream of ANS." alt="" coords="497,107,628,133"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="682,139,628,131,629,126,682,133"/>
+<area shape="rect" id="Node000008" href="$misc_8c.html#a48b7b055fa582a8ecd21190bdd6d6150" title="Returns a pointer to the reentrant string tokenizer function." alt="" coords="498,56,627,83"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="711,127,649,97,616,86,617,81,651,92,714,122"/>
+<area shape="rect" id="Node000012" href="$logs__file_8c.html#abbf7591eae5515f13aba5095f0a35428" title="Checks the log file handler&#39;s stream for new log entries." alt="" coords="475,157,650,184"/>
+<area shape="poly" id="edge11_Node000001_Node000012" title=" " alt="" coords="682,157,650,162,650,156,682,152"/>
+<area shape="rect" id="Node000015" href="$misc_8c.html#a68c5009d2808dec85d359c07ac03a593" title=" " alt="" coords="502,360,623,387"/>
+<area shape="poly" id="edge16_Node000001_Node000015" title=" " alt="" coords="732,172,577,361,573,358,728,169"/>
+<area shape="rect" id="Node000004" href="$cli__handler_8c.html#af2634b601b2a4cc0d082027768d690ab" title="Is a CLI handler, case multithread will stay in loop." alt="" coords="283,208,417,235"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="479,224,418,224,418,219,479,219"/>
+<area shape="rect" id="Node000005" href="$controller_8c.html#a59522a85c6772a03c8a8c52813e1ca33" title="Parses a string token into a double value." alt="" coords="103,157,225,184"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="283,206,215,187,216,182,285,201"/>
+<area shape="rect" id="Node000006" href="$main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="Functon to start aplication." alt="" coords="5,132,55,159"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="87,159,55,153,56,147,88,154"/>
+<area shape="rect" id="Node000009" href="$test__misc_8c.html#a50f0de4e142af686ebeb05171cae1794" title="TODO." alt="" coords="282,56,419,83"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="483,72,419,72,419,67,483,67"/>
+<area shape="rect" id="Node000010" href="$test__misc_8c.html#a9877dad8dda5b9bee37a33861e2c06e6" title="TODO." alt="" coords="123,56,204,83"/>
+<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="266,72,205,72,205,67,266,67"/>
+<area shape="rect" id="Node000011" href="$test_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="TODO." alt="" coords="5,56,55,83"/>
+<area shape="poly" id="edge10_Node000010_Node000011" title=" " alt="" coords="108,72,55,72,55,67,108,67"/>
+<area shape="poly" id="edge12_Node000012_Node000005" title=" " alt="" coords="460,173,226,173,226,168,460,168"/>
+<area shape="rect" id="Node000013" href="$logs__file_8c.html#aaacd01c248600c980910f867fd572659" title="Initializes the log file handler." alt="" coords="273,107,427,133"/>
+<area shape="poly" id="edge13_Node000012_Node000013" title=" " alt="" coords="488,156,409,137,410,131,489,150"/>
+<area shape="rect" id="Node000014" href="$controller_8c.html#a08e320ef3c3f21f3465a3cb8a7e0d7fa" title="Reentrant string tokenizer (public domain by Charlie Gordon)." alt="" coords="113,107,215,133"/>
+<area shape="poly" id="edge14_Node000013_Node000014" title=" " alt="" coords="257,123,215,123,215,117,257,117"/>
+<area shape="poly" id="edge15_Node000014_Node000006" title=" " alt="" coords="98,135,56,143,55,138,97,130"/>
+<area shape="rect" id="Node000016" href="$arithmetic__add_8c.html#aabab6eb58920b72696b44766f352d087" title="Implements the &quot;Add&quot; CLI command." alt="" coords="295,461,405,488"/>
+<area shape="poly" id="edge17_Node000015_Node000016" title=" " alt="" coords="528,398,482,425,428,452,399,463,397,458,426,447,479,420,526,393"/>
+<area shape="rect" id="Node000017" href="$arithmetic__divide_8c.html#a496b3a77db45806c3ca59439169b1e2f" title="Implements the &quot;Divide&quot; CLI command." alt="" coords="288,512,412,539"/>
+<area shape="poly" id="edge18_Node000015_Node000017" title=" " alt="" coords="542,401,494,452,462,479,429,502,405,514,402,509,426,498,459,475,490,448,538,397"/>
+<area shape="rect" id="Node000018" href="$arithmetic__log__n_8c.html#aee95770337ddfa4081b58fcfed717777" title="Implements the &quot;Log_N&quot; CLI command." alt="" coords="288,259,413,285"/>
+<area shape="poly" id="edge19_Node000015_Node000018" title=" " alt="" coords="526,354,479,326,426,300,397,288,399,283,428,295,482,322,528,349"/>
+<area shape="rect" id="Node000019" href="$arithmetic__power__n_8c.html#a407644e2eabb009c1f0461eef35b02f8" title="Implements the &quot;Power_N&quot; CLI command." alt="" coords="280,309,421,336"/>
+<area shape="poly" id="edge20_Node000015_Node000019" title=" " alt="" coords="488,358,409,339,410,334,489,353"/>
+<area shape="rect" id="Node000020" href="$arithmetic__root__n_8c.html#ae6e9b070a0fd2a1e3d9740d5affd700f" title="Implements the &quot;Root_N&quot; CLI command." alt="" coords="284,360,416,387"/>
+<area shape="poly" id="edge21_Node000015_Node000020" title=" " alt="" coords="487,376,417,376,417,371,487,371"/>
+<area shape="rect" id="Node000021" href="$arithmetic__subtract_8c.html#ae4386765635940545726bb78792e66d2" title="Implements the &quot;Subtract&quot; CLI command." alt="" coords="282,411,418,437"/>
+<area shape="poly" id="edge22_Node000015_Node000021" title=" " alt="" coords="489,394,410,413,409,407,488,388"/>
+</map>

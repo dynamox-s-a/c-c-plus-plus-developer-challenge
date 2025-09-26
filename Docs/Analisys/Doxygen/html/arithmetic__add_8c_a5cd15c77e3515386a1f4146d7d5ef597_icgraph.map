@@ -1,0 +1,5 @@
+<map id="add_values" name="add_values">
+<area shape="rect" id="Node000001" title="Adds two double values and stores the result." alt="" coords="164,5,251,32"/>
+<area shape="rect" id="Node000002" href="$arithmetic__add_8c.html#aabab6eb58920b72696b44766f352d087" title="Implements the &quot;Add&quot; CLI command." alt="" coords="5,5,116,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="148,21,116,21,116,16,148,16"/>
+</map>

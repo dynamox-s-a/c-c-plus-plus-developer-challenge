@@ -1,0 +1,17 @@
+<map id="Arithmetic_Divide" name="Arithmetic_Divide">
+<area shape="rect" id="Node000001" title="Implements the &quot;Divide&quot; CLI command." alt="" coords="5,93,130,120"/>
+<area shape="rect" id="Node000002" href="$cli__handler_8c.html#a08e94bea6b19563502c78f513e8f41ed" title=" " alt="" coords="178,43,327,69"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="118,90,186,71,187,76,120,95"/>
+<area shape="rect" id="Node000005" href="$arithmetic__divide_8c.html#a6eb136221287622b5358966dd95ed0cc" title="Divides two double values and stores the result." alt="" coords="202,93,302,120"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="130,104,187,104,187,109,130,109"/>
+<area shape="rect" id="Node000006" href="$misc_8c.html#a68c5009d2808dec85d359c07ac03a593" title=" " alt="" coords="192,144,313,171"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="120,118,187,137,186,142,118,123"/>
+<area shape="rect" id="Node000003" href="$mutex_8c.html#a2afa4ac9d94043fec3f0d361edb4d0d9" title="Locks the mutex handler (busy&#45;wait)." alt="" coords="400,5,492,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="324,39,384,28,385,33,325,45"/>
+<area shape="rect" id="Node000004" href="$mutex_8c.html#aa332c26b7b4ca9d847c79a031c4b151f" title="Unlocks the mutex handler." alt="" coords="394,56,499,83"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="328,58,378,62,378,67,327,64"/>
+<area shape="rect" id="Node000007" href="$misc_8c.html#abb1b01d9805cf9b2354fcc13f7a787bc" title="Parses a string token into a double value." alt="" coords="375,119,517,145"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="313,147,359,141,360,146,314,152"/>
+<area shape="rect" id="Node000008" href="$misc_8c.html#a26d79ae4b7a899d74727f732c288c069" title="Reentrant string tokenizer (public domain by Charlie Gordon)." alt="" coords="392,169,500,196"/>
+<area shape="poly" id="edge7_Node000006_Node000008" title=" " alt="" coords="314,163,377,171,377,176,313,168"/>
+</map>

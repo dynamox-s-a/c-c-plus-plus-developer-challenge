@@ -1,0 +1,17 @@
+<map id="controller_handler_t" name="controller_handler_t">
+<area shape="rect" id="Node000001" title=" " alt="" coords="45,443,180,469"/>
+<area shape="rect" id="Node000002" href="$structlogs__file__handler__t.html" title="Handler of logs file." alt="" coords="48,344,177,371"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="115,386,115,442,110,442,110,386"/>
+<area shape="rect" id="Node000003" href="$structlogs__file__handler__config__t.html" title=" " alt="" coords="27,224,198,251"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="115,267,115,344,110,344,110,267"/>
+<area shape="rect" id="Node000004" href="$structstream__handler__t.html" title=" " alt="" coords="52,104,173,131"/>
+<area shape="poly" id="edge8_Node000001_Node000004" title=" " alt="" coords="84,142,47,178,30,201,18,225,10,252,9,283,18,321,38,369,51,391,67,410,98,440,95,444,63,414,46,394,33,372,12,323,4,284,5,251,13,223,26,198,43,175,81,139"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="115,147,115,224,110,224,110,147"/>
+<area shape="rect" id="Node000007" href="$structcli__handler__config__t.html" title="Cli Handlers config." alt="" coords="222,224,358,251"/>
+<area shape="poly" id="edge7_Node000007_Node000004" title=" " alt="" coords="145,137,272,221,269,226,142,142"/>
+<area shape="rect" id="Node000005" href="$structmutex__handler__t.html" title=" " alt="" coords="54,5,171,32"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="115,48,115,104,110,104,110,48"/>
+<area shape="rect" id="Node000006" href="$structcli__handler__t.html" title="Handler of cli." alt="" coords="221,344,316,371"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="255,385,240,404,221,421,196,435,170,445,168,440,194,430,218,416,236,400,251,382"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="287,267,273,344,268,343,282,266"/>
+</map>

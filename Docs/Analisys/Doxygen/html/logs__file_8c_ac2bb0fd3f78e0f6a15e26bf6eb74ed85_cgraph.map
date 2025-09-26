@@ -1,0 +1,5 @@
+<map id="print_terminal" name="print_terminal">
+<area shape="rect" id="Node000001" title="Prints a log entry with a timestamp to the terminal." alt="" coords="5,5,105,32"/>
+<area shape="rect" id="Node000002" href="$logs__file_8c.html#a13b1f3d9c0ed37cab2e6c7a9356653a8" title="Gets the current date and time as a formatted string." alt="" coords="153,5,287,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="105,16,137,16,137,21,105,21"/>
+</map>

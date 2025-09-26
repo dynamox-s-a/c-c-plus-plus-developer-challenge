@@ -1,0 +1,5 @@
+<map id="log_n_values" name="log_n_values">
+<area shape="rect" id="Node000001" title="Calculates the logarithm of value1 with base value2 and stores the result." alt="" coords="179,5,276,32"/>
+<area shape="rect" id="Node000002" href="$arithmetic__log__n_8c.html#aee95770337ddfa4081b58fcfed717777" title="Implements the &quot;Log_N&quot; CLI command." alt="" coords="5,5,131,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="163,21,131,21,131,16,163,16"/>
+</map>

@@ -1,0 +1,18 @@
+<map id="Logs_File_Handler_Init" name="Logs_File_Handler_Init">
+<area shape="rect" id="Node000001" title="Initializes the log file handler." alt="" coords="5,107,160,133"/>
+<area shape="rect" id="Node000002" href="$logs__file_8c.html#abbf7591eae5515f13aba5095f0a35428" title="Checks the log file handler&#39;s stream for new log entries." alt="" coords="208,107,382,133"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="160,117,192,117,192,123,160,123"/>
+<area shape="rect" id="Node000003" href="$misc_8c.html#a26d79ae4b7a899d74727f732c288c069" title="Reentrant string tokenizer (public domain by Charlie Gordon)." alt="" coords="430,5,538,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="318,104,429,42,438,37,440,42,431,46,321,108"/>
+<area shape="rect" id="Node000004" href="$mutex_8c.html#a2afa4ac9d94043fec3f0d361edb4d0d9" title="Locks the mutex handler (busy&#45;wait)." alt="" coords="438,56,530,83"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="347,103,423,83,424,88,348,109"/>
+<area shape="rect" id="Node000005" href="$mutex_8c.html#aa332c26b7b4ca9d847c79a031c4b151f" title="Unlocks the mutex handler." alt="" coords="432,107,537,133"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="382,117,416,117,416,123,382,123"/>
+<area shape="rect" id="Node000006" href="$logs__file_8c.html#ac2bb0fd3f78e0f6a15e26bf6eb74ed85" title="Prints a log entry with a timestamp to the terminal." alt="" coords="434,157,534,184"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="348,131,421,151,419,156,347,137"/>
+<area shape="rect" id="Node000008" href="$logs__file_8c.html#aca9e74f515bef270bfef19ce7f4e1973" title="Saves a single log entry (token) to the log file." alt="" coords="440,208,528,235"/>
+<area shape="poly" id="edge7_Node000002_Node000008" title=" " alt="" coords="321,132,431,194,440,198,438,203,429,198,318,136"/>
+<area shape="rect" id="Node000007" href="$logs__file_8c.html#a13b1f3d9c0ed37cab2e6c7a9356653a8" title="Gets the current date and time as a formatted string." alt="" coords="586,183,721,209"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="535,175,571,181,570,186,534,181"/>
+<area shape="poly" id="edge8_Node000008_Node000007" title=" " alt="" coords="528,212,570,206,571,211,529,217"/>
+</map>

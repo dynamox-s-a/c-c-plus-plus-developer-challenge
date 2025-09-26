@@ -1,0 +1,9 @@
+<map id="get_parser_uint_internal" name="get_parser_uint_internal">
+<area shape="rect" id="Node000001" title="Returns a pointer to the unsigned integer parser function." alt="" coords="450,5,610,32"/>
+<area shape="rect" id="Node000002" href="$test__misc_8c.html#a7cfff22a7d35e073417ce118d229329e" title="TODO." alt="" coords="232,5,402,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="434,21,403,21,403,16,434,16"/>
+<area shape="rect" id="Node000003" href="$test__misc_8c.html#a9877dad8dda5b9bee37a33861e2c06e6" title="TODO." alt="" coords="103,5,184,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="217,21,184,21,184,16,217,16"/>
+<area shape="rect" id="Node000004" href="$test_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="TODO." alt="" coords="5,5,55,32"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="87,21,55,21,55,16,87,16"/>
+</map>

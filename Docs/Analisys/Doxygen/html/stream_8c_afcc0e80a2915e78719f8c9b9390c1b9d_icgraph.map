@@ -1,0 +1,7 @@
+<map id="Stream_Init" name="Stream_Init">
+<area shape="rect" id="Node000001" title="Initializes a stream buffer handler." alt="" coords="253,5,341,32"/>
+<area shape="rect" id="Node000002" href="$controller_8c.html#a08e320ef3c3f21f3465a3cb8a7e0d7fa" title="Reentrant string tokenizer (public domain by Charlie Gordon)." alt="" coords="103,5,205,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="237,21,206,21,206,16,237,16"/>
+<area shape="rect" id="Node000003" href="$main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="Functon to start aplication." alt="" coords="5,5,55,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="87,21,55,21,55,16,87,16"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="subtract_values" name="subtract_values">
+<area shape="rect" id="Node000001" title="Subtracts one double value from another and stores the result." alt="" coords="190,5,303,32"/>
+<area shape="rect" id="Node000002" href="$arithmetic__subtract_8c.html#ae4386765635940545726bb78792e66d2" title="Implements the &quot;Subtract&quot; CLI command." alt="" coords="5,5,142,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="174,21,142,21,142,16,174,16"/>
+</map>

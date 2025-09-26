@@ -1,0 +1,7 @@
+<map id="test_Misc_Parser_Double" name="test_Misc_Parser_Double">
+<area shape="rect" id="Node000001" title="TODO." alt="" coords="5,5,177,32"/>
+<area shape="rect" id="Node000002" href="$misc_8c.html#a61644e5eac7e4bc31a54f9aa02ffb823" title="Returns a pointer to the double parser function." alt="" coords="225,5,401,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="177,16,209,16,209,21,177,21"/>
+<area shape="rect" id="Node000003" href="$misc_8c.html#abb1b01d9805cf9b2354fcc13f7a787bc" title="Parses a string token into a double value." alt="" coords="449,5,591,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="402,16,433,16,433,21,402,21"/>
+</map>

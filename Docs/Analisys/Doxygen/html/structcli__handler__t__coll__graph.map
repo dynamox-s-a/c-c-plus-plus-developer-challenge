@@ -1,0 +1,9 @@
+<map id="cli_handler_t" name="cli_handler_t">
+<area shape="rect" id="Node000001" title="Handler of cli." alt="" coords="26,323,121,349"/>
+<area shape="rect" id="Node000002" href="$structcli__handler__config__t.html" title="Cli Handlers config." alt="" coords="5,224,142,251"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="76,266,76,322,71,322,71,266"/>
+<area shape="rect" id="Node000003" href="$structstream__handler__t.html" title=" " alt="" coords="13,104,134,131"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="76,147,76,224,71,224,71,147"/>
+<area shape="rect" id="Node000004" href="$structmutex__handler__t.html" title=" " alt="" coords="15,5,132,32"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="76,48,76,104,71,104,71,48"/>
+</map>

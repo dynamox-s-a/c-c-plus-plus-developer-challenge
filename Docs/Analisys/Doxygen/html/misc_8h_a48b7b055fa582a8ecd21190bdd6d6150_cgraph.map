@@ -1,0 +1,5 @@
+<map id="get_strtok_internal" name="get_strtok_internal">
+<area shape="rect" id="Node000001" title="Returns a pointer to the reentrant string tokenizer function." alt="" coords="5,5,134,32"/>
+<area shape="rect" id="Node000002" href="$misc_8c.html#a26d79ae4b7a899d74727f732c288c069" title="Reentrant string tokenizer (public domain by Charlie Gordon)." alt="" coords="182,5,290,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="134,16,166,16,166,21,134,21"/>
+</map>

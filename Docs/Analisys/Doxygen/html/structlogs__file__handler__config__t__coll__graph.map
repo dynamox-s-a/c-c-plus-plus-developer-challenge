@@ -1,0 +1,7 @@
+<map id="logs_file_handler_config_t" name="logs_file_handler_config_t">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,203,177,229"/>
+<area shape="rect" id="Node000002" href="$structstream__handler__t.html" title=" " alt="" coords="30,104,152,131"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="94,146,94,202,88,202,88,146"/>
+<area shape="rect" id="Node000003" href="$structmutex__handler__t.html" title=" " alt="" coords="32,5,150,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="94,48,94,104,88,104,88,48"/>
+</map>

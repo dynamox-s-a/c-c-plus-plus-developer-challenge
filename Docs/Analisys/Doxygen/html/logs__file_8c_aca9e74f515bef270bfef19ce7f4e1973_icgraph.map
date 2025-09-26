@@ -1,0 +1,14 @@
+<map id="save_string" name="save_string">
+<area shape="rect" id="Node000001" title="Saves a single log entry (token) to the log file." alt="" coords="698,31,786,57"/>
+<area shape="rect" id="Node000002" href="$logs__file_8c.html#abbf7591eae5515f13aba5095f0a35428" title="Checks the log file handler&#39;s stream for new log entries." alt="" coords="475,31,650,57"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="682,47,650,47,650,41,682,41"/>
+<area shape="rect" id="Node000003" href="$controller_8c.html#a59522a85c6772a03c8a8c52813e1ca33" title="Parses a string token into a double value." alt="" coords="103,5,225,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="460,40,225,25,226,20,460,35"/>
+<area shape="rect" id="Node000005" href="$logs__file_8c.html#aaacd01c248600c980910f867fd572659" title="Initializes the log file handler." alt="" coords="273,56,427,83"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="460,59,428,63,427,57,459,54"/>
+<area shape="rect" id="Node000004" href="$main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="Functon to start aplication." alt="" coords="5,31,55,57"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="88,36,56,42,55,37,87,31"/>
+<area shape="rect" id="Node000006" href="$controller_8c.html#a08e320ef3c3f21f3465a3cb8a7e0d7fa" title="Reentrant string tokenizer (public domain by Charlie Gordon)." alt="" coords="113,56,215,83"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="257,72,215,72,215,67,257,67"/>
+<area shape="poly" id="edge6_Node000006_Node000004" title=" " alt="" coords="97,59,55,51,56,46,98,54"/>
+</map>

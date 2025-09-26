@@ -1,0 +1,11 @@
+digraph "root_n_values"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  rankdir="RL";
+  Node1 [id="Node000001",label="root_n_values",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip="Computes the N-th root of a value and stores the result."];
+  Node1 -> Node2 [id="edge1_Node000001_Node000002",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node2 [id="Node000002",label="Arithmetic_Root_N",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$arithmetic__root__n_8c.html#ae6e9b070a0fd2a1e3d9740d5affd700f",tooltip="Implements the \"Root_N\" CLI command."];
+}
