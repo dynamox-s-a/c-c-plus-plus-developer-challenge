@@ -1,8 +1,8 @@
 /**
  * @file    cli_handler.h
- * @brief   TODO
+ * @brief   CLI Handler - Receive commands and process
  *
- * @details TODO
+ * @details Receive a command from stream rx and return answare in stream tx
  *
  * @author  Emerson Isaias da Silva
  * @date    21-09-2025
@@ -18,6 +18,9 @@ extern "C" {
 /*
  *   INCLUDES
  */
+#include "misc.h"
+#include "stream.h"
+
 #include "stdbool.h"
 #include "stdint.h"
 
@@ -28,11 +31,17 @@ extern "C" {
 /*
  *   MACROS
  */
-#define CLI_STRING_STREAM_TX(cli_handler, ...) do {   \
-    char _buffer[512];                               \
-    snprintf(_buffer, sizeof(_buffer), __VA_ARGS__);  \
-    strcat((cli_handler)->config.stream_tx, _buffer); \
-} while(0)
+
+/* Verify function return */
+#define CHECK_CLI_HANDLER_FUNC_RET(func)        do { int err = (func); if (err != (CLI_HANDLER_ERROR_OK)) return err; } while (0)
+
+/* Verify NULL parameter */
+#define CHECK_CLI_HANDLER_PTR(cli_handler)      do { if ((cli_handler) == NULL) return CLI_HANDLER_ERROR_PARM; } while(0)
+
+/* Verify if initializate correctly */
+#define CHECK_CLI_HANDLER_INIT(cli_handler)     do { if ((cli_handler)->init == false) return CLI_HANDLER_ERROR_INIT; } while(0)
+
+
 /*
  *   ENUMS
  */
@@ -95,9 +104,9 @@ typedef struct {
 typedef struct {
 
     bool multithread;   /**< Flag indicates app is multithread */
-    char* stream_rx;    /**< Strem of receive commands */
-    char* stream_tx;    /**< Strem of send answer */
-    uint8_t decimal;
+    stream_handler_t* stream_rx;    /**< Strem of receive commands */
+    stream_handler_t* stream_tx;    /**< Strem of send answer */
+    uint32_t decimal;
 
 } cli_handler_config_t;
 
@@ -125,6 +134,7 @@ cli_handler_error_e Cli_Handler_Init(   cli_handler_t* cli_handler,
                                         void* param);
                                         
 cli_handler_error_e Cli_Handler_Check(cli_handler_t* cli_handler);
+cli_handler_error_e Cli_Handler_Out_Msg(cli_handler_t* cli_handler, const char* format, ...);
 
 
 #ifdef __cplusplus

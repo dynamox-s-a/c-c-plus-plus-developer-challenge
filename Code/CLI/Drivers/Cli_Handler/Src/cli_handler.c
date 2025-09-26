@@ -24,6 +24,7 @@
 
 #include "misc.h"
 
+#include "stdarg.h"
 #include <stdbool.h>
 #include <stddef.h>
 #include <stdio.h>
@@ -33,14 +34,6 @@
 /*
  *   MACROS
  */
-
-/* Verify NULL parameter */
-#define CHECK_CLI_HANDLER_PTR(cli_handler)      do { if ((cli_handler) == NULL) return CLI_HANDLER_ERROR_PARM; } while(0)
-
-/* Verify if initializate correctly */
-#define CHECK_CLI_HANDLER_INIT(cli_handler)     do { if ((cli_handler)->init == false) return CLI_HANDLER_ERROR_INIT; } while(0)
-
-#define CHECK_CLI_HANDLER_FUNC_RET(func)        do { int err = (func); if (err != (CLI_HANDLER_ERROR_OK)) return err; } while (0)
 
 /*
  *   EXTERNAL VARIABLES
@@ -131,7 +124,7 @@ cli_handler_error_e Cli_Handler_Init(   cli_handler_t* cli_handler,
     cli_handler->init = true;           /* Indicate success initializate */
     cli_handler->ans = 0.0f;            /* Initialize ANS with value 0.0*/
 
-    CLI_STRING_STREAM_TX(cli_handler, "Dynamox C/C++ Developer Challenge\n");
+    Cli_Handler_Out_Msg(cli_handler, "Dynamox C/C++ Developer Challenge\n");
 
     return CLI_HANDLER_ERROR_OK;
 }
@@ -147,13 +140,38 @@ cli_handler_error_e Cli_Handler_Check(cli_handler_t* cli_handler){
     CHECK_CLI_HANDLER_PTR(cli_handler);     /* Verify null poiter */
     CHECK_CLI_HANDLER_INIT(cli_handler);    /* Verify no intialized */
 
+    Mutex_Lock(&cli_handler->config.stream_rx->mutex); /* Lock stream */
+
     do { /* Do this function in loop case multithread */
 
-        CHECK_CLI_HANDLER_FUNC_RET(check_receive_cmd(cli_handler)); /* Verify if receive a command */
+        if(strlen(cli_handler->config.stream_rx->buffer) > 0){
+
+            CHECK_CLI_HANDLER_FUNC_RET(check_receive_cmd(cli_handler)); /* Verify if receive a command */
+        }
     }
     while (cli_handler->config.multithread == true);
 
+    Mutex_Unlock(&cli_handler->config.stream_rx->mutex); /* Unlock stream */
+
     return CLI_HANDLER_ERROR_OK; /* Return OK */
+}
+
+cli_handler_error_e Cli_Handler_Out_Msg(cli_handler_t* cli_handler, const char* format, ...) {
+
+    char _buffer[512];
+
+    Mutex_Lock(&cli_handler->config.stream_tx->mutex);
+
+    va_list args;
+    va_start(args, format);
+    vsnprintf(_buffer, sizeof(_buffer), format, args);
+    va_end(args);
+
+    strcat(cli_handler->config.stream_tx->buffer, _buffer);
+
+    Mutex_Unlock(&cli_handler->config.stream_tx->mutex);
+
+    return CLI_HANDLER_ERROR_OK;
 }
 
 /**
@@ -167,8 +185,8 @@ static cli_handler_error_e check_receive_cmd(cli_handler_t* cli_handler){
     bool receive_cmd = false;
     char* saveptr;
     char* stream_token;
-    
-    stream_token = Misc_Strtok_R(cli_handler->config.stream_rx, " ", &saveptr); /* Get first command */
+
+    stream_token = Misc_Strtok_R(cli_handler->config.stream_rx->buffer, " ", &saveptr); /* Get first command */
 
     for (size_t i = 0; i < sizeof(Commands)/sizeof(cli_handler_commands_t*); i++){  /* Search the command */
 
@@ -183,7 +201,7 @@ static cli_handler_error_e check_receive_cmd(cli_handler_t* cli_handler){
 
     if(receive_cmd == false){   /* Case this command dont have in list */
 
-        CLI_STRING_STREAM_TX(cli_handler, "Verify sintax command, send \"Help\" for more information.\n");
+        Cli_Handler_Out_Msg(cli_handler, "Verify sintax command, send \"Help\" for more information.\n");
     }
 
     return CLI_HANDLER_ERROR_OK; /* Return OK */
@@ -198,7 +216,7 @@ static cli_handler_error_e check_receive_cmd(cli_handler_t* cli_handler){
  */
 static cli_handler_error_e command_decimal(cli_handler_t* cli_handler, char* saveptr){
     
-    double decimal;
+    uint32_t decimal;
     char* token;
 
     token = Misc_Strtok_R(NULL, "[]", &saveptr);    /* Remove [] after command */
@@ -209,7 +227,7 @@ static cli_handler_error_e command_decimal(cli_handler_t* cli_handler, char* sav
 
     cli_handler->config.decimal = decimal;          /* Set decimal configuration */
 
-    CLI_STRING_STREAM_TX(cli_handler, "New decimal resolution is %d\n", decimal);
+    Cli_Handler_Out_Msg(cli_handler, "New decimal resolution is %d\n", decimal);
 
     return CLI_HANDLER_ERROR_OK; /* Return OK */
 }
@@ -225,7 +243,7 @@ static cli_handler_error_e command_clear(cli_handler_t* cli_handler, char* savep
     
     cli_handler->ans = 0.0f; /* Reset ANS to value 0.0 */
 
-    CLI_STRING_STREAM_TX(cli_handler, "ANS = %.*f\n", cli_handler->config.decimal, cli_handler->ans);
+    Cli_Handler_Out_Msg(cli_handler, "ANS = %.*f\n", cli_handler->config.decimal, cli_handler->ans);
 
     return CLI_HANDLER_ERROR_OK; /* Return OK */
 }
@@ -241,7 +259,7 @@ static cli_handler_error_e command_help(cli_handler_t* cli_handler, char* savept
 
     for(size_t i = 0; i < sizeof(Commands)/sizeof(cli_handler_commands_t*); i++){ /* List all desciption commnads */
 
-        CLI_STRING_STREAM_TX(cli_handler, "%-20s - %s", Commands[i]->name, Commands[i]->description);
+        Cli_Handler_Out_Msg(cli_handler, "%-20s - %s", Commands[i]->name, Commands[i]->description);
     }
 
     return CLI_HANDLER_ERROR_OK; /* Return OK */
@@ -258,7 +276,7 @@ static cli_handler_error_e command_exit(cli_handler_t* cli_handler, char* savept
     
     cli_handler->init = false;      /* Deinitialize the handler */
 
-    CLI_STRING_STREAM_TX(cli_handler, "Finish application");
+    Cli_Handler_Out_Msg(cli_handler, "Finish application");
 
     return CLI_HANDLER_ERROR_OK;    /* Return OK */
 }
