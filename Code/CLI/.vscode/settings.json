@@ -17,7 +17,12 @@
         "test_arithmetic_multiply.h": "c",
         "test_arithmetic_power_n.h": "c",
         "test_arithmetic_root_n.h": "c",
-        "test_arithmetic_subtract.h": "c"
+        "test_arithmetic_subtract.h": "c",
+        "test_cli_handler.h": "c",
+        "test_misc.h": "c",
+        "test_logs_file.h": "c",
+        "logs_file.h": "c",
+        "math.h": "c"
     },
     "files.exclude": {
         "**/*.o": true,

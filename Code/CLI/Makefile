@@ -11,23 +11,30 @@ INCLUDES = \
 	-IDrivers/Arithmetic/Test/Inc \
 	-IDrivers/Cli_Handler/Test/Inc \
 	-IDrivers/Logs_File/Test/Inc \
-	-IDrivers/Misc/Test/Inc
+	-IDrivers/Misc/Test/Inc \
+	-IDrivers/Mutex/Inc \
+	-IDrivers/Controller/Inc \
+	-IDrivers/Stream/Inc
 
 # Flags
 CFLAGS = -Wall -Wextra -g $(INCLUDES)
 
 # Common source files (without main.c and test.c)
 SRC = \
-    $(wildcard Src/*.c) \
+	$(wildcard Src/*.c) \
 	$(wildcard Drivers/Arithmetic/Src/*.c) \
-    $(wildcard Drivers/Cli_Handler/Src/*.c) \
+	$(wildcard Drivers/Cli_Handler/Src/*.c) \
 	$(wildcard Drivers/Logs_File/Src/*.c) \
-    $(wildcard Drivers/Misc/Src/*.c) \
+	$(wildcard Drivers/Misc/Src/*.c) \
 	$(wildcard Drivers/Unity/Src/*.c) \
+	$(wildcard Drivers/Controller/Src/*.c) \
+	$(wildcard Drivers/Stream/Src/*.c) \
+	$(wildcard Drivers/Mutex/Src/*.c) \
 	$(wildcard Drivers/Arithmetic/Test/Src/*.c) \
 	$(wildcard Drivers/Cli_Handler/Test/Src/*.c) \
 	$(wildcard Drivers/Logs_File/Test/Src/*.c) \
 	$(wildcard Drivers/Misc/Test/Src/*.c)
+	
 
 # Remove main.c and test.c from common sources
 SRC := $(filter-out Src/main.c Src/test.c, $(SRC))
@@ -60,4 +67,4 @@ run_tests: $(TARGET_TEST)
 
 # Clean generated files
 clean:
-	del /Q $(OBJ) Src\\main.o Src\\test.o $(TARGET_MAIN) $(TARGET_TEST)
+	rm -f $(OBJ) Src/main.o Src/test.o $(TARGET_MAIN) $(TARGET_TEST)
