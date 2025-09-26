@@ -64,18 +64,28 @@ const cli_handler_commands_t Arithmetic_Multiply_Cte = {
  * @return            CLI_HANDLER_ERROR_OK on success, error code otherwise.
  */
 cli_handler_error_e Arithmetic_Multiply(cli_handler_t* cli_handler, char* saveptr){
+
+    misc_vector_t* vector;
+
+    CHECK_CLI_HANDLER_PTR(cli_handler);
+    CHECK_CLI_HANDLER_PTR(saveptr);
+
+    Misc_Get_Vector(vector, saveptr);
     
-    double value;
-    char* token;
+    if(vector != NULL){
 
-    while ((token = Misc_Strtok_R(NULL, "[,]", &saveptr)) != NULL) {
+        for (size_t i = 0; i < vector->size; i++){
 
-        Misc_Parser_Double(&value, token);
-
-        multiply_values(&cli_handler->ans, cli_handler->ans, value);
-
-        Cli_Handler_Out_Msg(cli_handler, "ANS * %.*f = %.*f\n", cli_handler->config.decimal, value, cli_handler->config.decimal, cli_handler->ans);
+            multiply_values(&cli_handler->ans, cli_handler->ans, vector->data[i]);
+            Cli_Handler_Out_Msg(cli_handler, "ANS * %.*f = %.*f\n", cli_handler->config.decimal, vector->data[i], cli_handler->config.decimal, cli_handler->ans);
+        }
     }
+    else {
+
+        Cli_Handler_Out_Msg(cli_handler, "Error sintaxe or allocation error\n"); /* Freeing resources */
+    }
+
+    Misc_Free_Vector(vector); /* Freeing resources */
 
     return CLI_HANDLER_ERROR_OK; /* Return OK */
 }
