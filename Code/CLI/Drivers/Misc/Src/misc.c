@@ -1,9 +1,13 @@
 /**
  * @file    misc.c
- * @brief   TODO
+ * @brief   Utility functions for string parsing and conversion.
  *
- * @details TODO
- *
+ * @details
+ * This module provides miscellaneous helper functions, including:
+ *   - A reentrant string tokenizer (strtok_r)
+ *   - String to double and unsigned integer parsers with hexadecimal support
+ *   - Getter functions to retrieve function pointers for unit testing
+ * 
  * @author  Emerson Isaias da Silva
  * @date    21-09-2025
  */
@@ -13,10 +17,10 @@
  */
 #include "misc.h"
 
-#include "stddef.h"
-#include "stdlib.h"
-#include "string.h"
-#include "stdint.h"
+#include <stddef.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdint.h>
 
 /*
  *   MACROS
@@ -40,28 +44,41 @@
  *   UNIT TEST
  */
 
-// Getter: function to return the internal function pointer
+/**
+ * @brief Returns a pointer to the reentrant string tokenizer function.
+ * @return Function pointer to Misc_Strtok_R.
+ */
 Func_Misc_Strtok_R get_strtok_internal(void) {
     return Misc_Strtok_R;
 }
 
+/**
+ * @brief Returns a pointer to the double parser function.
+ * @return Function pointer to Misc_Parser_Double.
+ */
 Func_Misc_Parser_Double get_parser_double_internal(void) {
     return Misc_Parser_Double;
 }
 
+/**
+ * @brief Returns a pointer to the unsigned integer parser function.
+ * @return Function pointer to Misc_Parser_Uint.
+ */
 Func_Misc_Parser_Uint get_parser_uint_internal(void) {
     return Misc_Parser_Uint;
 }
 
-/* 
- * public domain strtok_r() by Charlie Gordon
+/*
+ *   IMPLEMENTATION
+ */
+
+/**
+ * @brief Reentrant string tokenizer (public domain by Charlie Gordon).
  *
- *   from comp.lang.c  9/14/2007
- *
- *      http://groups.google.com/group/comp.lang.c/msg/2ab1ecbb86646684
- *
- *     (Declaration that it's public domain):
- *      http://groups.google.com/group/comp.lang.c/msg/7c7b39328fefab9c
+ * @param str    The string to tokenize, or NULL to continue tokenizing the previous string.
+ * @param delim  The delimiter characters.
+ * @param nextp  Pointer to a char* variable that stores the next position.
+ * @return       Pointer to the next token, or NULL if no more tokens are found.
  */
 char* Misc_Strtok_R(char *str, const char *delim, char **nextp) {
     
@@ -94,11 +111,13 @@ char* Misc_Strtok_R(char *str, const char *delim, char **nextp) {
 }
 
 /**
- * @brief TODO
- * 
- * @param value Pointer of value double
- * @param token Pointer of token receive
- * @return TODO
+ * @brief Parses a string token into a double value.
+ *
+ *        Supports decimal and hexadecimal (prefix "0x" or "0X") formats.
+ *
+ * @param value Pointer to the double to store the result.
+ * @param token String token to parse.
+ * @return      MISC_ERROR_OK on success, MISC_ERROR_PARM if a parameter is NULL.
  */
 misc_error_e Misc_Parser_Double(double* value, char* token){
 
@@ -117,24 +136,62 @@ misc_error_e Misc_Parser_Double(double* value, char* token){
 }
 
 /**
- * @brief TODO
- * 
- * @param value Pointer of value double
- * @param token Pointer of token receive
- * @return TODO
+ * @brief Parses a string token into a double value.
+ *
+ *        Supports decimal and hexadecimal (prefix "0x" or "0X") formats.
+ *
+ * @param value Pointer to the double to store the result.
+ * @param token String token to parse.
+ * @return      MISC_ERROR_OK on success, MISC_ERROR_PARM if a parameter is NULL.
  */
-misc_error_e Misc_Parser_Uint(uint64_t* value, char* token){
+misc_error_e Misc_Parser_Uint(uint32_t* value, char* token){
 
     CHECK_MISC_PTR(token);
     CHECK_MISC_PTR(value);
 
     if (strncmp(token, "0x", 2) == 0 || strncmp(token, "0X", 2) == 0) {
         
-        *value = (uint64_t)strtol(token, NULL, 16);
+        *value = (uint32_t)strtol(token, NULL, 16);
     }
     else {
-        *value = (uint64_t)atoi(token);
+        *value = (uint32_t)atoi(token);
     }
+
+    return MISC_ERROR_OK; /* Return OK */
+}
+
+misc_error_e Misc_Get_Vector(misc_vector_t* vector, char* saveptr){
+
+    char* token;
+
+    CHECK_MISC_PTR(saveptr);
+
+    vector->data = NULL;
+    vector->size = 0;
+
+    while ((token = Misc_Strtok_R(NULL, "[,]", &saveptr)) != NULL) { /* Tokenize input */
+
+        double *tmp = realloc(vector->data, (vector->size + 1) * sizeof(double));
+
+        if (tmp == NULL) {
+
+            free(vector->data); /* Free vector memory */
+            free(vector);       /* Free vector structure */
+
+            return MISC_ERROR_ALLOC; /* Return error allocation */
+        }
+
+        vector->data = tmp;     /* Update vector pointer */
+        Misc_Parser_Double(&vector->data[vector->size], token); /* Parse double value */
+        vector->size++; /* Increment size */
+    }
+
+    return MISC_ERROR_OK; /* Return OK */
+}
+
+misc_error_e Misc_Free_Vector(misc_vector_t* vector){
+
+    free(vector->data);
 
     return MISC_ERROR_OK; /* Return OK */
 }
