@@ -8,7 +8,7 @@
  * The implementation uses a boolean flag and busy-waiting for demonstration or single-threaded use only.
  *
  * @author  Emerson Isaias da Silva
- * @date    21-09-2025
+ * @date    25-09-2025
  */
 
 /*
@@ -61,8 +61,11 @@
  * @return      MUTEX_ERROR_OK on success, MUTEX_ERROR_PARM if pointer is NULL.
  */
 mutex_error_e Mutex_Init(mutex_handler_t* mutex) {
+
     CHECK_MUTEX_PTR(mutex); /* Check mutex pointer */
+
     mutex->blocked = false; /* Initialize mutex as unblocked */
+
     return MUTEX_ERROR_OK;  /* Return OK */
 }
 
@@ -76,11 +79,16 @@ mutex_error_e Mutex_Init(mutex_handler_t* mutex) {
  * @return      MUTEX_ERROR_OK on success, MUTEX_ERROR_PARM if pointer is NULL.
  */
 mutex_error_e Mutex_Lock(mutex_handler_t* mutex) {
+
     CHECK_MUTEX_PTR(mutex); /* Check mutex pointer */
-    while (mutex->blocked == true) {
+
+    while (mutex->blocked == true){
+
         /* Wait for mutex to be free */
     }
+
     mutex->blocked = true; /* Lock mutex */
+
     return MUTEX_ERROR_OK;  /* Return OK */
 }
 
@@ -93,7 +101,10 @@ mutex_error_e Mutex_Lock(mutex_handler_t* mutex) {
  * @return      MUTEX_ERROR_OK on success, MUTEX_ERROR_PARM if pointer is NULL.
  */
 mutex_error_e Mutex_Unlock(mutex_handler_t* mutex) {
+
     CHECK_MUTEX_PTR(mutex); /* Check mutex pointer */
+
     mutex->blocked = false; /* Unlock mutex */
+
     return MUTEX_ERROR_OK;  /* Return OK */
 }
