@@ -1,8 +1,11 @@
 /**
  * @file    logs_file.h
- * @brief   TODO
+ * @brief   Implementation of log file handling for CLI application.
  *
- * @details TODO
+ * @details
+ * This module provides functions to initialize, check, and save log entries
+ * to a file. It uses a handler structure to manage file operations and
+ * supports parsing log streams line by line.
  *
  * @author  Emerson Isaias da Silva
  * @date    22-09-2025
@@ -18,11 +21,16 @@ extern "C" {
 /*
  *   INCLUDES
  */
+#include "misc.h"
+#include "stream.h"
+
 #include "stdio.h"
+#include "stdbool.h"
 
 /*
  *   DEFINES
  */
+#define LOGS_FILE_DATETIME_STR_LEN 20
 
 /*
  *   MACROS
@@ -48,13 +56,21 @@ typedef enum {
 /* Forward declaration*/
 typedef struct logs_file_handler_t logs_file_handler_t;
 
+typedef struct{
+
+    stream_handler_t* stream;
+    char* file_name;
+    bool terminal;
+
+}logs_file_handler_config_t;
+
 /**
  * @brief Handler of logs file
  */
 struct logs_file_handler_t{
 
     FILE* file;
-    char* stream;
+    logs_file_handler_config_t config;
 };
 
 /*
@@ -64,9 +80,9 @@ struct logs_file_handler_t{
 /*
  *   GLOBAL FUNCTIONS
  */
-logs_file_handler_error_e Logs_File_Handler_Init(logs_file_handler_t* logs_file_handler, char* stream);
-logs_file_handler_error_e Logs_File_Handler_Check(logs_file_handler_t* logs_file_handler, char* stream);
-
+logs_file_handler_error_e Logs_File_Handler_Init(logs_file_handler_t* logs_file_handler, logs_file_handler_config_t* config);
+logs_file_handler_error_e Logs_File_Handler_Check(logs_file_handler_t* logs_file_handler);
+logs_file_handler_error_e Logs_File_Handler_Close(logs_file_handler_t* logs_file_handler);
 #ifdef __cplusplus
 }
 #endif
