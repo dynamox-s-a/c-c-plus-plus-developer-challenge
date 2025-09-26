@@ -1,15 +1,14 @@
 /**
- * @file    stream.h
- * @brief   Utility functions for string parsing and conversion.
+ * @file    stream.c
+ * @brief   Stream buffer handler implementation for CLI application.
  *
  * @details
- * This module provides miscellaneous helper functions, including:
- *   - A reentrant string tokenizer (strtok_r)
- *   - String to double and unsigned integer parsers with hexadecimal support
- *   - Getter functions to retrieve function pointers for unit testing
- * 
+ * This module provides functions to initialize and manage a stream buffer handler,
+ * including mutex protection and buffer clearing. It is designed for use in CLI or
+ * embedded applications where safe and efficient stream management is required.
+ *
  * @author  Emerson Isaias da Silva
- * @date    21-09-2025
+ * @date    25-09-2025
  */
 
 #ifndef CLI_DRIVERS_STREAM_H /* Include guard */

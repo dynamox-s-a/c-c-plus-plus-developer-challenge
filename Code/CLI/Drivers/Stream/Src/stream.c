@@ -1,13 +1,12 @@
 /**
  * @file    stream.c
- * @brief   Utility functions for string parsing and conversion.
+ * @brief   Stream buffer handler implementation for CLI application.
  *
  * @details
- * This module provides miscellaneous helper functions, including:
- *   - A reentrant string tokenizer (strtok_r)
- *   - String to double and unsigned integer parsers with hexadecimal support
- *   - Getter functions to retrieve function pointers for unit testing
- * 
+ * This module provides functions to initialize and manage a stream buffer handler,
+ * including mutex protection and buffer clearing. It is designed for use in CLI or
+ * embedded applications where safe and efficient stream management is required.
+ *
  * @author  Emerson Isaias da Silva
  * @date    21-09-2025
  */
@@ -28,10 +27,14 @@
  *   MACROS
  */
 
-/* Verify NULL parameter */
+/**
+ * @brief Checks if a stream pointer is NULL and returns STREAM_ERROR_PARM if so.
+ */
 #define CHECK_STREAM_PTR(stream_ptr)       do { if ((stream_ptr) == NULL) return STREAM_ERROR_PARM; } while(0)
 
-/* Verify value */
+/**
+ * @brief Checks if a value matches the expected invalid value and returns STREAM_ERROR_PARM if so.
+ */
 #define CHECK_STREAM_VALID(value, expected) do { if ((value) == (expected)) return STREAM_ERROR_PARM; } while(0)
 
 /*
@@ -56,26 +59,22 @@
  */
 
 /**
- * @brief Reentrant string tokenizer (public domain by Charlie Gordon).
+ * @brief Initializes a stream buffer handler.
  *
- * @param str    The string to tokenize, or NULL to continue tokenizing the previous string.
- * @param delim  The delimiter characters.
- * @param nextp  Pointer to a char* variable that stores the next position.
- * @return       Pointer to the next token, or NULL if no more tokens are found.
+ *        Sets up the stream buffer, clears its contents, and initializes the associated mutex.
+ *
+ * @param stream Pointer to the stream handler structure.
+ * @param buffer Pointer to the buffer to be managed by the stream handler.
+ * @param size   Size of the buffer in bytes.
+ * @return       STREAM_ERROR_OK on success, STREAM_ERROR_PARM if any parameter is invalid.
  */
 stream_error_e Stream_Init(stream_handler_t* stream, char* buffer, size_t size) {
-
     CHECK_STREAM_PTR(stream);       /* Check stream pointer */
     CHECK_STREAM_PTR(buffer);       /* Check buffer pointer */
     CHECK_STREAM_VALID(size, 0);    /* Check size valid */
-
     Mutex_Init(&stream->mutex);     /* Initialize mutex */
-
     stream->buffer = buffer;        /* Set stream buffer */
-
     memset(stream->buffer, '\0', size);  /* Clean Stream buffer */
-
     stream->size = size;        /* Set stream size */
-
     return STREAM_ERROR_OK;     /* Return success */
 }
