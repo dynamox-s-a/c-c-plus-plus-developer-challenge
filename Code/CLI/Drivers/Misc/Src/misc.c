@@ -7,6 +7,7 @@
  *   - A reentrant string tokenizer (strtok_r)
  *   - String to double and unsigned integer parsers with hexadecimal support
  *   - Getter functions to retrieve function pointers for unit testing
+ *   - Dynamic vector allocation and freeing for parsed values
  * 
  * @author  Emerson Isaias da Silva
  * @date    21-09-2025
@@ -136,11 +137,11 @@ misc_error_e Misc_Parser_Double(double* value, char* token){
 }
 
 /**
- * @brief Parses a string token into a double value.
+ * @brief Parses a string token into an unsigned 32-bit integer value.
  *
  *        Supports decimal and hexadecimal (prefix "0x" or "0X") formats.
  *
- * @param value Pointer to the double to store the result.
+ * @param value Pointer to the uint32_t to store the result.
  * @param token String token to parse.
  * @return      MISC_ERROR_OK on success, MISC_ERROR_PARM if a parameter is NULL.
  */
@@ -180,17 +181,20 @@ misc_error_e Misc_Get_Vector(misc_vector_t* vector, char* saveptr){
 
             return MISC_ERROR_ALLOC; /* Return error allocation */
         }
-
-        vector->data = tmp;     /* Update vector pointer */
-        Misc_Parser_Double(&vector->data[vector->size], token); /* Parse double value */
-        vector->size++; /* Increment size */
+        vector->data = tmp;
+        Misc_Parser_Double(&vector->data[vector->size], token);
+        vector->size++;
     }
-
-    return MISC_ERROR_OK; /* Return OK */
+    return MISC_ERROR_OK;
 }
 
-misc_error_e Misc_Free_Vector(misc_vector_t* vector){
-
+/**
+ * @brief Frees the memory allocated for a misc_vector_t structure.
+ *
+ * @param vector Pointer to the misc_vector_t structure to free.
+ * @return       MISC_ERROR_OK.
+ */
+misc_error_e Misc_Free_Vector(misc_vector_t* vector) {
     free(vector->data);
 
     return MISC_ERROR_OK; /* Return OK */

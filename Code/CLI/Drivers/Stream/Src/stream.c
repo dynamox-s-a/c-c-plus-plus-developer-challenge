@@ -8,7 +8,7 @@
  * embedded applications where safe and efficient stream management is required.
  *
  * @author  Emerson Isaias da Silva
- * @date    21-09-2025
+ * @date    25-09-2025
  */
 
 /*
@@ -27,14 +27,10 @@
  *   MACROS
  */
 
-/**
- * @brief Checks if a stream pointer is NULL and returns STREAM_ERROR_PARM if so.
- */
+/* Verify NULL parameter */
 #define CHECK_STREAM_PTR(stream_ptr)       do { if ((stream_ptr) == NULL) return STREAM_ERROR_PARM; } while(0)
 
-/**
- * @brief Checks if a value matches the expected invalid value and returns STREAM_ERROR_PARM if so.
- */
+/* Verify value */
 #define CHECK_STREAM_VALID(value, expected) do { if ((value) == (expected)) return STREAM_ERROR_PARM; } while(0)
 
 /*
@@ -69,12 +65,18 @@
  * @return       STREAM_ERROR_OK on success, STREAM_ERROR_PARM if any parameter is invalid.
  */
 stream_error_e Stream_Init(stream_handler_t* stream, char* buffer, size_t size) {
+
     CHECK_STREAM_PTR(stream);       /* Check stream pointer */
     CHECK_STREAM_PTR(buffer);       /* Check buffer pointer */
     CHECK_STREAM_VALID(size, 0);    /* Check size valid */
+
     Mutex_Init(&stream->mutex);     /* Initialize mutex */
+
     stream->buffer = buffer;        /* Set stream buffer */
+
     memset(stream->buffer, '\0', size);  /* Clean Stream buffer */
+
     stream->size = size;        /* Set stream size */
+
     return STREAM_ERROR_OK;     /* Return success */
 }

@@ -1,8 +1,18 @@
 /**
  * @file    cli_handler.c
- * @brief   CLI Handler - Receive commands and process
+ * @brief   CLI Handler - Receive commands and process.
  *
- * @details Receive a command from stream rx and return answare in stream tx
+ * @details
+ * This module implements the CLI handler for the application. It receives commands from the RX stream,
+ * parses and processes them, and returns responses in the TX stream. It supports arithmetic and controller
+ * commands, manages command lookup, and provides thread-safe access to streams.
+ *
+ * Main features:
+ *   - Command registration and lookup
+ *   - Command parsing and dispatch
+ *   - Output formatting and message sending
+ *   - Thread-safe stream access using mutexes
+ *   - Built-in commands: Decimal, Clear, Help, Exit
  *
  * @author  Emerson Isaias da Silva
  * @date    21-09-2025
@@ -85,6 +95,9 @@ const cli_handler_commands_t Cli_Handler_Exit = {
         .func_ptr = command_exit
 };
 
+/**
+ * @brief Table of all available commands (arithmetic and controller).
+ */
 const cli_handler_commands_t* Commands[] = {
 
     /* Arithmetical commands */
@@ -105,10 +118,12 @@ const cli_handler_commands_t* Commands[] = {
 };
 
 /**
- * @brief This function initialize and configure handler CLI
- * 
- * @param cli_handler Pointer of handler CLI
- * @return cli_handler_error_e
+ * @brief Initializes and configures the CLI handler.
+ *
+ * @param cli_handler Pointer to the CLI handler structure.
+ * @param config      Pointer to the CLI handler configuration structure.
+ * @param param       Optional user context pointer.
+ * @return            CLI_HANDLER_ERROR_OK on success, error code otherwise.
  */
 cli_handler_error_e Cli_Handler_Init(   cli_handler_t* cli_handler,
                                         cli_handler_config_t* config,
@@ -130,10 +145,14 @@ cli_handler_error_e Cli_Handler_Init(   cli_handler_t* cli_handler,
 }
 
 /**
- * @brief Is a CLI handler, case multithread will stay in loop
- * 
- * @param cli_handler Pointer of handler CLI
- * @return cli_handler_error_e
+ * @brief Main CLI handler loop. Processes received commands.
+ *
+ * @details
+ * If multithreading is enabled, this function stays in a loop. It locks the RX stream,
+ * checks for received commands, and dispatches them for processing.
+ *
+ * @param cli_handler Pointer to the CLI handler structure.
+ * @return            CLI_HANDLER_ERROR_OK on success, error code otherwise.
  */
 cli_handler_error_e Cli_Handler_Check(cli_handler_t* cli_handler){
 
@@ -151,11 +170,19 @@ cli_handler_error_e Cli_Handler_Check(cli_handler_t* cli_handler){
     }
     while (cli_handler->config.multithread == true);
 
-    Mutex_Unlock(&cli_handler->config.stream_rx->mutex); /* Unlock stream */
+    Mutex_Unlock(&cli_handler->config.stream_rx->mutex);
 
-    return CLI_HANDLER_ERROR_OK; /* Return OK */
+    return CLI_HANDLER_ERROR_OK;
 }
 
+/**
+ * @brief Sends a formatted message to the CLI TX stream (thread-safe).
+ *
+ * @param cli_handler Pointer to the CLI handler structure.
+ * @param format      Format string (printf-style).
+ * @param ...         Arguments for the format string.
+ * @return            CLI_HANDLER_ERROR_OK on success, error code otherwise.
+ */
 cli_handler_error_e Cli_Handler_Out_Msg(cli_handler_t* cli_handler, const char* format, ...) {
 
     char _buffer[512];
@@ -175,13 +202,13 @@ cli_handler_error_e Cli_Handler_Out_Msg(cli_handler_t* cli_handler, const char* 
 }
 
 /**
- * @brief This function will check if receive a correct command and process
- * 
- * @param cli_handler Pointer of handler CLI
- * @return cli_handler_error_e
+ * @brief Checks and processes a received command from the RX stream.
+ *
+ * @param cli_handler Pointer to the CLI handler structure.
+ * @return            CLI_HANDLER_ERROR_OK on success, error code otherwise.
  */
-static cli_handler_error_e check_receive_cmd(cli_handler_t* cli_handler){
-
+static cli_handler_error_e check_receive_cmd(cli_handler_t* cli_handler) {
+    
     bool receive_cmd = false;
     char* saveptr;
     char* stream_token;
@@ -199,8 +226,7 @@ static cli_handler_error_e check_receive_cmd(cli_handler_t* cli_handler){
         }
     }
 
-    if(receive_cmd == false){   /* Case this command dont have in list */
-
+    if (!receive_cmd) {
         Cli_Handler_Out_Msg(cli_handler, "Verify sintax command, send \"Help\" for more information.\n");
     }
 
@@ -208,11 +234,11 @@ static cli_handler_error_e check_receive_cmd(cli_handler_t* cli_handler){
 }
 
 /**
- * @brief This command change the precision output stream of ANS
- * 
- * @param cli_handler Pointer of handler CLI
- * @param token Pointer of token receive
- * @return cli_handler_error_e
+ * @brief Command: Change the decimal precision of ANS output.
+ *
+ * @param cli_handler Pointer to the CLI handler structure.
+ * @param saveptr     Pointer to the input stream to parse.
+ * @return            CLI_HANDLER_ERROR_OK on success, error code otherwise.
  */
 static cli_handler_error_e command_decimal(cli_handler_t* cli_handler, char* saveptr){
     
@@ -233,11 +259,11 @@ static cli_handler_error_e command_decimal(cli_handler_t* cli_handler, char* sav
 }
 
 /**
- * @brief This command clear ANS variable
- * 
- * @param cli_handler Pointer of handler CLI
- * @param token Pointer of token receive
- * @return cli_handler_error_e
+ * @brief Command: Clear the ANS variable.
+ *
+ * @param cli_handler Pointer to the CLI handler structure.
+ * @param saveptr     Pointer to the input stream to parse.
+ * @return            CLI_HANDLER_ERROR_OK on success, error code otherwise.
  */
 static cli_handler_error_e command_clear(cli_handler_t* cli_handler, char* saveptr){
     
@@ -249,11 +275,11 @@ static cli_handler_error_e command_clear(cli_handler_t* cli_handler, char* savep
 }
 
 /**
- * @brief This command return all information about others commands
- * 
- * @param cli_handler Pointer of handler CLI
- * @param token Pointer of token receive
- * @return cli_handler_error_e
+ * @brief Command: Show help for all available commands.
+ *
+ * @param cli_handler Pointer to the CLI handler structure.
+ * @param saveptr     Pointer to the input stream to parse.
+ * @return            CLI_HANDLER_ERROR_OK on success, error code otherwise.
  */
 static cli_handler_error_e command_help(cli_handler_t* cli_handler, char* saveptr){
 
@@ -266,11 +292,11 @@ static cli_handler_error_e command_help(cli_handler_t* cli_handler, char* savept
 }
 
 /**
- * @brief This command deinitilize handler
- * 
- * @param cli_handler Pointer of handler CLI
- * @param token Pointer of token receive
- * @return cli_handler_error_e
+ * @brief Command: Deinitialize the CLI handler and exit the application.
+ *
+ * @param cli_handler Pointer to the CLI handler structure.
+ * @param saveptr     Pointer to the input stream to parse.
+ * @return            CLI_HANDLER_ERROR_OK on success, error code otherwise.
  */
 static cli_handler_error_e command_exit(cli_handler_t* cli_handler, char* saveptr){
     
