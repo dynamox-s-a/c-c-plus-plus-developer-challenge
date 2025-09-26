@@ -48,7 +48,7 @@ cli_handler_error_e log_n_values(double* result, const double value1, const doub
  */
 const cli_handler_commands_t Arithmetic_Log_N_Cte = {
         .name = "Log_N",
-        .description = "Log N the value to ANS - Sintax \"Log_N [0x00000000]\"\n",
+        .description = "Log N the value to ANS - Sintax \"Log_N [double, double, ...]\"\n",
         .func_ptr = Arithmetic_Log_N
 };
 
@@ -84,6 +84,8 @@ cli_handler_error_e Arithmetic_Log_N(cli_handler_t* cli_handler, char* saveptr){
 
         Cli_Handler_Out_Msg(cli_handler, "Error sintaxe or allocation error\n"); /* Freeing resources */
     }    
+
+    Misc_Free_Vector(vector); /* Freeing resources */
 
     return CLI_HANDLER_ERROR_OK; /* Return OK */
 }

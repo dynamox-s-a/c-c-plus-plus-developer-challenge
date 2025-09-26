@@ -81,7 +81,9 @@ cli_handler_error_e Arithmetic_Subtract(cli_handler_t* cli_handler, char* savept
     else {
 
         Cli_Handler_Out_Msg(cli_handler, "Error sintaxe or allocation error\n"); /* Freeing resources */
-    }    
+    } 
+
+    Misc_Free_Vector(vector); /* Freeing resources */
 
     return CLI_HANDLER_ERROR_OK; /* Return OK */
 }

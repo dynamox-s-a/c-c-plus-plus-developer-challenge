@@ -47,7 +47,7 @@ cli_handler_error_e power_n_values(double* result, const double value1, const do
  */
 const cli_handler_commands_t Arithmetic_Power_N_Cte = {
         .name = "Power_N",
-        .description = "Power N the value to ANS - Sintax \"Power_N [int, int, ...]\"\n",
+        .description = "Power N the value to ANS - Sintax \"Power_N [double, double, ...]\"\n",
         .func_ptr = Arithmetic_Power_N
 };
 
@@ -83,6 +83,8 @@ cli_handler_error_e Arithmetic_Power_N(cli_handler_t* cli_handler, char* saveptr
 
         Cli_Handler_Out_Msg(cli_handler, "Error sintaxe or allocation error\n"); /* Freeing resources */
     }
+
+    Misc_Free_Vector(vector); /* Freeing resources */
 
     return CLI_HANDLER_ERROR_OK; /* Return OK */
 }
