@@ -22,9 +22,9 @@ extern Operation operation_multiply;
  */
 static Operation* available_operations[] = {
     &operation_add,
-    &operation_mean//,
+    &operation_mean,
     //&operation_determinant,
-    //&operation_multiply
+    &operation_multiply
 };
 
 static const int num_operations = sizeof(available_operations) / sizeof(Operation*);
