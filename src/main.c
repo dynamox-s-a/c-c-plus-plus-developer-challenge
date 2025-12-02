@@ -8,8 +8,9 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include "operation_manager.h"
 
-// Forward declarations (will be implemented next)
+// Forward declarations
 void hmi_run(void);
 int system_init(void);
 void system_cleanup(void);
@@ -44,11 +45,14 @@ int main(void) {
  * @return 0 on success, -1 on failure
  */
 int system_init(void) {
-    // TODO: Initialize operation manager
+    
     // TODO: Initialize logger
     // TODO: Verify logs directory exists
+    if (operation_manager_init() != 0) {
+        fprintf(stderr, "ERROR: Failed to initialize operation manager\n");
+        return EXIT_FAILURE;
+    }
     
-    // For now, just return success
     return 0;
 }
 
@@ -68,6 +72,9 @@ void system_cleanup(void) {
  * This function will be implemented in hmi/terminal_interface.c
  */
 void hmi_run(void) {
+    // Show available operations
+    operation_manager_list();
+
     // Temporary stub - will be replaced
     printf("HMI not yet implemented\n");
     printf("Press Enter to exit...");
