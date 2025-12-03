@@ -9,9 +9,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "operation_manager.h"
+#include "hmi/terminal_interface.h"
 
 // Forward declarations
-void hmi_run(void);
 int system_init(void);
 void system_cleanup(void);
 
@@ -42,12 +42,13 @@ int main(void) {
 
 /**
  * @brief Initialize system components
- * @return 0 on success, -1 on failure
+ * @return 0 on success, 1 on failure
  */
 int system_init(void) {
     
     // TODO: Initialize logger
     // TODO: Verify logs directory exists
+    // Initialize operation manager
     if (operation_manager_init() != 0) {
         fprintf(stderr, "ERROR: Failed to initialize operation manager\n");
         return EXIT_FAILURE;
@@ -64,19 +65,4 @@ void system_cleanup(void) {
     // TODO: Free any allocated resources (if needed)
     
     // For now, nothing to cleanup
-}
-
-/**
- * @brief Run the Human Machine Interface
- * 
- * This function will be implemented in hmi/terminal_interface.c
- */
-void hmi_run(void) {
-    // Show available operations
-    operation_manager_list();
-
-    // Temporary stub - will be replaced
-    printf("HMI not yet implemented\n");
-    printf("Press Enter to exit...");
-    getchar();
 }
