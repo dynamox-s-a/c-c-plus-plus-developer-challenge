@@ -13,22 +13,6 @@
 #define MAX_MATRIX_SIZE 10
 
 /**
- * @brief Calculate determinant of 2x2 matrix
- */
-static double det_2x2(const double matrix[2][2]) {
-    return matrix[0][0] * matrix[1][1] - matrix[0][1] * matrix[1][0];
-}
-
-/**
- * @brief Calculate determinant of 3x3 matrix using Sarrus rule
- */
-static double det_3x3(const double matrix[3][3]) {
-    return matrix[0][0] * (matrix[1][1] * matrix[2][2] - matrix[1][2] * matrix[2][1])
-         - matrix[0][1] * (matrix[1][0] * matrix[2][2] - matrix[1][2] * matrix[2][0])
-         + matrix[0][2] * (matrix[1][0] * matrix[2][1] - matrix[1][1] * matrix[2][0]);
-}
-
-/**
  * @brief Execute determinant calculation
  */
 static int determinant_execute(const double* values, int count, double* result) {
@@ -53,21 +37,31 @@ static int determinant_execute(const double* values, int count, double* result) 
         return -1;
     }
     
-    // Copy values to 2D matrix for easier manipulation
-    double matrix[MAX_MATRIX_SIZE][MAX_MATRIX_SIZE];
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j < n; j++) {
-            matrix[i][j] = values[i * n + j];
-        }
-    }
-    
-    // Calculate based on size
+    // Calculate determinant based on size
     if (n == 2) {
-        *result = det_2x2((const double(*)[2])matrix);
+        // 2x2 determinant: ad - bc
+        // Matrix layout: [a b]
+        //                [c d]
+        double a = values[0];
+        double b = values[1];
+        double c = values[2];
+        double d = values[3];
+        
+        *result = a * d - b * c;
         return 0;
     }
     else if (n == 3) {
-        *result = det_3x3((const double(*)[3])matrix);
+        // 3x3 determinant using Sarrus rule
+        // Matrix layout: [a b c]
+        //                [d e f]
+        //                [g h i]
+        double a = values[0], b = values[1], c = values[2];
+        double d = values[3], e = values[4], f = values[5];
+        double g = values[6], h = values[7], i = values[8];
+        
+        *result = a * (e * i - f * h)
+                - b * (d * i - f * g)
+                + c * (d * h - e * g);
         return 0;
     }
     else {
