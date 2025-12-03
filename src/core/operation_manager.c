@@ -23,7 +23,7 @@ extern Operation operation_multiply;
 static Operation* available_operations[] = {
     &operation_add,
     &operation_mean,
-    //&operation_determinant,
+    &operation_determinant,
     &operation_multiply
 };
 
