@@ -104,6 +104,9 @@ void hmi_run(void) {
         int num_ops = operation_manager_get_count();
         if (input_read_int("Select operation (0 to exit): ", 0, num_ops, &choice) != 0) {
             printf("Invalid input. Please try again.\n");
+            // Pause before showing menu again
+            printf("\nPress Enter to continue...");
+            input_clear_buffer();
             continue;
         }
         
@@ -118,6 +121,9 @@ void hmi_run(void) {
         const Operation* op = operation_manager_get(choice - 1);
         if (op == NULL) {
             fprintf(stderr, "ERROR: Invalid operation\n");
+            // Pause before showing menu again
+            printf("\nPress Enter to continue...");
+            input_clear_buffer();
             continue;
         }
         
@@ -125,6 +131,9 @@ void hmi_run(void) {
         if (get_input_values(op, values, &count) != 0) {
             printf("Invalid input. Please try again.\n");
             logger_log_error(op->name, "Invalid input");
+            // Pause before showing menu again
+            printf("\nPress Enter to continue...");
+            input_clear_buffer();
             continue;
         }
         
@@ -133,6 +142,9 @@ void hmi_run(void) {
         if (operation_manager_execute(choice - 1, values, count, &result) != 0) {
             fprintf(stderr, "Operation failed. See error above.\n");
             logger_log_error(op->name, "Execution failed");
+            // Pause before showing menu again
+            printf("\nPress Enter to continue...");
+            input_clear_buffer();
             continue;
         }
 
@@ -145,6 +157,5 @@ void hmi_run(void) {
         // Pause before showing menu again
         printf("\nPress Enter to continue...");
         input_clear_buffer();
-        getchar();
     }
 }
