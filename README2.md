@@ -20,7 +20,7 @@ make
 ## Features
 
 ✅ Interactive terminal interface  
-✅ Array operations: addition and mean  
+✅ Array operations: addition, mean and multiply  
 ✅ Determinant calculation (2x2 and 3x3 matrices)  
 ✅ Persistent CSV logging  
 ✅ Easy to add new operations  
