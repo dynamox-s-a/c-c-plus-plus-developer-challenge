@@ -10,6 +10,7 @@
 #include <stdlib.h>
 #include "operation_manager.h"
 #include "hmi/terminal_interface.h"
+#include "logger.h"
 
 // Forward declarations
 int system_init(void);
@@ -45,13 +46,17 @@ int main(void) {
  * @return 0 on success, 1 on failure
  */
 int system_init(void) {
-    
-    // TODO: Initialize logger
-    // TODO: Verify logs directory exists
     // Initialize operation manager
     if (operation_manager_init() != 0) {
         fprintf(stderr, "ERROR: Failed to initialize operation manager\n");
         return EXIT_FAILURE;
+    }
+
+    // Initialize logger
+    if (logger_init() != 0) {
+        fprintf(stderr, "WARNING: Failed to initialize logger\n");
+        fprintf(stderr, "         Operations will not be logged\n");
+        // Continue anyway - logging is not critical
     }
     
     return 0;
@@ -61,8 +66,6 @@ int system_init(void) {
  * @brief Cleanup system resources
  */
 void system_cleanup(void) {
-    // TODO: Close log file
+    logger_close();    
     // TODO: Free any allocated resources (if needed)
-    
-    // For now, nothing to cleanup
 }

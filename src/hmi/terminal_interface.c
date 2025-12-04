@@ -8,6 +8,7 @@
 #include "operation_manager.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include "logger.h"
 
 #define MAX_VALUES 100
 
@@ -123,6 +124,7 @@ void hmi_run(void) {
         // Get input values
         if (get_input_values(op, values, &count) != 0) {
             printf("Invalid input. Please try again.\n");
+            logger_log_error(op->name, "Invalid input");
             continue;
         }
         
@@ -130,8 +132,12 @@ void hmi_run(void) {
         printf("\nExecuting...\n");
         if (operation_manager_execute(choice - 1, values, count, &result) != 0) {
             fprintf(stderr, "Operation failed. See error above.\n");
+            logger_log_error(op->name, "Execution failed");
             continue;
         }
+
+        // Log success
+        logger_log_success(op->name, values, count, result);
         
         // Display result
         display_result(op, values, count, result);
