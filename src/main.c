@@ -11,6 +11,7 @@
 #include "operation_manager.h"
 #include "hmi/terminal_interface.h"
 #include "logger.h"
+#include "version.h"
 
 // Forward declarations
 int system_init(void);
@@ -18,7 +19,7 @@ void system_cleanup(void);
 
 int main(void) {
     printf("===========================================\n");
-    printf("   Dynamox Embedded Calculator v1.0\n");
+    printf("   Dynamox Embedded Calculator v%s\n", VERSION_STRING);
     printf("===========================================\n\n");
     
     // Initialize system components
