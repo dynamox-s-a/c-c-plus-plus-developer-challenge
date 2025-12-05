@@ -39,7 +39,7 @@ build/
 dynamox_calculator
 
 # Runtime generated
-logs/*.csv
+logs/*
 *.log
 
 # IDE
