@@ -53,6 +53,22 @@ Operation log is saved in `logs/operations.csv`
 - **FUTURE_IMPROVEMENTS.md** - Planned enhancements
 - **docs/adding_operations.md** - How to add new operations
 
+## Input Limitations
+
+### Buffer Sizes (Embedded System Constraints)
+
+| Limit | Value | Description |
+|-------|-------|--------|
+| **Max input line** | 256 characters | Terminal buffer size |
+| **Max array size** | 100 values | Maximum array elements |
+Defined in input_validator.h
+
+### Tips for Large Arrays
+
+1. **Use scientific notation**: `1e6` instead of `1000000`
+2. **Split operations**: Process in batches
+3. **Use comma-separated**: More compact than spaces
+
 ## Author
 
 Vitor Hirozawa - Dynamox C/C++ Developer Challenge

@@ -10,8 +10,6 @@
 #include <stdlib.h>
 #include "logger.h"
 
-#define MAX_VALUES 100
-
 /**
  * @brief Display main menu
  */

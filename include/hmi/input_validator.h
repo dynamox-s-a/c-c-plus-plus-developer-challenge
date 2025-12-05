@@ -6,6 +6,10 @@
 #ifndef INPUT_VALIDATOR_H
 #define INPUT_VALIDATOR_H
 
+// Buffer size limits (embedded system constraints)
+#define MAX_INPUT_LINE 256      // Maximum characters per input line
+#define MAX_VALUES 100           // Maximum array elements
+
 #ifdef __cplusplus
 extern "C" {
 #endif
