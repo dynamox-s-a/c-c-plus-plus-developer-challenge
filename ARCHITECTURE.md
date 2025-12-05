@@ -23,12 +23,16 @@
 
 ---
 
-### 2. Maximum matrix size: 10x10
+### 2. Maximum matrix size: 6x6
 
-**Decision**: `#define MAX_MATRIX_SIZE 10`  
+**Decision**: `#define MAX_MATRIX_SIZE 6  
 **Rationale**:
-- Stack allocation: 10×10×8 bytes = 800 bytes (acceptable)
-- Determinant has O(n³) complexity - 10x10 is already heavy
+- Stack allocation: 6×6×8 bytes = 288 bytes (acceptable)
+- Determinant has O(n³) complexity - 6x6 is heavy
+- Why not 10x10?
+    - Input buffer is 256 chars
+    - 10x10 = 100 values × ~5 chars = 500 chars (exceeds buffer)
+    - 6x6 = 36 values × ~5 chars = 180 chars (safe margin)
 - Avoids dynamic allocation (memory fragmentation)
 
 **For production**: Evaluate actual needs and available MCU resources
@@ -48,15 +52,22 @@
 
 ---
 
-### 4. Determinant: Only 2x2 and 3x3
+### 4. Determinant: 2x2 to 6x6
 
-**Decision**: Direct implementation (non-recursive)  
+**Decision**: Direct implementation for 2x2/3x3 (non-recursive), LU decomposition for 4x4/5x5/6x6  
 **Rationale**:
 - 2x2: Direct formula (2 multiplications)
 - 3x3: Sarrus rule (simple and efficient)
-- NxN: Requires LU decomposition (higher complexity)
+- 2x2, 3x3: Direct formulas are faster (O(1) vs O(n³))
+- 4x4+: LU decomposition provides better numerical stability
+- 6x6 limit: Input buffer constraint (256 chars ≈ 36-49 values max)
 
-**Future improvement**: Implement LU decomposition for NxN
+**LU Decomposition details**:
+- Algorithm: Gaussian elimination with partial pivoting
+- Complexity: O(n³)
+- Stability: Pivoting prevents division by small numbers
+
+**Future improvement**: LU decomposition needs improvements
 
 ---
 

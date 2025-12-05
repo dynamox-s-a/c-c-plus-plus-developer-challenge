@@ -4,8 +4,11 @@
 
 ### High Priority
 - [ ] **LU Decomposition for NxN determinants**
-  - Current: Only 2x2 and 3x3
-  - Improvement: Support up to 10x10 using LU decomposition
+  - Current: 2x2 and 3x3 (direct formulas) and 4x4 to 6x6 (LU Decomposition that need improvements)
+  - Implemented: 4x4, 5x5, 6x6 using LU with partial pivoting
+  - Limit: 6x6 due to input buffer constraint (256 chars)
+  - Future: Increase input buffer to support 10x10 if needed
+  - Improvement: Still need improvements in LU decomposition. Support up to 10x10 using LU decomposition
   - Complexity: O(n³) but more numerically stable
 
 - [ ] **Binary log format option**

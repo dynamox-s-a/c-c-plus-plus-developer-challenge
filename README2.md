@@ -21,7 +21,8 @@ make
 
 ✅ Interactive terminal interface  
 ✅ Array operations: addition, mean and multiply  
-✅ Determinant calculation (2x2 and 3x3 matrices)  
+✅ Determinant calculation 2x2 and 3x3 matrices with direct formula
+✅ Implemented: Determinant calculation 4x4, 5x5, 6x6 using LU with partial pivoting (Need Improvements) 
 ✅ Persistent CSV logging  
 ✅ Easy to add new operations  
 
