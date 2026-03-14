@@ -1,5 +1,40 @@
 # Dynamox C/C++ Developer Challenge
 
+## Build (MinGW on Windows)
+
+### Prerequisites
+Install **MinGW** with `gcc` and `mingw32-make`.
+
+Default installation path:
+
+C:\MinGW\bin
+
+Make sure this folder is available in your system PATH or use the full path to the executables.
+
+---
+
+### Build
+
+Compile the project:
+
+C:\MinGW\bin\mingw32-make.exe
+
+or if MinGW is in PATH:
+
+mingw32-make
+
+---
+
+### Run
+
+Run the application:
+
+C:\MinGW\bin\mingw32-make.exe run
+
+or
+
+mingw32-make run
+
 In order to contribute to the enhancement of Dynamox solutions, we present you with the following challenge:
 
 While going through the challenge, you should be able to handle ambiguous situations, adhere to best practices in firmware development, and demonstrate excellent problem-solving skills. Effective communication through well-documented code, code quality, readability, and maintainability will also be evaluated.
