@@ -10,7 +10,7 @@ enum DeterminantStatus {
 };
 
 int calculate_determinant_gauss(int n,
-                                double matrix[MAX_MATRIX_DIMENSION][MAX_MATRIX_DIMENSION],
+                                const double matrix[MAX_MATRIX_DIMENSION][MAX_MATRIX_DIMENSION],
                                 double *determinant);
 
 #endif

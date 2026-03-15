@@ -35,6 +35,9 @@ or
 
 mingw32-make run
 
+### Operation log (bonus)
+After each operation (or input error), a line is appended to `output/operations.log`.
+
 In order to contribute to the enhancement of Dynamox solutions, we present you with the following challenge:
 
 While going through the challenge, you should be able to handle ambiguous situations, adhere to best practices in firmware development, and demonstrate excellent problem-solving skills. Effective communication through well-documented code, code quality, readability, and maintainability will also be evaluated.
@@ -55,23 +58,31 @@ We will expect candidates applying to more senior levels to demonstrate a deeper
 ---
 
 1 - Functional requirements
-1. [ ] Create an HMI where users can choose an operation and execute it.
-1. [ ] Users should be able to input single values and get the result.
-1. [ ] Users should be able to input array of values and get the result(If applicable).
-1. [ ] Add at least two operations
-1. [ ] Users must be able to select the operation type.
-1. [ ] One of the operations must be the calculation of the [Determinant](https://en.wikipedia.org/wiki/Determinant)
+1. [x] Create an HMI where users can choose an operation and execute it. (terminal)
+1. [x] Users should be able to input single values and get the result.
+1. [x] Users should be able to input array of values and get the result(If applicable).
+1. [x] Add at least two operations
+1. [x] Users must be able to select the operation type.
+1. [x] One of the operations must be the calculation of the [Determinant](https://en.wikipedia.org/wiki/Determinant)
 
 2 - Technical requirements
-1. [ ] Use C, C++ or both.
-1. [ ] The code must have a main.c file.
-1. [ ] Create libraries to organize the code.
+1. [x] Use C, C++ or both. (C11)
+1. [x] The code must have a main.c file.
+1. [x] Create libraries to organize the code. (`include/` + `src/`)
 
 3 - Bonus
 1. [ ] Add possibility to create new operation type.
-1. [ ] Add persistent operation log
-1. [ ] Enhance the determinant calculation functionality to allow users to select the dimensions of the matrix
-1. [ ] Detect and handle errors on the operation input
+1. [x] Add persistent operation log (`output/operations.log`)
+1. [x] Enhance the determinant calculation functionality to allow users to select the dimensions of the matrix
+1. [x] Detect and handle errors on the operation input
+
+## Implemented operations
+
+- Sum two values
+- Multiply two values
+- Sum array values
+- Average array values
+- Determinant (Gauss elimination with partial pivoting)
 
 </br>
 
@@ -110,4 +121,4 @@ In general we will be looking for the following:
 
 </br>
 
-**Good luck! We look forward to reviewing your submission.** 🚀
+**Good luck! We look forward to reviewing your submission.**

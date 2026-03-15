@@ -1,3 +1,4 @@
+#include <stddef.h>
 #include <math.h>
 #include "determinant.h"
 
@@ -25,42 +26,47 @@ static void swap_rows(double matrix[MAX_MATRIX_DIMENSION][MAX_MATRIX_DIMENSION],
 }
 
 int calculate_determinant_gauss(int n,
-                                double matrix[MAX_MATRIX_DIMENSION][MAX_MATRIX_DIMENSION],
+                                const double matrix[MAX_MATRIX_DIMENSION][MAX_MATRIX_DIMENSION],
                                 double *determinant) {
     int pivot, row, col;
     int sign = 1;
     double det = 1.0;
+    double work[MAX_MATRIX_DIMENSION][MAX_MATRIX_DIMENSION];
 
-    if (determinant == 0) return DET_NULL_OUTPUT;
+    if (determinant == NULL) return DET_NULL_OUTPUT;
     if (n <= 0 || n > MAX_MATRIX_DIMENSION) return DET_INVALID_DIMENSION;
+
+    for (row = 0; row < n; row++)
+        for (col = 0; col < n; col++)
+            work[row][col] = matrix[row][col];
 
     for (pivot = 0; pivot < n; pivot++) {
         int best_row = pivot;
 
         for (row = pivot + 1; row < n; row++) {
-            if (fabs(matrix[row][pivot]) > fabs(matrix[best_row][pivot]))
+            if (fabs(work[row][pivot]) > fabs(work[best_row][pivot]))
                 best_row = row;
         }
 
-        if (fabs(matrix[best_row][pivot]) < 1e-12) {
+        if (fabs(work[best_row][pivot]) < 1e-12) {
             *determinant = 0.0;
             return DET_SUCCESS;
         }
 
         if (best_row != pivot) {
-            swap_rows(matrix, pivot, best_row, n);
+            swap_rows(work, pivot, best_row, n);
             sign *= -1;
         }
 
         for (row = pivot + 1; row < n; row++) {
-            double factor = matrix[row][pivot] / matrix[pivot][pivot];
+            double factor = work[row][pivot] / work[pivot][pivot];
             for (col = pivot; col < n; col++)
-                matrix[row][col] -= factor * matrix[pivot][col];
+                work[row][col] -= factor * work[pivot][col];
         }
     }
 
     for (pivot = 0; pivot < n; pivot++)
-        det *= matrix[pivot][pivot];
+        det *= work[pivot][pivot];
 
     *determinant = det * sign;
     return DET_SUCCESS;

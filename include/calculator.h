@@ -6,5 +6,6 @@
 double sum_two_values(double a, double b);
 double multiply_two_values(double a, double b);
 double sum_array(const double *values, int size);
+double average_array(const double *values, int size);
 
 #endif
