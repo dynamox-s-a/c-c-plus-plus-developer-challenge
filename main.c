@@ -4,6 +4,14 @@
 #include "input_utils.h"
 #include "op_log.h"
 
+typedef void (*handler_t)(void);
+
+typedef struct {
+    int         id;
+    const char *name;
+    handler_t   handler;
+} Operation;
+
 static void handle_sum_two_values(void) {
     double a = 0.0, b = 0.0;
     double result = 0.0;
@@ -19,7 +27,7 @@ static void handle_sum_two_values(void) {
     result = sum_two_values(a, b);
     snprintf(detail, sizeof(detail), "a=%.6f;b=%.6f", a, b);
     oplog_append_success("sum_two_values", detail, result);
-
+    
     printf("Resultado: %.6f\n", result);
 }
 
@@ -38,7 +46,7 @@ static void handle_multiply_two_values(void) {
     result = multiply_two_values(a, b);
     snprintf(detail, sizeof(detail), "a=%.6f;b=%.6f", a, b);
     oplog_append_success("multiply_two_values", detail, result);
-
+    
     printf("Resultado: %.6f\n", result);
 }
 
@@ -69,7 +77,7 @@ static void handle_sum_array(void) {
     result = sum_array(values, size);
     snprintf(detail, sizeof(detail), "size=%d", size);
     oplog_append_success("sum_array", detail, result);
-
+    
     printf("Resultado: %.6f\n", result);
 }
 
@@ -100,7 +108,7 @@ static void handle_average_array(void) {
     result = average_array(values, size);
     snprintf(detail, sizeof(detail), "size=%d", size);
     oplog_append_success("average_array", detail, result);
-
+    
     printf("Resultado: %.6f\n", result);
 }
 
@@ -139,22 +147,36 @@ static void handle_determinant(void) {
 
     snprintf(detail, sizeof(detail), "n=%d", n);
     oplog_append_success("determinant_gauss", detail, det);
-
+    
     printf("Determinante: %.6f\n", det);
 }
 
+/* tabela com todas as operações disponíveis.
+ * Para adicionar uma nova: crie o handler e adicione  aqui. */
+static const Operation OPERATIONS[] = {
+    {1, "Somar dois valores",        handle_sum_two_values},
+    {2, "Multiplicar dois valores",  handle_multiply_two_values},
+    {3, "Somar um array de valores", handle_sum_array},
+    {4, "Media de um array",         handle_average_array},
+    {5, "Calcular determinante",     handle_determinant}
+};
+
+static const int OP_COUNT = (int)(sizeof(OPERATIONS) / sizeof(OPERATIONS[0]));
+
 static void print_menu(void) {
-    printf("\n=== Calculadora Dynamox ===\n");
-    printf("1. Somar dois valores\n");
-    printf("2. Multiplicar dois valores\n");
-    printf("3. Somar um array de valores\n");
-    printf("4. Media de um array de valores\n");
-    printf("5. Calcular determinante\n");
-    printf("0. Sair\n");
+    int i;
+    printf("\n----------------------------------\n");
+    printf("       Calculadora Dynamox\n");
+    printf("----------------------------------\n");
+    for (i = 0; i < OP_COUNT; i++)
+        printf("  %d. %s\n", OPERATIONS[i].id, OPERATIONS[i].name);
+    printf("  0. Sair\n");
+    printf("----------------------------------\n");
 }
 
 int main(void) {
     int option = -1;
+    int i;
 
     while (1) {
         print_menu();
@@ -167,18 +189,16 @@ int main(void) {
         if (option == 0) {
             printf("Encerrando.\n");
             return 0;
-        } else if (option == 1) {
-            handle_sum_two_values();
-        } else if (option == 2) {
-            handle_multiply_two_values();
-        } else if (option == 3) {
-            handle_sum_array();
-        } else if (option == 4) {
-            handle_average_array();
-        } else if (option == 5) {
-            handle_determinant();
-        } else {
-            printf("Opcao nao reconhecida.\n");
         }
+
+        for (i = 0; i < OP_COUNT; i++) {
+            if (OPERATIONS[i].id == option) {
+                OPERATIONS[i].handler();
+                break;
+            }
+        }
+
+        if (i == OP_COUNT)
+            printf("Opcao nao reconhecida.\n");
     }
 }
