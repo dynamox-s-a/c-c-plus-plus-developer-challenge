@@ -3,6 +3,7 @@
 #include "determinant.h"
 #include "input_utils.h"
 #include "op_log.h"
+#include "hmi.h"
 
 typedef void (*handler_t)(void);
 
@@ -12,6 +13,11 @@ typedef struct {
     handler_t   handler;
 } Operation;
 
+static void pausar(void) {
+    printf("\nPressione Enter para continuar...");
+    getchar();
+}
+
 static void handle_sum_two_values(void) {
     double a = 0.0, b = 0.0;
     double result = 0.0;
@@ -19,16 +25,17 @@ static void handle_sum_two_values(void) {
 
     if (!read_double("Primeiro valor: ", &a) ||
         !read_double("Segundo valor: ", &b)) {
-        printf("Entrada invalida.\n");
+        printf(ERRO "Entrada invalida.\n" RESET);
         oplog_append_error("sum_two_values", "a,b", "invalid_input");
+        pausar();
         return;
     }
 
     result = sum_two_values(a, b);
     snprintf(detail, sizeof(detail), "a=%.6f;b=%.6f", a, b);
     oplog_append_success("sum_two_values", detail, result);
-    
-    printf("Resultado: %.6f\n", result);
+    printf(OK "Resultado: %.6f\n" RESET, result);
+    pausar();
 }
 
 static void handle_multiply_two_values(void) {
@@ -38,16 +45,17 @@ static void handle_multiply_two_values(void) {
 
     if (!read_double("Primeiro valor: ", &a) ||
         !read_double("Segundo valor: ", &b)) {
-        printf("Entrada invalida.\n");
+        printf(ERRO "Entrada invalida.\n" RESET);
         oplog_append_error("multiply_two_values", "a,b", "invalid_input");
+        pausar();
         return;
     }
 
     result = multiply_two_values(a, b);
     snprintf(detail, sizeof(detail), "a=%.6f;b=%.6f", a, b);
     oplog_append_success("multiply_two_values", detail, result);
-    
-    printf("Resultado: %.6f\n", result);
+    printf(OK "Resultado: %.6f\n" RESET, result);
+    pausar();
 }
 
 static void handle_sum_array(void) {
@@ -58,18 +66,20 @@ static void handle_sum_array(void) {
     char detail[64];
 
     if (!read_int("Tamanho do array: ", &size) || size < 1 || size > MAX_ARRAY_SIZE) {
-        printf("Tamanho invalido.\n");
+        printf(ERRO "Tamanho invalido.\n" RESET);
         snprintf(detail, sizeof(detail), "size=%d", size);
         oplog_append_error("sum_array", detail, "invalid_size");
+        pausar();
         return;
     }
 
     for (i = 0; i < size; i++) {
         snprintf(prompt, sizeof(prompt), "Valor[%d]: ", i);
         if (!read_double(prompt, &values[i])) {
-            printf("Entrada invalida.\n");
+            printf(ERRO "Entrada invalida.\n" RESET);
             snprintf(detail, sizeof(detail), "size=%d;idx=%d", size, i);
             oplog_append_error("sum_array", detail, "invalid_input");
+            pausar();
             return;
         }
     }
@@ -77,8 +87,8 @@ static void handle_sum_array(void) {
     result = sum_array(values, size);
     snprintf(detail, sizeof(detail), "size=%d", size);
     oplog_append_success("sum_array", detail, result);
-    
-    printf("Resultado: %.6f\n", result);
+    printf(OK "Resultado: %.6f\n" RESET, result);
+    pausar();
 }
 
 static void handle_average_array(void) {
@@ -89,18 +99,20 @@ static void handle_average_array(void) {
     char detail[64];
 
     if (!read_int("Tamanho do array: ", &size) || size < 1 || size > MAX_ARRAY_SIZE) {
-        printf("Tamanho invalido.\n");
+        printf(ERRO "Tamanho invalido.\n" RESET);
         snprintf(detail, sizeof(detail), "size=%d", size);
         oplog_append_error("average_array", detail, "invalid_size");
+        pausar();
         return;
     }
 
     for (i = 0; i < size; i++) {
         snprintf(prompt, sizeof(prompt), "Valor[%d]: ", i);
         if (!read_double(prompt, &values[i])) {
-            printf("Entrada invalida.\n");
+            printf(ERRO "Entrada invalida.\n" RESET);
             snprintf(detail, sizeof(detail), "size=%d;idx=%d", size, i);
             oplog_append_error("average_array", detail, "invalid_input");
+            pausar();
             return;
         }
     }
@@ -108,8 +120,8 @@ static void handle_average_array(void) {
     result = average_array(values, size);
     snprintf(detail, sizeof(detail), "size=%d", size);
     oplog_append_success("average_array", detail, result);
-    
-    printf("Resultado: %.6f\n", result);
+    printf(OK "Resultado: %.6f\n" RESET, result);
+    pausar();
 }
 
 static void handle_determinant(void) {
@@ -120,9 +132,10 @@ static void handle_determinant(void) {
     char detail[64];
 
     if (!read_int("Dimensao da matriz (n): ", &n) || n < 1 || n > MAX_MATRIX_DIMENSION) {
-        printf("Dimensao invalida.\n");
+        printf(ERRO "Dimensao invalida.\n" RESET);
         snprintf(detail, sizeof(detail), "n=%d", n);
         oplog_append_error("determinant_gauss", detail, "invalid_dimension");
+        pausar();
         return;
     }
 
@@ -130,48 +143,71 @@ static void handle_determinant(void) {
         for (j = 0; j < n; j++) {
             snprintf(prompt, sizeof(prompt), "A[%d][%d]: ", i, j);
             if (!read_double(prompt, &matrix[i][j])) {
-                printf("Entrada invalida.\n");
+                printf(ERRO "Entrada invalida.\n" RESET);
                 snprintf(detail, sizeof(detail), "n=%d;i=%d;j=%d", n, i, j);
                 oplog_append_error("determinant_gauss", detail, "invalid_input");
+                pausar();
                 return;
             }
         }
     }
 
     if (calculate_determinant_gauss(n, matrix, &det) != DET_SUCCESS) {
-        printf("Erro ao calcular determinante.\n");
+        printf(ERRO "Erro ao calcular determinante.\n" RESET);
         snprintf(detail, sizeof(detail), "n=%d", n);
         oplog_append_error("determinant_gauss", detail, "calc_error");
+        pausar();
         return;
     }
 
     snprintf(detail, sizeof(detail), "n=%d", n);
     oplog_append_success("determinant_gauss", detail, det);
-    
-    printf("Determinante: %.6f\n", det);
+    printf(OK "Determinante: %.6f\n" RESET, det);
+    pausar();
 }
 
-/* tabela com todas as operações disponíveis.
- * Para adicionar uma nova: crie o handler e adicione  aqui. */
+/* exibe o historico de operacoes gravado */
+static void handle_view_log(void) {
+    FILE *f = fopen("output/operations.log", "r");
+    char line[256];
+
+    if (f == NULL) {
+        printf(ERRO "Log nao encontrado.\n" RESET);
+        pausar();
+        return;
+    }
+
+    printf(TITULO "\n  === Historico de operacoes ===\n\n" RESET);
+    while (fgets(line, sizeof(line), f) != NULL)
+        printf("  %s", line);
+
+    fclose(f);
+    pausar();
+}
+
 static const Operation OPERATIONS[] = {
-    {1, "Somar dois valores",        handle_sum_two_values},
-    {2, "Multiplicar dois valores",  handle_multiply_two_values},
-    {3, "Somar um array de valores", handle_sum_array},
-    {4, "Media de um array",         handle_average_array},
-    {5, "Calcular determinante",     handle_determinant}
+    {1, "Somar dois valores",          handle_sum_two_values},
+    {2, "Multiplicar dois valores",    handle_multiply_two_values},
+    {3, "Somar um array de valores",   handle_sum_array},
+    {4, "Media de um array de valores",handle_average_array},
+    {5, "Calcular determinante",       handle_determinant},
+    {6, "Ver historico de operacoes",  handle_view_log}
 };
 
 static const int OP_COUNT = (int)(sizeof(OPERATIONS) / sizeof(OPERATIONS[0]));
 
 static void print_menu(void) {
     int i;
-    printf("\n----------------------------------\n");
-    printf("       Calculadora Dynamox\n");
-    printf("----------------------------------\n");
+    printf(LIMPAR);
+    printf(TITULO);
+    printf("  ================================\n");
+    printf("        Calculadora Dynamox\n");
+    printf("  ================================\n");
+    printf(RESET);
     for (i = 0; i < OP_COUNT; i++)
-        printf("  %d. %s\n", OPERATIONS[i].id, OPERATIONS[i].name);
-    printf("  0. Sair\n");
-    printf("----------------------------------\n");
+        printf(ITEM "  %d. %s\n" RESET, OPERATIONS[i].id, OPERATIONS[i].name);
+    printf(ITEM "  0. Sair\n" RESET);
+    printf(TITULO "  ================================\n" RESET);
 }
 
 int main(void) {
@@ -181,8 +217,9 @@ int main(void) {
     while (1) {
         print_menu();
 
-        if (!read_int("Opcao: ", &option)) {
-            printf("Entrada invalida.\n");
+        if (!read_int("  Opcao: ", &option)) {
+            printf(ERRO "Entrada invalida.\n" RESET);
+            pausar();
             continue;
         }
 
@@ -198,7 +235,9 @@ int main(void) {
             }
         }
 
-        if (i == OP_COUNT)
-            printf("Opcao nao reconhecida.\n");
+        if (i == OP_COUNT) {
+            printf(ERRO "Opcao nao reconhecida.\n" RESET);
+            pausar();
+        }
     }
 }
