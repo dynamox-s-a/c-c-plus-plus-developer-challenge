@@ -185,13 +185,30 @@ static void handle_view_log(void) {
     pausar();
 }
 
+static void handle_clear_log(void) {
+    FILE *f = fopen("output/operations.log", "w");
+
+    if (f == NULL) {
+        printf(ERRO "Nao foi possivel limpar o log.\n" RESET);
+        pausar();
+        return;
+    }
+
+    fclose(f);
+    printf(OK "Historico limpo.\n" RESET);
+    pausar();
+}
+
+/* tabela de operacoes disponíveis.
+Para adicionar uma nova: crie o handler e adiciona aqui. */
 static const Operation OPERATIONS[] = {
     {1, "Somar dois valores",          handle_sum_two_values},
     {2, "Multiplicar dois valores",    handle_multiply_two_values},
     {3, "Somar um array de valores",   handle_sum_array},
     {4, "Media de um array de valores",handle_average_array},
     {5, "Calcular determinante",       handle_determinant},
-    {6, "Ver historico de operacoes",  handle_view_log}
+    {6, "Ver historico de operacoes",  handle_view_log},
+    {7, "Limpar historico de operacoes",handle_clear_log}
 };
 
 static const int OP_COUNT = (int)(sizeof(OPERATIONS) / sizeof(OPERATIONS[0]));

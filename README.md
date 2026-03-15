@@ -35,6 +35,12 @@ or
 
 mingw32-make run
 
+## Implementacoes futuras
+
+- Leitura de matriz a partir de arquivo para evitar entrada manual em matrizes grandes
+- Interface via UART para uso em sistemas embarcados sem terminal interativo
+- Suporte a multiplicacao de matrizes como nova operacao
+
 ### Operation log (bonus)
 After each operation (or input error), a line is appended to `output/operations.log`.
 
@@ -71,7 +77,7 @@ We will expect candidates applying to more senior levels to demonstrate a deeper
 1. [x] Create libraries to organize the code. (`include/` + `src/`)
 
 3 - Bonus
-1. [ ] Add possibility to create new operation type.
+1. [x] Add possibility to create new operation type.
 1. [x] Add persistent operation log (`output/operations.log`)
 1. [x] Enhance the determinant calculation functionality to allow users to select the dimensions of the matrix
 1. [x] Detect and handle errors on the operation input
