@@ -15,6 +15,23 @@
 /// automatically split into multiple fragments by packetizer_send_data().
 #define PACKET_MTU 512
 
+/// @brief Packetizer frame format
+typedef struct
+{
+    uint8_t sof; //Start of frame
+
+    uint8_t packet_type; //Identifier of what type of data is being transmitted. See PACKET_TYPE_ macros.
+    uint16_t payload_length; //Size (in bytes) of the data pointed by the frame's payload pointer
+    uint16_t sequence_number; //Counter assigned to each ongoing packet
+    uint16_t fragment_index; //Index of the current message fragment. Used when transmitting large data blobs in smaller fragments
+    uint16_t fragment_count; //Total fragment count. Used when transmitting large data blobs in smaller fragments.
+
+    uint8_t * payload; //Pointer to the data to be transmitted.
+
+    uint32_t crc;   //Cyclic redundance check of the data between SOF and EOF
+
+}packetizer_frame_t;
+
 /// @brief Pointer to the transport layer's data send function
 /// @param void* pointer to the data to be transmitted
 /// @param uint16_t length, in bytes, of the data to be transmitted
@@ -33,37 +50,9 @@ typedef int (*transport_send)(void *,uint16_t);
 /// An ACK for this fragment is only sent back to the sender after this
 /// callback returns, i.e. once the application has actually handled
 /// and stored the data -- never before.
-/// @param sequence_number Sequence number of the message this fragment
-/// belongs to. Constant across all fragments of the same message.
-/// @param fragment_index Index of this fragment within the message
-/// (0-based).
-/// @param fragment_count Total number of fragments in this message;
-/// fragment_index == fragment_count - 1 marks the last one.
-/// @param data Pointer to this fragment's payload bytes. Only valid for
-/// the duration of the callback; copy it if it needs to outlive the call.
-/// @param len Length, in bytes, of this fragment's payload.
-typedef void (*packetizer_message_received_cb)(uint16_t sequence_number,
-                                                uint16_t fragment_index,
-                                                uint16_t fragment_count,
-                                                uint8_t * data,
-                                                uint16_t len);
+/// @param rx_info frame containing the received data
+typedef void (*packetizer_message_received_cb)(packetizer_frame_t rx_info);
 
-/// @brief Packetizer frame format
-typedef struct
-{
-    uint8_t sof; //Start of frame
-
-    uint8_t packet_type; //Identifier of what type of data is being transmitted. See PACKET_TYPE_ macros.
-    uint16_t payload_length; //Size (in bytes) of the data pointed by the frame's payload pointer
-    uint16_t sequence_number; //Counter assigned to each ongoing packet
-    uint16_t fragment_index; //Index of the current message fragment. Used when transmitting large data blobs in smaller fragments
-    uint16_t fragment_count; //Total fragment count. Used when transmitting large data blobs in smaller fragments.
-
-    uint8_t * payload; //Pointer to the data to be transmitted.
-
-    uint32_t crc;   //Cyclic redundance check of the data between SOF and EOF
-
-}packetizer_frame_t;
 
 /// @brief Initializes the packetizer core, registering the callbacks it
 /// uses to reach the transport layer (to send bytes) and the application

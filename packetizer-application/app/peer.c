@@ -35,6 +35,7 @@
 #include <arpa/inet.h>
 
 #include "udp.h"
+#include "log.h"
 #include "packetizer.h"
 
 #define RECV_BUF_SIZE   2048
@@ -60,7 +61,8 @@ static void *receiver_thread_fn(void *arg)
 
     while (!g_stop) {
         ssize_t n = udp_recv(buf, sizeof(buf) - 1, &from_addr, RECV_TIMEOUT_MS);
-        packetizer_receive_data(buf, n);
+        
+        
         if (n < 0) {
             /* Real socket error: not much to do besides reporting it*/
             continue;
@@ -68,6 +70,8 @@ static void *receiver_thread_fn(void *arg)
         if (n == 0) {
             continue; /* timeout: just re-check g_stop */
         }
+        packetizer_receive_data(buf, n);
+
         fflush(stdout);
     }
 
@@ -76,19 +80,16 @@ static void *receiver_thread_fn(void *arg)
 
 int transport_send_fn(void * data, uint16_t data_len)
 {
-    return udp_send(data, (uint16_t) data_len);
+    if(udp_send(data, (uint16_t) data_len) <= 0) return 1;
+    return 0;
 }
 
-void transport_rx_cb(uint16_t sequence_number,
-                    uint16_t fragment_index,
-                    uint16_t fragment_count,
-                    uint8_t * data,
-                    uint16_t len)
+void packetizer_rx_cb(packetizer_frame_t rx)
 {
 
     char rx_data[PACKET_MTU] = {0};
-    memcpy(rx_data, data, len);
-    printf("%u bytes rx: %s\n\r", len,(char*)rx_data);
+    memcpy(rx_data, rx.payload, rx.payload_length);
+    LOG_DEBUG("%u bytes rx: %s", rx.payload_length,(char*)rx_data);
 }
 
 
@@ -111,7 +112,7 @@ int main(int argc, char *argv[])
         return EXIT_FAILURE;
     }
 
-    packetizer_init(transport_send_fn, transport_rx_cb);
+    packetizer_init(transport_send_fn, packetizer_rx_cb);
 
     /* Handle SIGINT (Ctrl+C) to allow a clean shutdown of the threads. */
     struct sigaction sa;

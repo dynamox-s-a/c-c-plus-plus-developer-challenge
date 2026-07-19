@@ -1,6 +1,7 @@
 #include "packetizer.h"
 #include <errno.h>
 #include <string.h>
+#include "log.h"
 
 #define PACKETIZER_SOF 0xAA
 
@@ -201,24 +202,29 @@ static uint16_t packetizer_serialize_frame(const packetizer_frame_t * frame, uin
 /// validated DATA-frame fragment and hands its bytes straight to the
 /// application via g_state.on_message -- the core never copies
 /// fragment data into a message-sized buffer of its own.
-/// @param sequence_number Sequence number carried by the frame.
-/// @param fragment_index Fragment index carried by the frame.
-/// @param fragment_count Fragment count carried by the frame.
-/// @param payload Pointer to this fragment's payload bytes.
-/// @param payload_length Length, in bytes, of this fragment's payload.
+/// @param received Frame received by the transport layer
 /// @returns Error code
-static int packetizer_reassemble_fragment(uint16_t sequence_number,
-                                           uint16_t fragment_index,
-                                           uint16_t fragment_count,
-                                           uint8_t * payload,
-                                           uint16_t payload_length)
+static int packetizer_reassemble_fragment(packetizer_frame_t received)
 {
     /* Unfragmented message: nothing to track, deliver right away. */
-    if (fragment_count <= 1)
+    if (received.fragment_count <= 1)
     {
         if (g_state.on_message != NULL)
         {
-            g_state.on_message(sequence_number, 0, 1, payload, payload_length);
+            if(received.sequence_number == g_reassembly.sequence_number)
+            {
+                LOG_ERROR("Repeated message detected, ignoring");
+                return 0;
+            }
+            if(received.sequence_number > g_reassembly.sequence_number+1 || received.sequence_number < g_reassembly.sequence_number)
+            {
+                LOG_ERROR("Sender was on message n %u, this device was on %u", received.sequence_number, g_reassembly.sequence_number);
+                g_reassembly.sequence_number = received.sequence_number;
+            }
+            
+            received.fragment_index = 0;
+            received.fragment_count = 1;
+            g_state.on_message(received);
         }
         return 0;
     }
@@ -227,29 +233,31 @@ static int packetizer_reassemble_fragment(uint16_t sequence_number,
      * the incoming fragment belongs to a different message than the
      * one currently being tracked (e.g. the previous message was
      * abandoned after losing a fragment). */
-    if (!g_reassembly.in_progress || g_reassembly.sequence_number != sequence_number)
+    if (!g_reassembly.in_progress || g_reassembly.sequence_number != received.sequence_number)
     {
-        if (fragment_index != 0)
+        if (received.fragment_index != 0)
         {
             /* Joined the stream mid-message (fragment 0 was missed or
              * already consumed): there is no valid message to append
              * this fragment to, so discard it. */
+            LOG_ERROR("Invalid fragment index");
             return EBADMSG;
         }
 
         g_reassembly.in_progress            = 1;
-        g_reassembly.sequence_number        = sequence_number;
-        g_reassembly.fragment_count         = fragment_count;
+        g_reassembly.sequence_number        = received.sequence_number;
+        g_reassembly.fragment_count         = received.fragment_count;
         g_reassembly.next_expected_fragment = 0;
     }
 
-    if (fragment_index != g_reassembly.next_expected_fragment)
+    if (received.fragment_index != g_reassembly.next_expected_fragment)
     {
         /* Out-of-order, duplicated, or gapped fragment: this simple
          * tracker only accepts fragments in order, so the in-progress
          * message is abandoned. Recovering from this (e.g. via
          * retransmission) is left to future work described in the
          * protocol documentation. */
+        LOG_ERROR("Invalid fragment index. Expected %u, got %u", g_reassembly.next_expected_fragment, received.fragment_index);
         g_reassembly.in_progress = 0;
         return EBADMSG;
     }
@@ -261,14 +269,15 @@ static int packetizer_reassemble_fragment(uint16_t sequence_number,
      * than holding the entire message in the packetizer core. */
     if (g_state.on_message != NULL)
     {
-        g_state.on_message(sequence_number, fragment_index, fragment_count,
-                            payload, payload_length);
+        LOG_DEBUG("Passing fragment %u to application", received.fragment_index);
+        g_state.on_message(received);
     }
 
     g_reassembly.next_expected_fragment++;
 
     if (g_reassembly.next_expected_fragment == g_reassembly.fragment_count)
     {
+        LOG_DEBUG("Finished fragment parsing at %u fragments", received.fragment_index);
         g_reassembly.in_progress = 0;
     }
 
@@ -315,7 +324,7 @@ static int packetizer_send_ack(uint16_t sequence_number,
 
 int packetizer_init(transport_send send_fn, packetizer_message_received_cb on_message)
 {
-    if (send_fn == NULL) return EINVAL;
+    if (send_fn == NULL || on_message == NULL) return EINVAL;
 
     memset(&g_state, 0, sizeof(g_state));
     g_state.send_fn       = send_fn;
@@ -323,7 +332,7 @@ int packetizer_init(transport_send send_fn, packetizer_message_received_cb on_me
     g_state.is_initialized = 1;
 
     memset(&g_reassembly, 0, sizeof(g_reassembly));
-
+    LOG_DEBUG("Packetizer initialized");
     return 0;
 }
 
@@ -346,6 +355,7 @@ int packetizer_send_data(void * data_in, uint32_t data_len)
 
     /* All fragments of this message share the same sequence number;
      * it is what lets the receiver associate them with each other. */
+    if(g_state.next_sequence_number == 0) g_state.next_sequence_number = 1;
     uint16_t sequence_number = g_state.next_sequence_number++;
 
     uint8_t wire_buf[PACKET_MTU];
@@ -363,12 +373,13 @@ int packetizer_send_data(void * data_in, uint32_t data_len)
         if (rc != 0) return rc;
 
         uint16_t frame_len = packetizer_serialize_frame(&frame, wire_buf);
-
+        LOG_DEBUG("Sending %u bytes. Frag %u/%u", frame.payload_length, frame.fragment_index, frame.fragment_count);
         if (g_state.send_fn(wire_buf, frame_len) != 0)
         {
             /* Stop on the first transport failure rather than sending
              * a partial set of fragments the receiver could never
              * reassemble anyway. */
+            LOG_ERROR("Transport layer send failed");
             return EIO;
         }
     }
@@ -388,47 +399,53 @@ int packetizer_receive_data(void * data_in, uint16_t data_len)
         /* Does not even look like one of our frames: likely noise
          * from a misbehaving channel. Never hand this to the CRC
          * check or the application. */
+        LOG_ERROR("No SOF");
         return EBADMSG;
     }
 
-    uint8_t  packet_type     = bytes[OFFSET_PACKET_TYPE];
-    uint16_t payload_length  = read_be16(&bytes[OFFSET_PAYLOAD_LENGTH]);
-    uint16_t sequence_number = read_be16(&bytes[OFFSET_SEQUENCE_NUMBER]);
-    uint16_t fragment_index  = read_be16(&bytes[OFFSET_FRAGMENT_INDEX]);
-    uint16_t fragment_count  = read_be16(&bytes[OFFSET_FRAGMENT_COUNT]);
+    packetizer_frame_t received = {0};
+    received.packet_type     = bytes[OFFSET_PACKET_TYPE];
+    received.payload_length  = read_be16(&bytes[OFFSET_PAYLOAD_LENGTH]);
+    received.sequence_number = read_be16(&bytes[OFFSET_SEQUENCE_NUMBER]);
+    received.fragment_index  = read_be16(&bytes[OFFSET_FRAGMENT_INDEX]);
+    received.fragment_count  = read_be16(&bytes[OFFSET_FRAGMENT_COUNT]);
 
     /* The declared payload length must exactly account for the rest
      * of the datagram; otherwise the frame is malformed or truncated. */
-    if ((uint32_t)METADATA_SIZE + payload_length != (uint32_t)data_len)
+    if ((uint32_t)METADATA_SIZE + received.payload_length != (uint32_t)data_len)
     {
+        LOG_ERROR("Invalid message size: %u", data_len);
         return EBADMSG;
     }
 
-    uint8_t * payload      = &bytes[OFFSET_PAYLOAD];
-    uint32_t received_crc  = read_be32(&bytes[OFFSET_PAYLOAD + payload_length]);
-    uint32_t computed_crc  = packetizer_crc32(&bytes[OFFSET_PACKET_TYPE],
-                                               (uint32_t)(OFFSET_PAYLOAD + payload_length - OFFSET_PACKET_TYPE));
+    
 
-    if (received_crc != computed_crc)
+    received.payload = &bytes[OFFSET_PAYLOAD];
+    received.crc  = read_be32(&bytes[OFFSET_PAYLOAD + received.payload_length]);
+    uint32_t computed_crc  = packetizer_crc32(&bytes[OFFSET_PACKET_TYPE],
+                                               (uint32_t)(OFFSET_PAYLOAD + received.payload_length - OFFSET_PACKET_TYPE));
+
+    if (received.crc != computed_crc)
     {
         /* Corrupted in transit: per the user stories, this must never
          * be delivered to the application as valid data. */
+        LOG_ERROR("Invalid CRC --- Calced:%x --- Received:%x", computed_crc, received.crc);
         return EBADMSG;
     }
 
-    switch (packet_type)
+    switch (received.packet_type)
     {
         case PACKET_TYPE_DATA:
         {
-            int rc = packetizer_reassemble_fragment(sequence_number, fragment_index,
-                                                     fragment_count, payload, payload_length);
+            LOG_DEBUG("[RX DATA %u]", received.sequence_number);
+            int rc = packetizer_reassemble_fragment(received);
             if (rc == 0)
             {
                 /* The application has already handled and stored the
                  * fragment's data inside packetizer_reassemble_fragment
                  * (its on_message callback already returned by this
                  * point), so it is now safe to acknowledge it. */
-                packetizer_send_ack(sequence_number, fragment_index, fragment_count);
+                packetizer_send_ack(received.sequence_number, received.fragment_index, received.fragment_count);
             }
             return rc;
         }
