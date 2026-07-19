@@ -1,4 +1,4 @@
-# Build and run
+# Build
 
 `cd packetizer-application`
 
@@ -8,4 +8,16 @@
 
 `cmake --build .`
 
-`./peer`
+# Running
+
+`./peer <local port> <remote ip> <remote port>`
+
+Example: runnning two separate process that communicate with each other.
+
+Process 1:
+
+`./peer 5000 127.0.0.1 6000`
+
+Process 2:
+
+`./peer 5000 127.0.0.1 6000`

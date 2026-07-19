@@ -147,7 +147,7 @@ int main(int argc, char *argv[])
             len--;
         }
         if (len == 0) {
-            printf("> ");
+            printf("\n\r> ");
             fflush(stdout);
             continue;
         }

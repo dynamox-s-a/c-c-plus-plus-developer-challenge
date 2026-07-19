@@ -15,6 +15,23 @@
 /// automatically split into multiple fragments by packetizer_send_data().
 #define PACKET_MTU 512
 
+/// @brief Maximum time, in milliseconds, packetizer_send_data() waits for
+/// the ACK of a given DATA fragment before retransmitting it. Override at
+/// compile time (e.g. -DPACKETIZER_ACK_TIMEOUT_MS=...) to tune this for a
+/// particular link's expected round-trip time.
+#ifndef PACKETIZER_ACK_TIMEOUT_MS
+#define PACKETIZER_ACK_TIMEOUT_MS 300u
+#endif
+
+/// @brief Maximum number of retransmission attempts for a single DATA
+/// fragment before giving up on it and reporting delivery failure to the
+/// caller of packetizer_send_data(). Override at compile time (e.g.
+/// -DPACKETIZER_ACK_MAX_RETRIES=...) if a lossier or more reliable link
+/// calls for a different value.
+#ifndef PACKETIZER_ACK_MAX_RETRIES
+#define PACKETIZER_ACK_MAX_RETRIES 5u
+#endif
+
 /// @brief Packetizer frame format
 typedef struct
 {
@@ -69,9 +86,22 @@ int packetizer_init(transport_send send_fn, packetizer_message_received_cb on_me
 /// @brief Packs (and fragments, if needed) an application message into one
 /// or more packetizer frames and hands each one to the registered
 /// transport_send function for transmission.
+///
+/// Each DATA fragment is sent using a stop-and-wait scheme: after
+/// transmitting a fragment, this function blocks (without spinning at
+/// full CPU) for up to PACKETIZER_ACK_TIMEOUT_MS waiting for its ACK to
+/// arrive (via packetizer_receive_data(), typically called from another
+/// thread or another point in the event loop). If no ACK arrives in
+/// time, the fragment is retransmitted, up to PACKETIZER_ACK_MAX_RETRIES
+/// times, before this function gives up and reports failure. Only one
+/// fragment is ever awaiting acknowledgment at a time, which keeps the
+/// bookkeeping for this to a handful of fields, regardless of message size.
 /// @param data_in Pointer to the application message to send.
 /// @param data_len Length, in bytes, of the application message.
-/// @returns Error code
+/// @returns 0 on success (every fragment was acknowledged); ETIMEDOUT if
+/// a fragment's ACK was never received after exhausting all retries;
+/// another error code for other failures (invalid arguments, transport
+/// error, etc).
 int packetizer_send_data(void * data_in, uint32_t data_len);
 
 /// @brief Feeds a raw block of bytes received from the transport layer
@@ -81,6 +111,11 @@ int packetizer_send_data(void * data_in, uint32_t data_len);
 /// Only after that callback returns -- i.e. only after the application
 /// has handled and stored the fragment's data -- an ACK frame
 /// acknowledging it is sent back through the registered transport_send.
+///
+/// ACK frames (PACKET_TYPE_ACK) received here are matched against the
+/// single fragment, if any, that a concurrent call to
+/// packetizer_send_data() is currently waiting on; a match unblocks that
+/// wait immediately instead of it having to sit out the full timeout.
 /// @param data_in Pointer to the raw bytes received from the transport.
 /// @param data_len Length, in bytes, of data_in.
 /// @returns Error code

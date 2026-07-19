@@ -1,6 +1,11 @@
+/* Needed under -std=c11 to expose clock_gettime(), CLOCK_MONOTONIC and
+ * nanosleep() from <time.h>, used by the ACK wait/timeout logic below. */
+#define _POSIX_C_SOURCE 200809L
+
 #include "packetizer.h"
 #include <errno.h>
 #include <string.h>
+#include <time.h>
 #include "log.h"
 
 #define PACKETIZER_SOF 0xAA
@@ -61,6 +66,33 @@ typedef struct
 } packetizer_reassembly_t;
 
 static packetizer_reassembly_t g_reassembly;
+
+/// @brief State used to track the single DATA fragment, if any, that
+/// packetizer_send_data() is currently waiting on an ACK for. Only one
+/// fragment is ever in flight awaiting acknowledgment at a time (the
+/// stop-and-wait scheme documented on packetizer_send_data()), so this
+/// is a handful of fields rather than a table sized for many
+/// concurrent outstanding fragments -- consistent with the rest of
+/// this core's resource-constrained design.
+///
+/// `acked` is written by packetizer_receive_data() (typically called
+/// from a different thread, e.g. a dedicated receiver thread) and
+/// polled by packetizer_send_data() while it waits; `volatile` is
+/// enough to keep the compiler from caching it in a register across
+/// that busy-wait loop. This is a deliberately simple mechanism: it
+/// assumes a single message is ever being sent at a time, matching the
+/// point-to-point demo applications built on this core. A fully
+/// concurrent, multi-message-in-flight sender would need proper
+/// synchronization (e.g. a mutex or C11 atomics) around this state.
+typedef struct
+{
+    uint16_t sequence_number;  /* sequence number of the fragment awaiting ACK */
+    uint16_t fragment_index;   /* index of the fragment awaiting ACK */
+    int waiting;                /* 1 while packetizer_send_data() is actively waiting */
+    volatile int acked;         /* set to 1 once the matching ACK is received */
+} packetizer_pending_ack_t;
+
+static packetizer_pending_ack_t g_pending_ack;
 
 /// @brief Computes a CRC-32 (IEEE 802.3 polynomial, 0xEDB88320) over a
 /// block of bytes. Implemented locally (bit-by-bit, no lookup table) so
@@ -322,6 +354,82 @@ static int packetizer_send_ack(uint16_t sequence_number,
     return 0;
 }
 
+/// @brief Returns a monotonically increasing timestamp in milliseconds.
+/// Used solely to measure elapsed time while waiting for an ACK; kept
+/// in its own function so porting this core to a platform without
+/// clock_gettime()/CLOCK_MONOTONIC only requires changing this one place.
+/// @returns Current monotonic time, in milliseconds.
+static uint64_t packetizer_now_ms(void)
+{
+    struct timespec ts;
+    clock_gettime(CLOCK_MONOTONIC, &ts);
+    return (uint64_t)ts.tv_sec * 1000u + (uint64_t)(ts.tv_nsec / 1000000);
+}
+
+/// @brief Blocks until the ACK for one specific DATA fragment arrives,
+/// retransmitting it on timeout, up to PACKETIZER_ACK_MAX_RETRIES times.
+/// Implements the stop-and-wait scheme documented on packetizer_send_data().
+///
+/// The wait itself does not spin at full CPU: it sleeps in small
+/// increments, re-checking the (volatile) g_pending_ack.acked flag that
+/// packetizer_receive_data() sets when the matching ACK comes in.
+/// @param sequence_number Sequence number of the fragment sent.
+/// @param fragment_index Index of the fragment sent.
+/// @param wire_buf Serialized bytes of the fragment, kept around so it
+/// can be retransmitted verbatim without re-serializing it.
+/// @param frame_len Length, in bytes, of wire_buf.
+/// @returns 0 if the ACK was received in time; ETIMEDOUT if every retry
+/// was exhausted without one; EIO if a retransmit itself failed to send.
+static int packetizer_wait_for_ack(uint16_t sequence_number, uint16_t fragment_index,
+                                    uint8_t * wire_buf, uint16_t frame_len)
+{
+    g_pending_ack.sequence_number = sequence_number;
+    g_pending_ack.fragment_index  = fragment_index;
+    g_pending_ack.acked           = 0;
+    g_pending_ack.waiting         = 1;
+
+    /* Attempt 0 is the transmission packetizer_send_data() already did
+     * before calling this function; the remaining attempts are
+     * retransmissions after a timeout. */
+    for (uint32_t attempt = 0; attempt <= PACKETIZER_ACK_MAX_RETRIES; attempt++)
+    {
+        uint64_t deadline = packetizer_now_ms() + PACKETIZER_ACK_TIMEOUT_MS;
+
+        while (packetizer_now_ms() < deadline)
+        {
+            if (g_pending_ack.acked)
+            {
+                g_pending_ack.waiting = 0;
+                return 0;
+            }
+
+            /* Sleep briefly instead of busy-spinning while another
+             * thread (e.g. a receiver thread) delivers the ACK via
+             * packetizer_receive_data(). */
+            struct timespec poll_interval = { .tv_sec = 0, .tv_nsec = 1000000 }; /* 1 ms */
+            nanosleep(&poll_interval, NULL);
+        }
+
+        if (attempt < PACKETIZER_ACK_MAX_RETRIES)
+        {
+            LOG_ERROR("ACK timeout for seq %u frag %u, retransmitting (attempt %u/%u)",
+                       sequence_number, fragment_index, attempt + 1, PACKETIZER_ACK_MAX_RETRIES);
+
+            if (g_state.send_fn(wire_buf, frame_len) != 0)
+            {
+                LOG_ERROR("Retransmission failed for seq %u frag %u", sequence_number, fragment_index);
+                g_pending_ack.waiting = 0;
+                return EIO;
+            }
+        }
+    }
+
+    LOG_ERROR("Giving up on seq %u frag %u after %u attempts",
+               sequence_number, fragment_index, PACKETIZER_ACK_MAX_RETRIES);
+    g_pending_ack.waiting = 0;
+    return ETIMEDOUT;
+}
+
 int packetizer_init(transport_send send_fn, packetizer_message_received_cb on_message)
 {
     if (send_fn == NULL || on_message == NULL) return EINVAL;
@@ -332,6 +440,7 @@ int packetizer_init(transport_send send_fn, packetizer_message_received_cb on_me
     g_state.is_initialized = 1;
 
     memset(&g_reassembly, 0, sizeof(g_reassembly));
+    memset(&g_pending_ack, 0, sizeof(g_pending_ack));
     LOG_DEBUG("Packetizer initialized");
     return 0;
 }
@@ -381,6 +490,14 @@ int packetizer_send_data(void * data_in, uint32_t data_len)
              * reassemble anyway. */
             LOG_ERROR("Transport layer send failed");
             return EIO;
+        }
+
+        /* Stop-and-wait: don't move on to the next fragment until this
+         * one is confirmed delivered (or we've exhausted every retry). */
+        int ack_rc = packetizer_wait_for_ack(sequence_number, fragment_index, wire_buf, frame_len);
+        if (ack_rc != 0)
+        {
+            return ack_rc;
         }
     }
 
@@ -451,9 +568,19 @@ int packetizer_receive_data(void * data_in, uint16_t data_len)
         }
 
         case PACKET_TYPE_ACK:
-            /* TODO: delivery confirmation and retransmission handling
-             * on the sender side (user story #2) is reserved for a
-             * future iteration. */
+            if (g_pending_ack.waiting &&
+                g_pending_ack.sequence_number == received.sequence_number &&
+                g_pending_ack.fragment_index == received.fragment_index)
+            {
+                LOG_DEBUG("ACK received for seq %u frag %u", received.sequence_number, received.fragment_index);
+                g_pending_ack.acked = 1;
+            }
+            else
+            {
+                /* Stray, late (arrived after we already gave up or
+                 * moved on), or duplicated ACK: nothing to unblock. */
+                LOG_DEBUG("Ignoring unmatched ACK for seq %u frag %u", received.sequence_number, received.fragment_index);
+            }
             return 0;
 
         default:
