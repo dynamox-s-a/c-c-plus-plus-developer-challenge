@@ -35,6 +35,7 @@
 #include <arpa/inet.h>
 
 #include "udp.h"
+#include "packetizer.h"
 
 #define RECV_BUF_SIZE   2048
 #define RECV_TIMEOUT_MS 200   /* wake-up interval to check the stop flag */
@@ -59,28 +60,37 @@ static void *receiver_thread_fn(void *arg)
 
     while (!g_stop) {
         ssize_t n = udp_recv(buf, sizeof(buf) - 1, &from_addr, RECV_TIMEOUT_MS);
+        packetizer_receive_data(buf, n);
         if (n < 0) {
-            /* Real socket error: not much to do besides reporting it
-             * (already done inside udp_recv) and trying again, in
-             * case it was transient. */
+            /* Real socket error: not much to do besides reporting it*/
             continue;
         }
         if (n == 0) {
             continue; /* timeout: just re-check g_stop */
         }
-
-        buf[n] = '\0'; /* treated as text for this demo */
-
-        char ip_str[INET_ADDRSTRLEN];
-        inet_ntop(AF_INET, &from_addr.sin_addr, ip_str, sizeof(ip_str));
-
-        printf("\r[received from %s:%d] %s\n> ",
-               ip_str, ntohs(from_addr.sin_port), buf);
         fflush(stdout);
     }
 
     return NULL;
 }
+
+int transport_send_fn(void * data, uint16_t data_len)
+{
+    return udp_send(data, (uint16_t) data_len);
+}
+
+void transport_rx_cb(uint16_t sequence_number,
+                    uint16_t fragment_index,
+                    uint16_t fragment_count,
+                    uint8_t * data,
+                    uint16_t len)
+{
+
+    char rx_data[PACKET_MTU] = {0};
+    memcpy(rx_data, data, len);
+    printf("%u bytes rx: %s\n\r", len,(char*)rx_data);
+}
+
 
 int main(int argc, char *argv[])
 {
@@ -101,6 +111,8 @@ int main(int argc, char *argv[])
         return EXIT_FAILURE;
     }
 
+    packetizer_init(transport_send_fn, transport_rx_cb);
+
     /* Handle SIGINT (Ctrl+C) to allow a clean shutdown of the threads. */
     struct sigaction sa;
     memset(&sa, 0, sizeof(sa));
@@ -113,8 +125,7 @@ int main(int argc, char *argv[])
     fflush(stdout);
 
     /* Start the receiver thread: it runs in parallel with the send
-     * loop below, giving true full-duplex operation (sending and
-     * receiving at the same time, without one blocking the other). */
+     * loop below, giving true full-duplex operation. */
     pthread_t recv_tid;
     if (pthread_create(&recv_tid, NULL, receiver_thread_fn, NULL) != 0) {
         perror("pthread_create");
@@ -122,10 +133,7 @@ int main(int argc, char *argv[])
         return EXIT_FAILURE;
     }
 
-    /* Main thread: reads lines from stdin and sends each one as a UDP
-     * datagram. This is only the "communication base" demo; the
-     * packetizer will later replace this direct send with a call to
-     * the packetizer's own API. */
+    /* Main thread: reads lines from stdin and sends each one as a UDP datagram.*/
     char line[RECV_BUF_SIZE];
     while (!g_stop) {
         if (fgets(line, sizeof(line), stdin) == NULL) {
@@ -143,7 +151,7 @@ int main(int argc, char *argv[])
             continue;
         }
 
-        if (udp_send(line, len) < 0) {
+        if (packetizer_send_data(line, len) < 0) {
             fprintf(stderr, "Failed to send message.\n");
         }
         printf("> ");
