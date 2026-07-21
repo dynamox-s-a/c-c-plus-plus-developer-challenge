@@ -4,7 +4,7 @@ OBJECTS       := $(patsubst src/%.cpp,$(BUILD)/%.o,$(SOURCES))
 DEPENDENCIES  := $(OBJECTS:.o=.d)
 TARGET        := $(BUILD)/Dynamox
 CC  		  := g++
-CCFLAGS  	  := -Wall -Wextra -std=c++2c -pedantic -Iinclude
+CCFLAGS  	  := -Wall -Wextra -std=c++2c -pedantic -Iinclude -g
 LDFLAGS  	  := 
 
 execute: $(TARGET)
