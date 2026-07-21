@@ -63,7 +63,7 @@ class UnixNetworkDevice : public NetworkDevice {
     Debugger<TRACE>() << "}" << Debugger<TRACE>::endl;
   }
 
-  constexpr size_t mtu() { return 2048; }
+  size_t mtu() override { return 2048; }
 
   int send(NetworkBuffer* buffer, NetworkAddress address) override {
     if (socket_ < 0 || buffer == nullptr) return -1;
@@ -87,9 +87,9 @@ class UnixNetworkDevice : public NetworkDevice {
   }
 
   NetworkBuffer* alloc(size_t length) override {
-    if (length >= mtu()) {
-      Debugger<ERROR>() << "Can't Alloc a NetworkBuffer Bigger Than The MTU!"
-                        << Debugger<ERROR>::endl;
+    if (length > mtu()) {
+      Debugger<ERROR>() << "Can't Alloc a NetworkBuffer Bigger Than The MTU! "
+                        << length << Debugger<ERROR>::endl;
       return nullptr;
     }
 

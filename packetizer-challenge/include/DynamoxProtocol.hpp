@@ -7,25 +7,41 @@
 #include <ctime>
 #include <network/NetworkDevice.hpp>
 
-struct PacketHeader {
-  uint32_t sequence;
-  uint32_t ack;
-  uint16_t size;
-  uint16_t flags;
-  uint32_t crc;
-};
-
-struct Packet {
-  PacketHeader header;
-
-  template <typename T = uint8_t*>
-  T data(this auto& self) {
-    return reinterpret_cast<T>(reinterpret_cast<uint8_t*>(&self) +
-                               sizeof(PacketHeader));
-  }
-};
-
 class DynamoxProtocol {
+  static constexpr size_t DefaultTimeout = 2000;
+  static constexpr size_t DefaultRetries = 5;
+  static constexpr size_t Reassemblies = 16;
+  static constexpr size_t Fragments = 64;
+
+  struct Header {
+    uint32_t sequence;
+    uint32_t ack;
+    uint16_t size;
+    uint16_t fragment;
+    uint16_t fragments;
+    uint16_t flags;
+    uint32_t crc;
+  };
+
+  struct Packet {
+    Header header;
+
+    template <typename T = uint8_t*>
+    T data(this auto& self) {
+      return reinterpret_cast<T>(reinterpret_cast<uint8_t*>(&self) +
+                                 sizeof(Header));
+    }
+  };
+
+  struct Reassembly {
+    uint32_t sequence = 0;
+    uint16_t fragments = 0;
+    uint16_t received = 0;
+
+    NetworkAddress source;
+    NetworkBuffer* buffers[Fragments] = {};
+  };
+
   enum {
     ACK = 1 << 0,
     DATA = 1 << 1,
@@ -36,45 +52,93 @@ class DynamoxProtocol {
       : device_(device), sequence_(0) {}
 
   NetworkBuffer* alloc(size_t size) {
-    NetworkBuffer* buffer = device_.alloc(size + sizeof(PacketHeader));
-    if (buffer) buffer->advance(sizeof(PacketHeader));
-    return buffer;
-  }
+    const size_t mtu = device_.mtu();
 
-  void free(NetworkBuffer* buffer) { return device_.free(buffer); }
+    NetworkBuffer* first = nullptr;
+    NetworkBuffer* current = nullptr;
 
-  void release(NetworkBuffer* buffer) { return device_.release(buffer); }
+    while (size > 0) {
+      size_t chunk =
+          (size + sizeof(Header) > mtu) ? mtu - sizeof(Header) : size;
 
-  int send(NetworkBuffer* buffer, const NetworkAddress destination,
-           uint32_t timeout = DefaultTimeout, uint32_t retries = 5) {
-    buffer->rewind(sizeof(PacketHeader));
+      NetworkBuffer* buffer = device_.alloc(chunk + sizeof(Header));
 
-    Packet* packet = buffer->data<Packet*>();
-    uint32_t sequence = sequence_++;
-
-    packet->header.sequence = sequence;
-    packet->header.ack = 0;
-    packet->header.size =
-        static_cast<uint16_t>(buffer->length() - sizeof(PacketHeader));
-    packet->header.flags = DATA;
-    packet->header.crc = 0;
-    packet->header.crc = crc32(packet, buffer->length());
-
-    bool acked = false;
-    for (uint32_t retry = 0; retry <= retries && !acked; ++retry) {
-      device_.send(buffer, destination);
-      if (join(sequence, timeout)) {
-        acked = true;
-        break;
+      if (!buffer) {
+        free(first);
+        return nullptr;
       }
+
+      buffer->advance(sizeof(Header));
+      buffer->next(nullptr);
+
+      if (!first)
+        first = buffer;
+      else
+        current->next(buffer);
+
+      current = buffer;
+      size -= chunk;
     }
 
-    buffer->advance(sizeof(PacketHeader));
-    if (acked) return buffer->length() - buffer->offset();
-    return -1;
+    return first;
+  }
+
+  void free(NetworkBuffer* buffer) {
+    while (buffer) {
+      NetworkBuffer* next = buffer->next();
+      device_.free(buffer);
+      buffer = next;
+    }
+  }
+
+  void release(NetworkBuffer* buffer) { device_.release(buffer); }
+
+  int send(NetworkBuffer* buffer, const NetworkAddress& destination,
+           uint32_t timeout = DefaultTimeout,
+           uint32_t retries = DefaultRetries) {
+    uint32_t sequence = sequence_++;
+    size_t total = 0;
+
+    uint16_t fragments = 0;
+    for (auto* b = buffer; b; b = b->next()) fragments++;
+
+    uint16_t fragment = 0;
+
+    for (auto* b = buffer; b; b = b->next(), fragment++) {
+      b->rewind(sizeof(Header));
+
+      Packet* packet = b->data<Packet*>();
+
+      packet->header.sequence = sequence;
+      packet->header.ack = 0;
+      packet->header.fragment = fragment;
+      packet->header.fragments = fragments;
+      packet->header.size = static_cast<uint16_t>(b->length() - sizeof(Header));
+      packet->header.flags = DATA;
+      packet->header.crc = 0;
+      packet->header.crc = crc32(packet, b->length());
+
+      bool acked = false;
+
+      for (uint32_t retry = 0; retry <= retries && !acked; retry++) {
+        device_.send(b, destination);
+        acked = join(sequence, fragment, timeout);
+      }
+
+      if (!acked) {
+        b->advance(sizeof(Header));
+        return -1;
+      }
+
+      b->advance(sizeof(Header));
+      total += b->length() - b->offset();
+    }
+
+    return total;
   }
 
   NetworkBuffer* receive(uint32_t timeout = DefaultTimeout) {
+    Reassembly reassembly;
     uint64_t start = ms();
 
     while (true) {
@@ -82,6 +146,11 @@ class DynamoxProtocol {
       uint64_t elapsed = current - start;
 
       if (elapsed >= timeout) {
+        for (size_t i = 0; i < reassembly.fragments; i++) {
+          if (reassembly.buffers[i]) {
+            device_.free(reassembly.buffers[i]);
+          }
+        }
         return nullptr;
       }
 
@@ -95,31 +164,85 @@ class DynamoxProtocol {
       uint32_t crc = packet->header.crc;
       packet->header.crc = 0;
 
-      uint32_t calculated =
-          crc32(packet, sizeof(PacketHeader) + packet->header.size);
+      uint32_t calculated = crc32(packet, sizeof(Header) + packet->header.size);
 
-      if (crc == calculated && (packet->header.flags & DATA)) {
-        ack(packet->header.sequence, buffer->source());
-        buffer->advance(sizeof(PacketHeader));
-        return buffer;
+      if (crc != calculated || !(packet->header.flags & DATA)) {
+        device_.free(buffer);
+        continue;
       }
 
-      device_.free(buffer);
+      ack(packet->header.sequence, packet->header.fragment, buffer->source());
+
+      if (packet->header.fragments == 0 ||
+          packet->header.fragments > Fragments) {
+        device_.free(buffer);
+        continue;
+      }
+
+      if (packet->header.fragments == 1) {
+        if (reassembly.received == 0) {
+          buffer->advance(sizeof(Header));
+          return buffer;
+        } else {
+          device_.free(buffer);
+          continue;
+        }
+      }
+
+      if (reassembly.received == 0) {
+        reassembly.sequence = packet->header.sequence;
+        reassembly.fragments = packet->header.fragments;
+        reassembly.source = buffer->source();
+      }
+
+      if (packet->header.sequence != reassembly.sequence) {
+        device_.free(buffer);
+        continue;
+      }
+
+      uint16_t fragment = packet->header.fragment;
+
+      if (fragment >= Fragments || fragment >= reassembly.fragments) {
+        device_.free(buffer);
+        continue;
+      }
+
+      if (reassembly.buffers[fragment]) {
+        device_.free(buffer);
+        continue;
+      }
+
+      buffer->advance(sizeof(Header));
+
+      reassembly.buffers[fragment] = buffer;
+      reassembly.received++;
+
+      if (reassembly.received != reassembly.fragments) continue;
+
+      for (uint16_t i = 0; i + 1 < reassembly.fragments; i++)
+        reassembly.buffers[i]->next(reassembly.buffers[i + 1]);
+
+      reassembly.buffers[reassembly.fragments - 1]->next(nullptr);
+
+      return reassembly.buffers[0];
     }
   }
 
-  bool ack(uint32_t sequence, const NetworkAddress& destination) {
-    NetworkBuffer* buffer = device_.alloc(sizeof(PacketHeader));
+  bool ack(uint32_t sequence, uint16_t fragment,
+           const NetworkAddress& destination) {
+    NetworkBuffer* buffer = device_.alloc(sizeof(Header));
     bool response = false;
 
     if (buffer) {
       Packet* packet = buffer->data<Packet*>();
       packet->header.sequence = sequence_++;
       packet->header.ack = sequence;
+      packet->header.fragment = fragment;
+      packet->header.fragments = 1;
       packet->header.size = 0;
       packet->header.flags = ACK;
       packet->header.crc = 0;
-      packet->header.crc = crc32(packet, sizeof(PacketHeader));
+      packet->header.crc = crc32(packet, sizeof(Header));
 
       response = device_.send(buffer, destination);
       device_.free(buffer);
@@ -127,7 +250,7 @@ class DynamoxProtocol {
     return response;
   }
 
-  bool join(uint32_t sequence, uint32_t timeout) {
+  bool join(uint32_t sequence, uint32_t fragment, uint32_t timeout) {
     uint64_t start = ms();
     bool acked = false;
 
@@ -149,11 +272,11 @@ class DynamoxProtocol {
       uint32_t crc = packet->header.crc;
       packet->header.crc = 0;
 
-      uint32_t calculated =
-          crc32(packet, sizeof(PacketHeader) + packet->header.size);
+      uint32_t calculated = crc32(packet, sizeof(Header) + packet->header.size);
 
       if (crc == calculated) {
-        if ((packet->header.flags & ACK) && (packet->header.ack == sequence)) {
+        if ((packet->header.flags & ACK) && (packet->header.ack == sequence) &&
+            packet->header.fragment == fragment) {
           acked = true;
         }
       }
@@ -171,7 +294,7 @@ class DynamoxProtocol {
     return static_cast<uint64_t>(ts.tv_sec) * 1000 + (ts.tv_nsec / 1000000);
   }
 
-  uint32_t crc32(const void* data, size_t length) {
+  static uint32_t crc32(const void* data, size_t length) {
     const uint8_t* bytes = static_cast<const uint8_t*>(data);
     uint32_t crc = 0xFFFFFFFF;
 
@@ -186,9 +309,6 @@ class DynamoxProtocol {
     }
     return ~crc;
   }
-
- private:
-  static constexpr size_t DefaultTimeout = 2000;
 
  private:
   NetworkDevice& device_;

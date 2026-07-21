@@ -13,7 +13,7 @@ class Client {
     while (true) {
       const char* message = "Hello World!";
       size_t length = strlen(message);
-      NetworkBuffer* buffer = device.alloc(length);
+      NetworkBuffer* buffer = device.alloc(4096);
       memcpy(buffer->data(), message, length);
       int result = device.send(
           buffer, NetworkAddress(Traits<UnixNetworkDevice>::ServerPort));

@@ -1,6 +1,8 @@
 #ifndef __NETWORK_BUFFER__
 #define __NETWORK_BUFFER__
 
+#include <assert.h>
+
 #include <network/NetworkAddress.hpp>
 
 class NetworkBuffer {
@@ -26,7 +28,18 @@ class NetworkBuffer {
 
   [[nodiscard]]
   uint8_t operator[](this auto&& self, size_t i) {
-    return self.head_[i];
+    NetworkBuffer* buffer = &self;
+    size_t offset = i;
+
+    while (buffer) {
+      size_t length = buffer->tail_ - buffer->head_;
+      if (offset < length) return buffer->head_[offset];
+
+      offset -= length;
+      buffer = buffer->next();
+    }
+
+    assert(false);
   }
 
   [[nodiscard]]
@@ -59,6 +72,9 @@ class NetworkBuffer {
     return true;
   }
 
+  NetworkBuffer* next() const { return next_; }
+  void next(NetworkBuffer* next) { next_ = next; }
+
   virtual NetworkAddress source() = 0;
 
  private:
@@ -66,6 +82,8 @@ class NetworkBuffer {
 
   uint8_t* head_;
   uint8_t* tail_;
+
+  NetworkBuffer* next_;
 };
 
 #endif
