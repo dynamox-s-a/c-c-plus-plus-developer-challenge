@@ -7,6 +7,7 @@
 #define PACKET_TYPE_INVALID  0
 #define PACKET_TYPE_DATA  1
 #define PACKET_TYPE_ACK  2
+#define PACKET_TYPE_NACK 3
 
 /// @brief Maximum size, in bytes, of a single packetizer frame on the wire
 /// (metadata + payload + CRC). Chosen conservatively so a frame fits inside
@@ -19,18 +20,17 @@
 /// the ACK of a given DATA fragment before retransmitting it. Override at
 /// compile time (e.g. -DPACKETIZER_ACK_TIMEOUT_MS=...) to tune this for a
 /// particular link's expected round-trip time.
-#ifndef PACKETIZER_ACK_TIMEOUT_MS
 #define PACKETIZER_ACK_TIMEOUT_MS 300u
-#endif
 
 /// @brief Maximum number of retransmission attempts for a single DATA
 /// fragment before giving up on it and reporting delivery failure to the
 /// caller of packetizer_send_data(). Override at compile time (e.g.
 /// -DPACKETIZER_ACK_MAX_RETRIES=...) if a lossier or more reliable link
 /// calls for a different value.
-#ifndef PACKETIZER_ACK_MAX_RETRIES
+
 #define PACKETIZER_ACK_MAX_RETRIES 5u
-#endif
+
+#define PACKETIZER_NACK_MAX_RETRIES 5u
 
 /// @brief Packetizer frame format
 typedef struct
@@ -105,8 +105,7 @@ int packetizer_init(transport_send send_fn, packetizer_message_received_cb on_me
 int packetizer_send_data(void * data_in, uint32_t data_len);
 
 /// @brief Feeds a raw block of bytes received from the transport layer
-/// (one full datagram/frame) into the packetizer, which validates it,
-/// discards it if corrupted, and delivers DATA-frame fragments to the
+/// into the packetizer, which validates it, discards it if corrupted, and delivers DATA-frame fragments to the
 /// application in order via the registered packetizer_message_received_cb.
 /// Only after that callback returns -- i.e. only after the application
 /// has handled and stored the fragment's data -- an ACK frame
@@ -120,15 +119,5 @@ int packetizer_send_data(void * data_in, uint32_t data_len);
 /// @param data_len Length, in bytes, of data_in.
 /// @returns Error code
 int packetizer_receive_data(void * data_in, uint16_t data_len);
-
-/// @brief Returns the largest payload, in bytes, that fits in a single
-/// packetizer frame without being fragmented (i.e. PACKET_MTU minus
-/// the frame's fixed metadata and CRC overhead). Applications reading
-/// data from a source they control the chunk size for (e.g. a file)
-/// can use this to pick a chunk size that maps to exactly one frame
-/// per read, instead of guessing at or duplicating the wire-format
-/// math themselves.
-/// @returns Maximum unfragmented payload size, in bytes.
-uint16_t packetizer_max_payload_size(void);
 
 #endif /* __PACKETIZER_H */

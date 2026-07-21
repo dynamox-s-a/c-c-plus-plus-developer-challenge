@@ -46,6 +46,9 @@
  * by a signal handler. */
 static volatile sig_atomic_t g_stop = 0;
 
+/*Listening port*/
+uint16_t local_port  = 0;
+
 static void on_sigint(int signum)
 {
     (void)signum;
@@ -93,7 +96,9 @@ void packetizer_rx_cb(packetizer_frame_t rx)
 
     static FILE * out = NULL;
     if (out == NULL) {
-        out = fopen("received_output.bin", "ab");
+        char filename[64] = {0};
+        sprintf(filename, "received_output_%u",local_port);
+        out = fopen(filename, "ab");
     }
     if (out != NULL) {
         if(rx.sequence_number > message_tracker)
@@ -117,7 +122,7 @@ int main(int argc, char *argv[])
         return EXIT_FAILURE;
     }
 
-    uint16_t local_port   = (uint16_t)atoi(argv[1]);
+    local_port   = (uint16_t)atoi(argv[1]);
     const char *remote_ip = argv[2];
     uint16_t remote_port  = (uint16_t)atoi(argv[3]);
 

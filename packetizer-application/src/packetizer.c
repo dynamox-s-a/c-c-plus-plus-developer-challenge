@@ -26,6 +26,14 @@
 #define OFFSET_FRAGMENT_COUNT   8
 #define OFFSET_PAYLOAD          10
 
+
+#define packetizer_send_ack(seq,frag,count) \
+    packetizer_send_control(PACKET_TYPE_ACK, seq, frag, count)
+
+#define packetizer_send_nack(seq,frag,count,reason) \
+    packetizer_send_control(PACKET_TYPE_NACK, seq, frag, count)
+
+
 /// @brief Global state of the packetizer core: the callbacks registered
 /// by packetizer_init() and the sequence number counter used to tag
 /// outgoing messages. Kept private (static) to this translation unit,
@@ -90,15 +98,13 @@ typedef struct
     uint16_t fragment_index;   /* index of the fragment awaiting ACK */
     int waiting;                /* 1 while packetizer_send_data() is actively waiting */
     volatile int acked;         /* set to 1 once the matching ACK is received */
+    uint8_t nack_count;
 } packetizer_pending_ack_t;
 
 static packetizer_pending_ack_t g_pending_ack;
 
 /// @brief Computes a CRC-32 (IEEE 802.3 polynomial, 0xEDB88320) over a
-/// block of bytes. Implemented locally (bit-by-bit, no lookup table) so
-/// the packetizer core has no external dependencies, at the cost of
-/// being slower than a table-driven implementation; acceptable given
-/// the small frame sizes involved.
+/// block of bytes.
 /// @param data Pointer to the bytes to checksum.
 /// @param len Number of bytes to checksum.
 /// @returns The computed CRC-32 value.
@@ -337,26 +343,25 @@ static int packetizer_reassemble_fragment(packetizer_frame_t received)
 /// @param fragment_index Index of the acknowledged fragment.
 /// @param fragment_count Total fragment count of the acknowledged message.
 /// @returns Error code
-static int packetizer_send_ack(uint16_t sequence_number,
-                                uint16_t fragment_index,
-                                uint16_t fragment_count)
+static int packetizer_send_control(
+    uint8_t type,
+    uint16_t sequence_number,
+    uint16_t fragment_index,
+    uint16_t fragment_count)
 {
-    packetizer_frame_t ack_frame = {0};
-    ack_frame.sof             = PACKETIZER_SOF;
-    ack_frame.packet_type     = PACKET_TYPE_ACK;
-    ack_frame.payload_length  = 0;
-    ack_frame.sequence_number = sequence_number;
-    ack_frame.fragment_index  = fragment_index;
-    ack_frame.fragment_count  = fragment_count;
-    ack_frame.payload         = NULL;
+    packetizer_frame_t frame = {0};
 
-    uint8_t ack_wire_buf[PACKET_MTU];
-    uint16_t frame_len = packetizer_serialize_frame(&ack_frame, ack_wire_buf);
+    frame.sof             = PACKETIZER_SOF;
+    frame.packet_type     = type;
+    frame.sequence_number = sequence_number;
+    frame.fragment_index  = fragment_index;
+    frame.fragment_count  = fragment_count;
 
-    if (g_state.send_fn(ack_wire_buf, frame_len) != 0)
-    {
+    uint8_t wire_buf[PACKET_MTU];
+    uint16_t len = packetizer_serialize_frame(&frame, wire_buf);
+
+    if(g_state.send_fn(wire_buf, len) != 0)
         return EIO;
-    }
 
     return 0;
 }
@@ -393,6 +398,7 @@ static int packetizer_wait_for_ack(uint16_t sequence_number, uint16_t fragment_i
     g_pending_ack.sequence_number = sequence_number;
     g_pending_ack.fragment_index  = fragment_index;
     g_pending_ack.acked           = 0;
+    g_pending_ack.nack_count = 0;
     g_pending_ack.waiting         = 1;
 
     /* Attempt 0 is the transmission packetizer_send_data() already did
@@ -404,15 +410,39 @@ static int packetizer_wait_for_ack(uint16_t sequence_number, uint16_t fragment_i
 
         while (packetizer_now_ms() < deadline)
         {
-            if (g_pending_ack.acked)
+            if (g_pending_ack.acked == 1)
             {
                 g_pending_ack.waiting = 0;
                 return 0;
             }
 
-            /* Sleep briefly instead of busy-spinning while another
-             * thread (e.g. a receiver thread) delivers the ACK via
-             * packetizer_receive_data(). */
+            if(g_pending_ack.acked == -1)
+            {
+                g_pending_ack.nack_count++;
+
+                LOG_ERROR("NACK received (%u/%u)",
+                        g_pending_ack.nack_count,
+                        PACKETIZER_NACK_MAX_RETRIES);
+
+                if (g_pending_ack.nack_count >= PACKETIZER_NACK_MAX_RETRIES)
+                {
+                    LOG_ERROR("Fragment rejected too many times. Aborting transmission.");
+
+                    g_pending_ack.waiting = 0;
+                    return EBADMSG;
+                }
+
+                if (g_state.send_fn(wire_buf, frame_len) != 0)
+                {
+                    g_pending_ack.waiting = 0;
+                    return EIO;
+                }
+
+                deadline = packetizer_now_ms() + PACKETIZER_ACK_TIMEOUT_MS;
+            }
+
+
+            /* Sleep briefly */
             struct timespec poll_interval = { .tv_sec = 0, .tv_nsec = 1000000 }; /* 1 ms */
             nanosleep(&poll_interval, NULL);
         }
@@ -437,10 +467,6 @@ static int packetizer_wait_for_ack(uint16_t sequence_number, uint16_t fragment_i
     return ETIMEDOUT;
 }
 
-uint16_t packetizer_max_payload_size(void)
-{
-    return PAYLOAD_MAX_SIZE;
-}
 
 int packetizer_init(transport_send send_fn, packetizer_message_received_cb on_message)
 {
@@ -594,6 +620,19 @@ int packetizer_receive_data(void * data_in, uint16_t data_len)
                 LOG_DEBUG("Ignoring unmatched ACK for seq %u frag %u", received.sequence_number, received.fragment_index);
             }
             return 0;
+
+        case PACKET_TYPE_NACK:
+            
+            LOG_ERROR("NACK received.");
+
+            if(g_pending_ack.waiting &&
+            g_pending_ack.sequence_number == received.sequence_number &&
+            g_pending_ack.fragment_index == received.fragment_index)
+            {
+                g_pending_ack.acked = -1;
+            }
+
+        return 0;
 
         default:
             return EBADMSG;

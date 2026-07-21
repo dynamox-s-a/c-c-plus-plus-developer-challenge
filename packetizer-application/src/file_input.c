@@ -71,13 +71,12 @@ int input_send_file(const char * path)
     struct stat st;
     long file_size = (stat(path, &st) == 0) ? (long)st.st_size : -1;
 
-    uint16_t chunk_size = packetizer_max_payload_size();
-    uint8_t * chunk = malloc(chunk_size);
-    if (chunk == NULL)
-    {
-        fclose(file);
-        return -1;
-    }
+    //Used a static buffer of 16Kb in order to send large chunks of data through the packetizer.
+    //If a file over 16Kb is read, the file will be split in smaller packets. That's not a packetizer
+    //flaw, but a process that should be decided the application.
+    uint16_t chunk_size = 16 * 1024;
+    uint8_t chunk[16 * 1024] = {0};
+
 
     printf("Sending file '%s'", path);
     if (file_size >= 0)
@@ -97,7 +96,6 @@ int input_send_file(const char * path)
             fprintf(stderr,
                     "\nFailed to send file chunk at offset %ld (error %d); aborting transfer.\n",
                     total_sent, rc);
-            free(chunk);
             fclose(file);
             return -1;
         }
@@ -117,7 +115,6 @@ int input_send_file(const char * path)
 
     int had_read_error = ferror(file);
 
-    free(chunk);
     fclose(file);
 
     if (had_read_error)
