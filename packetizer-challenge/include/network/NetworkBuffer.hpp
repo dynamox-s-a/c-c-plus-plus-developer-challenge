@@ -43,13 +43,26 @@ class NetworkBuffer {
   }
 
   [[nodiscard]]
-  size_t length() const {
+  size_t capacity() const {
     return static_cast<size_t>(tail_ - start_);
   }
 
   [[nodiscard]]
   size_t offset() const {
     return static_cast<size_t>(head_ - start_);
+  }
+
+  [[nodiscard]]
+  size_t length() const {
+    size_t total = 0;
+
+    const NetworkBuffer* buffer = this;
+    while (buffer) {
+      total += buffer->capacity() - buffer->offset();
+      buffer = buffer->next();
+    }
+
+    return total;
   }
 
   bool advance(size_t bytes) {

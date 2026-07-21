@@ -113,10 +113,11 @@ class DynamoxProtocol {
       packet->header.ack = 0;
       packet->header.fragment = fragment;
       packet->header.fragments = fragments;
-      packet->header.size = static_cast<uint16_t>(b->length() - sizeof(Header));
+      packet->header.size =
+          static_cast<uint16_t>(b->capacity() - sizeof(Header));
       packet->header.flags = DATA;
       packet->header.crc = 0;
-      packet->header.crc = crc32(packet, b->length());
+      packet->header.crc = crc32(packet, b->capacity());
 
       bool acked = false;
 
@@ -131,7 +132,7 @@ class DynamoxProtocol {
       }
 
       b->advance(sizeof(Header));
-      total += b->length() - b->offset();
+      total += b->capacity() - b->offset();
     }
 
     return total;

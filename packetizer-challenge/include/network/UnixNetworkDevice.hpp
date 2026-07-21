@@ -78,7 +78,7 @@ class UnixNetworkDevice : public NetworkDevice {
 
     inet_pton(AF_INET, Traits<UnixNetworkDevice>::Address, &addr.sin_addr);
 
-    int result = sendto(socket_, buffer->data(), buffer->length(), 0,
+    int result = sendto(socket_, buffer->data(), buffer->capacity(), 0,
                         reinterpret_cast<sockaddr*>(&addr), sizeof(addr));
 
     Debugger<TRACE>() << "}" << Debugger<TRACE>::endl;

@@ -44,7 +44,7 @@ class Server {
 
       if (!buffer) continue;
 
-      Debugger<PRINT>() << "Received: " << buffer->length() - buffer->offset();
+      Debugger<PRINT>() << "Received: " << buffer->length();
       Debugger<PRINT>() << " Bytes!" << Debugger<PRINT>::endl;
 
       device.release(buffer);
