@@ -1,28 +1,27 @@
 /*
  * main.c
  * ------
- * Demo "peer" application for the UDP transport layer.
+ * Demo "peer" application for the UDP transport layer + packetizer.
  *
  * The same application acts as sender and receiver at the same time
- * (full-duplex): a dedicated thread receives datagrams and prints
- * them, while the main thread reads lines from stdin and sends them
+ * (full-duplex): a dedicated thread receives datagrams and hands them
+ * to the packetizer, while the main thread reads lines from stdin and
+ * sends them (as text, or as a file's contents -- see file_input.h)
  * to the remote peer. To try it out, run two instances (or two
  * terminal windows) with crossed ports, e.g.:
  *
  *   Terminal A: ./peer 5000 127.0.0.1 6000
  *   Terminal B: ./peer 6000 127.0.0.1 5000
  *
- * Type a line in either terminal and press Enter to send it.
- * Ctrl+C shuts the application down cleanly.
+ * Type a line and press Enter to send it as a text message, or type a
+ * path to an existing file to send its contents instead. Ctrl+C shuts
+ * the application down cleanly.
  *
  * main() only orchestrates the UDP transport abstraction
- * (udp_init / udp_send / udp_recv / udp_close) plus the demo's own
- * threading and signal handling; it never touches sockets or
- * transport internals directly.
- *
- * NOTE: this application does not use the packetizer yet (out of
- * scope for this file). It exchanges raw UDP datagrams, serving as
- * the communication base the packetizer will be built on top of.
+ * (udp_init / udp_send / udp_recv / udp_close), the packetizer
+ * (packetizer_init / packetizer_send_data / packetizer_receive_data),
+ * and the demo's own threading and signal handling; it never touches
+ * sockets or transport internals directly.
  */
 
 #define _POSIX_C_SOURCE 200809L
@@ -37,6 +36,7 @@
 #include "udp.h"
 #include "log.h"
 #include "packetizer.h"
+#include "file_input.h"
 
 #define RECV_BUF_SIZE   2048
 #define RECV_TIMEOUT_MS 200   /* wake-up interval to check the stop flag */
@@ -84,12 +84,26 @@ int transport_send_fn(void * data, uint16_t data_len)
     return 0;
 }
 
+
 void packetizer_rx_cb(packetizer_frame_t rx)
 {
+    static uint16_t message_tracker = 0;
+    
+    LOG_DEBUG("%u bytes rx", rx.payload_length);
 
-    char rx_data[PACKET_MTU] = {0};
-    memcpy(rx_data, rx.payload, rx.payload_length);
-    LOG_DEBUG("%u bytes rx: %s", rx.payload_length,(char*)rx_data);
+    static FILE * out = NULL;
+    if (out == NULL) {
+        out = fopen("received_output.bin", "ab");
+    }
+    if (out != NULL) {
+        if(rx.sequence_number > message_tracker)
+        {
+            message_tracker = rx.sequence_number;
+            fprintf(out, "\n\r[MESSAGE NUMBER %u]:", message_tracker);
+        }
+        fwrite(rx.payload, 1, rx.payload_length, out);
+        fflush(out);
+    }
 }
 
 
@@ -122,7 +136,8 @@ int main(int argc, char *argv[])
 
     printf("Peer listening on port %u, sending to %s:%u\n",
            local_port, remote_ip, remote_port);
-    printf("Type a message and press Enter to send it (Ctrl+C to quit).\n> ");
+    printf("Type a message and press Enter to send it, or type a file\n"
+           "path to send that file's contents instead (Ctrl+C to quit).\n> ");
     fflush(stdout);
 
     /* Start the receiver thread: it runs in parallel with the send
@@ -134,14 +149,24 @@ int main(int argc, char *argv[])
         return EXIT_FAILURE;
     }
 
-    /* Main thread: reads lines from stdin and sends each one as a UDP datagram.*/
-    char line[RECV_BUF_SIZE];
+    /* Main thread: reads lines from stdin and sends each one as a UDP
+     * datagram. getline() is used instead of a fixed-size fgets()
+     * buffer so that pasting a very long line (much larger than a
+     * single packet) is read as ONE complete message -- getline()
+     * grows its buffer as needed, with no artificial length cap of its
+     * own. Fragmenting that message across multiple packets is then
+     * entirely the packetizer's job (packetizer_send_data already
+     * handles messages of arbitrary size), not something the app needs
+     * to pre-split by truncating its read buffer. */
+    char * line = NULL;
+    size_t line_buf_size = 0;
     while (!g_stop) {
-        if (fgets(line, sizeof(line), stdin) == NULL) {
-            break; /* EOF on stdin (e.g. closed pipe) */
+        ssize_t nread = getline(&line, &line_buf_size, stdin);
+        if (nread < 0) {
+            break; /* EOF on stdin (e.g. closed pipe), or a read error */
         }
 
-        size_t len = strlen(line);
+        size_t len = (size_t)nread;
         if (len > 0 && line[len - 1] == '\n') {
             line[len - 1] = '\0';
             len--;
@@ -152,7 +177,17 @@ int main(int argc, char *argv[])
             continue;
         }
 
-        if (packetizer_send_data(line, len) < 0) {
+        /* Runtime input is ambiguous by design (challenge requirement
+         * #4: accept "a message we type, a file path we pass"): a
+         * typed line is treated as a file to read and send only if it
+         * both looks like a path (name + short extension) AND an
+         * existing regular file is actually there; otherwise it is
+         * sent as literal text, unchanged from before. */
+        if (input_is_file_path(line)) {
+            if (input_send_file(line) != 0) {
+                fprintf(stderr, "Failed to send file '%s'.\n", line);
+            }
+        } else if (packetizer_send_data(line, len) < 0) {
             fprintf(stderr, "Failed to send message.\n");
         }
         printf("> ");
@@ -162,6 +197,7 @@ int main(int argc, char *argv[])
     g_stop = 1;
     pthread_join(recv_tid, NULL);
     udp_close();
+    free(line);
 
     printf("\nPeer shut down.\n");
     return EXIT_SUCCESS;

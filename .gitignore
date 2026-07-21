@@ -33,3 +33,4 @@
 
 # Build folder
 packetizer-application/build
+build.sh

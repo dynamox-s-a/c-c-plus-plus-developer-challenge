@@ -251,8 +251,15 @@ static int packetizer_reassemble_fragment(packetizer_frame_t received)
             if(received.sequence_number > g_reassembly.sequence_number+1 || received.sequence_number < g_reassembly.sequence_number)
             {
                 LOG_ERROR("Sender was on message n %u, this device was on %u", received.sequence_number, g_reassembly.sequence_number);
-                g_reassembly.sequence_number = received.sequence_number;
             }
+
+            /* Always advance the tracker to the message just accepted,
+             * not only inside the jump-detection branch above.
+             * Otherwise, on every normal in-order arrival the tracker
+             * is left one message stale, which makes the *next*
+             * arrival look like a false 2-apart "jump" even though
+             * nothing was actually lost. */
+            g_reassembly.sequence_number = received.sequence_number;
             
             received.fragment_index = 0;
             received.fragment_count = 1;
@@ -428,6 +435,11 @@ static int packetizer_wait_for_ack(uint16_t sequence_number, uint16_t fragment_i
                sequence_number, fragment_index, PACKETIZER_ACK_MAX_RETRIES);
     g_pending_ack.waiting = 0;
     return ETIMEDOUT;
+}
+
+uint16_t packetizer_max_payload_size(void)
+{
+    return PAYLOAD_MAX_SIZE;
 }
 
 int packetizer_init(transport_send send_fn, packetizer_message_received_cb on_message)

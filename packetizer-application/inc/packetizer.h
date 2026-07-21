@@ -121,4 +121,14 @@ int packetizer_send_data(void * data_in, uint32_t data_len);
 /// @returns Error code
 int packetizer_receive_data(void * data_in, uint16_t data_len);
 
+/// @brief Returns the largest payload, in bytes, that fits in a single
+/// packetizer frame without being fragmented (i.e. PACKET_MTU minus
+/// the frame's fixed metadata and CRC overhead). Applications reading
+/// data from a source they control the chunk size for (e.g. a file)
+/// can use this to pick a chunk size that maps to exactly one frame
+/// per read, instead of guessing at or duplicating the wire-format
+/// math themselves.
+/// @returns Maximum unfragmented payload size, in bytes.
+uint16_t packetizer_max_payload_size(void);
+
 #endif /* __PACKETIZER_H */
