@@ -21,6 +21,12 @@ class Server {
       Debugger<PRINT>() << "Received: " << buffer->length();
       Debugger<PRINT>() << " Bytes!" << Debugger<PRINT>::endl;
 
+      for (size_t i = 0; i < buffer->length(); i++) {
+        Debugger<PRINT>() << Debugger<PRINT>::hex << (*buffer)[i];
+      }
+
+      Debugger<PRINT>() << Debugger<PRINT>::endl;
+
       device.release(buffer);
     }
 

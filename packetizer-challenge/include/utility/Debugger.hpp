@@ -38,6 +38,10 @@ class Debugger {
   }
 
   static std::ostream& endl(std::ostream& os) { return std::endl(os); }
+  static std::ostream& hex(std::ostream& os) {
+    os << std::hex;
+    return os;
+  }
 };
 
 #endif
