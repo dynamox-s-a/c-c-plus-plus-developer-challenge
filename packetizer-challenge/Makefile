@@ -7,10 +7,12 @@ CC  		  := g++
 CCFLAGS  	  := -Wall -Wextra -std=c++2c -pedantic -Iinclude -g
 LDFLAGS  	  := 
 
-execute: $(TARGET)
-	#./$(TARGET) CLIENT
-	#xterm -hold -e "./$(TARGET) CLIENT" &
-	#xterm -hold -e "./$(TARGET) SERVER" &
+export TARGET
+
+build: $(TARGET)
+
+tests: $(TARGET)
+	./Test
 
 kill:
 	pkill -f "Dynamox CLIENT"

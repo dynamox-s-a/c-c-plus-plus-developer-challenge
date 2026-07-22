@@ -25,9 +25,9 @@ class Debugger {
   template <typename T>
   Debugger& operator<<(const T& value) {
     if constexpr (Level == ERROR && Traits<Enabled>::Error) {
-      std::cerr << RED << value << RESET;
+      std::cerr << RED << "[ERROR] " << value << RESET;
     } else if (Level == WARNING && Traits<Enabled>::Warning) {
-      std::cout << ORANGE << value << RESET;
+      std::cout << ORANGE << "[WARNING] " << value << RESET;
     } else if ((Level == TRACE && Traits<Enabled>::Trace) || Level == PRINT) {
       std::cout << value;
     }

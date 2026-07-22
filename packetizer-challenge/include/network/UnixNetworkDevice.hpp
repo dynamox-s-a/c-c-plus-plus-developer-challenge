@@ -130,9 +130,6 @@ class UnixNetworkDevice : public NetworkDevice {
   }
 
   NetworkBuffer* receive(size_t timeout = ~0ULL) override {
-    Debugger<TRACE>() << "UnixNetworkBuffer::receive(" << timeout << ") {"
-                      << Debugger<TRACE>::endl;
-
     timeval tv{};
     tv.tv_sec = timeout / 1000;
     tv.tv_usec = (timeout % 1000) * 1000;
@@ -152,9 +149,6 @@ class UnixNetworkDevice : public NetworkDevice {
       delete buffer;
       buffer = nullptr;
     }
-
-    Debugger<TRACE>() << "return=" << buffer << Debugger<TRACE>::endl;
-    Debugger<TRACE>() << "}" << Debugger<TRACE>::endl;
 
     return buffer;
   }

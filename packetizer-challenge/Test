@@ -1,0 +1,42 @@
+#!/bin/bash
+
+EXECUTABLE=${TARGET:-./build/Dynamox}
+
+TESTS=(
+    "cat data/LoremIpsum.txt | $EXECUTABLE CLIENT"
+    "cat data/HelloWorld.txt | $EXECUTABLE CLIENT"
+)
+
+make kill
+
+if command -v gnome-terminal >/dev/null 2>&1; then
+	gnome-terminal -- bash -c "$EXECUTABLE SERVER; exec bash" &
+	sleep 1
+else
+    echo "ERROR"
+    exit 1
+fi
+
+TOTAL_TESTS=0
+TOTAL_WARNS=0
+TOTAL_SENT=0
+REPEAT=10
+
+for TEST in "${TESTS[@]}"; do
+	for ((i=1; i<=REPEAT; i++)); do
+		((TOTAL_TESTS++))
+		OUTPUT=$(eval "$TEST" 2>&1)
+    	echo "$OUTPUT"
+		SENT=$(printf "%s\n" "$OUTPUT" | grep -c "Sent")
+		WARNS=$(printf "%s\n" "$OUTPUT" | grep -c "WARNING")
+		TOTAL_SENT=$((TOTAL_SENT + SENT))
+		TOTAL_WARNS=$((TOTAL_WARNS + WARNS))
+	done
+done
+
+echo
+echo "========================"
+echo "Tests Executed: $TOTAL_TESTS"
+echo "Successfully Sent: $TOTAL_SENT"
+echo "Simulated Errors: $TOTAL_WARNS"
+echo "========================"
