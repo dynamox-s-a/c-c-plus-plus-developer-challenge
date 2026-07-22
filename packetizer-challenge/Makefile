@@ -8,8 +8,9 @@ CCFLAGS  	  := -Wall -Wextra -std=c++2c -pedantic -Iinclude -g
 LDFLAGS  	  := 
 
 execute: $(TARGET)
-	xterm -hold -e "./$(TARGET) CLIENT" &
-	xterm -hold -e "./$(TARGET) SERVER" &
+	#./$(TARGET) CLIENT
+	#xterm -hold -e "./$(TARGET) CLIENT" &
+	#xterm -hold -e "./$(TARGET) SERVER" &
 
 kill:
 	pkill -f "Dynamox CLIENT"

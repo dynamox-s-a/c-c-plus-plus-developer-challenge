@@ -10,8 +10,8 @@ struct Traits;
 template <>
 struct Traits<UnixNetworkDevice> {
   static constexpr const char* Address = "127.0.0.1";
-  static constexpr char ClientPort[2] = {0xF, 0xA};
-  static constexpr char ServerPort[2] = {0xF, 0xB};
+  static constexpr unsigned char ClientPort[2] = {0xF, 0xA};
+  static constexpr unsigned char ServerPort[2] = {0xF, 0xB};
 };
 
 template <>

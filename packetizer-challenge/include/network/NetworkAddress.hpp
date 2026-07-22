@@ -3,6 +3,6 @@
 
 #include <span>
 
-using NetworkAddress = std::span<const char>;
+using NetworkAddress = std::span<const unsigned char>;
 
 #endif

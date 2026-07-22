@@ -6,6 +6,7 @@
 #include <cstring>
 #include <ctime>
 #include <network/NetworkDevice.hpp>
+#include <utility/Debugger.hpp>
 
 class DynamoxProtocol {
   static constexpr size_t DefaultTimeout = 2000;
@@ -49,9 +50,21 @@ class DynamoxProtocol {
 
  public:
   explicit DynamoxProtocol(NetworkDevice& device)
-      : device_(device), sequence_(0) {}
+      : device_(device), sequence_(0) {
+    Debugger<TRACE>() << "DynamoxProtocol(" << &device_ << ") {"
+                      << Debugger<TRACE>::endl;
+    Debugger<TRACE>() << "}" << Debugger<TRACE>::endl;
+  }
+
+  ~DynamoxProtocol() {
+    Debugger<TRACE>() << "~DynamoxProtocol() {" << Debugger<TRACE>::endl
+                      << "}" << Debugger<TRACE>::endl;
+  }
 
   NetworkBuffer* alloc(size_t size) {
+    Debugger<TRACE>() << "DynamoxProtocol::alloc(" << size << ") {"
+                      << Debugger<TRACE>::endl;
+
     const size_t mtu = device_.mtu();
 
     NetworkBuffer* first = nullptr;
@@ -65,7 +78,8 @@ class DynamoxProtocol {
 
       if (!buffer) {
         free(first);
-        return nullptr;
+        first = nullptr;
+        break;
       }
 
       buffer->advance(sizeof(Header));
@@ -80,15 +94,22 @@ class DynamoxProtocol {
       size -= chunk;
     }
 
+    Debugger<TRACE>() << "return=" << first << Debugger<TRACE>::endl;
+    Debugger<TRACE>() << "}" << Debugger<TRACE>::endl;
+
     return first;
   }
 
   void free(NetworkBuffer* buffer) {
+    Debugger<TRACE>() << "DynamoxProtocol::free(" << buffer << ") {"
+                      << Debugger<TRACE>::endl;
+
     while (buffer) {
       NetworkBuffer* next = buffer->next();
       device_.free(buffer);
       buffer = next;
     }
+    Debugger<TRACE>() << "}" << Debugger<TRACE>::endl;
   }
 
   void release(NetworkBuffer* buffer) { device_.release(buffer); }
@@ -96,11 +117,27 @@ class DynamoxProtocol {
   int send(NetworkBuffer* buffer, const NetworkAddress& destination,
            uint32_t timeout = DefaultTimeout,
            uint32_t retries = DefaultRetries) {
+    Debugger<TRACE>() << "DynamoxProtocol::send(" << buffer << ",";
+    Debugger<TRACE>() << "{";
+    for (size_t i = 0; i < destination.size(); i++) {
+      if (i != 0) Debugger<TRACE>() << ",";
+      Debugger<TRACE>() << static_cast<unsigned>(destination.data()[i]);
+    }
+    Debugger<TRACE>() << "},";
+    Debugger<TRACE>() << timeout << ",";
+    Debugger<TRACE>() << retries << ") { " << Debugger<TRACE>::endl;
+
     uint32_t sequence = sequence_++;
-    size_t total = 0;
+    int total = 0;
 
     uint16_t fragments = 0;
-    for (auto* b = buffer; b; b = b->next()) fragments++;
+    for (auto* b = buffer; b; b = b->next()) {
+      Debugger<TRACE>() << "buffer=" << b << " offset=" << b->offset()
+                        << " capacity=" << b->capacity()
+                        << " next=" << b->next() << Debugger<TRACE>::endl;
+
+      fragments++;
+    }
 
     uint16_t fragment = 0;
 
@@ -128,12 +165,16 @@ class DynamoxProtocol {
 
       if (!acked) {
         b->advance(sizeof(Header));
-        return -1;
+        total = -1;
+        break;
       }
 
       b->advance(sizeof(Header));
       total += b->capacity() - b->offset();
     }
+
+    Debugger<TRACE>() << "return=" << total << Debugger<TRACE>::endl;
+    Debugger<TRACE>() << "}" << Debugger<TRACE>::endl;
 
     return total;
   }

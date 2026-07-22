@@ -20,7 +20,7 @@ class UnixNetworkDevice : public NetworkDevice {
         : NetworkBuffer(data, length), port_(port) {}
 
     NetworkAddress source() override {
-      return NetworkAddress(reinterpret_cast<const char*>(&port_),
+      return NetworkAddress(reinterpret_cast<const unsigned char*>(&port_),
                             sizeof(port_));
     }
 
@@ -65,15 +65,22 @@ class UnixNetworkDevice : public NetworkDevice {
 
   size_t mtu() override { return 2048; }
 
-  int send(NetworkBuffer* buffer, NetworkAddress address) override {
+  int send(NetworkBuffer* buffer, const NetworkAddress& destination) override {
+    Debugger<TRACE>() << "UnixNetworkDevice::send(" << buffer << ",";
+    Debugger<TRACE>() << "{";
+    for (size_t i = 0; i < destination.size(); i++) {
+      if (i != 0) Debugger<TRACE>() << ",";
+      Debugger<TRACE>() << static_cast<unsigned>(destination.data()[i]);
+    }
+    Debugger<TRACE>() << "}";
+    Debugger<TRACE>() << ") { " << Debugger<TRACE>::endl;
+
     if (socket_ < 0 || buffer == nullptr) return -1;
-    Debugger<TRACE>() << "UnixNetworkDevice::send(" << buffer << ") {"
-                      << Debugger<TRACE>::endl;
 
     sockaddr_in addr{};
     addr.sin_family = AF_INET;
 
-    uint16_t port = *reinterpret_cast<const uint16_t*>(address.data());
+    uint16_t port = *reinterpret_cast<const uint16_t*>(destination.data());
     addr.sin_port = htons(port);
 
     inet_pton(AF_INET, Traits<UnixNetworkDevice>::Address, &addr.sin_addr);
@@ -81,26 +88,41 @@ class UnixNetworkDevice : public NetworkDevice {
     int result = sendto(socket_, buffer->data(), buffer->capacity(), 0,
                         reinterpret_cast<sockaddr*>(&addr), sizeof(addr));
 
+    Debugger<TRACE>() << "return=" << result << Debugger<TRACE>::endl;
     Debugger<TRACE>() << "}" << Debugger<TRACE>::endl;
 
     return result;
   }
 
   NetworkBuffer* alloc(size_t length) override {
+    Debugger<TRACE>() << "UnixNetworkBuffer::alloc(" << length << ") {"
+                      << Debugger<TRACE>::endl;
+
     if (length > mtu()) {
       Debugger<ERROR>() << "Can't Alloc a NetworkBuffer Bigger Than The MTU! "
                         << length << Debugger<ERROR>::endl;
       return nullptr;
     }
 
-    return new UnixNetworkBuffer(new unsigned char[length], length);
+    NetworkBuffer* buffer =
+        new UnixNetworkBuffer(new unsigned char[length], length);
+
+    Debugger<TRACE>() << "return=" << buffer << Debugger<TRACE>::endl;
+    Debugger<TRACE>() << "}" << Debugger<TRACE>::endl;
+
+    return buffer;
   }
 
   void free(NetworkBuffer* raw) override {
-    if (!raw) return;
-    UnixNetworkBuffer* buffer = static_cast<UnixNetworkBuffer*>(raw);
-    delete[] buffer->start();
-    delete buffer;
+    Debugger<TRACE>() << "UnixNetworkBuffer::free(" << raw << ") {"
+                      << Debugger<TRACE>::endl;
+    if (raw) {
+      UnixNetworkBuffer* buffer = static_cast<UnixNetworkBuffer*>(raw);
+      delete[] buffer->start();
+      delete buffer;
+    }
+
+    Debugger<TRACE>() << "}" << Debugger<TRACE>::endl;
   }
 
   NetworkBuffer* receive(size_t timeout = ~0ULL) override {

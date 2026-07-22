@@ -10,7 +10,8 @@ class NetworkBuffer {
   constexpr NetworkBuffer(void* start = 0, size_t tail = 0, size_t head = 0)
       : start_(static_cast<uint8_t*>(start)),
         head_(start_ + head),
-        tail_(start_ + tail) {}
+        tail_(start_ + tail),
+        next_(nullptr) {}
 
   virtual ~NetworkBuffer() = default;
 
@@ -40,6 +41,24 @@ class NetworkBuffer {
     }
 
     assert(false);
+  }
+
+  size_t fill(const void* data, size_t length) {
+    if (!data || length == 0) return 0;
+    const uint8_t* source = static_cast<const uint8_t*>(data);
+    size_t remaining = length;
+    NetworkBuffer* current = this;
+    while (current && remaining > 0) {
+      if (current->head_ < current->tail_) {
+        size_t available = static_cast<size_t>(current->tail_ - current->head_);
+        size_t copy = available < remaining ? available : remaining;
+        memcpy(current->head_, source, copy);
+        source += copy;
+        remaining -= copy;
+      }
+      current = current->next_;
+    }
+    return length - remaining;
   }
 
   [[nodiscard]]

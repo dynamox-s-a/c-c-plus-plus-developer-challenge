@@ -1,6 +1,7 @@
 #ifndef __DEBUGGER__
 #define __DEBUGGER__
 
+#include <Traits.hpp>
 #include <iostream>
 
 enum DebuggerLevel {

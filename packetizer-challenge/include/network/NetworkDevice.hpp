@@ -8,7 +8,7 @@ class NetworkDevice {
  public:
   virtual ~NetworkDevice() = default;
   virtual NetworkBuffer* alloc(size_t) = 0;
-  virtual int send(NetworkBuffer*, NetworkAddress) = 0;
+  virtual int send(NetworkBuffer*, const NetworkAddress&) = 0;
   virtual void free(NetworkBuffer*) = 0;
   virtual size_t mtu() = 0;
   virtual NetworkBuffer* receive(size_t) = 0;
