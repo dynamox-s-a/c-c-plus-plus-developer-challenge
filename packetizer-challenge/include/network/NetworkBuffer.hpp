@@ -1,0 +1,121 @@
+#ifndef __NETWORK_BUFFER__
+#define __NETWORK_BUFFER__
+
+#include <assert.h>
+
+#include <network/NetworkAddress.hpp>
+
+class NetworkBuffer {
+ public:
+  constexpr NetworkBuffer(void* start = 0, size_t tail = 0, size_t head = 0)
+      : start_(static_cast<uint8_t*>(start)),
+        head_(start_ + head),
+        tail_(start_ + tail),
+        next_(nullptr) {}
+
+  virtual ~NetworkBuffer() = default;
+
+  template <typename T = uint8_t*>
+  [[nodiscard]]
+  T data(this auto&& self) {
+    return reinterpret_cast<T>(self.head_);
+  }
+
+  template <typename T = uint8_t*>
+  [[nodiscard]]
+  T start(this auto&& self) {
+    return reinterpret_cast<T>(self.start_);
+  }
+
+  [[nodiscard]]
+  uint8_t operator[](this auto&& self, size_t i) {
+    NetworkBuffer* buffer = &self;
+    size_t offset = i;
+
+    while (buffer) {
+      size_t length = buffer->tail_ - buffer->head_;
+      if (offset < length) return buffer->head_[offset];
+
+      offset -= length;
+      buffer = buffer->next();
+    }
+
+    assert(false);
+  }
+
+  size_t fill(const void* data, size_t length) {
+    if (!data || length == 0) return 0;
+    const uint8_t* source = static_cast<const uint8_t*>(data);
+    size_t remaining = length;
+    NetworkBuffer* current = this;
+    while (current && remaining > 0) {
+      if (current->head_ < current->tail_) {
+        size_t available = static_cast<size_t>(current->tail_ - current->head_);
+        size_t copy = available < remaining ? available : remaining;
+        memcpy(current->head_, source, copy);
+        source += copy;
+        remaining -= copy;
+      }
+      current = current->next_;
+    }
+    return length - remaining;
+  }
+
+  [[nodiscard]]
+  size_t capacity() const {
+    return static_cast<size_t>(tail_ - start_);
+  }
+
+  [[nodiscard]]
+  size_t offset() const {
+    return static_cast<size_t>(head_ - start_);
+  }
+
+  [[nodiscard]]
+  size_t length() const {
+    size_t total = 0;
+
+    const NetworkBuffer* buffer = this;
+    while (buffer) {
+      total += buffer->capacity() - buffer->offset();
+      buffer = buffer->next();
+    }
+
+    return total;
+  }
+
+  bool advance(size_t bytes) {
+    head_ += bytes;
+    return true;
+  }
+
+  bool rewind(size_t bytes) {
+    head_ -= bytes;
+    return true;
+  }
+
+  bool extend(size_t bytes) {
+    tail_ += bytes;
+    return true;
+  }
+
+  bool shrink(size_t bytes) {
+    tail_ -= bytes;
+    return true;
+  }
+
+  NetworkBuffer* next() const { return next_; }
+  void next(NetworkBuffer* next) { next_ = next; }
+
+  virtual NetworkAddress source() = 0;
+
+ private:
+  uint8_t* const start_;
+
+  uint8_t* head_;
+  uint8_t* tail_;
+
+  NetworkBuffer* next_;
+};
+
+#endif
