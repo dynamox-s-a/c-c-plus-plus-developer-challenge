@@ -3,6 +3,7 @@
 
 #include <DynamoxProtocol.hpp>
 #include <network/UnixNetworkDevice.hpp>
+#include <network/UnsafeUnixNetworkDevice.hpp>
 #include <utility/Debugger.hpp>
 
 class Server {
@@ -10,7 +11,7 @@ class Server {
   Server() {
     Debugger<TRACE>() << "Server() {" << Debugger<PRINT>::endl;
 
-    UnixNetworkDevice communicator(Traits<UnixNetworkDevice>::ServerPort);
+    Traits<DynamoxProtocol>::Network communicator(Traits<Server>::Address);
     DynamoxProtocol device(communicator);
 
     while (true) {

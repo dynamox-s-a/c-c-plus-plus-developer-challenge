@@ -6,6 +6,7 @@
 
 #include <DynamoxProtocol.hpp>
 #include <network/UnixNetworkDevice.hpp>
+#include <network/UnsafeUnixNetworkDevice.hpp>
 #include <utility/Debugger.hpp>
 
 class Client {
@@ -13,7 +14,8 @@ class Client {
   Client(int, char* argv[]) {
     Debugger<TRACE>() << "Client() {" << Debugger<PRINT>::endl;
 
-    UnixNetworkDevice communicator(Traits<UnixNetworkDevice>::ClientPort);
+    typename Traits<DynamoxProtocol>::Network communicator(
+        Traits<Client>::Address);
     DynamoxProtocol device(communicator);
 
     Debugger<TRACE>() << "Reading Input From <STDIN>..."
@@ -45,8 +47,7 @@ class Client {
 
     buffer->fill(data, result);
 
-    result = device.send(buffer,
-                         NetworkAddress(Traits<UnixNetworkDevice>::ServerPort));
+    result = device.send(buffer, NetworkAddress(Traits<Server>::Address));
 
     device.free(buffer);
 

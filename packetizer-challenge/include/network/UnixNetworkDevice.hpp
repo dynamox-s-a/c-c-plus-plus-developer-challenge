@@ -83,7 +83,7 @@ class UnixNetworkDevice : public NetworkDevice {
     uint16_t port = *reinterpret_cast<const uint16_t*>(destination.data());
     addr.sin_port = htons(port);
 
-    inet_pton(AF_INET, Traits<UnixNetworkDevice>::Address, &addr.sin_addr);
+    inet_pton(AF_INET, Traits<UnixNetworkDevice>::Localhost, &addr.sin_addr);
 
     int result = sendto(socket_, buffer->data(), buffer->capacity(), 0,
                         reinterpret_cast<sockaddr*>(&addr), sizeof(addr));
@@ -126,25 +126,34 @@ class UnixNetworkDevice : public NetworkDevice {
   }
 
   NetworkBuffer* receive(size_t timeout = ~0ULL) override {
+    Debugger<TRACE>() << "UnixNetworkBuffer::receive(" << timeout << ") {"
+                      << Debugger<TRACE>::endl;
+
     timeval tv{};
     tv.tv_sec = timeout / 1000;
     tv.tv_usec = (timeout % 1000) * 1000;
     setsockopt(socket_, SOL_SOCKET, SO_RCVTIMEO, &tv, sizeof(tv));
 
-    auto* buffer = new unsigned char[mtu()];
+    auto* raw = new unsigned char[mtu()];
 
     sockaddr_in addr{};
     socklen_t addrlen = sizeof(addr);
 
-    int length = recvfrom(socket_, buffer, mtu(), 0,
+    int length = recvfrom(socket_, raw, mtu(), 0,
                           reinterpret_cast<sockaddr*>(&addr), &addrlen);
 
+    NetworkBuffer* buffer;
     if (length < 0) {
-      delete[] buffer;
-      return nullptr;
+      delete[] raw;
+      buffer = nullptr;
+    } else {
+      buffer = new UnixNetworkBuffer(raw, length, ntohs(addr.sin_port));
     }
 
-    return new UnixNetworkBuffer(buffer, length, ntohs(addr.sin_port));
+    Debugger<TRACE>() << "return=" << buffer << Debugger<TRACE>::endl;
+    Debugger<TRACE>() << "}" << Debugger<TRACE>::endl;
+
+    return buffer;
   }
 
   void release(NetworkBuffer* buffer) override { free(buffer); }

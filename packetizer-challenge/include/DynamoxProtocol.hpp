@@ -9,7 +9,7 @@
 #include <utility/Debugger.hpp>
 
 class DynamoxProtocol {
-  static constexpr size_t DefaultTimeout = 2000;
+  static constexpr size_t DefaultTimeout = 100;
   static constexpr size_t DefaultRetries = 5;
   static constexpr size_t Reassemblies = 16;
   static constexpr size_t Fragments = 64;
@@ -22,7 +22,7 @@ class DynamoxProtocol {
     uint16_t fragments;
     uint16_t flags;
     uint32_t crc;
-  };
+  } __attribute__((packed));
 
   struct Packet {
     Header header;
@@ -131,13 +131,7 @@ class DynamoxProtocol {
     int total = 0;
 
     uint16_t fragments = 0;
-    for (auto* b = buffer; b; b = b->next()) {
-      Debugger<TRACE>() << "buffer=" << b << " offset=" << b->offset()
-                        << " capacity=" << b->capacity()
-                        << " next=" << b->next() << Debugger<TRACE>::endl;
-
-      fragments++;
-    }
+    for (auto* b = buffer; b; b = b->next()) fragments++;
 
     uint16_t fragment = 0;
 
@@ -180,6 +174,8 @@ class DynamoxProtocol {
   }
 
   NetworkBuffer* receive(uint32_t timeout = DefaultTimeout) {
+    Debugger<TRACE>() << "DynamoxProtocol::receive(" << timeout << ") {"
+                      << Debugger<TRACE>::endl;
     Reassembly reassembly;
     uint64_t start = ms();
 
@@ -188,6 +184,8 @@ class DynamoxProtocol {
       uint64_t elapsed = current - start;
 
       if (elapsed >= timeout) {
+        Debugger<WARNING>()
+            << "DynamoxProtocol Received Elapsed!" << Debugger<WARNING>::endl;
         for (size_t i = 0; i < reassembly.fragments; i++) {
           if (reassembly.buffers[i]) {
             device_.free(reassembly.buffers[i]);
@@ -209,11 +207,11 @@ class DynamoxProtocol {
       uint32_t calculated = crc32(packet, sizeof(Header) + packet->header.size);
 
       if (crc != calculated || !(packet->header.flags & DATA)) {
+        Debugger<WARNING>() << "DynamoxProtocol Received a Corrupted Buffer!"
+                            << Debugger<WARNING>::endl;
         device_.free(buffer);
         continue;
       }
-
-      ack(packet->header.sequence, packet->header.fragment, buffer->source());
 
       if (packet->header.fragments == 0 ||
           packet->header.fragments > Fragments) {
@@ -221,17 +219,7 @@ class DynamoxProtocol {
         continue;
       }
 
-      if (packet->header.fragments == 1) {
-        if (reassembly.received == 0) {
-          buffer->advance(sizeof(Header));
-          return buffer;
-        } else {
-          device_.free(buffer);
-          continue;
-        }
-      }
-
-      if (reassembly.received == 0) {
+      if (reassembly.received == 0 && packet->header.fragment == 0) {
         reassembly.sequence = packet->header.sequence;
         reassembly.fragments = packet->header.fragments;
         reassembly.source = buffer->source();
@@ -249,17 +237,36 @@ class DynamoxProtocol {
         continue;
       }
 
-      if (reassembly.buffers[fragment]) {
+      if (fragment < reassembly.received) {
         device_.free(buffer);
         continue;
       }
+
+      if (reassembly.buffers[fragment]) {
+        Debugger<WARNING>() << "DynamoxProtocol Received a Repited Fragment!"
+                            << Debugger<WARNING>::endl;
+        ack(packet->header.sequence, packet->header.fragment, buffer->source());
+        device_.free(buffer);
+        continue;
+      }
+
+      Debugger<TRACE>() << "DynamoxProtocol Received a Fragment!"
+                        << Debugger<TRACE>::endl;
 
       buffer->advance(sizeof(Header));
 
       reassembly.buffers[fragment] = buffer;
       reassembly.received++;
 
-      if (reassembly.received != reassembly.fragments) continue;
+      ack(packet->header.sequence, packet->header.fragment, buffer->source());
+
+      start = ms();
+
+      if (reassembly.received != reassembly.fragments) {
+        Debugger<TRACE>() << "RECEIVED: " << reassembly.received
+                          << " TOTAL: " << reassembly.fragments << "\n";
+        continue;
+      }
 
       for (uint16_t i = 0; i + 1 < reassembly.fragments; i++)
         reassembly.buffers[i]->next(reassembly.buffers[i + 1]);
@@ -272,6 +279,7 @@ class DynamoxProtocol {
 
   bool ack(uint32_t sequence, uint16_t fragment,
            const NetworkAddress& destination) {
+    Debugger<TRACE>() << "ACK: " << fragment << "\n";
     NetworkBuffer* buffer = device_.alloc(sizeof(Header));
     bool response = false;
 

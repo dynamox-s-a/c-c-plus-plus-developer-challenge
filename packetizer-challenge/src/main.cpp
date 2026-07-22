@@ -8,6 +8,8 @@ int main(int argc, char* argv[]) {
     return 1;
   }
 
+  srand(time(NULL));
+
   if (*argv[1] == 'S') {
     Server _;
   } else if (*argv[1] == 'C') {
