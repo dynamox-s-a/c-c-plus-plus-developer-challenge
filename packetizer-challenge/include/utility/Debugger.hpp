@@ -46,9 +46,18 @@ class Debugger {
     return *this;
   }
 
-  static std::ostream& endl(std::ostream& os) { return std::endl(os); }
+  static std::ostream& endl(std::ostream& os) {
+    os << std::endl;
+    return os;
+  }
+
   static std::ostream& hex(std::ostream& os) {
     os << std::hex;
+    return os;
+  }
+
+  static std::ostream& dec(std::ostream& os) {
+    os << std::dec;
     return os;
   }
 };

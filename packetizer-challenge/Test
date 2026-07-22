@@ -41,5 +41,6 @@ echo
 echo "========================"
 echo "Tests Executed: $TOTAL_TESTS"
 echo "Successfully Sent: $TOTAL_SENT"
-echo "Simulated Errors: $TOTAL_WARNS"
+echo "Lost Buffers: $((TOTAL_TESTS - TOTAL_SENT))"
+echo "Client Simulated Errors: $TOTAL_WARNS"
 echo "========================"

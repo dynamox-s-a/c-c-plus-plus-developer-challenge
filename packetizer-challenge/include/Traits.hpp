@@ -18,8 +18,8 @@ struct Traits<UnixNetworkDevice> {
 
 template <>
 struct Traits<UnsafeUnixNetworkDevice> : Traits<UnixNetworkDevice> {
-  static constexpr int DropProbability = 1;
-  static constexpr int CorruptionProbability = 1;
+  static constexpr int DropProbability = 0;
+  static constexpr int CorruptionProbability = 0;
 };
 
 template <>

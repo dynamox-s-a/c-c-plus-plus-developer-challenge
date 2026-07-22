@@ -42,18 +42,6 @@ class DynamoxProtocol {
 
     NetworkAddress source;
     NetworkBuffer* buffers[Fragments] = {};
-
-    void reset(NetworkDevice& device) {
-      for (size_t i = 0; i < Fragments; i++) {
-        if (buffers[i]) {
-          device.free(buffers[i]);
-          buffers[i] = nullptr;
-        }
-      }
-      sequence = 0;
-      fragments = 0;
-      received = 0;
-    }
   };
 
   enum {
@@ -79,12 +67,14 @@ class DynamoxProtocol {
                       << Debugger<TRACE>::endl;
 
     const size_t mtu = device_.mtu();
+
     NetworkBuffer* first = nullptr;
     NetworkBuffer* current = nullptr;
 
     while (size > 0) {
       size_t chunk =
           (size + sizeof(Header) > mtu) ? mtu - sizeof(Header) : size;
+
       NetworkBuffer* buffer = device_.alloc(chunk + sizeof(Header));
 
       if (!buffer) {
@@ -129,13 +119,15 @@ class DynamoxProtocol {
   int send(NetworkBuffer* buffer, const NetworkAddress& destination,
            uint32_t timeout = DefaultTimeout,
            uint32_t retries = DefaultRetries) {
-    Debugger<TRACE>() << "DynamoxProtocol::send(" << buffer << ",{";
+    Debugger<TRACE>() << "DynamoxProtocol::send(" << buffer << ",";
+    Debugger<TRACE>() << "{";
     for (size_t i = 0; i < destination.size(); i++) {
       if (i != 0) Debugger<TRACE>() << ",";
       Debugger<TRACE>() << static_cast<unsigned>(destination.data()[i]);
     }
-    Debugger<TRACE>() << "}," << timeout << "," << retries << ") {"
-                      << Debugger<TRACE>::endl;
+    Debugger<TRACE>() << "},";
+    Debugger<TRACE>() << timeout << ",";
+    Debugger<TRACE>() << retries << ") { " << Debugger<TRACE>::endl;
 
     uint32_t sequence = sequence_++;
     int total = 0;
@@ -158,9 +150,7 @@ class DynamoxProtocol {
           static_cast<uint16_t>(b->capacity() - sizeof(Header));
       packet->header.flags = DATA;
       packet->header.crc = 0;
-      // Garante que o CRC é calculado estritamente sobre o tamanho real do
-      // frame
-      packet->header.crc = crc32(packet, sizeof(Header) + packet->header.size);
+      packet->header.crc = crc32(packet, b->capacity());
 
       bool acked = false;
 
@@ -194,7 +184,11 @@ class DynamoxProtocol {
       uint64_t elapsed = current - start;
 
       if (elapsed >= timeout) {
-        reassembly.reset(device_);
+        for (size_t i = 0; i < reassembly.fragments; i++) {
+          if (reassembly.buffers[i]) {
+            device_.free(reassembly.buffers[i]);
+          }
+        }
         return nullptr;
       }
 
@@ -204,19 +198,9 @@ class DynamoxProtocol {
         continue;
       }
 
-      if (buffer->capacity() < sizeof(Header)) {
-        device_.free(buffer);
-        continue;
-      }
-
       Packet* packet = buffer->data<Packet*>();
       uint32_t crc = packet->header.crc;
       packet->header.crc = 0;
-
-      if (sizeof(Header) + packet->header.size > buffer->capacity()) {
-        device_.free(buffer);
-        continue;
-      }
 
       uint32_t calculated = crc32(packet, sizeof(Header) + packet->header.size);
 
@@ -227,34 +211,39 @@ class DynamoxProtocol {
         continue;
       }
 
-      uint16_t fragments = packet->header.fragments;
-      uint16_t fragment = packet->header.fragment;
-
-      if (fragments == 0 || fragments > Fragments || fragment >= fragments) {
+      if (packet->header.fragments == 0 ||
+          packet->header.fragments > Fragments) {
         device_.free(buffer);
         continue;
       }
 
-      if (reassembly.received == 0) {
+      if (reassembly.received == 0 && packet->header.fragment == 0) {
         reassembly.sequence = packet->header.sequence;
-        reassembly.fragments = fragments;
+        reassembly.fragments = packet->header.fragments;
         reassembly.source = buffer->source();
-      } else if (packet->header.sequence != reassembly.sequence) {
-        if (packet->header.sequence > reassembly.sequence) {
-          reassembly.reset(device_);
-          reassembly.sequence = packet->header.sequence;
-          reassembly.fragments = fragments;
-          reassembly.source = buffer->source();
-        } else {
-          device_.free(buffer);
-          continue;
-        }
       }
 
-      if (reassembly.buffers[fragment] != nullptr) {
-        Debugger<WARNING>() << "DynamoxProtocol Received a Repeated Fragment!"
+      if (packet->header.sequence != reassembly.sequence) {
+        device_.free(buffer);
+        continue;
+      }
+
+      uint16_t fragment = packet->header.fragment;
+
+      if (fragment >= Fragments || fragment >= reassembly.fragments) {
+        device_.free(buffer);
+        continue;
+      }
+
+      if (fragment < reassembly.received) {
+        device_.free(buffer);
+        continue;
+      }
+
+      if (reassembly.buffers[fragment]) {
+        Debugger<WARNING>() << "DynamoxProtocol Received a Repited Fragment!"
                             << Debugger<WARNING>::endl;
-        ack(packet->header.sequence, fragment, buffer->source());
+        ack(packet->header.sequence, packet->header.fragment, buffer->source());
         device_.free(buffer);
         continue;
       }
@@ -263,21 +252,24 @@ class DynamoxProtocol {
                         << Debugger<TRACE>::endl;
 
       buffer->advance(sizeof(Header));
+
       reassembly.buffers[fragment] = buffer;
       reassembly.received++;
 
-      ack(packet->header.sequence, fragment, buffer->source());
+      ack(packet->header.sequence, packet->header.fragment, buffer->source());
 
       start = ms();
 
-      if (reassembly.received == reassembly.fragments) {
-        for (uint16_t i = 0; i + 1 < reassembly.fragments; i++) {
-          reassembly.buffers[i]->next(reassembly.buffers[i + 1]);
-        }
-        reassembly.buffers[reassembly.fragments - 1]->next(nullptr);
-
-        return reassembly.buffers[0];
+      if (reassembly.received != reassembly.fragments) {
+        continue;
       }
+
+      for (uint16_t i = 0; i + 1 < reassembly.fragments; i++)
+        reassembly.buffers[i]->next(reassembly.buffers[i + 1]);
+
+      reassembly.buffers[reassembly.fragments - 1]->next(nullptr);
+
+      return reassembly.buffers[0];
     }
   }
 
@@ -318,11 +310,6 @@ class DynamoxProtocol {
       uint32_t remaining = static_cast<uint32_t>(timeout - elapsed);
       NetworkBuffer* buffer = device_.receive(remaining);
       if (!buffer) {
-        continue;
-      }
-
-      if (buffer->capacity() < sizeof(Header)) {
-        device_.free(buffer);
         continue;
       }
 

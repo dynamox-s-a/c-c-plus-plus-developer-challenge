@@ -19,6 +19,7 @@ class Server {
 
       if (!buffer) continue;
 
+      Debugger<PRINT>() << Debugger<PRINT>::dec;
       Debugger<PRINT>() << "Received: " << buffer->length();
       Debugger<PRINT>() << " Bytes!" << Debugger<PRINT>::endl;
 
