@@ -12,8 +12,11 @@ make kill
 if command -v gnome-terminal >/dev/null 2>&1; then
 	gnome-terminal -- bash -c "$EXECUTABLE SERVER; exec bash" &
 	sleep 1
+elif command -v xterm >/dev/null 2>&1; then
+	xterm -hold -e "$EXECUTABLE SERVER" &
+	sleep 1
 else
-    echo "ERROR"
+	echo "ERROR: Please Install gnome-terminal or xterm to Run This Test."
     exit 1
 fi
 
