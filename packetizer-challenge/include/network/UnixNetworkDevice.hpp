@@ -15,6 +15,8 @@
 
 class UnixNetworkDevice : public NetworkDevice {
   class UnixNetworkBuffer : public NetworkBuffer {
+    friend UnixNetworkDevice;
+
    public:
     UnixNetworkBuffer(size_t length, uint16_t port = 0)
         : NetworkBuffer(data_, length), port_(port) {}
@@ -25,7 +27,10 @@ class UnixNetworkDevice : public NetworkDevice {
     }
 
    private:
-    uint8_t data_[2048];
+    static constexpr size_t MTU = 2048;
+
+   private:
+    uint8_t data_[MTU];
     uint16_t port_;
   };
 
@@ -64,7 +69,7 @@ class UnixNetworkDevice : public NetworkDevice {
     Debugger<TRACE>() << "}" << Debugger<TRACE>::endl;
   }
 
-  size_t mtu() override { return 2048; }
+  size_t mtu() override { return UnixNetworkBuffer::MTU; }
 
   int send(NetworkBuffer* buffer, const NetworkAddress& destination) override {
     Debugger<TRACE>() << "UnixNetworkDevice::send(" << buffer << ",";
