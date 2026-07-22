@@ -9,10 +9,11 @@
 #include <utility/Debugger.hpp>
 
 class DynamoxProtocol {
-  static constexpr size_t DefaultTimeout = 100;
-  static constexpr size_t DefaultRetries = 5;
-  static constexpr size_t Reassemblies = 16;
-  static constexpr size_t Fragments = 64;
+  static constexpr size_t DefaultTimeout =
+      Traits<DynamoxProtocol>::DefaultTimeout;
+  static constexpr size_t DefaultRetries =
+      Traits<DynamoxProtocol>::DefaultRetries;
+  static constexpr size_t Fragments = 256;
 
   struct Header {
     uint32_t sequence;
@@ -109,6 +110,7 @@ class DynamoxProtocol {
       device_.free(buffer);
       buffer = next;
     }
+
     Debugger<TRACE>() << "}" << Debugger<TRACE>::endl;
   }
 

@@ -19,7 +19,7 @@ struct Traits<UnixNetworkDevice> {
 template <>
 struct Traits<UnsafeUnixNetworkDevice> : Traits<UnixNetworkDevice> {
   static constexpr int DropProbability = 20;
-  static constexpr int CorruptionProbability = 0;
+  static constexpr int CorruptionProbability = 20;
 };
 
 template <>
@@ -41,6 +41,8 @@ struct Traits<Enabled> {
 
 template <>
 struct Traits<DynamoxProtocol> {
+  static constexpr int DefaultTimeout = 100;
+  static constexpr int DefaultRetries = 5;
   using Network = UnsafeUnixNetworkDevice;
 };
 

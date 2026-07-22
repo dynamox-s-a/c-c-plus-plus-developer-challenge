@@ -16,8 +16,8 @@
 class UnixNetworkDevice : public NetworkDevice {
   class UnixNetworkBuffer : public NetworkBuffer {
    public:
-    UnixNetworkBuffer(unsigned char* data, size_t length, uint16_t port = 0)
-        : NetworkBuffer(data, length), port_(port) {}
+    UnixNetworkBuffer(size_t length, uint16_t port = 0)
+        : NetworkBuffer(data_, length), port_(port) {}
 
     NetworkAddress source() override {
       return NetworkAddress(reinterpret_cast<const unsigned char*>(&port_),
@@ -25,6 +25,7 @@ class UnixNetworkDevice : public NetworkDevice {
     }
 
    private:
+    uint8_t data_[2048];
     uint16_t port_;
   };
 
@@ -104,8 +105,7 @@ class UnixNetworkDevice : public NetworkDevice {
       return nullptr;
     }
 
-    NetworkBuffer* buffer =
-        new UnixNetworkBuffer(new unsigned char[length], length);
+    NetworkBuffer* buffer = new UnixNetworkBuffer(length);
 
     Debugger<TRACE>() << "return=" << buffer << Debugger<TRACE>::endl;
     Debugger<TRACE>() << "}" << Debugger<TRACE>::endl;
@@ -118,7 +118,6 @@ class UnixNetworkDevice : public NetworkDevice {
                       << Debugger<TRACE>::endl;
     if (raw) {
       UnixNetworkBuffer* buffer = static_cast<UnixNetworkBuffer*>(raw);
-      delete[] buffer->start();
       delete buffer;
     }
 
@@ -134,20 +133,19 @@ class UnixNetworkDevice : public NetworkDevice {
     tv.tv_usec = (timeout % 1000) * 1000;
     setsockopt(socket_, SOL_SOCKET, SO_RCVTIMEO, &tv, sizeof(tv));
 
-    auto* raw = new unsigned char[mtu()];
+    NetworkBuffer* buffer = new UnixNetworkBuffer(mtu(), 0);
 
     sockaddr_in addr{};
     socklen_t addrlen = sizeof(addr);
 
-    int length = recvfrom(socket_, raw, mtu(), 0,
+    int length = recvfrom(socket_, buffer->start(), buffer->capacity(), 0,
                           reinterpret_cast<sockaddr*>(&addr), &addrlen);
 
-    NetworkBuffer* buffer;
+    new (buffer) UnixNetworkBuffer(length, ntohs(addr.sin_port));
+
     if (length < 0) {
-      delete[] raw;
+      delete buffer;
       buffer = nullptr;
-    } else {
-      buffer = new UnixNetworkBuffer(raw, length, ntohs(addr.sin_port));
     }
 
     Debugger<TRACE>() << "return=" << buffer << Debugger<TRACE>::endl;
