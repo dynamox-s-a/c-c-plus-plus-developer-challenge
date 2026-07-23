@@ -9,9 +9,23 @@
 #include <arpa/inet.h>
 
 /*
- * Single shared instance of the transport state, declared as extern in
- * transport_udp.h. All functions in this file operate on this instance,
- * so callers never need to allocate or pass a handle themselves.
+ * Internal state of the UDP transport.
+ *
+ * UDP has no notion of a "connection", so this struct just holds:
+ *  - the local socket (used both for sending and receiving)
+ *  - the remote peer address, used as the default destination of
+ *    udp_send()
+ */
+typedef struct {
+    int sockfd;                     /* UDP socket file descriptor        */
+    struct sockaddr_in remote_addr; /* default destination for udp_send  */
+    int is_open;                    /* 0 = closed, 1 = open              */
+} udp_handle_t;
+
+/*
+ * Single shared instance of the transport state.All functions in
+ * this file operate on this instance, so callers never need to 
+ * allocate or pass a handle themselves.
  */
 udp_handle_t g_udp_handle;
 

@@ -53,7 +53,7 @@ typedef struct
 /// @param void* pointer to the data to be transmitted
 /// @param uint16_t length, in bytes, of the data to be transmitted
 /// @returns Error code
-typedef int (*transport_send)(void *,uint16_t);
+typedef int (*transport_send_t)(void *,uint16_t);
 
 /// @brief Callback invoked by the packetizer for every validated,
 /// in-order fragment of an incoming message (or once, for an
@@ -81,11 +81,11 @@ typedef void (*packetizer_message_received_cb)(packetizer_frame_t rx_info);
 /// fragment (or unfragmented message) has been received. May be NULL
 /// if the receive path is not used.
 /// @returns Error code
-int packetizer_init(transport_send send_fn, packetizer_message_received_cb on_message);
+int packetizer_init(transport_send_t send_fn, packetizer_message_received_cb on_message);
 
 /// @brief Packs (and fragments, if needed) an application message into one
 /// or more packetizer frames and hands each one to the registered
-/// transport_send function for transmission.
+/// transport_send_t function for transmission.
 ///
 /// Each DATA fragment is sent using a stop-and-wait scheme: after
 /// transmitting a fragment, this function blocks (without spinning at
@@ -109,7 +109,7 @@ int packetizer_send_data(void * data_in, uint32_t data_len);
 /// application in order via the registered packetizer_message_received_cb.
 /// Only after that callback returns -- i.e. only after the application
 /// has handled and stored the fragment's data -- an ACK frame
-/// acknowledging it is sent back through the registered transport_send.
+/// acknowledging it is sent back through the registered transport_send_t.
 ///
 /// ACK frames (PACKET_TYPE_ACK) received here are matched against the
 /// single fragment, if any, that a concurrent call to

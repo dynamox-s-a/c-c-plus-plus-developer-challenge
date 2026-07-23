@@ -111,7 +111,7 @@ static int transport_capture_only(void * data, uint16_t len)
  * frame back into the packetizer, exactly as a receiver thread would
  * after calling udp_recv(). The delay matters: packetizer_send_data()
  * only starts actually waiting (packetizer_wait_for_ack) a moment
- * *after* the transport_send call returns, so an ACK delivered with
+ * *after* the transport_send_t call returns, so an ACK delivered with
  * zero delay, from the very same call stack, would arrive before
  * anyone is listening for it and be silently ignored. */
 static void * deliver_ack_after_delay(void * arg)
@@ -181,7 +181,7 @@ static int transport_auto_ack(void * data, uint16_t len)
  * packetizer_init conveniently zeroes g_state, g_reassembly and
  * g_pending_ack all at once) and resets the test doubles' own
  * bookkeeping. */
-static void reset_packetizer(transport_send send_fn)
+static void reset_packetizer(transport_send_t send_fn)
 {
     packetizer_init(send_fn, test_on_message);
     g_delivered_count    = 0;

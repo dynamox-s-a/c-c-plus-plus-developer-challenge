@@ -41,7 +41,7 @@
 /// callers should reach into directly.
 typedef struct
 {
-    transport_send send_fn;                     /* registered transport send function */
+    transport_send_t send_fn;                     /* registered transport send function */
     packetizer_message_received_cb on_message;  /* registered "message ready" callback */
     uint16_t next_sequence_number;               /* sequence number to assign to the next outgoing message */
     int is_initialized;
@@ -491,7 +491,7 @@ static int packetizer_wait_for_ack(uint16_t sequence_number, uint16_t fragment_i
 }
 
 
-int packetizer_init(transport_send send_fn, packetizer_message_received_cb on_message)
+int packetizer_init(transport_send_t send_fn, packetizer_message_received_cb on_message)
 {
     if (send_fn == NULL || on_message == NULL) return EINVAL;
 

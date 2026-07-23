@@ -1,16 +1,13 @@
-#ifndef __TRANSPORT_UDP_H
-#define __TRANSPORT_UDP_H
+#ifndef __TRANSPORT_TCP_H
+#define __TRANSPORT_TCP_H
 
 /*
- * transport_udp.h
+ * transport_tcp.h
  * ---------------
- * UDP transport layer for device-to-device communication.
+ * tcp transport layer for device-to-device communication.
  *
- * API STYLE: the module keeps a single shared handle internally
- * (declared here, defined in transport_udp.c) so that callers -
- * including main() - never need to create, own, or pass around a
- * transport struct. Callers only invoke the abstraction functions below:
- * udp_init(), udp_send(), udp_recv() and udp_close().
+ * Used as an alternative transport layer, selected during compile with flag TRANSPORT_BACKEND=TCP.
+ * Validates bonus #3:Support a second, different transport using the same packetizer core, demonstrating that the abstraction holds.
  */
 
 #include <stdint.h>
@@ -18,7 +15,7 @@
 #include <sys/types.h>
 #include <netinet/in.h>
 
-/// @brief Initializes the UDP transport:
+/// @brief Initializes the tcp transport:
 ///   1) creates the socket (AF_INET, SOCK_DGRAM)
 ///   2) binds the local port on INADDR_ANY (receive on any interface)
 ///   3) resolves/stores the remote address (send destination)
@@ -33,19 +30,19 @@
 /// @returns 0 on success, -1 on error (message printed to stderr via
 /// perror).
 
-int udp_init(uint16_t local_port,
+int tcp_init(uint16_t local_port,
              const char *remote_ip,
              uint16_t remote_port);
 
 ///
 /// @brief Sends `len` bytes from `data` to the remote address configured in
-/// udp_init(). 
+/// tcp_init(). 
 /// @param data pointer to the data buffer. Treated as uint8_t internally.
 ///
 /// @param len Length of the data, in bytes.
 /// @returns the number of bytes sent, or -1 on error.
 ///
-ssize_t udp_send(const void *data, size_t len);
+ssize_t tcp_send(const void *data, size_t len);
 
 ///
 /// @brief Waits for an incoming datagram for up to `timeout_ms` milliseconds
@@ -65,7 +62,7 @@ ssize_t udp_send(const void *data, size_t len);
 ///     0 : timeout, no data available
 ///    -1 : error (message printed to stderr via perror)
 ///
-ssize_t udp_recv(void *buf,
+ssize_t tcp_recv(void *buf,
                   size_t buf_len,
                   struct sockaddr_in *from_addr,
                   int timeout_ms);
@@ -74,6 +71,7 @@ ssize_t udp_recv(void *buf,
 /// @brief Closes the socket and marks the transport as closed.
 /// Safe to call even if init failed partway through.
 ///
-void udp_close(void);
+void tcp_close(void);
 
-#endif /* __TRANSPORT_UDP_H */
+
+#endif /*__TRANSPORT_TCP_H*/

@@ -18,7 +18,7 @@
  * the application down cleanly.
  *
  * main() only orchestrates the UDP transport abstraction
- * (udp_init / udp_send / udp_recv / udp_close), the packetizer
+ * (transport_init / transport_send / transport_recv / transport_close), the packetizer
  * (packetizer_init / packetizer_send_data / packetizer_receive_data),
  * and the demo's own threading and signal handling; it never touches
  * sockets or transport internals directly.
@@ -33,7 +33,7 @@
 #include <pthread.h>
 #include <arpa/inet.h>
 
-#include "udp.h"
+#include "transport_interface.h"
 #include "log.h"
 #include "packetizer.h"
 #include "file_input.h"
@@ -63,7 +63,7 @@ static void *receiver_thread_fn(void *arg)
     struct sockaddr_in from_addr;
 
     while (!g_stop) {
-        ssize_t n = udp_recv(buf, sizeof(buf) - 1, &from_addr, RECV_TIMEOUT_MS);
+        ssize_t n = transport_recv(buf, sizeof(buf) - 1, &from_addr, RECV_TIMEOUT_MS);
         
         
         if (n < 0) {
@@ -83,7 +83,7 @@ static void *receiver_thread_fn(void *arg)
 
 int transport_send_fn(void * data, uint16_t data_len)
 {
-    if(udp_send(data, (uint16_t) data_len) <= 0) return 1;
+    if(transport_send(data, (uint16_t) data_len) <= 0) return 1;
     return 0;
 }
 
@@ -126,8 +126,8 @@ int main(int argc, char *argv[])
     const char *remote_ip = argv[2];
     uint16_t remote_port  = (uint16_t)atoi(argv[3]);
 
-    if (udp_init(local_port, remote_ip, remote_port) != 0) {
-        fprintf(stderr, "Failed to initialize the UDP transport.\n");
+    if (transport_init(local_port, remote_ip, remote_port) != 0) {
+        fprintf(stderr, "Failed to initialize the transport.\n");
         return EXIT_FAILURE;
     }
 
@@ -150,7 +150,7 @@ int main(int argc, char *argv[])
     pthread_t recv_tid;
     if (pthread_create(&recv_tid, NULL, receiver_thread_fn, NULL) != 0) {
         perror("pthread_create");
-        udp_close();
+        transport_close();
         return EXIT_FAILURE;
     }
 
@@ -201,7 +201,7 @@ int main(int argc, char *argv[])
 
     g_stop = 1;
     pthread_join(recv_tid, NULL);
-    udp_close();
+    transport_close();
     free(line);
 
     printf("\nPeer shut down.\n");

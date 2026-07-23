@@ -22,15 +22,6 @@
 ///   2) Existence: stat() confirms a *regular, readable* file actually
 ///      exists at that path.
 ///
-/// Requiring both avoids the two failure modes a syntax-only or an
-/// existence-only check would each fall into on their own:
-///   - A plain message that happens to contain a dot (e.g. "v1.0 is
-///     out", "check contact@example.com") would otherwise be
-///     misidentified as a file path.
-///   - A string that happens to match an existing path by coincidence,
-///     but that the user clearly meant as literal text, is far less
-///     likely once it must also *look* like a filename.
-///
 /// @param input Null-terminated line of input to classify.
 /// @returns 1 if `input` should be treated as a file path, 0 otherwise
 /// (treat it as literal text).
@@ -38,12 +29,6 @@ int input_is_file_path(const char * input);
 
 /// @brief Reads the file at `path` and sends its contents through the
 /// packetizer (packetizer_send_data()), one chunk at a time.
-///
-/// Each chunk is sized to packetizer_max_payload_size(), so it maps to
-/// exactly one on-the-wire frame -- i.e. the read/send loop respects
-/// PACKET_MTU by construction, one packet at a time, and never needs
-/// to hold more than one chunk (plus small stdio buffering) in memory
-/// regardless of how large the file is.
 ///
 /// Each chunk is sent with its own call to packetizer_send_data(),
 /// which (per its own stop-and-wait/ACK contract) only returns once
