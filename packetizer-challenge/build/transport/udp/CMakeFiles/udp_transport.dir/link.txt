@@ -1,0 +1,2 @@
+/usr/bin/ar qc libudp_transport.a CMakeFiles/udp_transport.dir/udp_transport.c.o
+/usr/bin/ranlib libudp_transport.a

@@ -1,0 +1,2 @@
+/usr/bin/ar qc libpacketizer.a CMakeFiles/packetizer.dir/src/crc16.c.o CMakeFiles/packetizer.dir/src/cobs.c.o CMakeFiles/packetizer.dir/src/packetizer.c.o
+/usr/bin/ranlib libpacketizer.a
