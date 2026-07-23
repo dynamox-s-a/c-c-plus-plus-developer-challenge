@@ -254,7 +254,23 @@ static int packetizer_reassemble_fragment(packetizer_frame_t received)
                 LOG_ERROR("Repeated message detected, ignoring");
                 return 0;
             }
-            if(received.sequence_number > g_reassembly.sequence_number+1 || received.sequence_number < g_reassembly.sequence_number)
+
+            /* What sequence_number should legitimately come right
+             * after g_reassembly.sequence_number, accounting for
+             * wraparound. packetizer_send_data() skips 0 when its
+             * counter wraps (0 is reserved as this tracker's initial
+             * "nothing seen yet" sentinel), so the expected successor
+             * of 65535 is 1, not 0 or 65536. Computing this in a
+             * wider-than-16-bit type first, instead of evaluating
+             * g_reassembly.sequence_number + 1 directly in uint16_t,
+             * avoids that addition itself silently overflowing back
+             * to 0 right at the boundary -- which previously made the
+             * very next, perfectly in-order message look like a
+             * "lost messages" jump every time the counter wrapped. */
+            uint32_t expected_next = (uint32_t)g_reassembly.sequence_number + 1u;
+            if (expected_next > UINT16_MAX) expected_next = 1u;
+
+            if(received.sequence_number != (uint16_t)expected_next)
             {
                 LOG_ERROR("Sender was on message n %u, this device was on %u", received.sequence_number, g_reassembly.sequence_number);
             }
@@ -438,6 +454,13 @@ static int packetizer_wait_for_ack(uint16_t sequence_number, uint16_t fragment_i
                     return EIO;
                 }
 
+                /* Give this retransmission its own fresh wait: reset
+                 * the flag so the next poll iteration only reacts to a
+                 * genuinely new response (ACK or NACK), instead of
+                 * immediately re-processing this same NACK again on
+                 * the next 1ms tick and burning through the entire
+                 * retry budget in a handful of milliseconds. */
+                g_pending_ack.acked = 0;
                 deadline = packetizer_now_ms() + PACKETIZER_ACK_TIMEOUT_MS;
             }
 
