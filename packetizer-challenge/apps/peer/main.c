@@ -1,21 +1,21 @@
 /**
- * peer — demonstração bidirecional do packetizer sobre UDP.
+ * peer — bidirectional packetizer demo over UDP.
  *
- * Uso:
+ * Usage:
  *   peer --local-port <N> --remote-port <M> [--remote-host <IP>]
  *
- * Execute duas instâncias na mesma máquina:
+ * Run two instances on the same machine:
  *   Terminal A:  ./peer --local-port 5000 --remote-port 5001
  *   Terminal B:  ./peer --local-port 5001 --remote-port 5000
  *
- * Comandos (digitados no stdin):
- *   msg  <texto>         Envia uma mensagem de texto
- *   file <caminho>       Envia um arquivo
- *   quit                 Encerra
+ * Commands (typed at stdin):
+ *   msg  <text>          Send a text message
+ *   file <path>          Send a file
+ *   quit                 Exit
  *
- * O app é full-duplex: uma thread em segundo plano injeta datagramas UDP
- * recebidos no packetizer e chama pkt_tick(); a thread principal lê o stdin e
- * chama pkt_send(). Um pthread_mutex protege a instância compartilhada.
+ * The app is full-duplex: a background thread feeds incoming UDP datagrams
+ * into the packetizer and drives pkt_tick(); the main thread reads stdin and
+ * calls pkt_send().  A pthread_mutex protects the shared packetizer instance.
  */
 
 #define _POSIX_C_SOURCE 200809L
@@ -35,12 +35,12 @@
 #include <unistd.h>
 
 /* -------------------------------------------------------------------------- */
-/* Utilitários                                                                 */
+/* Utilities                                                                   */
 /* -------------------------------------------------------------------------- */
 
 static uint32_t now_ms(void)
 {
-    /* --- Lê o relógio monotônico e converte para milissegundos --- */
+    /* --- Read the monotonic clock and convert to milliseconds --- */
     struct timespec ts;
     clock_gettime(CLOCK_MONOTONIC, &ts);
     return (uint32_t)((uint64_t)ts.tv_sec * 1000u +
@@ -48,7 +48,7 @@ static uint32_t now_ms(void)
 }
 
 /* -------------------------------------------------------------------------- */
-/* Estado global compartilhado entre as threads                                */
+/* Global state shared between threads                                        */
 /* -------------------------------------------------------------------------- */
 
 typedef struct {
@@ -59,12 +59,12 @@ typedef struct {
 } app_t;
 
 /* -------------------------------------------------------------------------- */
-/* Callbacks do packetizer (chamados com mutex pela thread de rede)           */
+/* Packetizer callbacks (called under lock from network thread)               */
 /* -------------------------------------------------------------------------- */
 
 static int transport_write(const uint8_t* data, size_t len, void* ctx)
 {
-    /* --- Callback do packetizer: repassa os bytes codificados ao socket UDP --- */
+    /* --- Packetizer write callback: forward encoded bytes to the UDP socket --- */
     app_t* app = (app_t*)ctx;
     return udp_send(app->udp, data, len);
 }
@@ -73,16 +73,16 @@ static void on_message(const uint8_t* data, size_t len, void* ctx)
 {
     (void)ctx;
 
-    /* --- Verifica se o payload começa com o prefixo de transferência de arquivo --- */
+    /* --- Check if the payload starts with the file transfer prefix --- */
     const char* prefix = "FILE:";
     size_t plen = strlen(prefix);
 
     if (len > plen && memcmp(data, prefix, plen) == 0) {
-        /* --- Formato esperado: "FILE:<nome>\n<conteúdo binário>" --- */
+        /* --- Expected format: "FILE:<name>\n<binary content>" --- */
         const char* name_start = (const char*)data + plen;
         const char* nl = memchr(name_start, '\n', len - plen);
         if (nl) {
-            /* --- Extrai o nome do arquivo e localiza o início do conteúdo --- */
+            /* --- Extract filename and locate the start of file content --- */
             size_t name_len = (size_t)(nl - name_start);
             char filename[256];
             snprintf(filename, sizeof(filename), "received_%.*s",
@@ -91,7 +91,7 @@ static void on_message(const uint8_t* data, size_t len, void* ctx)
             const uint8_t* content = (const uint8_t*)(nl + 1);
             size_t content_len = len - plen - name_len - 1;
 
-            /* --- Grava o conteúdo em disco --- */
+            /* --- Write content to disk --- */
             FILE* f = fopen(filename, "wb");
             if (f) {
                 fwrite(content, 1, content_len, f);
@@ -108,7 +108,7 @@ static void on_message(const uint8_t* data, size_t len, void* ctx)
         }
     }
 
-    /* --- Mensagem de texto ou binária: exibe no terminal --- */
+    /* --- Plain text or binary message: print to terminal --- */
     printf("\n[RX] (%zu bytes): %.*s\n> ", len, (int)len, (char*)data);
     fflush(stdout);
 }
@@ -116,7 +116,7 @@ static void on_message(const uint8_t* data, size_t len, void* ctx)
 static void on_status(uint8_t msg_id, pkt_status_t status, void* ctx)
 {
     (void)ctx;
-    /* --- Notifica o usuário sobre o resultado final da transmissão --- */
+    /* --- Notify the user of the final transmission result --- */
     if (status == PKT_STATUS_OK) {
         printf("\n[TX] msg#%u delivered\n> ", (unsigned)msg_id);
     }
@@ -127,7 +127,7 @@ static void on_status(uint8_t msg_id, pkt_status_t status, void* ctx)
 }
 
 /* -------------------------------------------------------------------------- */
-/* Thread receptora de rede                                                    */
+/* Network receiver thread                                                     */
 /* -------------------------------------------------------------------------- */
 
 static void* net_thread(void* arg)
@@ -136,7 +136,7 @@ static void* net_thread(void* arg)
     uint8_t buf[2048];
 
     while (app->running) {
-        /* --- Aguarda atividade no socket por até 10 ms (permite chamar pkt_tick regularmente) --- */
+        /* --- Wait for socket activity for up to 10 ms (allows regular pkt_tick calls) --- */
         fd_set fds;
         FD_ZERO(&fds);
         int fd = udp_fd(app->udp);
@@ -145,10 +145,10 @@ static void* net_thread(void* arg)
 
         int r = select(fd + 1, &fds, NULL, NULL, &tv);
 
-        /* --- Adquire o mutex para acesso exclusivo ao packetizer --- */
+        /* --- Acquire the mutex for exclusive access to the packetizer --- */
         pthread_mutex_lock(&app->lock);
 
-        /* --- Se chegou um datagrama, injeta os bytes no packetizer --- */
+        /* --- If a datagram arrived, feed the bytes into the packetizer --- */
         if (r > 0 && FD_ISSET(fd, &fds)) {
             ssize_t n = udp_recv(app->udp, buf, sizeof(buf));
             if (n > 0) {
@@ -156,7 +156,7 @@ static void* net_thread(void* arg)
             }
         }
 
-        /* --- Avança o timer do protocolo (detecta timeouts e dispara retransmissões) --- */
+        /* --- Advance the protocol timer (detects timeouts, triggers retransmissions) --- */
         pkt_tick(app->pkt, now_ms());
 
         pthread_mutex_unlock(&app->lock);
@@ -166,12 +166,12 @@ static void* net_thread(void* arg)
 }
 
 /* -------------------------------------------------------------------------- */
-/* Envio de arquivo                                                            */
+/* Send a file                                                                 */
 /* -------------------------------------------------------------------------- */
 
 static int send_file(app_t* app, const char* path)
 {
-    /* --- Abre o arquivo e verifica se é válido --- */
+    /* --- Open the file and validate it --- */
     FILE* f = fopen(path, "rb");
     if (!f) {
         fprintf(stderr, "[TX] Cannot open %s: %s\n", path, strerror(errno));
@@ -185,12 +185,12 @@ static int send_file(app_t* app, const char* path)
         return -1;
     }
 
-    /* --- Extrai o nome base do caminho (ex: "/foo/bar.txt" → "bar.txt") --- */
+    /* --- Extract the base name from the path (e.g. "/foo/bar.txt" → "bar.txt") --- */
     const char* basename = strrchr(path, '/');
     basename = basename ? basename + 1 : path;
 
-    /* --- Calcula o tamanho total e aloca o buffer do payload --- */
-    /* Formato: "FILE:<nome>\n<conteúdo binário>" */
+    /* --- Calculate total size and allocate the payload buffer --- */
+    /* Payload format: "FILE:<name>\n<binary content>" */
     const char* prefix = "FILE:";
     size_t plen = strlen(prefix);
     size_t nlen = strlen(basename);
@@ -205,7 +205,7 @@ static int send_file(app_t* app, const char* path)
     uint8_t* buf = malloc(total);
     if (!buf) { fclose(f); return -1; }
 
-    /* --- Preenche o buffer com prefixo, nome, separador e conteúdo do arquivo --- */
+    /* --- Fill the buffer with prefix, name, separator and file content --- */
     memcpy(buf, prefix, plen);
     memcpy(buf + plen, basename, nlen);
     buf[plen + nlen] = '\n';
@@ -218,7 +218,7 @@ static int send_file(app_t* app, const char* path)
         return -1;
     }
 
-    /* --- Aguarda o packetizer ficar livre antes de enviar --- */
+    /* --- Wait until the packetizer is free before sending (send_file) --- */
     for (int retries = 0; retries < 100; retries++) {
         pthread_mutex_lock(&app->lock);
         int busy = pkt_is_busy(app->pkt);
@@ -228,7 +228,7 @@ static int send_file(app_t* app, const char* path)
         nanosleep(&ts, NULL);
     }
 
-    /* --- Envia o payload via packetizer e exibe o resultado --- */
+    /* --- Send the payload via packetizer and display the result --- */
     pthread_mutex_lock(&app->lock);
     uint8_t msg_id;
     int rc = pkt_send(app->pkt, buf, total, &msg_id);
@@ -247,7 +247,7 @@ static int send_file(app_t* app, const char* path)
 }
 
 /* -------------------------------------------------------------------------- */
-/* Função principal                                                             */
+/* main                                                                        */
 /* -------------------------------------------------------------------------- */
 
 static void usage(const char* prog)
@@ -264,7 +264,7 @@ static void usage(const char* prog)
 
 int main(int argc, char* argv[])
 {
-    /* --- Analisa os argumentos da linha de comando --- */
+    /* --- Parse command-line arguments --- */
     uint16_t    local_port = 0;
     uint16_t    remote_port = 0;
     const char* remote_host = "127.0.0.1";
@@ -285,20 +285,20 @@ int main(int argc, char* argv[])
         }
     }
 
-    /* --- Valida que as portas obrigatórias foram informadas --- */
+    /* --- Validate that the required ports were provided --- */
     if (local_port == 0 || remote_port == 0) {
         usage(argv[0]);
         return 1;
     }
 
-    /* --- Abre o transporte UDP --- */
+    /* --- Open UDP transport --- */
     udp_transport_t* udp = udp_open(local_port, remote_host, remote_port);
     if (!udp) {
         fprintf(stderr, "Failed to open UDP transport\n");
         return 1;
     }
 
-    /* --- Cria e configura a instância do packetizer --- */
+    /* --- Create and configure the packetizer instance --- */
     app_t app;
     memset(&app, 0, sizeof(app));
     app.udp = udp;
@@ -322,7 +322,7 @@ int main(int argc, char* argv[])
         return 1;
     }
 
-    /* --- Inicia a thread de rede --- */
+    /* --- Start the network thread --- */
     pthread_t thread;
     pthread_create(&thread, NULL, net_thread, &app);
 
@@ -330,7 +330,7 @@ int main(int argc, char* argv[])
         local_port, remote_host, remote_port);
     printf("Commands: msg <text> | file <path> | quit\n\n");
 
-    /* --- Loop principal: lê comandos do stdin --- */
+    /* --- Main loop: read commands from stdin --- */
     char line[4096];
     while (1) {
         printf("> ");
@@ -338,7 +338,7 @@ int main(int argc, char* argv[])
 
         if (!fgets(line, sizeof(line), stdin)) break;
 
-        /* Remove \r e \n (compatível com terminações Unix e Windows) */
+        /* Strip \r and \n (handles both Unix \n and Windows \r\n line endings) */
         line[strcspn(line, "\r\n")] = '\0';
         if (strlen(line) == 0) continue;
 
@@ -349,7 +349,7 @@ int main(int argc, char* argv[])
             size_t tlen = strlen(text);
             if (tlen == 0) { printf("Usage: msg <text>\n"); continue; }
 
-            /* --- Aguarda o packetizer ficar livre antes de enviar --- */
+            /* --- Wait until the packetizer is free before sending (msg) --- */
             for (int i = 0; i < 100; i++) {
                 pthread_mutex_lock(&app.lock);
                 int busy = pkt_is_busy(app.pkt);
@@ -359,7 +359,7 @@ int main(int argc, char* argv[])
                 nanosleep(&ts, NULL);
             }
 
-            /* --- Envia a mensagem e exibe o resultado --- */
+            /* --- Send the message and display the result --- */
             pthread_mutex_lock(&app.lock);
             uint8_t msg_id;
             int rc = pkt_send(app.pkt, (const uint8_t*)text, tlen, &msg_id);
@@ -382,7 +382,7 @@ int main(int argc, char* argv[])
         }
     }
 
-    /* --- Encerramento: aguarda a thread e libera recursos --- */
+    /* --- Shutdown: wait for the thread and release all resources --- */
     app.running = 0;
     pthread_join(thread, NULL);
     pthread_mutex_destroy(&app.lock);
