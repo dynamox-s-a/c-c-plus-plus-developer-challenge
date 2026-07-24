@@ -24,11 +24,17 @@ typedef struct {
     int      a_status_ok;
     int      a_status_count;
 
-    /* Injection controls */
+    /* Injection controls — one-shot */
     int      drop_next;     /* drop the next write() call */
     int      drop_all;      /* drop ALL A→B writes (simulates total link loss) */
     int      corrupt_next;  /* corrupt the next write() call */
     int      dup_next;      /* duplicate the next write() call */
+
+    /* Injection controls — probabilistic (0-100 %) */
+    uint32_t rng_state;     /* xorshift32 seed; 0 = disabled */
+    int      drop_rate;     /* % chance to silently drop each packet */
+    int      corrupt_rate;  /* % chance to corrupt each packet */
+    int      dup_rate;      /* % chance to duplicate each packet */
 
     /* Time for tick() */
     uint32_t now_ms;
@@ -36,24 +42,51 @@ typedef struct {
 
 static harness_t *g_h __attribute__((unused)); /* global for callbacks */
 
+/* Deterministic xorshift32 PRNG — returns a value in [0, 99] */
+static int harness_chance(harness_t *h, int pct)
+{
+    h->rng_state ^= h->rng_state << 13;
+    h->rng_state ^= h->rng_state >> 17;
+    h->rng_state ^= h->rng_state << 5;
+    return (int)(h->rng_state % 100) < pct;
+}
+
 static int write_a_to_b(const uint8_t *data, size_t len, void *ctx)
 {
     harness_t *h = (harness_t *)ctx;
-    if (h->drop_all)         { return 0; }
-    if (h->drop_next)        { h->drop_next = 0; return 0; }
+
+    /* --- One-shot fault controls --- */
+    if (h->drop_all)   return 0;
+    if (h->drop_next)  { h->drop_next = 0; return 0; }
     if (h->corrupt_next) {
         h->corrupt_next = 0;
         uint8_t *copy = malloc(len);
         memcpy(copy, data, len);
-        copy[len / 2] ^= 0xFF;  /* corrupt middle byte */
-        pkt_feed(h->b, copy, len);
+        copy[len / 2] ^= 0xFF;
+        int r = pkt_feed(h->b, copy, len);
         free(copy);
-        return 0;
+        return r;
     }
     if (h->dup_next) {
         h->dup_next = 0;
-        pkt_feed(h->b, data, len);  /* first copy */
+        pkt_feed(h->b, data, len); /* first copy */
     }
+
+    /* --- Probabilistic fault injection (only when rng_state is seeded) --- */
+    if (h->rng_state) {
+        if (h->drop_rate    && harness_chance(h, h->drop_rate))    return 0;
+        if (h->corrupt_rate && harness_chance(h, h->corrupt_rate)) {
+            uint8_t *copy = malloc(len);
+            memcpy(copy, data, len);
+            copy[len / 2] ^= 0xFF;
+            int r = pkt_feed(h->b, copy, len);
+            free(copy);
+            return r;
+        }
+        if (h->dup_rate && harness_chance(h, h->dup_rate))
+            pkt_feed(h->b, data, len); /* extra duplicate copy */
+    }
+
     return pkt_feed(h->b, data, len);
 }
 
@@ -276,6 +309,106 @@ TEST(busy_returns_error_when_inflight)
     /* Allow delivery now */
     h->drop_all = 0;
     harness_settle(h, 20);
+    ASSERT_EQ(h->a_status_ok, 1);
+    harness_free(h);
+}
+
+/* -------------------------------------------------------------------------- */
+/* Hostile-channel tests                                                       */
+/* -------------------------------------------------------------------------- */
+
+/* 30 % random packet loss over a fragmented message — must still arrive. */
+TEST(hostile_channel_loss_only)
+{
+    harness_t *h = harness_new(50, 200, 15);
+    h->rng_state = 0xDEADBEEFu;
+    h->drop_rate = 30;
+
+    uint8_t msg[500];
+    for (size_t i = 0; i < sizeof(msg); i++) msg[i] = (uint8_t)(i & 0xFF);
+
+    uint8_t id;
+    ASSERT_EQ(pkt_send(h->a, msg, sizeof(msg), &id), 0);
+    harness_settle(h, 3000);
+
+    ASSERT_EQ(h->b_recv_count, 1);
+    ASSERT_EQ((int)h->b_msg_len, (int)sizeof(msg));
+    ASSERT_MEM_EQ(h->b_msg, msg, sizeof(msg));
+    ASSERT_EQ(h->a_status_ok, 1);
+    harness_free(h);
+}
+
+/* 30 % random corruption over a fragmented message — must still arrive. */
+TEST(hostile_channel_corruption_only)
+{
+    harness_t *h = harness_new(50, 200, 15);
+    h->rng_state  = 0xCAFEBABEu;
+    h->corrupt_rate = 30;
+
+    uint8_t msg[300];
+    for (size_t i = 0; i < sizeof(msg); i++) msg[i] = (uint8_t)(255 - (i & 0xFF));
+
+    uint8_t id;
+    ASSERT_EQ(pkt_send(h->a, msg, sizeof(msg), &id), 0);
+    harness_settle(h, 3000);
+
+    ASSERT_EQ(h->b_recv_count, 1);
+    ASSERT_EQ((int)h->b_msg_len, (int)sizeof(msg));
+    ASSERT_MEM_EQ(h->b_msg, msg, sizeof(msg));
+    ASSERT_EQ(h->a_status_ok, 1);
+    harness_free(h);
+}
+
+/* Mixed faults: 20 % loss + 20 % corruption + 20 % duplication. */
+TEST(hostile_channel_mixed_faults)
+{
+    harness_t *h = harness_new(30, 200, 20);
+    h->rng_state    = 0x12345678u;
+    h->drop_rate    = 20;
+    h->corrupt_rate = 20;
+    h->dup_rate     = 20;
+
+    uint8_t msg[150];
+    for (size_t i = 0; i < sizeof(msg); i++) msg[i] = (uint8_t)((i * 7) & 0xFF);
+
+    uint8_t id;
+    ASSERT_EQ(pkt_send(h->a, msg, sizeof(msg), &id), 0);
+    harness_settle(h, 4000);
+
+    ASSERT_EQ(h->b_recv_count, 1);  /* delivered exactly once despite duplicates */
+    ASSERT_EQ((int)h->b_msg_len, (int)sizeof(msg));
+    ASSERT_MEM_EQ(h->b_msg, msg, sizeof(msg));
+    ASSERT_EQ(h->a_status_ok, 1);
+    harness_free(h);
+}
+
+/* Link goes completely dead for several retries, then recovers mid-transfer. */
+TEST(hostile_channel_link_interruption)
+{
+    /* max_retries=25 gives enough headroom for the dead period + recovery */
+    harness_t *h = harness_new(50, 100, 25);
+    h->drop_all = 1;
+
+    uint8_t msg[200];
+    for (size_t i = 0; i < sizeof(msg); i++) msg[i] = (uint8_t)i;
+
+    uint8_t id;
+    ASSERT_EQ(pkt_send(h->a, msg, sizeof(msg), &id), 0);
+
+    /* Simulate link outage: advance time while all packets are dropped */
+    for (int i = 0; i < 12; i++) {
+        h->now_ms += 100;
+        pkt_tick(h->a, h->now_ms);
+        pkt_tick(h->b, h->now_ms);
+    }
+
+    /* Restore the link — sender still has retries left */
+    h->drop_all = 0;
+    harness_settle(h, 500);
+
+    ASSERT_EQ(h->b_recv_count, 1);
+    ASSERT_EQ((int)h->b_msg_len, (int)sizeof(msg));
+    ASSERT_MEM_EQ(h->b_msg, msg, sizeof(msg));
     ASSERT_EQ(h->a_status_ok, 1);
     harness_free(h);
 }
