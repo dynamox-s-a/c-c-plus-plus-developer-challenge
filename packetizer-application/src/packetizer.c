@@ -13,11 +13,6 @@
 #define METADATA_SIZE (1 + 1 + 2 + 2 + 2 + 2 + 4)
 #define PAYLOAD_MAX_SIZE (PACKET_MTU - METADATA_SIZE)
 
-/*
- * Offsets of each field within a serialized (on-the-wire) frame.
- * Kept private to this file: callers never see the wire layout, only
- * the in-memory packetizer_frame_t.
- */
 #define OFFSET_SOF              0
 #define OFFSET_PACKET_TYPE      1
 #define OFFSET_PAYLOAD_LENGTH   2
@@ -58,13 +53,6 @@ static packetizer_state_t g_state;
 /// avoids the alternative of a whole-message buffer sized for the
 /// worst case, which would be wasteful (or simply not fit) on a
 /// memory-constrained device.
-///
-/// This implementation tracks a single in-flight (incomplete) message
-/// at a time, which matches the point-to-point nature of the demo
-/// applications built on top of this core. Supporting multiple
-/// concurrent in-flight messages (e.g. multiple peers) would require
-/// keying this state by sequence_number/peer instead of using one
-/// static instance.
 typedef struct
 {
     uint16_t sequence_number;         /* sequence number of the message being tracked */
@@ -82,16 +70,6 @@ static packetizer_reassembly_t g_reassembly;
 /// is a handful of fields rather than a table sized for many
 /// concurrent outstanding fragments -- consistent with the rest of
 /// this core's resource-constrained design.
-///
-/// `acked` is written by packetizer_receive_data() (typically called
-/// from a different thread, e.g. a dedicated receiver thread) and
-/// polled by packetizer_send_data() while it waits; `volatile` is
-/// enough to keep the compiler from caching it in a register across
-/// that busy-wait loop. This is a deliberately simple mechanism: it
-/// assumes a single message is ever being sent at a time, matching the
-/// point-to-point demo applications built on this core. A fully
-/// concurrent, multi-message-in-flight sender would need proper
-/// synchronization (e.g. a mutex or C11 atomics) around this state.
 typedef struct
 {
     uint16_t sequence_number;  /* sequence number of the fragment awaiting ACK */
@@ -263,10 +241,7 @@ static int packetizer_reassemble_fragment(packetizer_frame_t received)
              * of 65535 is 1, not 0 or 65536. Computing this in a
              * wider-than-16-bit type first, instead of evaluating
              * g_reassembly.sequence_number + 1 directly in uint16_t,
-             * avoids that addition itself silently overflowing back
-             * to 0 right at the boundary -- which previously made the
-             * very next, perfectly in-order message look like a
-             * "lost messages" jump every time the counter wrapped. */
+             * avoids that addition itself silently overflowing back */
             uint32_t expected_next = (uint32_t)g_reassembly.sequence_number + 1u;
             if (expected_next > UINT16_MAX) expected_next = 1u;
 
@@ -275,16 +250,12 @@ static int packetizer_reassemble_fragment(packetizer_frame_t received)
                 LOG_ERROR("Sender was on message n %u, this device was on %u", received.sequence_number, g_reassembly.sequence_number);
             }
 
-            /* Always advance the tracker to the message just accepted,
-             * not only inside the jump-detection branch above.
-             * Otherwise, on every normal in-order arrival the tracker
-             * is left one message stale, which makes the *next*
-             * arrival look like a false 2-apart "jump" even though
-             * nothing was actually lost. */
+            /* Always advance the tracker to the message just accepted*/
             g_reassembly.sequence_number = received.sequence_number;
             
             received.fragment_index = 0;
             received.fragment_count = 1;
+            LOG_INFO("[RX MESSAGE COUNT: %u]", received.sequence_number);
             g_state.on_message(received);
         }
         return 0;
@@ -304,7 +275,7 @@ static int packetizer_reassemble_fragment(packetizer_frame_t received)
             LOG_ERROR("Invalid fragment index");
             return EBADMSG;
         }
-
+        LOG_INFO("[RX MESSAGE COUNT: %u]", received.sequence_number);
         g_reassembly.in_progress            = 1;
         g_reassembly.sequence_number        = received.sequence_number;
         g_reassembly.fragment_count         = received.fragment_count;
@@ -313,11 +284,7 @@ static int packetizer_reassemble_fragment(packetizer_frame_t received)
 
     if (received.fragment_index != g_reassembly.next_expected_fragment)
     {
-        /* Out-of-order, duplicated, or gapped fragment: this simple
-         * tracker only accepts fragments in order, so the in-progress
-         * message is abandoned. Recovering from this (e.g. via
-         * retransmission) is left to future work described in the
-         * protocol documentation. */
+        /* Out-of-order, duplicated, or gapped fragment*/
         LOG_ERROR("Invalid fragment index. Expected %u, got %u", g_reassembly.next_expected_fragment, received.fragment_index);
         g_reassembly.in_progress = 0;
         return EBADMSG;
@@ -330,7 +297,8 @@ static int packetizer_reassemble_fragment(packetizer_frame_t received)
      * than holding the entire message in the packetizer core. */
     if (g_state.on_message != NULL)
     {
-        LOG_DEBUG("Passing fragment %u to application", received.fragment_index);
+        uint8_t percentage = ((uint16_t)(received.fragment_index*100))/g_reassembly.fragment_count;
+        LOG_INFO("Received fragment %u/%u --- %u%%", received.fragment_index, g_reassembly.fragment_count, percentage);
         g_state.on_message(received);
     }
 
@@ -338,23 +306,21 @@ static int packetizer_reassemble_fragment(packetizer_frame_t received)
 
     if (g_reassembly.next_expected_fragment == g_reassembly.fragment_count)
     {
-        LOG_DEBUG("Finished fragment parsing at %u fragments", received.fragment_index);
+        LOG_INFO("Finished receiving fragmented data");
         g_reassembly.in_progress = 0;
     }
 
     return 0;
 }
 
-/// @brief Builds and transmits a PACKET_TYPE_ACK frame acknowledging one
-/// received fragment. Callers must only invoke this after the
+/// @brief Builds and transmits a control message, conataining an ACK frame
+//  acknowledging one received fragment, or NACK, requesting a retransmit.
+/// Callers must only invoke this after the
 /// fragment's data has already been handed to, and handled/stored by,
 /// the application (see packetizer_message_received_cb) -- never
 /// before, since the ACK is the receiver's promise that the data is
-/// safe. ACK frames carry no payload; the acknowledged fragment is
-/// identified solely by sequence_number/fragment_index/fragment_count,
-/// so a single MTU-sized stack buffer (the same one already used for
-/// serializing DATA frames) is enough to build and send it -- no
-/// additional, larger buffer is needed.
+/// safe.
+/// @param type ACK or NACK, wether the fragment was sucessfully validated or not.
 /// @param sequence_number Sequence number of the acknowledged message.
 /// @param fragment_index Index of the acknowledged fragment.
 /// @param fragment_count Total fragment count of the acknowledged message.
@@ -530,6 +496,7 @@ int packetizer_send_data(void * data_in, uint32_t data_len)
 
     uint8_t wire_buf[PACKET_MTU];
 
+    LOG_INFO("[TX MESSAGE COUNT: %u]",sequence_number);
     for (uint16_t fragment_index = 0; fragment_index < fragment_count; fragment_index++)
     {
         uint32_t offset    = (uint32_t)fragment_index * PAYLOAD_MAX_SIZE;
@@ -543,7 +510,10 @@ int packetizer_send_data(void * data_in, uint32_t data_len)
         if (rc != 0) return rc;
 
         uint16_t frame_len = packetizer_serialize_frame(&frame, wire_buf);
-        LOG_DEBUG("Sending %u bytes. Frag %u/%u", frame.payload_length, frame.fragment_index, frame.fragment_count);
+        uint8_t percentage = ((uint16_t)(fragment_index*100))/fragment_count;
+
+        LOG_INFO("Sending fragment %u/%u --- %u%%", fragment_index, fragment_count, percentage);
+
         if (g_state.send_fn(wire_buf, frame_len) != 0)
         {
             /* Stop on the first transport failure rather than sending
@@ -615,7 +585,6 @@ int packetizer_receive_data(void * data_in, uint16_t data_len)
     {
         case PACKET_TYPE_DATA:
         {
-            LOG_DEBUG("[RX DATA %u]", received.sequence_number);
             int rc = packetizer_reassemble_fragment(received);
             if (rc == 0)
             {

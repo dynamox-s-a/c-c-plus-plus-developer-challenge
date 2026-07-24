@@ -1,14 +1,12 @@
-#ifndef FILE_INPUT_H
-#define FILE_INPUT_H
+#ifndef __FILE_INPUT_H
+#define __FILE_INPUT_H
 
 /*
  * file_input.h
  * ------------
  * Resolves the runtime input ambiguity required by the challenge
  * (technical requirement #4: the application must accept "a message
- * we type, a file path we pass"). Whatever line the user types at the
- * peer application's prompt is either literal text to send as-is, or
- * a path to a file whose contents should be sent instead.
+ * we type, a file path we pass").
  */
 
 #include <stddef.h>
@@ -16,7 +14,7 @@
 /// @brief Decides whether a line typed at runtime should be treated as
 /// a file path rather than literal text to send.
 ///
-/// Two checks must BOTH pass, on purpose:
+/// Two checks must BOTH pass:
 ///   1) Syntactic: the string ends in a "." followed by a short
 ///      alphanumeric extension (e.g. ".txt", ".bin", ".png").
 ///   2) Existence: stat() confirms a *regular, readable* file actually
@@ -41,4 +39,4 @@ int input_is_file_path(const char * input);
 /// -1 on failure (message printed to stderr).
 int input_send_file(const char * path);
 
-#endif /* FILE_INPUT_H */
+#endif /* __FILE_INPUT_H */

@@ -2,6 +2,17 @@
 
 This document summarizes the purpose of each automated test in the packetizer test suite.
 
+## Build and run the test suite
+
+From the packetizer-application/tests directory, run the following commands:
+
+```bash
+mkdir -p build && cd build
+cmake ..
+cmake --build .
+./test_packetizer
+```
+
 ## CRC and frame validation
 - test_crc_valid_frame_is_accepted: verifies that a correctly serialized frame passes CRC validation and is delivered to the application.
 - test_crc_corrupted_payload_is_rejected: confirms that altering the payload bytes causes the frame to be rejected with an invalid-message error.

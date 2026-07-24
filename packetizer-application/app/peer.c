@@ -104,7 +104,8 @@ void packetizer_rx_cb(packetizer_frame_t rx)
         if(rx.sequence_number > message_tracker)
         {
             message_tracker = rx.sequence_number;
-            fprintf(out, "\n\r[MESSAGE NUMBER %u]:", message_tracker);
+            //Decide to keep this out of the output file for the release version
+            //fprintf(out, "\n\r[MESSAGE NUMBER %u]:", message_tracker);
         }
         fwrite(rx.payload, 1, rx.payload_length, out);
         fflush(out);
@@ -154,15 +155,13 @@ int main(int argc, char *argv[])
         return EXIT_FAILURE;
     }
 
-    /* Main thread: reads lines from stdin and sends each one as a UDP
-     * datagram. getline() is used instead of a fixed-size fgets()
+    /* Main thread: reads lines from stdin and sends each one as as
+     * datagrams. getline() is used instead of a fixed-size fgets()
      * buffer so that pasting a very long line (much larger than a
      * single packet) is read as ONE complete message -- getline()
      * grows its buffer as needed, with no artificial length cap of its
      * own. Fragmenting that message across multiple packets is then
-     * entirely the packetizer's job (packetizer_send_data already
-     * handles messages of arbitrary size), not something the app needs
-     * to pre-split by truncating its read buffer. */
+     * entirely the packetizer's job */
     char * line = NULL;
     size_t line_buf_size = 0;
     while (!g_stop) {

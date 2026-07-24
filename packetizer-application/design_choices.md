@@ -57,7 +57,7 @@ The main reasons for supporting both protocols are:
 
 - **Fragmentation & reassembly:** Large messages are split into fragments of at most `PAYLOAD_MAX_SIZE`. Each fragment carries `sequence_number`, `fragment_index`, and `fragment_count`. The receiver tracks a single in-flight message via `g_reassembly` and hands validated fragment bytes directly to the application using the `on_message` callback rather than buffering the whole message.
 
-- **Reliable delivery (stop-and-wait):** Sending uses a stop-and-wait scheme: each DATA fragment is sent and the sender blocks in `packetizer_wait_for_ack()` until an ACK arrives or timeouts/retries are exhausted. Retransmissions use the exact serialized bytes so no re-serialization is required on retry.
+- **Reliable delivery (stop-and-wait):** Sending uses a stop-and-wait scheme: each DATA fragment is sent and the sender blocks in `packetizer_wait_for_ack()` until an ACK arrives or timeouts/retries are exhausted. Retransmissions use the exact serialized bytes so no re-serialization is required on retry. The receiver only sends the ACK frame **after** the received data is handled by the callback function. In an embedded application, the callback should transmit the received data to handling via a queue or byte stream.
 
 - **ACK / NACK handling:** The receiver acknowledges each accepted fragment with a PACKET_TYPE_ACK. A PACKET_TYPE_NACK sets `g_pending_ack.acked` to -1, causing the sender to retry immediately up to a NACK limit. ACKs and NACKs are matched by `sequence_number` and `fragment_index` to unblock the sender.
 
@@ -67,14 +67,18 @@ The main reasons for supporting both protocols are:
 
 ## Application core
 
-The demo application in `peer.c` is structured as a small full-duplex UDP peer. Its core workflow is:
+The demo application in `peer.c` is structured as a small full-duplex peer. Its core workflow is:
 
-- **Initialization**: `main()` parses the command-line arguments, configures the UDP transport with `udp_init()`, and initializes the packetizer with `packetizer_init()`.
+- **Initialization**: `main()` parses the command-line arguments, configures the transport with `transport_init()`, and initializes the packetizer with `packetizer_init()`.
 
-- **Receiver thread**: A dedicated pthread receiver loop repeatedly calls `udp_recv()` and hands each incoming datagram to `packetizer_receive_data()`. This allows the peer to receive traffic while the main thread continues to process user input.
+- **Receiver thread**: A dedicated pthread receiver loop repeatedly calls `transport_recv()` and hands each incoming datagram to `packetizer_receive_data()`. This allows the peer to receive traffic while the main thread continues to process user input.
 
 - **Transmit path**: The main thread reads lines from standard input using `getline()`. If the line matches an existing file path, the file contents are sent through the file-input helper; otherwise, the entered text is sent as a message through `packetizer_send_data()`.
 
-- **Transport callback bridge**: `transport_send_fn()` forwards outgoing packetizer data to `udp_send()`, while `packetizer_rx_cb()` receives decoded payloads and writes them to the `received_output.bin` file.
+- **Transport callback bridge**: `transport_send_fn()` forwards outgoing packetizer data to `transport_send()`, while `packetizer_rx_cb()` receives decoded payloads and writes them to the `received_output_<local_port>.bin` file. The application appends every message on the binary message, with no distiction between received messages or files, as that would be an application specific implementation, which isn't in the scope of the packetizer project.
 
 - **Shutdown**: A `SIGINT` handler sets a shared stop flag. The main thread stops the input loop, joins the receiver thread, and closes the UDP transport cleanly.
+
+## Tests
+
+The tests used to validate the project's functionality are placed on the folder `packetizer-application/tests`. The readme contains further information on each test and on how to build and run the tests.

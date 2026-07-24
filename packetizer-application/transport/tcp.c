@@ -155,7 +155,7 @@ int tcp_init(uint16_t local_port,
         struct timeval tv;
         FD_ZERO(&readfds);
         FD_SET(listenfd, &readfds);
-        tv.tv_sec = 2;
+        tv.tv_sec = 30;
         tv.tv_usec = 0;
 
         int ready = select(listenfd + 1, &readfds, NULL, NULL, &tv);

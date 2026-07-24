@@ -10,24 +10,17 @@
 #define PACKET_TYPE_NACK 3
 
 /// @brief Maximum size, in bytes, of a single packetizer frame on the wire
-/// (metadata + payload + CRC). Chosen conservatively so a frame fits inside
-/// a single UDP datagram without triggering IP-level fragmentation on most
-/// networks. Messages larger than the resulting payload capacity are
-/// automatically split into multiple fragments by packetizer_send_data().
-#define PACKET_MTU 512
+/// (metadata + payload + CRC). Chosen to represent a typical MTU used in 
+/// low-power wireless protocols, such as BLE.
+#define PACKET_MTU 512u
 
 /// @brief Maximum time, in milliseconds, packetizer_send_data() waits for
-/// the ACK of a given DATA fragment before retransmitting it. Override at
-/// compile time (e.g. -DPACKETIZER_ACK_TIMEOUT_MS=...) to tune this for a
-/// particular link's expected round-trip time.
+/// the ACK of a given DATA fragment before retransmitting it.
 #define PACKETIZER_ACK_TIMEOUT_MS 300u
 
 /// @brief Maximum number of retransmission attempts for a single DATA
 /// fragment before giving up on it and reporting delivery failure to the
-/// caller of packetizer_send_data(). Override at compile time (e.g.
-/// -DPACKETIZER_ACK_MAX_RETRIES=...) if a lossier or more reliable link
-/// calls for a different value.
-
+/// caller of packetizer_send_data().
 #define PACKETIZER_ACK_MAX_RETRIES 5u
 
 #define PACKETIZER_NACK_MAX_RETRIES 5u
@@ -62,11 +55,7 @@ typedef int (*transport_send_t)(void *,uint16_t);
 /// for the largest possible message, which is unaffordable on a
 /// memory-constrained device. Instead, each fragment's bytes are
 /// handed to the application as soon as they are validated, and it is
-/// the application's responsibility to store/reassemble them (e.g. by
-/// writing each fragment straight to a file at the right offset).
-/// An ACK for this fragment is only sent back to the sender after this
-/// callback returns, i.e. once the application has actually handled
-/// and stored the data -- never before.
+/// the application's responsibility to store/reassemble them.
 /// @param rx_info frame containing the received data
 typedef void (*packetizer_message_received_cb)(packetizer_frame_t rx_info);
 
@@ -86,16 +75,6 @@ int packetizer_init(transport_send_t send_fn, packetizer_message_received_cb on_
 /// @brief Packs (and fragments, if needed) an application message into one
 /// or more packetizer frames and hands each one to the registered
 /// transport_send_t function for transmission.
-///
-/// Each DATA fragment is sent using a stop-and-wait scheme: after
-/// transmitting a fragment, this function blocks (without spinning at
-/// full CPU) for up to PACKETIZER_ACK_TIMEOUT_MS waiting for its ACK to
-/// arrive (via packetizer_receive_data(), typically called from another
-/// thread or another point in the event loop). If no ACK arrives in
-/// time, the fragment is retransmitted, up to PACKETIZER_ACK_MAX_RETRIES
-/// times, before this function gives up and reports failure. Only one
-/// fragment is ever awaiting acknowledgment at a time, which keeps the
-/// bookkeeping for this to a handful of fields, regardless of message size.
 /// @param data_in Pointer to the application message to send.
 /// @param data_len Length, in bytes, of the application message.
 /// @returns 0 on success (every fragment was acknowledged); ETIMEDOUT if
