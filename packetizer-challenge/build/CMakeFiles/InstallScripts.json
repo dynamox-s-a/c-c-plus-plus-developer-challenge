@@ -1,0 +1,12 @@
+{
+	"InstallScripts" : 
+	[
+		"/mnt/c/Users/Brunelli/Desktop/Projetos/15_Dynamox_Teste/c-c-plus-plus-developer-challenge/packetizer-challenge/build/cmake_install.cmake",
+		"/mnt/c/Users/Brunelli/Desktop/Projetos/15_Dynamox_Teste/c-c-plus-plus-developer-challenge/packetizer-challenge/build/lib/packetizer/cmake_install.cmake",
+		"/mnt/c/Users/Brunelli/Desktop/Projetos/15_Dynamox_Teste/c-c-plus-plus-developer-challenge/packetizer-challenge/build/transport/udp/cmake_install.cmake",
+		"/mnt/c/Users/Brunelli/Desktop/Projetos/15_Dynamox_Teste/c-c-plus-plus-developer-challenge/packetizer-challenge/build/apps/peer/cmake_install.cmake",
+		"/mnt/c/Users/Brunelli/Desktop/Projetos/15_Dynamox_Teste/c-c-plus-plus-developer-challenge/packetizer-challenge/build/tools/channel_sim/cmake_install.cmake",
+		"/mnt/c/Users/Brunelli/Desktop/Projetos/15_Dynamox_Teste/c-c-plus-plus-developer-challenge/packetizer-challenge/build/tests/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

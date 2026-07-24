@@ -1,0 +1,1 @@
+/usr/bin/cc -g -Wl,--dependency-file=CMakeFiles/unit_tests.dir/link.d CMakeFiles/unit_tests.dir/main.c.o CMakeFiles/unit_tests.dir/test_crc16.c.o CMakeFiles/unit_tests.dir/test_cobs.c.o CMakeFiles/unit_tests.dir/test_packetizer.c.o -o unit_tests  ../lib/packetizer/libpacketizer.a
